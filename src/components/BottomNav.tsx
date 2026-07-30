@@ -3,11 +3,11 @@ import { motion } from "motion/react";
 import { Home, User, MessageCircle, Image, Settings } from "lucide-react";
 
 const ITEMS = [
-  { label: "Home", Icon: Home },
-  { label: "Profile", Icon: User },
-  { label: "Message", Icon: MessageCircle },
-  { label: "Photos", Icon: Image },
-  { label: "Settings", Icon: Settings },
+  { label: "Início", Icon: Home },
+  { label: "Perfil", Icon: User },
+  { label: "Mensagens", Icon: MessageCircle },
+  { label: "Fotos", Icon: Image },
+  { label: "Configurações", Icon: Settings },
 ];
 
 export function BottomNav() {

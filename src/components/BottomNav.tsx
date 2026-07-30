@@ -10,11 +10,19 @@ const ITEMS = [
   { label: "Configurações", Icon: Settings },
 ];
 
-export function BottomNav() {
+interface BottomNavProps {
+  fullWidth?: boolean;
+}
+
+export function BottomNav({ fullWidth = false }: BottomNavProps) {
   const [active, setActive] = useState(0);
 
   return (
-    <nav className="relative flex items-end rounded-full bg-gradient-to-br from-cyan-400 to-blue-200 px-3 py-2 shadow-2xl">
+    <nav
+      className={`relative flex items-end bg-gradient-to-br from-cyan-400 to-blue-200 py-2 shadow-2xl ${
+        fullWidth ? "w-full justify-around rounded-none px-0" : "rounded-full px-3"
+      }`}
+    >
       {ITEMS.map((item, i) => {
         const isActive = i === active;
         return (
@@ -23,7 +31,9 @@ export function BottomNav() {
             onClick={() => setActive(i)}
             aria-label={item.label}
             aria-current={isActive ? "page" : undefined}
-            className="relative flex h-16 w-16 flex-col items-center justify-center outline-none sm:h-[70px] sm:w-[70px]"
+            className={`relative flex h-16 flex-col items-center justify-center outline-none sm:h-[70px] ${
+              fullWidth ? "flex-1" : "w-16 sm:w-[70px]"
+            }`}
           >
             {isActive && (
               <motion.span
@@ -64,3 +74,4 @@ export function BottomNav() {
     </nav>
   );
 }
+

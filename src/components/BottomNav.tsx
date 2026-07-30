@@ -36,7 +36,7 @@ export function BottomNav({ fullWidth = false }: BottomNavProps) {
             onMouseLeave={() => setHovered(null)}
             aria-label={item.label}
             aria-current={isActive ? "page" : undefined}
-            className={`relative flex h-16 flex-col items-center justify-center overflow-visible outline-none transition-all duration-300 hover:rounded-xl hover:bg-white/[0.05] sm:h-[68px] ${
+            className={`relative flex h-16 flex-col items-center justify-center overflow-visible outline-none transition-all duration-300 hover:rounded-lg hover:bg-white/[0.05] sm:h-[68px] ${
               fullWidth ? "flex-1 mx-1" : "w-16 sm:w-[70px]"
             }`}
           >

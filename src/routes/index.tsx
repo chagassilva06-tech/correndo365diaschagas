@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { BottomNav } from "@/components/BottomNav";
 import { TopHeader } from "@/components/TopHeader";
+
 
 export const Route = createFileRoute("/")({
   head: () => ({

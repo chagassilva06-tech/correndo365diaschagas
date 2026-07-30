@@ -30,15 +30,9 @@ function Index() {
         <BottomNav fullWidth />
       </div>
       <main className="flex min-h-screen flex-col items-center justify-center gap-16 bg-[#00021b] px-4 pt-28">
-        <div className="text-center">
-          <h1 className="text-3xl font-semibold text-white sm:text-4xl">
-            Animated bottom navigation
-          </h1>
-          <p className="mt-3 text-sm text-white/50">
-            Tap an item to slide the cutout indicator.
-          </p>
-        </div>
+        <div className="text-center" />
       </main>
+
     </>
   );
 }

@@ -28,14 +28,14 @@ export function BottomNav() {
             {isActive && (
               <motion.span
                 layoutId="nav-indicator"
-                transition={{ type: "spring", stiffness: 400, damping: 30 }}
+                transition={{ type: "spring", stiffness: 500, damping: 18 }}
                 className="absolute left-1/2 top-0 h-[54px] w-[54px] -translate-x-1/2 -translate-y-1/2 rounded-full border-[6px] border-[#00021b] bg-gradient-to-br from-cyan-400 to-blue-200"
               />
             )}
 
             <motion.span
-              animate={{ y: isActive ? -26 : 0 }}
-              transition={{ type: "spring", stiffness: 400, damping: 28 }}
+              animate={{ y: isActive ? -28 : 0 }}
+              transition={{ type: "spring", stiffness: 500, damping: 16 }}
               className="relative z-10 flex items-center justify-center"
             >
               <item.Icon
@@ -53,7 +53,7 @@ export function BottomNav() {
                   ? { opacity: 1, scale: 1, y: -6 }
                   : { opacity: 0, scale: 0.6, y: 0 }
               }
-              transition={{ duration: 0.25, ease: "easeOut" }}
+              transition={{ type: "spring", stiffness: 450, damping: 18 }}
               className="pointer-events-none absolute bottom-2 z-10 text-[11px] font-semibold tracking-wide text-[#00021b]"
             >
               {item.label}

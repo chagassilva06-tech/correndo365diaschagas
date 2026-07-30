@@ -16,84 +16,61 @@ interface BottomNavProps {
 
 export function BottomNav({ fullWidth = false }: BottomNavProps) {
   const [active, setActive] = useState(0);
-  const [hovered, setHovered] = useState<number | null>(null);
 
   return (
     <nav
-      className={`relative flex items-end bg-gradient-to-br from-cyan-400 to-blue-200 py-1 shadow-2xl ${
-        fullWidth ? "w-full justify-around rounded-none px-0" : "rounded-full px-3"
+      className={`relative flex items-end bg-gradient-to-br from-[#15D2FF]/30 via-[#2F80ED]/30 to-[#1B3B88]/30 bg-white/[0.08] backdrop-blur-[18px] border-t border-white/[0.12] py-1 shadow-[0_-8px_24px_rgba(0,0,0,0.18)] ${
+        fullWidth ? "w-full justify-evenly rounded-none px-0" : "rounded-full px-3 gap-4"
       }`}
     >
+
       {ITEMS.map((item, i) => {
         const isActive = i === active;
-        const isHovered = hovered === i;
-        const showLabel = isActive || isHovered;
 
         return (
           <button
             key={item.label}
             onClick={() => setActive(i)}
-            onMouseEnter={() => setHovered(i)}
-            onMouseLeave={() => setHovered(null)}
             aria-label={item.label}
             aria-current={isActive ? "page" : undefined}
-            className={`relative flex h-14 flex-col items-center justify-center overflow-visible outline-none transition-colors duration-300 sm:h-16 ${
+            className={`relative flex h-16 flex-col items-center justify-center overflow-visible outline-none transition-colors duration-300 hover:bg-white/[0.06] sm:h-[68px] ${
               fullWidth ? "flex-1" : "w-16 sm:w-[70px]"
-            } ${
-              isHovered && !isActive
-                ? "bg-gradient-to-br from-blue-500 to-cyan-400"
-                : ""
             }`}
           >
-            {isActive && (
-              <motion.span
-                layoutId="nav-pill"
-                initial={{ scale: 1 }}
-                animate={{ scale: 1.08 }}
-                transition={{ type: "spring", stiffness: 500, damping: 18 }}
-                className="absolute left-1/2 top-1/2 z-0 h-12 w-[90%] -translate-x-1/2 -translate-y-1/2 rounded-full border border-white/20 bg-white/20 shadow-lg backdrop-blur-md"
-              />
-            )}
-
-            {isActive && (
-              <motion.span
-                layoutId="nav-indicator"
-                transition={{ type: "spring", stiffness: 500, damping: 18 }}
-                className="absolute left-1/2 top-0 h-12 w-12 -translate-x-1/2 -translate-y-1/2 rounded-full border-[6px] border-[#00021b] bg-gradient-to-br from-cyan-400 to-blue-200 sm:h-[52px] sm:w-[52px]"
-              />
-            )}
-
             <motion.span
-              animate={{ y: isActive ? -24 : 0 }}
-              transition={{ type: "spring", stiffness: 500, damping: 16 }}
+              animate={{ y: isActive ? -14 : 0 }}
+              transition={{ type: "spring", stiffness: 500, damping: 18 }}
               className="relative z-10 flex items-center justify-center"
             >
               <item.Icon
-                className={
-                  isActive ? "h-5 w-5 text-white" : "h-5 w-5 text-slate-800/70"
-                }
-                strokeWidth={2.2}
+                className={isActive ? "h-6 w-6 text-white" : "h-6 w-6 text-white/70"}
+                strokeWidth={2}
               />
             </motion.span>
 
             <motion.span
               initial={false}
               animate={
-                showLabel
-                  ? { opacity: 1, scale: 1, y: -4 }
-                  : { opacity: 0, scale: 0.6, y: 0 }
+                isActive
+                  ? { opacity: 1, scale: 1, y: 0 }
+                  : { opacity: 0, scale: 0.6, y: 4 }
               }
               transition={{ type: "spring", stiffness: 450, damping: 18 }}
-              className="pointer-events-none absolute bottom-1 z-10 text-[10px] font-semibold tracking-wide text-white sm:text-[11px]"
+              className="pointer-events-none absolute bottom-4 z-10 text-[10px] font-semibold tracking-wide text-white sm:text-[11px]"
             >
               {item.label}
             </motion.span>
+
+            {isActive && (
+              <motion.span
+                layoutId="nav-indicator"
+                transition={{ type: "spring", stiffness: 500, damping: 18 }}
+                className="absolute bottom-2 left-1/2 h-[3px] w-6 -translate-x-1/2 rounded-full bg-white shadow-[0_0_10px_rgba(255,255,255,0.6)]"
+              />
+            )}
           </button>
         );
       })}
     </nav>
   );
-
 }
-
-

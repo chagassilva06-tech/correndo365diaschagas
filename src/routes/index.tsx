@@ -26,14 +26,15 @@ export const Route = createFileRoute("/")({
 function Index() {
   return (
     <>
-      <div className="fixed left-0 right-0 top-3 z-50">
+      <div className="fixed bottom-0 left-0 right-0 z-50">
         <BottomNav fullWidth />
       </div>
-      <main className="flex min-h-screen flex-col items-center justify-center gap-16 bg-[#00021b] px-4 pt-28">
+      <main className="flex min-h-screen flex-col items-center justify-center gap-16 bg-[#00021b] px-4 pb-24">
         <div className="text-center" />
       </main>
 
     </>
   );
 }
+
 

@@ -28,7 +28,7 @@ function Index() {
   return (
     <>
       <TopHeader />
-      <main className="flex min-h-screen flex-col items-center justify-center gap-16 bg-[#00021b] px-4 pt-16">
+      <main className="flex min-h-screen flex-col items-center justify-center gap-16 bg-[#00021b] px-4 pt-44">
         <div className="text-center">
           <h1 className="text-3xl font-semibold text-white sm:text-4xl">
             Animated bottom navigation
@@ -37,7 +37,6 @@ function Index() {
             Tap an item to slide the cutout indicator.
           </p>
         </div>
-        <BottomNav />
       </main>
     </>
   );

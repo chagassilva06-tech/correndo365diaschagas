@@ -19,7 +19,7 @@ export function BottomNav({ fullWidth = false }: BottomNavProps) {
 
   return (
     <nav
-      className={`relative flex items-end bg-gradient-to-br from-[#15D2FF]/30 via-[#2F80ED]/30 to-[#1B3B88]/30 bg-white/[0.08] backdrop-blur-[18px] border-t border-white/[0.12] py-1 shadow-[0_-8px_24px_rgba(0,0,0,0.18)] ${
+      className={`relative flex items-end bg-gradient-to-br from-[#15D2FF]/30 via-[#2F80ED]/30 to-[#1B3B88]/30 bg-white/[0.08] backdrop-blur-[18px] border-b border-white/[0.12] py-1 shadow-[0_8px_24px_rgba(0,0,0,0.18)] ${
         fullWidth ? "w-full justify-evenly rounded-none px-0" : "rounded-full px-3 gap-4"
       }`}
     >
@@ -33,10 +33,11 @@ export function BottomNav({ fullWidth = false }: BottomNavProps) {
             onClick={() => setActive(i)}
             aria-label={item.label}
             aria-current={isActive ? "page" : undefined}
-            className={`relative flex h-16 flex-col items-center justify-center overflow-visible outline-none transition-colors duration-300 hover:bg-white/[0.06] sm:h-[68px] ${
+            className={`relative flex h-16 flex-col items-center justify-center overflow-visible outline-none transition-all duration-300 hover:rounded-2xl hover:border hover:border-white/20 hover:bg-white/[0.06] hover:shadow-[0_0_12px_rgba(255,255,255,0.1)] sm:h-[68px] ${
               fullWidth ? "flex-1" : "w-16 sm:w-[70px]"
             }`}
           >
+
             <motion.span
               animate={{ y: isActive ? -14 : 0 }}
               transition={{ type: "spring", stiffness: 500, damping: 18 }}

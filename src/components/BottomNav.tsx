@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { motion } from "motion/react";
+import { motion, AnimatePresence } from "motion/react";
 import { Home, User, MessageCircle, Image, Settings } from "lucide-react";
 
 const ITEMS = [
@@ -16,27 +16,45 @@ interface BottomNavProps {
 
 export function BottomNav({ fullWidth = false }: BottomNavProps) {
   const [active, setActive] = useState(0);
+  const [hovered, setHovered] = useState<number | null>(null);
 
   return (
     <nav
       className={`relative flex items-end bg-gradient-to-br from-[#15D2FF]/30 via-[#2F80ED]/30 to-[#1B3B88]/30 bg-white/[0.08] backdrop-blur-[18px] border-b border-white/[0.12] py-1 shadow-[0_8px_24px_rgba(0,0,0,0.18)] ${
-        fullWidth ? "w-full justify-evenly rounded-none px-0" : "rounded-full px-3 gap-4"
+        fullWidth ? "w-full justify-evenly rounded-none px-2" : "rounded-full px-3 gap-4"
       }`}
     >
-
       {ITEMS.map((item, i) => {
         const isActive = i === active;
+        const isHovered = hovered === i;
 
         return (
           <button
             key={item.label}
             onClick={() => setActive(i)}
+            onMouseEnter={() => setHovered(i)}
+            onMouseLeave={() => setHovered(null)}
             aria-label={item.label}
             aria-current={isActive ? "page" : undefined}
-            className={`relative flex h-16 flex-col items-center justify-center overflow-visible outline-none transition-all duration-300 hover:rounded-2xl hover:border hover:border-white/20 hover:bg-white/[0.06] hover:shadow-[0_0_12px_rgba(255,255,255,0.1)] sm:h-[68px] ${
-              fullWidth ? "flex-1" : "w-16 sm:w-[70px]"
+            className={`relative flex h-16 flex-col items-center justify-center overflow-visible outline-none transition-all duration-300 hover:rounded-xl hover:bg-white/[0.05] sm:h-[68px] ${
+              fullWidth ? "flex-1 mx-1" : "w-16 sm:w-[70px]"
             }`}
           >
+            {/* Tooltip */}
+            <AnimatePresence>
+              {isHovered && !isActive && (
+                <motion.span
+                  initial={{ opacity: 0, y: 6, scale: 0.9 }}
+                  animate={{ opacity: 1, y: -36, scale: 1 }}
+                  exit={{ opacity: 0, y: 4, scale: 0.9 }}
+                  transition={{ type: "spring", stiffness: 400, damping: 22 }}
+                  className="pointer-events-none absolute top-1/2 z-20 whitespace-nowrap rounded-lg bg-[#00021b]/90 px-2.5 py-1 text-[10px] font-medium text-white shadow-[0_4px_12px_rgba(0,0,0,0.25)] ring-1 ring-white/10 sm:text-[11px]"
+                >
+                  {item.label}
+                  <span className="absolute left-1/2 top-full -translate-x-1/2 border-4 border-transparent border-t-[#00021b]/90" />
+                </motion.span>
+              )}
+            </AnimatePresence>
 
             <motion.span
               animate={{ y: isActive ? -14 : 0 }}

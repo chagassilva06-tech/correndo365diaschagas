@@ -47,6 +47,16 @@ export function BottomNav({ fullWidth = false }: BottomNavProps) {
           >
             {isActive && (
               <motion.span
+                layoutId="nav-pill"
+                initial={{ scale: 1 }}
+                animate={{ scale: 1.08 }}
+                transition={{ type: "spring", stiffness: 500, damping: 18 }}
+                className="absolute left-1/2 top-1/2 z-0 h-12 w-[90%] -translate-x-1/2 -translate-y-1/2 rounded-full border border-white/20 bg-white/20 shadow-lg backdrop-blur-md"
+              />
+            )}
+
+            {isActive && (
+              <motion.span
                 layoutId="nav-indicator"
                 transition={{ type: "spring", stiffness: 500, damping: 18 }}
                 className="absolute left-1/2 top-0 h-12 w-12 -translate-x-1/2 -translate-y-1/2 rounded-full border-[6px] border-[#00021b] bg-gradient-to-br from-cyan-400 to-blue-200 sm:h-[52px] sm:w-[52px]"
@@ -60,7 +70,7 @@ export function BottomNav({ fullWidth = false }: BottomNavProps) {
             >
               <item.Icon
                 className={
-                  isActive ? "h-5 w-5 text-[#00021b]" : "h-5 w-5 text-slate-800/70"
+                  isActive ? "h-5 w-5 text-white" : "h-5 w-5 text-slate-800/70"
                 }
                 strokeWidth={2.2}
               />
@@ -74,7 +84,7 @@ export function BottomNav({ fullWidth = false }: BottomNavProps) {
                   : { opacity: 0, scale: 0.6, y: 0 }
               }
               transition={{ type: "spring", stiffness: 450, damping: 18 }}
-              className="pointer-events-none absolute bottom-1 z-10 text-[10px] font-semibold tracking-wide text-[#00021b] sm:text-[11px]"
+              className="pointer-events-none absolute bottom-1 z-10 text-[10px] font-semibold tracking-wide text-white sm:text-[11px]"
             >
               {item.label}
             </motion.span>
@@ -83,6 +93,7 @@ export function BottomNav({ fullWidth = false }: BottomNavProps) {
       })}
     </nav>
   );
+
 }
 
 

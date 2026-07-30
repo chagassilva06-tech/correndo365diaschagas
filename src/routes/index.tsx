@@ -1,5 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { BottomNav } from "@/components/BottomNav";
+import { TopHeader } from "@/components/TopHeader";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -25,16 +26,19 @@ export const Route = createFileRoute("/")({
 
 function Index() {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-center gap-16 bg-[#00021b] px-4">
-      <div className="text-center">
-        <h1 className="text-3xl font-semibold text-white sm:text-4xl">
-          Animated bottom navigation
-        </h1>
-        <p className="mt-3 text-sm text-white/50">
-          Tap an item to slide the cutout indicator.
-        </p>
-      </div>
-      <BottomNav />
-    </main>
+    <>
+      <TopHeader />
+      <main className="flex min-h-screen flex-col items-center justify-center gap-16 bg-[#00021b] px-4 pt-16">
+        <div className="text-center">
+          <h1 className="text-3xl font-semibold text-white sm:text-4xl">
+            Animated bottom navigation
+          </h1>
+          <p className="mt-3 text-sm text-white/50">
+            Tap an item to slide the cutout indicator.
+          </p>
+        </div>
+        <BottomNav />
+      </main>
+    </>
   );
 }

@@ -1,6 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { TopHeader } from "@/components/TopHeader";
-
+import { BottomNav } from "@/components/BottomNav";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -27,8 +26,10 @@ export const Route = createFileRoute("/")({
 function Index() {
   return (
     <>
-      <TopHeader />
-      <main className="flex min-h-screen flex-col items-center justify-center gap-16 bg-[#00021b] px-4 pt-44">
+      <div className="fixed left-0 right-0 top-0 z-50">
+        <BottomNav fullWidth />
+      </div>
+      <main className="flex min-h-screen flex-col items-center justify-center gap-16 bg-[#00021b] px-4 pt-32">
         <div className="text-center">
           <h1 className="text-3xl font-semibold text-white sm:text-4xl">
             Animated bottom navigation

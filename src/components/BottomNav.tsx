@@ -21,7 +21,7 @@ export function BottomNav({ fullWidth = false }: BottomNavProps) {
   return (
     <nav
       className={`relative flex items-end bg-gradient-to-br from-[#15D2FF]/30 via-[#2F80ED]/30 to-[#1B3B88]/30 bg-white/[0.08] backdrop-blur-[18px] border-b border-white/[0.12] py-1 shadow-[0_8px_24px_rgba(0,0,0,0.18)] ${
-        fullWidth ? "w-full justify-evenly rounded-none px-2" : "rounded-full px-3 gap-4"
+        fullWidth ? "w-full justify-evenly rounded-lg px-2" : "rounded-full px-3 gap-4"
       }`}
     >
       {ITEMS.map((item, i) => {

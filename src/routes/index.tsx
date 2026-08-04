@@ -79,7 +79,7 @@ function Index() {
     { name: "Maio", days: 31, activities: Array.from({ length: 31 }, (_, i) => i + 1) },
     { name: "Junho", days: 30, activities: Array.from({ length: 30 }, (_, i) => i + 1) },
     { name: "Julho", days: 31, activities: Array.from({ length: 31 }, (_, i) => i + 1) },
-    { name: "Agosto", days: 31, activities: [1, 2, 3, 4] },
+    { name: "Agosto", days: 31, activities: [1, 2, 3] },
   ];
   
   return (
@@ -97,7 +97,15 @@ function Index() {
             <a href="#" className="hover:text-[#172033] transition-colors" onClick={(e) => { e.preventDefault(); navigate({ to: "/" }); }}>Início</a>
             <a href="#desempenho" className="hover:text-[#172033] transition-colors">Calendário</a>
             <a href="#desempenho" className="hover:text-[#172033] transition-colors">Estatísticas</a>
-            <a href="#" className="hover:text-[#172033] transition-colors">Sobre</a>
+            <a 
+              href="https://www.strava.com/athletes/44632513" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              className="flex items-center gap-1.5 bg-[#FC4C02] text-white px-3 py-1.5 rounded-full text-xs font-bold hover:bg-[#FC4C02]/90 transition-colors"
+            >
+              <ExternalLink className="w-3 h-3" />
+              Strava
+            </a>
           </nav>
           
           <Button className="bg-[#172033] hover:bg-[#172033]/90 text-white gap-2">
@@ -111,10 +119,10 @@ function Index() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <div>
             <div className="flex items-center gap-2 mb-4">
-              <Badge variant="outline" className="border-[#FF9F0A] text-[#FF9F0A] bg-orange-50 gap-2 px-3 py-1">
+              <Badge variant="outline" className="border-[#18A957] text-[#18A957] bg-green-50 gap-2 px-3 py-1">
                 <span className="relative flex h-2 w-2">
-                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#FF9F0A] opacity-75"></span>
-                  <span className="relative inline-flex rounded-full h-2 w-2 bg-[#FF9F0A]"></span>
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#18A957] opacity-75"></span>
+                  <span className="relative inline-flex rounded-full h-2 w-2 bg-[#18A957]"></span>
                 </span>
                 DESAFIO ATIVO
               </Badge>
@@ -136,9 +144,6 @@ function Index() {
                 onClick={() => document.getElementById('jornada-anual')?.scrollIntoView({ behavior: 'smooth' })}
               >
                 Ver meu calendário
-              </Button>
-              <Button variant="outline" size="lg" className="border-[#E4E7EC] hover:bg-gray-100 px-8 rounded-xl h-14 text-base font-semibold">
-                Como funciona
               </Button>
             </div>
             
@@ -410,17 +415,6 @@ function Index() {
                 </div>
             </div>
             
-            <div className="bg-white rounded-[24px] p-6 border border-[#E4E7EC] shadow-sm">
-              <h3 className="text-lg font-bold mb-4">Seu perfil</h3>
-              <div className="bg-gray-50 rounded-xl p-6 flex flex-col items-center text-center">
-                <div className="w-20 h-20 rounded-full bg-white border-2 border-[#E4E7EC] flex items-center justify-center mb-4">
-                  <User className="w-10 h-10 text-[#697386]" />
-                </div>
-                <h4 className="font-bold text-[#172033]">Francisco Chagas</h4>
-                <p className="text-sm text-[#697386]">Corredor Amador</p>
-                <Button variant="outline" size="sm" className="mt-4 w-full rounded-lg">Ver perfil completo</Button>
-              </div>
-            </div>
           </div>
         </div>
       </section>

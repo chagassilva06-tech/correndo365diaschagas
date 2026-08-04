@@ -95,6 +95,9 @@ function Index() {
   const navigate = useNavigate();
   const [selectedMonth, setSelectedMonth] = useState<string>("Todos");
   
+  const currentMonthName = new Intl.DateTimeFormat('pt-BR', { month: 'long' }).format(new Date());
+  const capitalizedCurrentMonth = currentMonthName.charAt(0).toUpperCase() + currentMonthName.slice(1);
+
   const months = [
     { name: "Janeiro", days: 31, activities: Array.from({ length: 31 }, (_, i) => i + 1) },
     { name: "Fevereiro", days: 28, activities: Array.from({ length: 28 }, (_, i) => i + 1) },
@@ -103,7 +106,11 @@ function Index() {
     { name: "Maio", days: 31, activities: Array.from({ length: 31 }, (_, i) => i + 1) },
     { name: "Junho", days: 30, activities: Array.from({ length: 30 }, (_, i) => i + 1) },
     { name: "Julho", days: 31, activities: Array.from({ length: 31 }, (_, i) => i + 1) },
-    { name: "Agosto", days: 31, activities: [1, 2, 3] },
+    { name: "Agosto", days: 31, activities: Array.from({ length: 31 }, (_, i) => i + 1) },
+    { name: "Setembro", days: 30, activities: [] },
+    { name: "Outubro", days: 31, activities: [] },
+    { name: "Novembro", days: 30, activities: [] },
+    { name: "Dezembro", days: 31, activities: [] },
   ];
 
   const filteredMonths = selectedMonth === "Todos" 
@@ -239,10 +246,10 @@ function Index() {
           >
             <div className="absolute inset-0 bg-[var(--glow-orange)]/20 blur-[120px] rounded-full animate-pulse" />
             <div className="relative z-0 flex flex-col items-center">
-              <div className="text-[160px] font-black italic tracking-tighter leading-none text-white/90 drop-shadow-[0_0_50px_rgba(255,255,255,0.2)]">
+              <div className="text-[160px] font-black italic tracking-tighter leading-none text-white/90 drop-shadow-[0_0_50px_rgba(255,255,255,0.2)] relative z-10">
                 <CountUp end={216} />
               </div>
-              <div className="text-3xl font-black uppercase tracking-[0.3em] text-[var(--glow-orange)] -mt-8">DIAS</div>
+              <div className="text-3xl font-black uppercase tracking-[0.3em] text-[var(--glow-orange)] -mt-4 relative z-20">DIAS</div>
               <div className="text-base font-bold text-[#A1A1AA] uppercase tracking-widest mt-2">consecutivos</div>
               
               <div className="mt-12 w-64 h-80 rounded-[40px] overflow-hidden border-2 border-white/10 grayscale hover:grayscale-0 transition-all duration-700 group shadow-2xl relative">
@@ -327,7 +334,7 @@ function Index() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {filteredMonths.map((month, mIdx) => {
-              const isCurrentMonth = month.name === "Agosto"; // Simulating current month
+              const isCurrentMonth = month.name === capitalizedCurrentMonth;
               return (
                 <motion.div 
                   key={month.name}

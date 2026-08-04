@@ -7,7 +7,7 @@ const ITEMS = [
   { label: "Calendário", Icon: Calendar, href: "#desempenho" },
   { label: "Conquistas", Icon: Trophy, href: "#desempenho" },
   { label: "Galeria", Icon: Image, href: "#" },
-  { label: "Perfil", Icon: User, href: "#" },
+  { label: "Perfil", Icon: User, href: "#perfil" },
 ];
 
 

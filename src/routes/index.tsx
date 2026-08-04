@@ -53,7 +53,7 @@ import { Progress } from "@/components/ui/progress";
 
 export const Route = createFileRoute("/")({
   head: () => ({
-    title: "Corra Todo Santo Dia | Desafio de Consistência",
+    title: "Correndo todo dia | Desafio de Consistência",
     meta: [
       { name: "description", content: "Desafio de corrida diária com Sérgio Rocha. Sincronize suas atividades do Strava e acompanhe sua jornada." },
       { property: "og:title", content: "Lovable App" },
@@ -90,7 +90,7 @@ function Index() {
             <div className="w-8 h-8 bg-[#FF9F0A] rounded-lg flex items-center justify-center">
               <Activity className="text-white w-5 h-5" />
             </div>
-            <span className="font-bold text-lg tracking-tight">Corra Todo Santo Dia</span>
+            <span className="font-black text-lg tracking-tighter italic uppercase">Correndo todo dia</span>
           </div>
           
           <nav className="hidden md:flex items-center gap-8 text-sm font-medium text-[#697386]">
@@ -120,9 +120,9 @@ function Index() {
               </Badge>
             </div>
             
-            <h1 className="text-5xl lg:text-6xl font-extrabold mb-4 tracking-tight leading-tight text-[#172033]">
-              Corra Todo <br />
-              <span className="text-[#FF9F0A]">Santo Dia</span>
+            <h1 className="text-5xl lg:text-7xl font-black mb-4 tracking-tighter leading-[0.9] text-[#172033] italic uppercase">
+              Correndo <br />
+              <span className="text-[#FF9F0A]">todo dia</span>
             </h1>
             
             <p className="text-xl text-[#697386] mb-8 leading-relaxed max-w-lg">
@@ -130,7 +130,11 @@ function Index() {
             </p>
             
             <div className="flex flex-wrap gap-4 mb-8">
-              <Button size="lg" className="bg-[#172033] hover:bg-[#172033]/90 px-8 rounded-xl h-14 text-base font-semibold">
+              <Button 
+                size="lg" 
+                className="bg-[#172033] hover:bg-[#172033]/90 px-8 rounded-xl h-14 text-base font-semibold"
+                onClick={() => document.getElementById('jornada-anual')?.scrollIntoView({ behavior: 'smooth' })}
+              >
                 Ver meu calendário
               </Button>
               <Button variant="outline" size="lg" className="border-[#E4E7EC] hover:bg-gray-100 px-8 rounded-xl h-14 text-base font-semibold">
@@ -146,67 +150,64 @@ function Index() {
           
           <div className="relative">
             <Card className="rounded-[24px] overflow-hidden border-none shadow-xl bg-white p-2">
-              <div className="bg-gradient-to-br from-[#172033] to-[#2a3b5e] rounded-[20px] p-6 text-white">
-                <div className="flex items-center gap-4 mb-8">
-                  <div className="w-16 h-16 rounded-full border-2 border-white/20 overflow-hidden bg-gray-200 relative group">
-                    <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=Francisco" alt="Profile" className="w-full h-full object-cover" />
-                    <div className="absolute inset-0 bg-black/40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
-                      <User className="text-white w-6 h-6" />
+                <div id="perfil" className="bg-gradient-to-br from-[#172033] to-[#2a3b5e] rounded-[20px] p-6 text-white">
+                  <div className="flex items-center gap-4 mb-8">
+                    <div className="w-16 h-16 rounded-full border-2 border-white/20 overflow-hidden bg-gray-200 relative group">
+                      <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=Francisco" alt="Profile" className="w-full h-full object-cover" />
+                    </div>
+                    <div className="flex-1">
+                      <div className="flex items-center justify-between">
+                        <h3 className="font-bold text-xl">Francisco Chagas</h3>
+                        <button 
+                          onClick={() => setDeleteCategory(!deleteCategory)}
+                          className="p-1 hover:bg-white/10 rounded-full transition-colors text-white/60 hover:text-white"
+                        >
+                          <MoreHorizontal className="w-5 h-5" />
+                        </button>
+                      </div>
+                      {deleteCategory && (
+                        <button 
+                          className="text-[10px] text-red-400 font-bold hover:text-red-300 mt-1 flex items-center gap-1"
+                          onClick={() => {
+                            alert("Categoria apagada!");
+                            setDeleteCategory(false);
+                          }}
+                        >
+                          <Trash2 className="w-3 h-3" /> Apagar? categoria
+                        </button>
+                      )}
+                      <p className="text-white/60 text-sm flex items-center gap-1 mt-1">
+                        <MapPin className="w-3 h-3" /> São Paulo — SP
+                      </p>
+                    </div>
+                    <div className="ml-auto">
+                      <Badge className="bg-green-500/20 text-green-400 border-none">
+                        Em andamento
+                      </Badge>
                     </div>
                   </div>
-                  <div className="flex-1">
-                    <div className="flex items-center justify-between">
-                      <h3 className="font-bold text-xl">Francisco Chagas</h3>
-                      <button 
-                        onClick={() => setDeleteCategory(!deleteCategory)}
-                        className="p-1 hover:bg-white/10 rounded-full transition-colors text-white/60 hover:text-white"
-                      >
-                        <MoreHorizontal className="w-5 h-5" />
-                      </button>
+                  
+                  <div className="grid grid-cols-2 gap-6 mb-8">
+                    <div>
+                      <p className="text-white/50 text-xs uppercase tracking-wider mb-1">Sequência Atual</p>
+                      <p className="text-3xl font-bold">216 <span className="text-sm font-normal opacity-60">dias</span></p>
                     </div>
-                    {deleteCategory && (
-                      <button 
-                        className="text-[10px] text-red-400 font-bold hover:text-red-300 mt-1 flex items-center gap-1"
-                        onClick={() => {
-                          alert("Categoria apagada!");
-                          setDeleteCategory(false);
-                        }}
-                      >
-                        <Trash2 className="w-3 h-3" /> Apagar? categoria
-                      </button>
-                    )}
-                    <p className="text-white/60 text-sm flex items-center gap-1 mt-1">
-                      <MapPin className="w-3 h-3" /> São Paulo — SP
-                    </p>
+                    <div>
+                      <p className="text-white/50 text-xs uppercase tracking-wider mb-1">Acumulado</p>
+                      <p className="text-3xl font-bold">1.632,5 <span className="text-sm font-normal opacity-60">km</span></p>
+                    </div>
                   </div>
-                  <div className="ml-auto">
-                    <Badge className="bg-green-500/20 text-green-400 border-none">
-                      Em andamento
-                    </Badge>
+                  
+                  <div className="bg-white/5 rounded-xl p-4 backdrop-blur-sm border border-white/10">
+                    <p className="text-sm font-medium mb-3">Progresso Agosto/2026</p>
+                    <div className="flex gap-1">
+                      {[1, 1, 1, 0, 0, 0, 0].map((v, i) => (
+                        <div key={i} className={`h-2 flex-1 rounded-full ${v ? 'bg-[#18A957]' : 'bg-white/10'}`}></div>
+                      ))}
+                    </div>
+                    <p className="mt-2 text-[10px] text-white/40">3 de 31 dias concluídos (10%)</p>
                   </div>
                 </div>
-                
-                <div className="grid grid-cols-2 gap-6 mb-8">
-                  <div>
-                    <p className="text-white/50 text-xs uppercase tracking-wider mb-1">Sequência Atual</p>
-                    <p className="text-3xl font-bold">216 <span className="text-sm font-normal opacity-60">dias</span></p>
-                  </div>
-                  <div>
-                    <p className="text-white/50 text-xs uppercase tracking-wider mb-1">Acumulado</p>
-                    <p className="text-3xl font-bold">1.632,5 <span className="text-sm font-normal opacity-60">km</span></p>
-                  </div>
-                </div>
-                
-                <div className="bg-white/5 rounded-xl p-4 backdrop-blur-sm border border-white/10">
-                  <p className="text-sm font-medium mb-3">Progresso Agosto/2026</p>
-                  <div className="flex gap-1">
-                    {[1, 1, 1, 0, 0, 0, 0].map((v, i) => (
-                      <div key={i} className={`h-2 flex-1 rounded-full ${v ? 'bg-[#18A957]' : 'bg-white/10'}`}></div>
-                    ))}
-                  </div>
-                  <p className="mt-2 text-[10px] text-white/40">3 de 31 dias concluídos (10%)</p>
-                </div>
-              </div>
             </Card>
             
             <div className="absolute -z-10 -bottom-6 -right-6 w-64 h-64 bg-[#FF9F0A]/10 rounded-full blur-3xl"></div>
@@ -241,7 +242,7 @@ function Index() {
                 <div className="grid grid-cols-3 gap-4">
                   <div>
                     <p className="text-xs text-[#697386] font-bold uppercase">Distância</p>
-                    <p className="text-2xl font-bold text-[#172033]">3,32 km</p>
+                    <p className="text-2xl font-bold text-[#172033]">6,70 km</p>
                   </div>
                   <div>
                     <p className="text-xs text-[#697386] font-bold uppercase">Tempo</p>
@@ -285,7 +286,7 @@ function Index() {
             </div>
           </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+          <div id="jornada-anual" className="grid grid-cols-1 lg:grid-cols-3 gap-6">
             <div className="lg:col-span-2">
                <h3 className="text-lg font-bold mb-4 uppercase text-[#697386] text-xs">Jornada Anual</h3>
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">

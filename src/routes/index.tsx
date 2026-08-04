@@ -488,33 +488,40 @@ function Index() {
       </section>
 
 
-      {/* Profile Card Section (formerly Francisco Chagas card) */}
-      <section id="perfil" className="py-24 bg-[#050505] border-t border-white/5">
+      {/* Profile Card Section */}
+      <section id="perfil" className="py-20 bg-[var(--background)] border-t border-white/5">
         <div className="container mx-auto px-4 max-w-4xl">
            <motion.div 
             whileHover={{ rotateY: 5, rotateX: 2 }}
-            className="rounded-[40px] bg-gradient-to-br from-[#0F0F10] to-[#050505] p-12 border border-white/5 shadow-2xl relative overflow-hidden group perspective-1000"
+            className="rounded-[40px] bg-gradient-to-br from-[var(--section-bg)] to-[var(--background)] p-12 border border-white/5 shadow-2xl relative overflow-hidden group perspective-1000"
           >
-            <div className="absolute -top-20 -right-20 w-80 h-80 bg-[#FF5A1F]/10 rounded-full blur-[100px] group-hover:bg-[#FF5A1F]/20 transition-all duration-700" />
+            <div className="absolute inset-0 bg-[var(--glow-orange)]/5 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none" />
+            <div className="absolute -top-20 -right-20 w-80 h-80 bg-[var(--glow-orange)]/10 rounded-full blur-[100px] group-hover:bg-[var(--glow-orange)]/20 transition-all duration-700" />
             
             <div className="flex flex-col md:flex-row items-center gap-12 relative z-10">
               <div className="relative">
-                <div className="w-48 h-48 rounded-[40px] border-4 border-[#FF5A1F]/20 p-2 overflow-hidden shadow-2xl">
-                  <img src={profileAvatarAsset.url} alt="Profile" className="w-full h-full object-cover rounded-[32px] bg-[#050505]" />
+                <div className="w-48 h-48 rounded-[40px] border-4 border-[var(--glow-orange)]/20 p-2 overflow-hidden shadow-2xl relative z-10">
+                  <div className="absolute inset-0 bg-[var(--glow-orange)] blur-[20px] opacity-20 group-hover:opacity-40 transition-opacity" />
+                  <img src={profileAvatarAsset.url} alt="Profile" className="w-full h-full object-cover rounded-[32px] bg-[#050505] relative z-10" />
                 </div>
-                <div className="absolute -bottom-4 -right-4 bg-[#FF5A1F] text-white p-4 rounded-2xl shadow-xl">
+                <div className="absolute -bottom-4 -right-4 bg-[var(--glow-orange)] text-white p-4 rounded-2xl shadow-xl z-20">
                   <Trophy className="w-8 h-8" />
                 </div>
               </div>
               
               <div className="flex-1 text-center md:text-left">
-                <div className="flex items-center justify-center md:justify-start gap-4 mb-4">
-                  <div className="flex items-center gap-4">
-                    <h3 className="text-5xl font-black italic uppercase tracking-tighter">Francisco Chagas</h3>
+                <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-6 border-b border-white/5 pb-6">
+                  <div>
+                    <h3 className="text-5xl font-black italic uppercase tracking-tighter mb-2">Francisco Chagas</h3>
+                    <div className="flex items-center gap-2 text-[#A1A1AA] text-xs font-black uppercase tracking-widest">
+                       <CheckCircle2 className="w-4 h-4 text-[#18A957]" />
+                       Desafio ativo • Runner since 2018
+                    </div>
                   </div>
-                  <Badge className="bg-[#18A957]/10 text-[#18A957] border-[#18A957]/20 uppercase font-black text-[10px] tracking-widest py-1.5 px-4 rounded-full">Pro Member</Badge>
+                  <Badge className="bg-[#18A957]/10 text-[#18A957] border-[#18A957]/20 uppercase font-black text-[10px] tracking-widest py-1.5 px-4 rounded-full self-center md:self-start">Pro Member</Badge>
                 </div>
-                <p className="text-xl text-[#A1A1AA] mb-8 font-medium">São Paulo, SP • Corredor Amador Autodidata</p>
+                
+                <p className="text-sm font-black uppercase tracking-[0.2em] text-[#A1A1AA] mb-8">São Paulo, SP • Corredor Amador Autodidata</p>
                 
                 <div className="grid grid-cols-2 md:grid-cols-3 gap-8">
                   <div>
@@ -527,7 +534,7 @@ function Index() {
                   </div>
                   <div className="col-span-2 md:col-span-1">
                     <p className="text-[10px] font-black uppercase text-[#A1A1AA] tracking-[0.2em] mb-2">Pace Médio</p>
-                    <p className="text-3xl font-black italic uppercase text-[#FF5A1F]">4:18/km</p>
+                    <p className="text-3xl font-black italic uppercase text-[var(--glow-orange)]">4:18/km</p>
                   </div>
                 </div>
               </div>
@@ -536,30 +543,31 @@ function Index() {
         </div>
       </section>
 
-      <footer className="py-24 bg-[#050505] border-t border-white/5">
+      <footer className="py-20 bg-[var(--background)] border-t border-white/5">
         <div className="container mx-auto px-4 text-center">
           <div className="flex justify-center gap-8 mb-12">
-            <a href="https://www.strava.com/athletes/44632513" target="_blank" rel="noreferrer" className="w-12 h-12 rounded-2xl bg-[#0F0F10] border border-white/5 flex items-center justify-center hover:border-[#FC4C02] transition-colors"><img src={stravaOfficialAsset.url} className="w-6 h-6" /></a>
-            <a href="#" className="w-12 h-12 rounded-2xl bg-[#0F0F10] border border-white/5 flex items-center justify-center hover:border-white transition-colors"><Instagram className="w-6 h-6" /></a>
-            <a href="#" className="w-12 h-12 rounded-2xl bg-[#0F0F10] border border-white/5 flex items-center justify-center hover:border-red-600 transition-colors"><Youtube className="w-6 h-6" /></a>
-            <a href="#" className="w-12 h-12 rounded-2xl bg-[#0F0F10] border border-white/5 flex items-center justify-center hover:border-white transition-colors"><Github className="w-6 h-6" /></a>
+            <a href="https://www.strava.com/athletes/44632513" target="_blank" rel="noreferrer" className="w-14 h-14 rounded-2xl bg-[var(--section-bg)] border border-white/5 flex items-center justify-center hover:border-[#FC4C02] transition-all hover:-translate-y-1"><img src={stravaOfficialAsset.url} className="w-6 h-6" /></a>
+            <a href="#" className="w-14 h-14 rounded-2xl bg-[var(--section-bg)] border border-white/5 flex items-center justify-center hover:border-white transition-all hover:-translate-y-1"><Instagram className="w-6 h-6" /></a>
+            <a href="#" className="w-14 h-14 rounded-2xl bg-[var(--section-bg)] border border-white/5 flex items-center justify-center hover:border-red-600 transition-all hover:-translate-y-1"><Youtube className="w-6 h-6" /></a>
+            <a href="#" className="w-14 h-14 rounded-2xl bg-[var(--section-bg)] border border-white/5 flex items-center justify-center hover:border-white transition-all hover:-translate-y-1"><Github className="w-6 h-6" /></a>
           </div>
           
           <div className="max-w-md mx-auto mb-12">
-            <h4 className="text-sm font-black uppercase tracking-[0.4em] mb-6 text-[#A1A1AA]">Manifesto</h4>
-            <div className="flex flex-col gap-2 text-2xl font-black italic uppercase tracking-tighter">
+            <h4 className="text-[10px] font-black uppercase tracking-[0.5em] mb-8 text-[#A1A1AA]">Manifesto</h4>
+            <div className="flex flex-col gap-2 text-4xl font-black italic uppercase tracking-tighter">
               <span>Disciplina.</span>
               <span>Consistência.</span>
               <span>Evolução.</span>
-              <span className="text-[#FF5A1F]">Todos os dias.</span>
+              <span className="text-[var(--glow-orange)]">Todos os dias.</span>
             </div>
           </div>
 
-          <p className="text-[#A1A1AA] text-xs font-black uppercase tracking-widest">
-            2026 &copy; <span className="text-white">Francisco</span> <span className="text-[#FF5A1F]">Chagas</span>
+          <p className="text-[#A1A1AA] text-[10px] font-black uppercase tracking-widest opacity-40">
+            2026 &copy; <span className="text-white">Francisco</span> <span className="text-[var(--glow-orange)]">Chagas</span>
           </p>
         </div>
       </footer>
+
 
       <div className="fixed bottom-8 left-1/2 -translate-x-1/2 z-50 w-full max-w-lg px-6">
         <BottomNav />

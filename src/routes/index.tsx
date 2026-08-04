@@ -111,7 +111,7 @@ function Index() {
     : months.filter(m => m.name === selectedMonth);
 
   return (
-    <div className="min-h-screen bg-[#050505] text-white font-sans pb-32 selection:bg-[#00E5FF]/30 selection:text-[#00E5FF]">
+    <div className="min-h-screen bg-[#050505] text-white font-sans pb-32 selection:bg-[#FF5A1F]/30 selection:text-[#FF5A1F] tracking-tight leading-relaxed">
       {/* Topographic Background Pattern */}
       <div className="fixed inset-0 pointer-events-none z-0 opacity-[0.03]" style={{ backgroundImage: `url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M10 10 Q 50 40 90 10 M10 30 Q 50 60 90 30 M10 50 Q 50 80 90 50 M10 70 Q 50 100 90 70' stroke='white' fill='none'/%3E%3C/svg%3E")` }} />
 
@@ -123,7 +123,7 @@ function Index() {
             </div>
             <motion.span 
               whileHover={{ scale: 1.02 }}
-              className="font-black text-xl tracking-tighter italic uppercase bg-gradient-to-r from-white to-white/60 bg-clip-text text-transparent"
+              className="font-black text-2xl tracking-tighter italic uppercase bg-gradient-to-r from-white to-white/60 bg-clip-text text-transparent"
             >
               Correndo todo dia
             </motion.span>
@@ -135,7 +135,7 @@ function Index() {
             <a href="#desempenho" className="hover:text-white transition-colors duration-300">Estatísticas</a>
             <div className="flex items-center gap-4 border-l border-white/10 pl-10">
               <a href="https://instagram.com" target="_blank" rel="noreferrer" className="hover:text-white transition-colors"><Instagram className="w-5 h-5" /></a>
-              <a href="https://www.strava.com/athletes/44632513" target="_blank" rel="noreferrer" className="hover:text-[#FC4C02] transition-colors">
+              <a href="https://www.strava.com/athletes/44632513" target="_blank" rel="noreferrer" className="flex items-center justify-center w-10 h-10 rounded-xl bg-[#FC4C02]/10 border border-[#FC4C02]/20 hover:bg-[#FC4C02]/20 transition-all duration-300">
                 <img src={stravaOfficialAsset.url} alt="Strava" className="w-5 h-5 object-contain" />
               </a>
             </div>
@@ -170,10 +170,10 @@ function Index() {
             transition={{ duration: 0.8 }}
             className="flex justify-center mb-8"
           >
-            <Badge variant="outline" className="border-[#00E5FF] text-[#00E5FF] bg-[#00E5FF]/5 gap-3 px-5 py-2 backdrop-blur-md rounded-full shadow-[0_0_30px_rgba(0,229,255,0.1)] border-white/10">
+            <Badge variant="outline" className="border-[#FF5A1F] text-[#FF5A1F] bg-[#FF5A1F]/5 gap-3 px-5 py-2 backdrop-blur-md rounded-full shadow-[0_0_30px_rgba(255,90,31,0.1)] border-white/10">
               <span className="relative flex h-2.5 w-2.5">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#00E5FF] opacity-75"></span>
-                <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-[#00E5FF]"></span>
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#FF5A1F] opacity-75"></span>
+                <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-[#FF5A1F]"></span>
               </span>
               <span className="text-[10px] font-black tracking-[0.2em] uppercase">Desafio ao vivo</span>
             </Badge>
@@ -193,7 +193,7 @@ function Index() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.4, duration: 0.8 }}
-            className="text-lg lg:text-2xl text-[#A1A1AA] mb-14 leading-relaxed max-w-3xl mx-auto font-medium"
+            className="text-xl lg:text-3xl text-[#A1A1AA] mb-14 leading-tight max-w-3xl mx-auto font-medium tracking-tight"
           >
             365 dias. Uma única missão. <br />
             <span className="text-white">Transformando disciplina em quilômetros.</span>
@@ -252,7 +252,7 @@ function Index() {
         <div className="container mx-auto px-4">
           <div className="flex flex-col md:flex-row justify-between items-end mb-16 gap-8">
             <div className="max-w-2xl">
-              <h2 className="text-4xl lg:text-6xl font-black italic uppercase tracking-tighter mb-4 leading-none">Jornada Anual</h2>
+              <h2 className="text-5xl lg:text-7xl font-black italic uppercase tracking-tighter mb-6 leading-[0.9]">Jornada Anual</h2>
               <p className="text-[#A1A1AA] text-lg">A principal atração do seu progresso. Cada dia é um passo em direção à consistência inabalável.</p>
             </div>
             <div className="flex items-center gap-4 bg-[#0F0F10] p-2 rounded-2xl border border-white/5 backdrop-blur-md">
@@ -328,7 +328,7 @@ function Index() {
         <div className="container mx-auto px-4 max-w-6xl">
           <div className="flex flex-col md:flex-row justify-between items-center mb-16 gap-8">
             <div>
-              <h2 className="text-4xl lg:text-6xl font-black italic uppercase tracking-tighter mb-4">Seu Desempenho</h2>
+              <h2 className="text-5xl lg:text-7xl font-black italic uppercase tracking-tighter mb-6 leading-[0.9]">Seu Desempenho</h2>
               <p className="text-[#A1A1AA] text-lg">Métricas avançadas e análise de performance semanal.</p>
             </div>
             <div className="w-full md:w-auto flex bg-[#0F0F10] p-2 rounded-2xl border border-white/5">

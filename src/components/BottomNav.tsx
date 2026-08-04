@@ -30,14 +30,15 @@ export function BottomNav({ fullWidth = false }: BottomNavProps) {
         const isHovered = hovered === i;
 
         return (
-          <button
+          <a
             key={item.label}
+            href={item.href}
             onClick={() => setActive(i)}
             onMouseEnter={() => setHovered(i)}
             onMouseLeave={() => setHovered(null)}
             aria-label={item.label}
             aria-current={isActive ? "page" : undefined}
-            className={`relative flex h-16 flex-col items-center justify-center overflow-visible outline-none transition-all duration-300 hover:rounded-lg hover:bg-[#F6F7F8] sm:h-[68px] ${
+            className={`relative flex h-16 flex-col items-center justify-center overflow-visible outline-none transition-all duration-300 hover:rounded-lg hover:bg-[#F6F7F8] sm:h-[68px] no-underline ${
               fullWidth ? "flex-1 mx-1" : "w-16 sm:w-[70px]"
             }`}
           >

@@ -256,14 +256,14 @@ function Index() {
 
 
       {/* Stats Section */}
-      <section className="py-24 bg-[#050505] relative z-10">
+      <section className="py-20 bg-[var(--background)] relative z-10">
         <div className="container mx-auto px-4">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {[
-              { label: "dias", value: 365, icon: CalendarIcon },
-              { label: "corridas", value: 216, icon: Footprints },
-              { label: "quilômetros", value: 2840, suffix: " km", icon: TrendingUp },
-              { label: "horas", value: 327, icon: Clock },
+              { label: "dias", value: 365, icon: CalendarIcon, sparkline: [20, 40, 30, 50, 40, 70, 60] },
+              { label: "corridas", value: 216, icon: Footprints, sparkline: [10, 20, 15, 30, 25, 40, 35] },
+              { label: "quilômetros", value: 2840, suffix: " km", icon: TrendingUp, sparkline: [30, 50, 45, 60, 55, 80, 75] },
+              { label: "horas", value: 327, icon: Clock, sparkline: [15, 25, 20, 35, 30, 45, 40] },
             ].map((stat, i) => (
               <motion.div
                 key={stat.label}
@@ -271,20 +271,30 @@ function Index() {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ delay: i * 0.1 }}
                 viewport={{ once: true }}
-                className="group p-8 rounded-[32px] bg-[#0F0F10] border border-white/5 backdrop-blur-xl relative overflow-hidden"
+                className="group p-8 rounded-[40px] bg-[var(--section-bg)] border border-white/5 backdrop-blur-xl relative overflow-hidden transition-all duration-500 hover:border-[var(--glow-orange)]/30"
               >
-                <div className="absolute top-0 right-0 w-24 h-24 bg-[#FF5A1F]/5 rounded-full -mr-8 -mt-8 blur-2xl group-hover:bg-[#FF5A1F]/10 transition-all duration-500" />
-                <stat.icon className="w-8 h-8 text-[#FF5A1F] mb-6" />
-                <div className="text-5xl font-black tracking-tighter mb-2 italic uppercase">
+                <div className="absolute top-0 right-0 w-32 h-32 bg-[var(--glow-orange)]/5 rounded-full -mr-8 -mt-8 blur-3xl group-hover:bg-[var(--glow-orange)]/10 transition-all duration-500" />
+                <stat.icon className="w-10 h-10 text-[var(--glow-orange)] mb-6" />
+                <div className="text-6xl font-black tracking-tighter mb-2 italic uppercase">
                   <CountUp end={stat.value} />
-                  {stat.suffix}
+                  <span className="text-2xl ml-1 opacity-60">{stat.suffix}</span>
                 </div>
-                <div className="text-sm font-bold tracking-[0.2em] uppercase text-[#A1A1AA]">{stat.label}</div>
+                <div className="flex justify-between items-end">
+                  <div className="text-[10px] font-black tracking-[0.3em] uppercase text-[#A1A1AA]">{stat.label}</div>
+                  
+                  {/* Sparkline simulation */}
+                  <div className="flex items-end gap-1 h-8 opacity-40 group-hover:opacity-100 transition-opacity">
+                    {stat.sparkline.map((h, idx) => (
+                      <div key={idx} className="w-1 bg-[var(--glow-orange)] rounded-full" style={{ height: `${h}%` }} />
+                    ))}
+                  </div>
+                </div>
               </motion.div>
             ))}
           </div>
         </div>
       </section>
+
 
       {/* Jornada Anual Section */}
       <section id="jornada-anual" className="py-24 bg-[#050505] relative z-10">

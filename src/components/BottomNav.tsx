@@ -4,7 +4,7 @@ import { Home, Calendar, Trophy, Image, User } from "lucide-react";
 
 const ITEMS = [
   { label: "Início", Icon: Home, href: "#" },
-  { label: "Calendário", Icon: Calendar, href: "#desempenho" },
+  { label: "Calendário", Icon: Calendar, href: "#jornada-anual" },
   { label: "Conquistas", Icon: Trophy, href: "#desempenho" },
   { label: "Galeria", Icon: Image, href: "#" },
   { label: "Perfil", Icon: User, href: "#perfil" },

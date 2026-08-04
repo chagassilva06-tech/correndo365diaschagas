@@ -81,6 +81,13 @@ function Index() {
     { name: "Julho", days: 31, activities: Array.from({ length: 31 }, (_, i) => i + 1) },
     { name: "Agosto", days: 31, activities: [1, 2, 3] },
   ];
+
+  const [selectedMonth, setSelectedMonth] = useState<string>("Todos");
+
+  const filteredMonths = selectedMonth === "Todos" 
+    ? months 
+    : months.filter(m => m.name === selectedMonth);
+
   
   return (
     <div className="min-h-screen bg-[#F6F7F8] text-[#172033] font-sans pb-20">
@@ -335,11 +342,26 @@ function Index() {
             </div>
           </div>
 
-          <div id="jornada-anual" className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-            <div className="lg:col-span-2">
-               <h3 className="text-lg font-bold mb-4 uppercase text-[#697386] text-xs">Jornada Anual</h3>
+          <div id="jornada-anual" className="grid grid-cols-1 gap-6">
+            <div className="w-full">
+               <div className="flex items-center justify-between mb-4">
+                 <h3 className="text-lg font-bold uppercase text-[#697386] text-xs">Jornada Anual</h3>
+                 <div className="flex items-center gap-2">
+                   <span className="text-[10px] font-bold text-[#697386] uppercase">Filtrar:</span>
+                   <select 
+                     value={selectedMonth}
+                     onChange={(e) => setSelectedMonth(e.target.value)}
+                     className="text-xs font-bold bg-white border border-[#E4E7EC] rounded-lg px-2 py-1 outline-none text-[#172033] cursor-pointer"
+                   >
+                     <option value="Todos">Todos os meses</option>
+                     {months.map(m => (
+                       <option key={m.name} value={m.name}>{m.name}</option>
+                     ))}
+                   </select>
+                 </div>
+               </div>
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-                  {months.map((month) => (
+                  {filteredMonths.map((month) => (
                     <Card key={month.name} className="overflow-hidden border-[#E4E7EC] shadow-sm rounded-xl">
                       <div className="bg-gray-50 border-b border-[#E4E7EC] p-3 text-center">
                         <p className="font-bold text-[#172033]">{month.name}/2026</p>
@@ -411,14 +433,22 @@ function Index() {
                   ))}
                 </div>
             </div>
-            
           </div>
         </div>
       </section>
+
+      <footer className="py-12 border-t border-[#E4E7EC] bg-white">
+        <div className="container mx-auto px-4 text-center">
+          <p className="text-[#697386] text-sm font-medium">
+            &copy; {new Date().getFullYear()} Desenvolvido por <span className="text-[#172033] font-bold">Francisco Chagas</span>
+          </p>
+        </div>
+      </footer>
 
       <div className="fixed bottom-6 left-1/2 -translate-x-1/2 z-50 w-full max-w-md px-4">
         <BottomNav />
       </div>
     </div>
+
   );
 }

@@ -1,12 +1,12 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Home, Calendar, Trophy, Image as ImageIcon, User } from "lucide-react";
+import { Home, Calendar, Trophy, Image as ImageIcon, User, Layers } from "lucide-react";
 
 const ITEMS = [
   { label: "Início", Icon: Home, href: "#" },
   { label: "Calendário", Icon: Calendar, href: "#jornada-anual" },
-  { label: "Conquistas", Icon: Trophy, href: "#desempenho" },
-  { label: "Galeria", Icon: ImageIcon, href: "#" },
+  { label: "Status", Icon: Layers, href: "#desempenho" },
+  { label: "Ranking", Icon: Trophy, href: "#" },
   { label: "Perfil", Icon: User, href: "#perfil" },
 ];
 

@@ -55,6 +55,7 @@ import { Badge } from "@/components/ui/badge";
 import { Progress } from "@/components/ui/progress";
 import stravaOfficialAsset from "@/assets/strava-official.png.asset.json";
 import runnerLogoAsset from "@/assets/runner-logo.png.asset.json";
+import profileAvatarAsset from "@/assets/profile-avatar.png.asset.json";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -401,7 +402,7 @@ function Index() {
             <div className="flex flex-col md:flex-row items-center gap-12 relative z-10">
               <div className="relative">
                 <div className="w-48 h-48 rounded-[40px] border-4 border-[#FF5A1F]/20 p-2 overflow-hidden shadow-2xl">
-                  <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=Francisco" alt="Profile" className="w-full h-full object-cover rounded-[32px] bg-[#050505]" />
+                  <img src={profileAvatarAsset.url} alt="Profile" className="w-full h-full object-cover rounded-[32px] bg-[#050505]" />
                 </div>
                 <div className="absolute -bottom-4 -right-4 bg-[#FF5A1F] text-white p-4 rounded-2xl shadow-xl">
                   <Trophy className="w-8 h-8" />

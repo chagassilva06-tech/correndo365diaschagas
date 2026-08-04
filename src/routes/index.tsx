@@ -2,7 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { BottomNav } from "@/components/BottomNav";
 import { 
   Home, 
-  Calendar, 
+  Calendar as CalendarIcon, 
   Trophy, 
   CheckCircle2, 
   TrendingUp, 
@@ -14,8 +14,29 @@ import {
   Timer,
   ExternalLink,
   Award,
-  Activity
+  Activity,
+  Footprints,
+  Bike,
+  Flame,
+  MoreHorizontal,
+  Share2,
+  RefreshCw,
+  Heart,
+  FlameKindling,
+  ChevronDown
 } from "lucide-react";
+import { 
+  LineChart, 
+  Line, 
+  XAxis, 
+  YAxis, 
+  CartesianGrid, 
+  Tooltip, 
+  ResponsiveContainer, 
+  BarChart, 
+  Bar,
+  Cell
+} from 'recharts';
 import { motion } from "framer-motion";
 import { useState } from "react";
 import { 

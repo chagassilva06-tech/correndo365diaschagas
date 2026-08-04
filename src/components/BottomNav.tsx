@@ -21,7 +21,7 @@ export function BottomNav({ fullWidth = false }: BottomNavProps) {
 
   return (
     <nav
-      className={`relative flex items-end bg-white border-b border-[#E4E7EC] py-1 shadow-sm ${
+      className={`relative flex items-end bg-white border border-[#E4E7EC] py-1 shadow-[0_12px_40px_rgba(0,0,0,0.12)] ${
         fullWidth ? "w-full justify-evenly rounded-lg px-2" : "rounded-full px-3 gap-4"
       }`}
     >

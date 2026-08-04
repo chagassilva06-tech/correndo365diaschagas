@@ -92,16 +92,21 @@ function Index() {
   
   return (
     <div className="min-h-screen bg-[#F6F7F8] text-[#172033] font-sans pb-20">
-      <header className="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-md border-b border-[#E4E7EC]">
+      <header className="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-md border-b border-[#E4E7EC] shadow-sm">
         <div className="container mx-auto px-4 h-16 flex items-center justify-between">
           <div className="flex items-center gap-2">
             <div className="w-8 h-8 bg-[#FF9F0A] rounded-lg flex items-center justify-center">
               <Activity className="text-white w-5 h-5" />
             </div>
-            <span className="font-black text-lg tracking-tighter italic uppercase">Correndo todo dia</span>
+            <motion.span 
+              whileHover={{ scale: 1.02 }}
+              className="font-black text-lg tracking-tighter italic uppercase transition-all duration-300 hover:text-[#FF9F0A] cursor-default"
+            >
+              Correndo todo dia
+            </motion.span>
           </div>
           
-          <nav className="hidden md:flex items-center gap-8 text-sm font-medium text-[#697386]">
+          <nav className="hidden lg:flex items-center gap-8 text-sm font-medium text-[#697386]">
             <a href="#" className="hover:text-[#172033] transition-colors" onClick={(e) => { e.preventDefault(); navigate({ to: "/" }); }}>Início</a>
             <a href="#desempenho" className="hover:text-[#172033] transition-colors">Calendário</a>
             <a href="#desempenho" className="hover:text-[#172033] transition-colors">Estatísticas</a>
@@ -116,13 +121,17 @@ function Index() {
             </a>
           </nav>
           
-          <Button 
-            onClick={() => navigate({ to: "/sync" })}
-            className="bg-[#FC4C02] hover:bg-[#FC4C02]/90 text-white gap-2 font-bold rounded-full"
-          >
-            <img src={stravaOfficialAsset.url} alt="Strava" className="w-4 h-4 brightness-0 invert" />
-            Conectar Strava
-          </Button>
+          <div className="flex items-center gap-3">
+            <Button 
+              onClick={() => navigate({ to: "/sync" })}
+              variant="outline"
+              size="sm"
+              className="border-[#FC4C02] text-[#FC4C02] hover:bg-[#FC4C02] hover:text-white gap-2 font-bold rounded-full h-9 px-4 transition-all"
+            >
+              <img src={stravaOfficialAsset.url} alt="Strava" className="w-4 h-4" />
+              Conectar Strava
+            </Button>
+          </div>
         </div>
       </header>
 
@@ -139,10 +148,13 @@ function Index() {
               </Badge>
             </div>
             
-            <h1 className="text-5xl lg:text-7xl font-black mb-4 tracking-tighter leading-[0.9] text-[#172033] italic uppercase">
+            <motion.h1 
+              whileHover={{ scale: 1.01 }}
+              className="text-5xl lg:text-7xl font-black mb-4 tracking-tighter leading-[0.9] text-[#172033] italic uppercase cursor-default transition-all duration-300"
+            >
               Correndo <br />
               <span className="text-[#FF9F0A]">todo dia</span>
-            </h1>
+            </motion.h1>
             
             <p className="text-xl text-[#697386] mb-8 leading-relaxed max-w-lg">
               Corra todos os dias com Sérgio Rocha, do canal Corrida no Ar. Um desafio de consistência para transformar a corrida em parte da sua rotina.

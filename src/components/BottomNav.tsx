@@ -64,7 +64,7 @@ export function BottomNav({ fullWidth = false }: BottomNavProps) {
               animate={{ 
                 y: isActive ? -12 : 0,
                 scale: isActive ? 1.1 : 1,
-                color: isActive ? "var(--glow-orange)" : "#A1A1AA"
+                color: isActive ? "var(--neon-green)" : "#A1A1AA"
               }}
               transition={{ type: "spring", stiffness: 500, damping: 20 }}
               className="relative z-10 flex items-center justify-center"
@@ -92,7 +92,7 @@ export function BottomNav({ fullWidth = false }: BottomNavProps) {
               <motion.span
                 layoutId="nav-indicator-premium"
                 transition={{ type: "spring", stiffness: 500, damping: 25 }}
-                className="absolute bottom-1.5 left-1/2 h-[4px] w-8 -translate-x-1/2 rounded-full bg-[var(--glow-orange)] shadow-[0_0_15px_rgba(255,90,31,0.6)]"
+                className="absolute bottom-1.5 left-1/2 h-[4px] w-8 -translate-x-1/2 rounded-full bg-[var(--neon-green)] shadow-[0_0_15px_rgba(34,197,94,0.6)]"
               />
             )}
           </a>

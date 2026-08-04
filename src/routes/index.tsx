@@ -40,7 +40,9 @@ import {
   ResponsiveContainer, 
   BarChart, 
   Bar,
-  Cell
+  Cell,
+  PieChart,
+  Pie
 } from 'recharts';
 import { motion, AnimatePresence } from "framer-motion";
 import { useState, useEffect } from "react";
@@ -337,7 +339,7 @@ function Index() {
           <div className="bg-[#0F0F10] rounded-[40px] p-10 border border-white/5 relative overflow-hidden group">
             <div className="absolute top-0 right-0 w-96 h-96 bg-[#FF5A1F]/5 rounded-full blur-[100px] pointer-events-none" />
             <div className="flex justify-between items-center mb-10">
-              <h3 className="text-sm font-black uppercase tracking-[0.3em] text-[#A1A1AA]">Últimas 12 semanas (Distância km)</h3>
+              <h3 className="text-sm font-black uppercase tracking-[0.3em] text-[#A1A1AA]">Última semana (Distância km)</h3>
               <div className="flex items-center gap-4">
                 <div className="flex items-center gap-2">
                   <div className="w-3 h-3 rounded-full bg-[#FF5A1F]" />
@@ -348,43 +350,38 @@ function Index() {
             
             <div className="h-64">
               <ResponsiveContainer width="100%" height="100%">
-                <BarChart 
-                  data={Array.from({length: 12}).map((_, i) => ({ 
-                    name: `S${i+1}`, 
-                    val: 30 + Math.random() * 40
-                  }))}
-                >
-                  <CartesianGrid strokeDasharray="3 3" vertical={false} stroke="rgba(255,255,255,0.05)" />
-                  <XAxis 
-                    dataKey="name" 
-                    axisLine={false} 
-                    tickLine={false} 
-                    tick={{fill: '#A1A1AA', fontSize: 10, fontWeight: 900}}
-                    dy={10}
-                  />
-                  <YAxis 
-                    axisLine={false} 
-                    tickLine={false} 
-                    tick={{fill: '#A1A1AA', fontSize: 10, fontWeight: 900}}
-                  />
-                  <Tooltip 
-                    cursor={{fill: 'rgba(255,255,255,0.03)'}}
-                    contentStyle={{backgroundColor: '#050505', borderRadius: '16px', border: '1px solid rgba(255,255,255,0.1)', fontSize: '12px', fontWeight: '900', color: '#fff'}}
-                  />
-                  <Bar 
-                    dataKey="val" 
-                    radius={[8, 8, 0, 0]}
-                    barSize={40}
+                <PieChart>
+                  <Pie
+                    data={[
+                      { name: 'Segunda', value: 6.5 },
+                      { name: 'Terça', value: 7.2 },
+                      { name: 'Quarta', value: 6.8 },
+                      { name: 'Quinta', value: 8.1 },
+                      { name: 'Sexta', value: 5.9 },
+                      { name: 'Sábado', value: 12.4 },
+                      { name: 'Domingo', value: 10.2 },
+                    ]}
+                    cx="50%"
+                    cy="50%"
+                    innerRadius={60}
+                    outerRadius={100}
+                    paddingAngle={5}
+                    dataKey="value"
                   >
-                    {Array.from({length: 12}).map((_, index) => (
+                    {[6.5, 7.2, 6.8, 8.1, 5.9, 12.4, 10.2].map((_, index) => (
                       <Cell 
                         key={`cell-${index}`} 
-                        fill={index === 11 ? '#FF5A1F' : 'rgba(255,255,255,0.1)'} 
-                        className="transition-all duration-500 hover:opacity-100 hover:fill-[#FF5A1F]/50"
+                        fill={index === 6 ? '#FF5A1F' : `rgba(255, 90, 31, ${0.2 + (index * 0.1)})`}
+                        className="transition-all duration-500 hover:opacity-100 outline-none"
                       />
                     ))}
-                  </Bar>
-                </BarChart>
+                  </Pie>
+                  <Tooltip 
+                    contentStyle={{backgroundColor: '#050505', borderRadius: '16px', border: '1px solid rgba(255,255,255,0.1)', fontSize: '12px', fontWeight: '900', color: '#fff'}}
+                    itemStyle={{color: '#fff'}}
+                    formatter={(value: number) => [`${value} km`, 'Distância']}
+                  />
+                </PieChart>
               </ResponsiveContainer>
             </div>
           </div>

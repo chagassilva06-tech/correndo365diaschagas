@@ -1,15 +1,14 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Home, Calendar, Trophy, Image, User } from "lucide-react";
+import { Home, Calendar, Trophy, Image as ImageIcon, User } from "lucide-react";
 
 const ITEMS = [
   { label: "Início", Icon: Home, href: "#" },
   { label: "Calendário", Icon: Calendar, href: "#jornada-anual" },
   { label: "Conquistas", Icon: Trophy, href: "#desempenho" },
-  { label: "Galeria", Icon: Image, href: "#" },
+  { label: "Galeria", Icon: ImageIcon, href: "#" },
   { label: "Perfil", Icon: User, href: "#perfil" },
 ];
-
 
 interface BottomNavProps {
   fullWidth?: boolean;
@@ -19,10 +18,13 @@ export function BottomNav({ fullWidth = false }: BottomNavProps) {
   const [active, setActive] = useState(0);
   const [hovered, setHovered] = useState<number | null>(null);
 
+  // Synchronize active state based on hash if needed, or just let the manual click handle it
+  // For simplicity, we keep the manual state
+
   return (
     <nav
-      className={`relative flex items-end bg-white border border-[#E4E7EC] py-1 shadow-[0_12px_40px_rgba(0,0,0,0.12)] ${
-        fullWidth ? "w-full justify-evenly rounded-lg px-2" : "rounded-full px-3 gap-4"
+      className={`relative flex items-end bg-[#0F0F10]/80 backdrop-blur-2xl border border-white/5 py-2 shadow-[0_20px_50px_rgba(0,0,0,0.5)] ${
+        fullWidth ? "w-full justify-evenly rounded-2xl px-4" : "rounded-3xl px-4 gap-2"
       }`}
     >
       {ITEMS.map((item, i) => {
@@ -38,7 +40,7 @@ export function BottomNav({ fullWidth = false }: BottomNavProps) {
             onMouseLeave={() => setHovered(null)}
             aria-label={item.label}
             aria-current={isActive ? "page" : undefined}
-            className={`relative flex h-16 flex-col items-center justify-center overflow-visible outline-none transition-all duration-300 hover:rounded-lg hover:bg-[#F6F7F8] sm:h-[68px] no-underline ${
+            className={`relative flex h-16 flex-col items-center justify-center overflow-visible outline-none transition-all duration-300 rounded-xl hover:bg-white/5 sm:h-[68px] no-underline ${
               fullWidth ? "flex-1 mx-1" : "w-16 sm:w-[70px]"
             }`}
           >
@@ -46,26 +48,30 @@ export function BottomNav({ fullWidth = false }: BottomNavProps) {
             <AnimatePresence>
               {isHovered && !isActive && (
                 <motion.span
-                  initial={{ opacity: 0, y: 6, scale: 0.9 }}
-                  animate={{ opacity: 1, y: -36, scale: 1 }}
-                  exit={{ opacity: 0, y: 4, scale: 0.9 }}
-                  transition={{ type: "spring", stiffness: 400, damping: 22 }}
-                  className="pointer-events-none absolute top-1/2 z-20 whitespace-nowrap rounded-lg bg-[#172033] px-2.5 py-1 text-[10px] font-medium text-white shadow-[0_4px_12px_rgba(0,0,0,0.15)] ring-1 ring-black/5 sm:text-[11px]"
+                  initial={{ opacity: 0, y: 10, scale: 0.9 }}
+                  animate={{ opacity: 1, y: -45, scale: 1 }}
+                  exit={{ opacity: 0, y: 5, scale: 0.9 }}
+                  transition={{ type: "spring", stiffness: 400, damping: 25 }}
+                  className="pointer-events-none absolute top-1/2 z-20 whitespace-nowrap rounded-lg bg-white px-3 py-1.5 text-[10px] font-black uppercase tracking-widest text-[#050505] shadow-[0_10px_30px_rgba(255,255,255,0.1)] ring-1 ring-white/10"
                 >
                   {item.label}
-                  <span className="absolute left-1/2 top-full -translate-x-1/2 border-4 border-transparent border-t-[#172033]" />
+                  <span className="absolute left-1/2 top-full -translate-x-1/2 border-6 border-transparent border-t-white" />
                 </motion.span>
               )}
             </AnimatePresence>
 
             <motion.span
-              animate={{ y: isActive ? -14 : 0 }}
-              transition={{ type: "spring", stiffness: 500, damping: 18 }}
+              animate={{ 
+                y: isActive ? -12 : 0,
+                scale: isActive ? 1.1 : 1,
+                color: isActive ? "#FF5A1F" : "#A1A1AA"
+              }}
+              transition={{ type: "spring", stiffness: 500, damping: 20 }}
               className="relative z-10 flex items-center justify-center"
             >
               <item.Icon
-                className={isActive ? "h-6 w-6 text-[#172033]" : "h-6 w-6 text-[#697386]"}
-                strokeWidth={2}
+                className="h-6 w-6"
+                strokeWidth={isActive ? 2.5 : 2}
               />
             </motion.span>
 
@@ -73,20 +79,20 @@ export function BottomNav({ fullWidth = false }: BottomNavProps) {
               initial={false}
               animate={
                 isActive
-                  ? { opacity: 1, scale: 1, y: 0 }
-                  : { opacity: 0, scale: 0.6, y: 4 }
+                  ? { opacity: 1, scale: 1, y: 2 }
+                  : { opacity: 0, scale: 0.8, y: 8 }
               }
-              transition={{ type: "spring", stiffness: 450, damping: 18 }}
-              className="pointer-events-none absolute bottom-4 z-10 text-[10px] font-semibold tracking-wide text-[#172033] sm:text-[11px]"
+              transition={{ type: "spring", stiffness: 450, damping: 22 }}
+              className="pointer-events-none absolute bottom-3 z-10 text-[9px] font-black uppercase tracking-widest text-white/40"
             >
               {item.label}
             </motion.span>
 
             {isActive && (
               <motion.span
-                layoutId="nav-indicator"
-                transition={{ type: "spring", stiffness: 500, damping: 18 }}
-                className="absolute bottom-2 left-1/2 h-[3px] w-6 -translate-x-1/2 rounded-full bg-[#FF9F0A] shadow-[0_0_8px_rgba(255,159,10,0.4)]"
+                layoutId="nav-indicator-premium"
+                transition={{ type: "spring", stiffness: 500, damping: 25 }}
+                className="absolute bottom-1.5 left-1/2 h-[4px] w-8 -translate-x-1/2 rounded-full bg-[#FF5A1F] shadow-[0_0_15px_rgba(255,90,31,0.6)]"
               />
             )}
           </a>

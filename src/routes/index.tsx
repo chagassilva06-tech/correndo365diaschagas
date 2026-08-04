@@ -80,7 +80,7 @@ function Index() {
     { name: "Maio", days: 31, activities: Array.from({ length: 31 }, (_, i) => i + 1) },
     { name: "Junho", days: 30, activities: Array.from({ length: 30 }, (_, i) => i + 1) },
     { name: "Julho", days: 31, activities: Array.from({ length: 31 }, (_, i) => i + 1) },
-    { name: "Agosto", days: 31, activities: [1, 2, 3] },
+    { name: "Agosto", days: 31, activities: [1, 2, 3, 4] },
   ];
 
   const [selectedMonth, setSelectedMonth] = useState<string>("Todos");

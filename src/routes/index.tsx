@@ -80,7 +80,7 @@ function Index() {
     { name: "Maio", days: 31, activities: Array.from({ length: 31 }, (_, i) => i + 1) },
     { name: "Junho", days: 30, activities: Array.from({ length: 30 }, (_, i) => i + 1) },
     { name: "Julho", days: 31, activities: Array.from({ length: 31 }, (_, i) => i + 1) },
-    { name: "Agosto", days: 31, activities: [1, 2, 3] },
+    { name: "Agosto", days: 31, activities: [1, 2, 3, 4] },
   ];
 
   const [selectedMonth, setSelectedMonth] = useState<string>("Todos");
@@ -243,7 +243,7 @@ function Index() {
                         <div key={i} className={`h-1.5 flex-1 rounded-full ${v ? 'bg-[#18A957]' : 'bg-white/10'}`}></div>
                       ))}
                     </div>
-                    <p className="mt-1.5 text-[9px] text-white/40">3 de 31 dias concluídos (10%)</p>
+                    <p className="mt-1.5 text-[9px] text-white/40">4 de 31 dias concluídos (13%)</p>
                   </div>
                 </div>
             </Card>

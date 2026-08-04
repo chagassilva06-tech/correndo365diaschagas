@@ -119,7 +119,7 @@ function SyncPage() {
                 </div>
                 <div className="bg-gray-50 p-4 rounded-2xl border border-[#E4E7EC]">
                   <Award className="w-5 h-5 text-[#FF9F0A] mb-1 mx-auto" />
-                  <p className="text-lg font-bold">03/08</p>
+                  <p className="text-lg font-bold">04/08</p>
                   <p className="text-[10px] text-[#697386] uppercase font-bold">Último dia</p>
                 </div>
               </div>

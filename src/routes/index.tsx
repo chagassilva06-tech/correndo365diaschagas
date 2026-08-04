@@ -188,19 +188,19 @@ function Index() {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.2, duration: 0.8 }}
-              className="text-7xl lg:text-[140px] font-black mb-8 tracking-tighter leading-[0.85] italic uppercase relative"
+              className="text-6xl lg:text-[110px] font-black mb-8 tracking-tighter leading-[0.85] italic uppercase relative"
             >
               <span className="relative z-10">Correndo</span> <br />
               <span className="relative z-10 text-transparent bg-clip-text bg-gradient-to-r from-[var(--glow-orange)] to-[#FF9F0A] drop-shadow-[0_0_30px_rgba(255,90,31,0.3)]">todo dia</span>
               
-              {/* Subtle background animation behind title */}
+              {/* Adjusted background animation to be lower and less intrusive */}
               <motion.div 
                 animate={{ 
                   scale: [1, 1.1, 1],
-                  opacity: [0.1, 0.2, 0.1],
+                  opacity: [0.05, 0.1, 0.05],
                 }}
                 transition={{ duration: 4, repeat: Infinity }}
-                className="absolute -top-10 -left-10 w-full h-full bg-[var(--glow-orange)]/10 blur-[100px] -z-10 rounded-full"
+                className="absolute top-0 -left-10 w-full h-full bg-[var(--glow-orange)]/5 blur-[120px] -z-10 rounded-full"
               />
             </motion.h1>
             
@@ -208,7 +208,7 @@ function Index() {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.4, duration: 0.8 }}
-              className="text-xl lg:text-3xl text-[#A1A1AA] mb-12 leading-tight max-w-xl font-medium tracking-tight"
+              className="text-lg lg:text-2xl text-[#A1A1AA] mb-12 leading-tight max-w-xl font-medium tracking-tight"
             >
               365 dias. Uma única missão. <br />
               <span className="text-white">Transformando disciplina em quilômetros.</span>
@@ -238,12 +238,12 @@ function Index() {
             className="relative hidden lg:block"
           >
             <div className="absolute inset-0 bg-[var(--glow-orange)]/20 blur-[120px] rounded-full animate-pulse" />
-            <div className="relative z-10 flex flex-col items-center">
-              <div className="text-[200px] font-black italic tracking-tighter leading-none text-white/90 drop-shadow-[0_0_50px_rgba(255,255,255,0.2)]">
+            <div className="relative z-0 flex flex-col items-center">
+              <div className="text-[160px] font-black italic tracking-tighter leading-none text-white/90 drop-shadow-[0_0_50px_rgba(255,255,255,0.2)]">
                 <CountUp end={216} />
               </div>
-              <div className="text-4xl font-black uppercase tracking-[0.3em] text-[var(--glow-orange)] -mt-10">DIAS</div>
-              <div className="text-lg font-bold text-[#A1A1AA] uppercase tracking-widest mt-2">consecutivos</div>
+              <div className="text-3xl font-black uppercase tracking-[0.3em] text-[var(--glow-orange)] -mt-8">DIAS</div>
+              <div className="text-base font-bold text-[#A1A1AA] uppercase tracking-widest mt-2">consecutivos</div>
               
               <div className="mt-12 w-64 h-80 rounded-[40px] overflow-hidden border-2 border-white/10 grayscale hover:grayscale-0 transition-all duration-700 group shadow-2xl relative">
                 <div className="absolute inset-0 bg-gradient-to-t from-[var(--glow-orange)]/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity z-10" />
@@ -301,9 +301,9 @@ function Index() {
         <div className="container mx-auto px-4">
           <div className="flex flex-col md:flex-row justify-between items-end mb-12 gap-8">
             <div className="max-w-2xl text-left">
-              <h2 className="text-5xl lg:text-7xl font-black italic uppercase tracking-tighter mb-6 leading-[0.9]">Jornada Anual</h2>
+              <h2 className="text-4xl lg:text-6xl font-black italic uppercase tracking-tighter mb-6 leading-[0.9]">Jornada Anual</h2>
               <div className="flex items-center gap-6">
-                 <p className="text-[#A1A1AA] text-lg">A principal atração do seu progresso.</p>
+                 <p className="text-[#A1A1AA] text-base">A principal atração do seu progresso.</p>
                  <div className="flex items-center gap-2 bg-[var(--glow-orange)]/10 px-4 py-2 rounded-xl border border-[var(--glow-orange)]/20">
                    <span className="text-xl">🔥</span>
                    <span className="text-sm font-black uppercase tracking-widest text-[var(--glow-orange)]">216 dias de sequência</span>
@@ -422,8 +422,8 @@ function Index() {
         <div className="container mx-auto px-4 max-w-6xl">
           <div className="flex flex-col md:flex-row justify-between items-center mb-12 gap-8">
             <div className="text-left">
-              <h2 className="text-5xl lg:text-7xl font-black italic uppercase tracking-tighter mb-6 leading-[0.9]">Seu Desempenho</h2>
-              <p className="text-[#A1A1AA] text-lg">Métricas avançadas e análise de performance semanal.</p>
+              <h2 className="text-4xl lg:text-6xl font-black italic uppercase tracking-tighter mb-6 leading-[0.9]">Seu Desempenho</h2>
+              <p className="text-[#A1A1AA] text-base">Métricas avançadas e análise de performance semanal.</p>
             </div>
             <div className="w-full md:w-auto flex bg-[var(--section-bg)] p-2 rounded-2xl border border-white/5">
               <Button className="bg-[var(--glow-orange)] text-white rounded-xl px-8 py-6 font-black uppercase tracking-widest italic shadow-[0_0_20px_rgba(255,90,31,0.2)]">Corrida</Button>
@@ -512,7 +512,7 @@ function Index() {
               <div className="flex-1 text-center md:text-left">
                 <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-6 border-b border-white/5 pb-6">
                   <div>
-                    <h3 className="text-5xl font-black italic uppercase tracking-tighter mb-2">Francisco Chagas</h3>
+                    <h3 className="text-4xl font-black italic uppercase tracking-tighter mb-2">Francisco Chagas</h3>
                     <div className="flex items-center gap-2 text-[#A1A1AA] text-xs font-black uppercase tracking-widest">
                        <CheckCircle2 className="w-4 h-4 text-[#18A957]" />
                        Desafio ativo • Runner since 2018

@@ -111,9 +111,10 @@ function Index() {
     : months.filter(m => m.name === selectedMonth);
 
   return (
-    <div className="min-h-screen bg-[#050505] text-white font-sans pb-32 selection:bg-[#FF5A1F]/30 selection:text-[#FF5A1F] tracking-tight leading-relaxed">
-      {/* Topographic Background Pattern */}
-      <div className="fixed inset-0 pointer-events-none z-0 opacity-[0.03]" style={{ backgroundImage: `url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M10 10 Q 50 40 90 10 M10 30 Q 50 60 90 30 M10 50 Q 50 80 90 50 M10 70 Q 50 100 90 70' stroke='white' fill='none'/%3E%3C/svg%3E")` }} />
+    <div className="min-h-screen bg-[var(--background)] text-white font-sans pb-32 selection:bg-[var(--glow-orange)]/30 selection:text-[var(--glow-orange)] tracking-tight leading-relaxed">
+      {/* Texture Layer */}
+      <div className="fixed inset-0 pointer-events-none z-0 opacity-[0.02]" style={{ backgroundImage: "var(--noise-texture)" }} />
+
 
       <header className="fixed top-0 left-0 right-0 z-50 bg-[#050505]/40 backdrop-blur-xl border-b border-white/5">
         <div className="container mx-auto px-6 h-20 flex items-center justify-between">

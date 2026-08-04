@@ -72,14 +72,14 @@ function Index() {
   const [selectedModality, setSelectedModality] = useState<"corrida" | "pedalada">("corrida");
   
   const months = [
-    { name: "Janeiro", days: 31, activities: [1, 5, 10, 15, 20, 25] },
-    { name: "Fevereiro", days: 28, activities: [2, 8, 14, 20, 26] },
-    { name: "Março", days: 31, activities: [3, 9, 15, 21, 27] },
-    { name: "Abril", days: 30, activities: [4, 10, 16, 22, 28] },
-    { name: "Maio", days: 31, activities: [5, 11, 17, 23, 29] },
-    { name: "Junho", days: 30, activities: [6, 12, 18, 24, 30] },
-    { name: "Julho", days: 31, activities: [7, 13, 19, 25, 31] },
-    { name: "Agosto", days: 31, activities: [1, 2, 3] },
+    { name: "Janeiro", days: 31, activities: Array.from({ length: 31 }, (_, i) => i + 1) },
+    { name: "Fevereiro", days: 28, activities: Array.from({ length: 28 }, (_, i) => i + 1) },
+    { name: "Março", days: 31, activities: Array.from({ length: 31 }, (_, i) => i + 1) },
+    { name: "Abril", days: 30, activities: Array.from({ length: 30 }, (_, i) => i + 1) },
+    { name: "Maio", days: 31, activities: Array.from({ length: 31 }, (_, i) => i + 1) },
+    { name: "Junho", days: 30, activities: Array.from({ length: 30 }, (_, i) => i + 1) },
+    { name: "Julho", days: 31, activities: Array.from({ length: 31 }, (_, i) => i + 1) },
+    { name: "Agosto", days: 31, activities: [1, 2, 3, 4] },
   ];
   
   return (
@@ -288,33 +288,79 @@ function Index() {
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
             <div className="lg:col-span-2">
                <h3 className="text-lg font-bold mb-4 uppercase text-[#697386] text-xs">Jornada Anual</h3>
-                <div className="grid grid-cols-4 lg:grid-cols-4 gap-3 bg-white p-6 rounded-2xl shadow-sm border border-[#E4E7EC]">
-                  {months.map((month, idx) => (
-                    <div key={month.name} className="flex flex-col gap-2">
-                      <p className="text-[10px] font-bold text-[#697386] uppercase text-center">{month.name}</p>
-                      <div className="grid grid-cols-7 gap-1">
-                        {Array.from({ length: month.days }).map((_, i) => {
-                          const day = i + 1;
-                          const hasActivity = month.activities.includes(day);
-                          return (
-                            <div
-                              key={i}
-                              className={`aspect-square rounded-sm flex items-center justify-center text-[8px] transition-all ${
-                                hasActivity 
-                                  ? "bg-[#FF9F0A] text-white shadow-[0_0_8px_rgba(255,159,10,0.4)]" 
-                                  : "bg-gray-50 text-gray-400 border border-gray-100"
-                              }`}
-                            >
-                              {hasActivity ? (
-                                <Footprints className="w-3 h-3" />
-                              ) : (
-                                day
-                              )}
-                            </div>
-                          );
-                        })}
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                  {months.map((month) => (
+                    <Card key={month.name} className="overflow-hidden border-[#E4E7EC] shadow-sm rounded-xl">
+                      <div className="bg-gray-50 border-b border-[#E4E7EC] p-3 text-center">
+                        <p className="font-bold text-[#172033]">{month.name}/2026</p>
                       </div>
-                    </div>
+                      <CardContent className="p-4">
+                        <div className="flex gap-4 mb-4">
+                          <div className="flex-1 flex flex-col items-center justify-center">
+                            <div className="relative w-16 h-16 flex items-center justify-center mb-1">
+                              <svg className="w-full h-full transform -rotate-90">
+                                <circle
+                                  cx="32"
+                                  cy="32"
+                                  r="28"
+                                  stroke="currentColor"
+                                  strokeWidth="4"
+                                  fill="transparent"
+                                  className="text-gray-100"
+                                />
+                                <circle
+                                  cx="32"
+                                  cy="32"
+                                  r="28"
+                                  stroke="currentColor"
+                                  strokeWidth="4"
+                                  fill="transparent"
+                                  strokeDasharray={175.9}
+                                  strokeDashoffset={175.9 * (1 - month.activities.length / month.days)}
+                                  className="text-[#18A957] transition-all duration-500"
+                                />
+                              </svg>
+                              <span className="absolute text-xs font-bold">{Math.round((month.activities.length / month.days) * 100)}%</span>
+                            </div>
+                          </div>
+                          <div className="flex-1 text-[10px] text-[#697386] font-medium leading-tight flex flex-col justify-center">
+                            <p className="font-bold text-gray-800 text-xs">{month.activities.length}/{month.days}</p>
+                            <p>dias</p>
+                            <p>ativos</p>
+                            <p className="mt-1">Total:</p>
+                            <p className="font-bold text-gray-800">{(month.activities.length * 6.7).toFixed(2)} km</p>
+                          </div>
+                        </div>
+
+                        <div className="grid grid-cols-7 gap-1">
+                          {["D", "S", "T", "Q", "Q", "S", "S"].map((d, i) => (
+                            <div key={i} className="text-center text-[8px] font-bold text-[#697386] mb-1">{d}</div>
+                          ))}
+                          {Array.from({ length: month.days }).map((_, i) => {
+                            const day = i + 1;
+                            const hasActivity = month.activities.includes(day);
+                            return (
+                              <div
+                                key={i}
+                                title={hasActivity ? "dia validado" : undefined}
+                                className={`aspect-square rounded-[4px] flex items-center justify-center text-[8px] transition-all group relative cursor-pointer ${
+                                  hasActivity 
+                                    ? "bg-[#D1FAE5] text-[#18A957] border border-[#A7F3D0] hover:scale-110 z-10" 
+                                    : "bg-gray-50 text-gray-300 border border-gray-100"
+                                }`}
+                              >
+                                {day}
+                                {hasActivity && (
+                                  <div className="absolute -top-8 left-1/2 -translate-x-1/2 bg-[#172033] text-white text-[10px] py-1 px-2 rounded opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap pointer-events-none">
+                                    dia validado
+                                  </div>
+                                )}
+                              </div>
+                            );
+                          })}
+                        </div>
+                      </CardContent>
+                    </Card>
                   ))}
                 </div>
             </div>

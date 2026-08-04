@@ -546,7 +546,7 @@ function Index() {
       <footer className="py-20 bg-[var(--background)] border-t border-white/5">
         <div className="container mx-auto px-4 text-center">
           <div className="flex justify-center gap-8 mb-12">
-            <a href="https://www.strava.com/athletes/44632513" target="_blank" rel="noreferrer" className="w-14 h-14 rounded-2xl bg-[var(--section-bg)] border border-white/5 flex items-center justify-center hover:border-[#FC4C02] transition-all hover:-translate-y-1"><img src={stravaOfficialAsset.url} className="w-6 h-6" /></a>
+            <a href="https://www.strava.com/athletes/44632513" target="_blank" rel="noreferrer" className="w-14 h-14 rounded-2xl bg-orange-600/10 border border-orange-600/20 flex items-center justify-center hover:border-orange-600 transition-all hover:-translate-y-1"><img src={stravaOfficialAsset.url} alt="Strava" className="w-6 h-6 brightness-110 contrast-125 mix-blend-screen" /></a>
             <a href="#" className="w-14 h-14 rounded-2xl bg-[var(--section-bg)] border border-white/5 flex items-center justify-center hover:border-white transition-all hover:-translate-y-1"><Instagram className="w-6 h-6" /></a>
             <a href="#" className="w-14 h-14 rounded-2xl bg-[var(--section-bg)] border border-white/5 flex items-center justify-center hover:border-red-600 transition-all hover:-translate-y-1"><Youtube className="w-6 h-6" /></a>
             <a href="#" className="w-14 h-14 rounded-2xl bg-[var(--section-bg)] border border-white/5 flex items-center justify-center hover:border-white transition-all hover:-translate-y-1"><Github className="w-6 h-6" /></a>

@@ -153,6 +153,13 @@ function Index() {
               >
                 Ver meu calendário
               </Button>
+              <Button 
+                size="lg" 
+                className="bg-[#FC4C02] hover:bg-[#FC4C02]/90 px-8 rounded-xl h-14 text-base font-bold gap-2 shadow-lg shadow-[#FC4C02]/20"
+              >
+                <img src={stravaOfficialAsset.url} alt="Strava" className="w-5 h-5 brightness-0 invert" />
+                Conectar de verdade
+              </Button>
             </div>
             
             <div className="flex flex-col gap-3">

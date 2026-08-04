@@ -155,9 +155,11 @@ function Index() {
               </Button>
             </div>
             
-            <div className="flex items-center gap-2 text-sm text-[#697386]">
-              <Zap className="w-4 h-4 text-[#FF9F0A]" />
-              Atividades sincronizadas automaticamente com o Strava.
+            <div className="flex flex-col gap-3">
+              <div className="flex items-center gap-2 text-sm text-[#697386]">
+                <img src={stravaOfficialAsset.url} alt="Strava" className="w-5 h-5" />
+                <span>Ao clicar em <strong className="text-[#FC4C02]">Conectar ao Strava</strong> será possível sincronizar suas atividades automaticamente.</span>
+              </div>
             </div>
           </div>
           

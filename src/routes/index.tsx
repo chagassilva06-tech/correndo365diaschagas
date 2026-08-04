@@ -55,7 +55,7 @@ import { Badge } from "@/components/ui/badge";
 import { Progress } from "@/components/ui/progress";
 import stravaOfficialAsset from "@/assets/strava-official.png.asset.json";
 import runnerLogoAsset from "@/assets/runner-logo.png.asset.json";
-import profileAvatarAsset from "@/assets/profile-avatar.png.asset.json";
+import profileAvatarAsset from "@/assets/new-profile-avatar.png.asset.json";
 import maleRunnerAsset from "@/assets/male-runner.png.asset.json";
 
 export const Route = createFileRoute("/")({

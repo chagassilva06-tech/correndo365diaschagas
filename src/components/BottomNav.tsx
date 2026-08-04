@@ -1,13 +1,13 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Home, Calendar, Trophy, Image, Settings } from "lucide-react";
+import { Home, Calendar, Trophy, Image, User } from "lucide-react";
 
 const ITEMS = [
-  { label: "Início", Icon: Home },
-  { label: "Calendário", Icon: Calendar },
-  { label: "Conquistas", Icon: Trophy },
-  { label: "Galeria", Icon: Image },
-  { label: "Ajustes", Icon: Settings },
+  { label: "Início", Icon: Home, href: "#" },
+  { label: "Calendário", Icon: Calendar, href: "#desempenho" },
+  { label: "Conquistas", Icon: Trophy, href: "#desempenho" },
+  { label: "Galeria", Icon: Image, href: "#" },
+  { label: "Perfil", Icon: User, href: "#" },
 ];
 
 
@@ -30,14 +30,15 @@ export function BottomNav({ fullWidth = false }: BottomNavProps) {
         const isHovered = hovered === i;
 
         return (
-          <button
+          <a
             key={item.label}
+            href={item.href}
             onClick={() => setActive(i)}
             onMouseEnter={() => setHovered(i)}
             onMouseLeave={() => setHovered(null)}
             aria-label={item.label}
             aria-current={isActive ? "page" : undefined}
-            className={`relative flex h-16 flex-col items-center justify-center overflow-visible outline-none transition-all duration-300 hover:rounded-lg hover:bg-[#F6F7F8] sm:h-[68px] ${
+            className={`relative flex h-16 flex-col items-center justify-center overflow-visible outline-none transition-all duration-300 hover:rounded-lg hover:bg-[#F6F7F8] sm:h-[68px] no-underline ${
               fullWidth ? "flex-1 mx-1" : "w-16 sm:w-[70px]"
             }`}
           >
@@ -88,7 +89,7 @@ export function BottomNav({ fullWidth = false }: BottomNavProps) {
                 className="absolute bottom-2 left-1/2 h-[3px] w-6 -translate-x-1/2 rounded-full bg-[#FF9F0A] shadow-[0_0_8px_rgba(255,159,10,0.4)]"
               />
             )}
-          </button>
+          </a>
         );
       })}
     </nav>

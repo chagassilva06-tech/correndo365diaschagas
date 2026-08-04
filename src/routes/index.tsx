@@ -1,4 +1,4 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, useNavigate } from "@tanstack/react-router";
 import { BottomNav } from "@/components/BottomNav";
 import { 
   Home, 
@@ -23,7 +23,9 @@ import {
   RefreshCw,
   Heart,
   FlameKindling,
-  ChevronDown
+  ChevronDown,
+  Trash2,
+  User
 } from "lucide-react";
 import { 
   LineChart, 
@@ -64,7 +66,21 @@ export const Route = createFileRoute("/")({
 });
 
 function Index() {
+  const navigate = useNavigate();
   const [currentMonth, setCurrentMonth] = useState("Agosto");
+  const [deleteCategory, setDeleteCategory] = useState(false);
+  const [selectedModality, setSelectedModality] = useState<"corrida" | "pedalada">("corrida");
+  
+  const months = [
+    { name: "Janeiro", days: 31, activities: [1, 5, 10, 15, 20, 25] },
+    { name: "Fevereiro", days: 28, activities: [2, 8, 14, 20, 26] },
+    { name: "Março", days: 31, activities: [3, 9, 15, 21, 27] },
+    { name: "Abril", days: 30, activities: [4, 10, 16, 22, 28] },
+    { name: "Maio", days: 31, activities: [5, 11, 17, 23, 29] },
+    { name: "Junho", days: 30, activities: [6, 12, 18, 24, 30] },
+    { name: "Julho", days: 31, activities: [7, 13, 19, 25, 31] },
+    { name: "Agosto", days: 31, activities: [1, 2, 3] },
+  ];
   
   return (
     <div className="min-h-screen bg-[#F6F7F8] text-[#172033] font-sans pb-20">
@@ -78,9 +94,9 @@ function Index() {
           </div>
           
           <nav className="hidden md:flex items-center gap-8 text-sm font-medium text-[#697386]">
-            <a href="#" className="hover:text-[#172033] transition-colors">Início</a>
-            <a href="#" className="hover:text-[#172033] transition-colors">Calendário</a>
-            <a href="#" className="hover:text-[#172033] transition-colors">Estatísticas</a>
+            <a href="#" className="hover:text-[#172033] transition-colors" onClick={(e) => { e.preventDefault(); navigate({ to: "/" }); }}>Início</a>
+            <a href="#desempenho" className="hover:text-[#172033] transition-colors">Calendário</a>
+            <a href="#desempenho" className="hover:text-[#172033] transition-colors">Estatísticas</a>
             <a href="#" className="hover:text-[#172033] transition-colors">Sobre</a>
           </nav>
           
@@ -132,12 +148,34 @@ function Index() {
             <Card className="rounded-[24px] overflow-hidden border-none shadow-xl bg-white p-2">
               <div className="bg-gradient-to-br from-[#172033] to-[#2a3b5e] rounded-[20px] p-6 text-white">
                 <div className="flex items-center gap-4 mb-8">
-                  <div className="w-16 h-16 rounded-full border-2 border-white/20 overflow-hidden bg-gray-200">
+                  <div className="w-16 h-16 rounded-full border-2 border-white/20 overflow-hidden bg-gray-200 relative group">
                     <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=Francisco" alt="Profile" className="w-full h-full object-cover" />
+                    <div className="absolute inset-0 bg-black/40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+                      <User className="text-white w-6 h-6" />
+                    </div>
                   </div>
-                  <div>
-                    <h3 className="font-bold text-xl">Francisco Chagas</h3>
-                    <p className="text-white/60 text-sm flex items-center gap-1">
+                  <div className="flex-1">
+                    <div className="flex items-center justify-between">
+                      <h3 className="font-bold text-xl">Francisco Chagas</h3>
+                      <button 
+                        onClick={() => setDeleteCategory(!deleteCategory)}
+                        className="p-1 hover:bg-white/10 rounded-full transition-colors text-white/60 hover:text-white"
+                      >
+                        <MoreHorizontal className="w-5 h-5" />
+                      </button>
+                    </div>
+                    {deleteCategory && (
+                      <button 
+                        className="text-[10px] text-red-400 font-bold hover:text-red-300 mt-1 flex items-center gap-1"
+                        onClick={() => {
+                          alert("Categoria apagada!");
+                          setDeleteCategory(false);
+                        }}
+                      >
+                        <Trash2 className="w-3 h-3" /> Apagar? categoria
+                      </button>
+                    )}
+                    <p className="text-white/60 text-sm flex items-center gap-1 mt-1">
                       <MapPin className="w-3 h-3" /> São Paulo — SP
                     </p>
                   </div>
@@ -177,7 +215,7 @@ function Index() {
         </div>
       </section>
 
-      <section className="py-12 bg-gray-50">
+      <section id="desempenho" className="py-12 bg-gray-50">
         <div className="container mx-auto px-4 max-w-6xl">
           <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-8 gap-4">
             <div>
@@ -185,11 +223,11 @@ function Index() {
               <p className="text-[#697386]">Acompanhe sua semana, sua sequência e todas as atividades sincronizadas pelo Strava.</p>
             </div>
             <div className="flex items-center gap-2 bg-white rounded-xl p-1 shadow-sm border border-[#E4E7EC]">
-              <button className="flex items-center gap-2 px-4 py-2 bg-[#FF9F0A]/10 text-[#FF9F0A] rounded-lg font-bold text-sm">
+              <button 
+                onClick={() => setSelectedModality("corrida")}
+                className={`flex items-center gap-2 px-4 py-2 rounded-lg font-bold text-sm transition-colors ${selectedModality === "corrida" ? "bg-[#FF9F0A]/10 text-[#FF9F0A]" : "text-[#697386] hover:text-[#172033]"}`}
+              >
                 <Footprints className="w-4 h-4" /> Corrida
-              </button>
-              <button className="flex items-center gap-2 px-4 py-2 text-[#697386] rounded-lg font-medium text-sm hover:text-[#172033]">
-                <Bike className="w-4 h-4" /> Pedalada
               </button>
             </div>
           </div>
@@ -249,24 +287,47 @@ function Index() {
 
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
             <div className="lg:col-span-2">
-               <h3 className="text-lg font-bold mb-4">Calendário Mensal</h3>
-               <div className="grid grid-cols-7 gap-2 bg-white p-4 rounded-2xl shadow-sm border border-[#E4E7EC]">
-                 {["Seg", "Ter", "Qua", "Qui", "Sex", "Sáb", "Dom"].map(d => (
-                   <div key={d} className="text-center text-xs font-bold text-[#697386] pb-2">{d}</div>
-                 ))}
-                 {Array.from({length: 31}).map((_, i) => (
-                   <div key={i} className="aspect-square bg-gray-50 rounded-lg flex items-center justify-center text-sm font-medium border border-gray-100 hover:border-orange-300">
-                     {i + 1}
-                   </div>
-                 ))}
-               </div>
+               <h3 className="text-lg font-bold mb-4 uppercase text-[#697386] text-xs">Jornada Anual</h3>
+                <div className="grid grid-cols-4 lg:grid-cols-4 gap-3 bg-white p-6 rounded-2xl shadow-sm border border-[#E4E7EC]">
+                  {months.map((month, idx) => (
+                    <div key={month.name} className="flex flex-col gap-2">
+                      <p className="text-[10px] font-bold text-[#697386] uppercase text-center">{month.name}</p>
+                      <div className="grid grid-cols-7 gap-1">
+                        {Array.from({ length: month.days }).map((_, i) => {
+                          const day = i + 1;
+                          const hasActivity = month.activities.includes(day);
+                          return (
+                            <div
+                              key={i}
+                              className={`aspect-square rounded-sm flex items-center justify-center text-[8px] transition-all ${
+                                hasActivity 
+                                  ? "bg-[#FF9F0A] text-white shadow-[0_0_8px_rgba(255,159,10,0.4)]" 
+                                  : "bg-gray-50 text-gray-400 border border-gray-100"
+                              }`}
+                            >
+                              {hasActivity ? (
+                                <Footprints className="w-3 h-3" />
+                              ) : (
+                                day
+                              )}
+                            </div>
+                          );
+                        })}
+                      </div>
+                    </div>
+                  ))}
+                </div>
             </div>
             
             <div className="bg-white rounded-[24px] p-6 border border-[#E4E7EC] shadow-sm">
-              <h3 className="text-lg font-bold mb-4">Atividade mais recente</h3>
-              <div className="bg-gray-50 rounded-xl p-4">
-                <p className="font-bold">Evening Run</p>
-                <p className="text-sm text-gray-500">1,75 km · 13:05/km</p>
+              <h3 className="text-lg font-bold mb-4">Seu perfil</h3>
+              <div className="bg-gray-50 rounded-xl p-6 flex flex-col items-center text-center">
+                <div className="w-20 h-20 rounded-full bg-white border-2 border-[#E4E7EC] flex items-center justify-center mb-4">
+                  <User className="w-10 h-10 text-[#697386]" />
+                </div>
+                <h4 className="font-bold text-[#172033]">Francisco Chagas</h4>
+                <p className="text-sm text-[#697386]">Corredor Amador</p>
+                <Button variant="outline" size="sm" className="mt-4 w-full rounded-lg">Ver perfil completo</Button>
               </div>
             </div>
           </div>

@@ -1,4 +1,4 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, useNavigate } from "@tanstack/react-router";
 import { BottomNav } from "@/components/BottomNav";
 import { 
   Home, 
@@ -23,7 +23,9 @@ import {
   RefreshCw,
   Heart,
   FlameKindling,
-  ChevronDown
+  ChevronDown,
+  Trash2,
+  User
 } from "lucide-react";
 import { 
   LineChart, 

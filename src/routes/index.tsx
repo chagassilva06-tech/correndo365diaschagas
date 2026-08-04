@@ -349,26 +349,24 @@ function Index() {
                         return (
                           <motion.div
                             key={i}
-                            whileHover={{ scale: 1.15, zIndex: 10 }}
+                            whileHover={{ scale: 1.15, zIndex: 10, backgroundColor: "var(--neon-green-hover)" }}
                             className={`aspect-square rounded-xl flex items-center justify-center text-[10px] font-black transition-all relative group/day cursor-pointer ${
                               hasActivity 
                                 ? isSpecial 
-                                  ? "bg-[#18A957] text-white shadow-[0_0_20px_rgba(24,169,87,0.4)]" 
-                                  : intensity === 2 
-                                    ? "bg-[var(--glow-orange)] text-white shadow-[0_0_15px_rgba(255,90,31,0.3)]"
-                                    : intensity === 1
-                                      ? "bg-[var(--glow-orange)]/60 text-white"
-                                      : "bg-[var(--glow-orange)]/30 text-white/80"
-                                : "bg-white/5 text-[#A1A1AA]/30 border border-white/5"
+                                  ? "bg-[var(--current-day-orange)] text-white shadow-[0_0_20px_rgba(245,158,11,0.4)]" 
+                                  : "bg-[var(--neon-green)] text-white shadow-[0_0_15px_rgba(34,197,94,0.3)]"
+                                : day < new Date().getDate() && isCurrentMonth
+                                  ? "bg-[var(--rest-day)] text-[#A1A1AA]/50"
+                                  : "bg-[var(--future-day)] text-[#A1A1AA]/30 border border-white/5"
                             }`}
                           >
                             {day}
                             {hasActivity && (
-                              <div className="absolute -top-12 left-1/2 -translate-x-1/2 bg-white text-[#050505] text-[10px] py-2 px-3 rounded-xl opacity-0 group-hover/day:opacity-100 transition-all duration-300 whitespace-nowrap pointer-events-none shadow-2xl font-black uppercase z-20">
+                              <div className="absolute -top-12 left-1/2 -translate-x-1/2 bg-[var(--neon-green)] text-white text-[10px] py-2 px-3 rounded-xl opacity-0 group-hover/day:opacity-100 transition-all duration-300 whitespace-nowrap pointer-events-none shadow-2xl font-black uppercase z-20 border border-white/10">
                                 {isSpecial ? "🏆 Recorde Pessoal" : `Dia ${day} Validado`}
                                 <br />
-                                <span className="text-[8px] opacity-60">6,70km • 4:18 pace</span>
-                                <div className="absolute top-full left-1/2 -translate-x-1/2 border-8 border-transparent border-t-white" />
+                                <span className="text-[8px] opacity-80">6,70km • 4:18 pace</span>
+                                <div className="absolute top-full left-1/2 -translate-x-1/2 border-8 border-transparent border-t-[var(--neon-green)]" />
                               </div>
                             )}
                           </motion.div>

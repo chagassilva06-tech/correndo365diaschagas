@@ -418,69 +418,75 @@ function Index() {
 
 
       {/* Desempenho / Chart Section */}
-      <section id="desempenho" className="py-24 bg-[#050505] border-t border-white/5">
+      <section id="desempenho" className="py-20 bg-[var(--background)] border-t border-white/5">
         <div className="container mx-auto px-4 max-w-6xl">
-          <div className="flex flex-col md:flex-row justify-between items-center mb-16 gap-8">
-            <div>
+          <div className="flex flex-col md:flex-row justify-between items-center mb-12 gap-8">
+            <div className="text-left">
               <h2 className="text-5xl lg:text-7xl font-black italic uppercase tracking-tighter mb-6 leading-[0.9]">Seu Desempenho</h2>
               <p className="text-[#A1A1AA] text-lg">Métricas avançadas e análise de performance semanal.</p>
             </div>
-            <div className="w-full md:w-auto flex bg-[#0F0F10] p-2 rounded-2xl border border-white/5">
-              <Button className="bg-[#FF5A1F] text-white rounded-xl px-8 py-6 font-black uppercase tracking-widest italic shadow-[0_0_20px_rgba(255,90,31,0.2)]">Corrida</Button>
+            <div className="w-full md:w-auto flex bg-[var(--section-bg)] p-2 rounded-2xl border border-white/5">
+              <Button className="bg-[var(--glow-orange)] text-white rounded-xl px-8 py-6 font-black uppercase tracking-widest italic shadow-[0_0_20px_rgba(255,90,31,0.2)]">Corrida</Button>
             </div>
           </div>
 
-          <div className="bg-[#0F0F10] rounded-[40px] p-10 border border-white/5 relative overflow-hidden group">
-            <div className="absolute top-0 right-0 w-96 h-96 bg-[#FF5A1F]/5 rounded-full blur-[100px] pointer-events-none" />
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
+             {[
+               { label: 'Distância', value: '62.4', unit: 'km', color: 'var(--glow-orange)' },
+               { label: 'Pace', value: '4:18', unit: '/km', color: '#fff' },
+               { label: 'Tempo', value: '4:28', unit: 'h', color: '#fff' },
+               { label: 'Elevação', value: '842', unit: 'm', color: '#fff' }
+             ].map((m, i) => (
+               <div key={i} className="bg-[var(--section-bg)] p-8 rounded-[32px] border border-white/5 relative overflow-hidden group">
+                 <div className="text-[10px] font-black uppercase tracking-[0.3em] text-[#A1A1AA] mb-4">{m.label}</div>
+                 <div className="text-4xl font-black italic uppercase tracking-tighter" style={{ color: m.color }}>
+                   {m.value}
+                   <span className="text-sm ml-1 opacity-60 normal-case font-bold">{m.unit}</span>
+                 </div>
+               </div>
+             ))}
+          </div>
+
+          <div className="bg-[var(--section-bg)] rounded-[40px] p-10 border border-white/5 relative overflow-hidden group">
+            <div className="absolute top-0 right-0 w-96 h-96 bg-[var(--glow-orange)]/5 rounded-full blur-[100px] pointer-events-none" />
             <div className="flex justify-between items-center mb-10">
-              <h3 className="text-sm font-black uppercase tracking-[0.3em] text-[#A1A1AA]">Última semana (Distância km)</h3>
+              <h3 className="text-sm font-black uppercase tracking-[0.3em] text-[#A1A1AA]">Volume Semanal</h3>
               <div className="flex items-center gap-4">
                 <div className="flex items-center gap-2">
-                  <div className="w-3 h-3 rounded-full bg-[#FF5A1F]" />
-                  <span className="text-xs font-black uppercase text-[#A1A1AA]">Meta Alcançada</span>
+                  <div className="w-3 h-3 rounded-full bg-[var(--glow-orange)]" />
+                  <span className="text-xs font-black uppercase text-[#A1A1AA]">Distância (km)</span>
                 </div>
               </div>
             </div>
             
-            <div className="h-64">
+            <div className="h-80">
               <ResponsiveContainer width="100%" height="100%">
-                <PieChart>
-                  <Pie
-                    data={[
-                      { name: 'Segunda', value: 6.5 },
-                      { name: 'Terça', value: 7.2 },
-                      { name: 'Quarta', value: 6.8 },
-                      { name: 'Quinta', value: 8.1 },
-                      { name: 'Sexta', value: 5.9 },
-                      { name: 'Sábado', value: 12.4 },
-                      { name: 'Domingo', value: 10.2 },
-                    ]}
-                    cx="50%"
-                    cy="50%"
-                    innerRadius={60}
-                    outerRadius={100}
-                    paddingAngle={5}
-                    dataKey="value"
-                  >
-                    {[6.5, 7.2, 6.8, 8.1, 5.9, 12.4, 10.2].map((_, index) => (
-                      <Cell 
-                        key={`cell-${index}`} 
-                        fill={index === 6 ? '#FF5A1F' : `rgba(255, 90, 31, ${0.2 + (index * 0.1)})`}
-                        className="transition-all duration-500 hover:opacity-100 outline-none"
-                      />
-                    ))}
-                  </Pie>
+                <BarChart data={[
+                  { name: 'Seg', val: 6.5 },
+                  { name: 'Ter', val: 7.2 },
+                  { name: 'Qua', val: 6.8 },
+                  { name: 'Qui', val: 8.1 },
+                  { name: 'Sex', val: 5.9 },
+                  { name: 'Sáb', val: 12.4 },
+                  { name: 'Dom', val: 10.2 },
+                ]}>
+                  <XAxis dataKey="name" axisLine={false} tickLine={false} tick={{fill: '#A1A1AA', fontSize: 10, fontWeight: 900}} />
                   <Tooltip 
-                    contentStyle={{backgroundColor: '#050505', borderRadius: '16px', border: '1px solid rgba(255,255,255,0.1)', fontSize: '12px', fontWeight: '900', color: '#fff'}}
-                    itemStyle={{color: '#fff'}}
-                    formatter={(value: any) => [`${value} km`, 'Distância']}
+                    cursor={{fill: 'rgba(255,255,255,0.05)'}}
+                    contentStyle={{backgroundColor: 'var(--card-bg)', borderRadius: '16px', border: '1px solid rgba(255,255,255,0.1)', fontSize: '10px', fontWeight: '900'}}
                   />
-                </PieChart>
+                  <Bar dataKey="val" radius={[8, 8, 0, 0]}>
+                    {Array.from({length: 7}).map((_, index) => (
+                      <Cell key={`cell-${index}`} fill={index === 5 ? 'var(--glow-orange)' : 'rgba(255,255,255,0.1)'} />
+                    ))}
+                  </Bar>
+                </BarChart>
               </ResponsiveContainer>
             </div>
           </div>
         </div>
       </section>
+
 
       {/* Profile Card Section (formerly Francisco Chagas card) */}
       <section id="perfil" className="py-24 bg-[#050505] border-t border-white/5">

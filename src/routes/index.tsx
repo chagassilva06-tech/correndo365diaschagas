@@ -413,12 +413,11 @@ function Index() {
               <div className="flex-1 text-center md:text-left">
                 <div className="flex items-center justify-center md:justify-start gap-4 mb-4">
                   <div className="flex items-center gap-4">
-                    <img src={maleRunnerAsset.url} alt="Runner Icon" className="w-12 h-12 object-cover rounded-full border-2 border-[#FF5A1F]" />
                     <h3 className="text-5xl font-black italic uppercase tracking-tighter">Francisco Chagas</h3>
                   </div>
                   <Badge className="bg-[#18A957]/10 text-[#18A957] border-[#18A957]/20 uppercase font-black text-[10px] tracking-widest py-1.5 px-4 rounded-full">Pro Member</Badge>
                 </div>
-                <p className="text-xl text-[#A1A1AA] mb-8 font-medium">São Paulo, SP • Corredor de Elite</p>
+                <p className="text-xl text-[#A1A1AA] mb-8 font-medium">São Paulo, SP • Corredor Amador Autodidata</p>
                 
                 <div className="grid grid-cols-2 md:grid-cols-3 gap-8">
                   <div>

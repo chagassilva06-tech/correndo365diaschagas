@@ -155,67 +155,105 @@ function Index() {
         </div>
       </header>
 
-      <section className="relative min-h-screen flex items-center justify-center pt-20 overflow-hidden">
+      <section className="relative min-h-[85vh] flex items-center justify-center pt-24 overflow-hidden mb-[-10vh]">
         {/* Immersive Hero Background */}
         <div className="absolute inset-0 z-0">
-          <div className="absolute inset-0 bg-[#050505] z-10 opacity-60" />
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-[#FF5A1F]/10 via-transparent to-transparent z-0 animate-pulse" />
-          {/* Simulated Video Placeholder */}
-          <div className="absolute inset-0 bg-gradient-to-b from-transparent to-[#050505] z-10" />
+          <div className="absolute inset-0 bg-[var(--background)] z-10 opacity-70" />
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-[var(--glow-orange)]/10 via-transparent to-transparent z-0 animate-pulse" />
+          
+          {/* Velocity Lines / Grid Animation */}
+          <div className="absolute inset-0 z-0 opacity-[0.05]" style={{ backgroundImage: `linear-gradient(rgba(255, 90, 31, 0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(255, 90, 31, 0.1) 1px, transparent 1px)`, backgroundSize: '100px 100px' }} />
+          
+          <div className="absolute inset-0 bg-gradient-to-b from-transparent to-[var(--background)] z-10" />
         </div>
 
-        <div className="container relative z-20 mx-auto px-4 text-center">
-          <motion.div 
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            className="flex justify-center mb-8"
-          >
-            <Badge variant="outline" className="border-[#FF5A1F] text-[#FF5A1F] bg-[#FF5A1F]/5 gap-3 px-5 py-2 backdrop-blur-md rounded-full shadow-[0_0_30px_rgba(255,90,31,0.1)] border-white/10">
-              <span className="relative flex h-2.5 w-2.5">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#FF5A1F] opacity-75"></span>
-                <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-[#FF5A1F]"></span>
-              </span>
-              <span className="text-[10px] font-black tracking-[0.2em] uppercase">Desafio ao vivo</span>
-            </Badge>
-          </motion.div>
-          
-          <motion.h1 
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.2, duration: 0.8 }}
-            className="text-7xl lg:text-[140px] font-black mb-10 tracking-tighter leading-[0.85] italic uppercase"
-          >
-            Correndo <br />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#FF5A1F] to-[#FF9F0A] drop-shadow-[0_0_30px_rgba(255,90,31,0.3)]">todo dia</span>
-          </motion.h1>
-          
-          <motion.p 
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.4, duration: 0.8 }}
-            className="text-xl lg:text-3xl text-[#A1A1AA] mb-14 leading-tight max-w-3xl mx-auto font-medium tracking-tight"
-          >
-            365 dias. Uma única missão. <br />
-            <span className="text-white">Transformando disciplina em quilômetros.</span>
-          </motion.p>
-          
-          <motion.div
-            initial={{ opacity: 0, scale: 0.9 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ delay: 0.6, duration: 0.8 }}
-          >
-            <Button 
-              size="lg"
-              className="bg-white text-[#050505] hover:bg-white/90 px-12 py-8 rounded-full text-xl font-black uppercase tracking-widest shadow-[0_0_40px_rgba(255,255,255,0.2)] hover:shadow-[0_0_60px_rgba(255,255,255,0.4)] transition-all group"
-              onClick={() => document.getElementById('jornada-anual')?.scrollIntoView({ behavior: 'smooth' })}
+        <div className="container relative z-20 mx-auto px-4 grid lg:grid-cols-2 gap-12 items-center">
+          <div className="text-left">
+            <motion.div 
+              initial={{ opacity: 0, x: -20 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8 }}
+              className="flex justify-start mb-6"
             >
-              Entrar no desafio
-              <ChevronRight className="w-6 h-6 ml-2 group-hover:translate-x-1 transition-transform" />
-            </Button>
+              <Badge variant="outline" className="border-[var(--glow-orange)] text-[var(--glow-orange)] bg-[var(--glow-orange)]/5 gap-3 px-5 py-2 backdrop-blur-md rounded-full border-white/10">
+                <span className="relative flex h-2.5 w-2.5">
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[var(--glow-orange)] opacity-75"></span>
+                  <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-[var(--glow-orange)]"></span>
+                </span>
+                <span className="text-[10px] font-black tracking-[0.2em] uppercase">Desafio ao vivo</span>
+              </Badge>
+            </motion.div>
+            
+            <motion.h1 
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.2, duration: 0.8 }}
+              className="text-7xl lg:text-[140px] font-black mb-8 tracking-tighter leading-[0.85] italic uppercase relative"
+            >
+              <span className="relative z-10">Correndo</span> <br />
+              <span className="relative z-10 text-transparent bg-clip-text bg-gradient-to-r from-[var(--glow-orange)] to-[#FF9F0A] drop-shadow-[0_0_30px_rgba(255,90,31,0.3)]">todo dia</span>
+              
+              {/* Subtle background animation behind title */}
+              <motion.div 
+                animate={{ 
+                  scale: [1, 1.1, 1],
+                  opacity: [0.1, 0.2, 0.1],
+                }}
+                transition={{ duration: 4, repeat: Infinity }}
+                className="absolute -top-10 -left-10 w-full h-full bg-[var(--glow-orange)]/10 blur-[100px] -z-10 rounded-full"
+              />
+            </motion.h1>
+            
+            <motion.p 
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 0.4, duration: 0.8 }}
+              className="text-xl lg:text-3xl text-[#A1A1AA] mb-12 leading-tight max-w-xl font-medium tracking-tight"
+            >
+              365 dias. Uma única missão. <br />
+              <span className="text-white">Transformando disciplina em quilômetros.</span>
+            </motion.p>
+            
+            <motion.div
+              initial={{ opacity: 0, scale: 0.9 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ delay: 0.6, duration: 0.8 }}
+              className="flex items-center gap-6"
+            >
+              <Button 
+                size="lg"
+                className="bg-white text-[#050505] hover:bg-white/90 px-12 py-8 rounded-full text-xl font-black uppercase tracking-widest shadow-[0_0_40px_rgba(255,255,255,0.1)] hover:shadow-[0_0_60px_rgba(255,255,255,0.2)] transition-all group"
+                onClick={() => document.getElementById('jornada-anual')?.scrollIntoView({ behavior: 'smooth' })}
+              >
+                Entrar
+                <ChevronRight className="w-6 h-6 ml-2 group-hover:translate-x-1 transition-transform" />
+              </Button>
+            </motion.div>
+          </div>
+
+          <motion.div 
+            initial={{ opacity: 0, scale: 0.8, rotate: 5 }}
+            animate={{ opacity: 1, scale: 1, rotate: 0 }}
+            transition={{ delay: 0.4, duration: 1, type: "spring" }}
+            className="relative hidden lg:block"
+          >
+            <div className="absolute inset-0 bg-[var(--glow-orange)]/20 blur-[120px] rounded-full animate-pulse" />
+            <div className="relative z-10 flex flex-col items-center">
+              <div className="text-[200px] font-black italic tracking-tighter leading-none text-white/90 drop-shadow-[0_0_50px_rgba(255,255,255,0.2)]">
+                <CountUp end={216} />
+              </div>
+              <div className="text-4xl font-black uppercase tracking-[0.3em] text-[var(--glow-orange)] -mt-10">DIAS</div>
+              <div className="text-lg font-bold text-[#A1A1AA] uppercase tracking-widest mt-2">consecutivos</div>
+              
+              <div className="mt-12 w-64 h-80 rounded-[40px] overflow-hidden border-2 border-white/10 grayscale hover:grayscale-0 transition-all duration-700 group shadow-2xl relative">
+                <div className="absolute inset-0 bg-gradient-to-t from-[var(--glow-orange)]/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity z-10" />
+                <img src={maleRunnerAsset.url} className="w-full h-full object-cover" alt="Corredor" />
+              </div>
+            </div>
           </motion.div>
         </div>
       </section>
+
 
       {/* Stats Section */}
       <section className="py-24 bg-[#050505] relative z-10">

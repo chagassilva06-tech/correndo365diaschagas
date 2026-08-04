@@ -154,20 +154,20 @@ function Index() {
           </div>
           
           <div className="relative">
-            <Card className="rounded-[24px] overflow-hidden border-none shadow-xl bg-white p-2">
-                <div id="perfil" className="bg-gradient-to-br from-[#172033] to-[#2a3b5e] rounded-[20px] p-6 text-white">
-                  <div className="flex items-center gap-4 mb-8">
-                    <div className="w-16 h-16 rounded-full border-2 border-white/20 overflow-hidden bg-gray-200 relative group">
+            <Card className="rounded-[24px] overflow-hidden border-none shadow-xl bg-white p-2 max-w-sm mx-auto">
+                <div id="perfil" className="bg-gradient-to-br from-[#172033] to-[#2a3b5e] rounded-[20px] p-5 text-white">
+                  <div className="flex items-center gap-3 mb-6">
+                    <div className="w-14 h-14 rounded-full border-2 border-white/20 overflow-hidden bg-gray-200 relative group">
                       <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=Francisco" alt="Profile" className="w-full h-full object-cover" />
                     </div>
                     <div className="flex-1">
                       <div className="flex items-center justify-between">
-                        <h3 className="font-bold text-xl">Francisco Chagas</h3>
+                        <h3 className="font-bold text-lg">Francisco Chagas</h3>
                         <button 
                           onClick={() => setDeleteCategory(!deleteCategory)}
                           className="p-1 hover:bg-white/10 rounded-full transition-colors text-white/60 hover:text-white"
                         >
-                          <MoreHorizontal className="w-5 h-5" />
+                          <MoreHorizontal className="w-4 h-4" />
                         </button>
                       </div>
                       {deleteCategory && (
@@ -181,36 +181,36 @@ function Index() {
                           <Trash2 className="w-3 h-3" /> Apagar? categoria
                         </button>
                       )}
-                      <p className="text-white/60 text-sm flex items-center gap-1 mt-1">
+                      <p className="text-white/60 text-xs flex items-center gap-1 mt-0.5">
                         <MapPin className="w-3 h-3" /> São Paulo — SP
                       </p>
                     </div>
                     <div className="ml-auto">
-                      <Badge className="bg-green-500/20 text-green-400 border-none">
-                        Em andamento
+                      <Badge className="bg-green-500/20 text-green-400 border-none text-[10px] px-2 py-0">
+                        <User className="w-3 h-3 mr-1" /> Ativo
                       </Badge>
                     </div>
                   </div>
                   
-                  <div className="grid grid-cols-2 gap-6 mb-8">
+                  <div className="grid grid-cols-2 gap-4 mb-6">
                     <div>
-                      <p className="text-white/50 text-xs uppercase tracking-wider mb-1">Sequência Atual</p>
-                      <p className="text-3xl font-bold">216 <span className="text-sm font-normal opacity-60">dias</span></p>
+                      <p className="text-white/50 text-[10px] uppercase tracking-wider mb-0.5">Sequência Atual</p>
+                      <p className="text-2xl font-bold">216 <span className="text-xs font-normal opacity-60">dias</span></p>
                     </div>
                     <div>
-                      <p className="text-white/50 text-xs uppercase tracking-wider mb-1">Acumulado</p>
-                      <p className="text-3xl font-bold">1.632,5 <span className="text-sm font-normal opacity-60">km</span></p>
+                      <p className="text-white/50 text-[10px] uppercase tracking-wider mb-0.5">Acumulado</p>
+                      <p className="text-2xl font-bold">1.632,5 <span className="text-xs font-normal opacity-60">km</span></p>
                     </div>
                   </div>
                   
-                  <div className="bg-white/5 rounded-xl p-4 backdrop-blur-sm border border-white/10">
-                    <p className="text-sm font-medium mb-3">Progresso Agosto/2026</p>
+                  <div className="bg-white/5 rounded-xl p-3 backdrop-blur-sm border border-white/10">
+                    <p className="text-xs font-medium mb-2">Progresso Agosto/2026</p>
                     <div className="flex gap-1">
                       {[1, 1, 1, 0, 0, 0, 0].map((v, i) => (
-                        <div key={i} className={`h-2 flex-1 rounded-full ${v ? 'bg-[#18A957]' : 'bg-white/10'}`}></div>
+                        <div key={i} className={`h-1.5 flex-1 rounded-full ${v ? 'bg-[#18A957]' : 'bg-white/10'}`}></div>
                       ))}
                     </div>
-                    <p className="mt-2 text-[10px] text-white/40">3 de 31 dias concluídos (10%)</p>
+                    <p className="mt-1.5 text-[9px] text-white/40">3 de 31 dias concluídos (10%)</p>
                   </div>
                 </div>
             </Card>
@@ -373,12 +373,9 @@ function Index() {
                               <span className="absolute text-xs font-bold">{Math.round((month.activities.length / month.days) * 100)}%</span>
                             </div>
                           </div>
-                          <div className="flex-1 text-[10px] text-[#697386] font-medium leading-tight flex flex-col justify-center">
-                            <p className="font-bold text-gray-800 text-xs">{month.activities.length}/{month.days}</p>
-                            <p>dias</p>
-                            <p>ativos</p>
-                            <p className="mt-1">Total:</p>
-                            <p className="font-bold text-gray-800">{(month.activities.length * 6.7).toFixed(2)} km</p>
+                          <div className="flex-1 text-[10px] text-[#697386] font-medium leading-tight flex flex-col justify-center gap-0.5">
+                            <p className="font-bold text-gray-800 text-[11px]">{month.activities.length}/{month.days} dias ativos</p>
+                            <p className="font-bold text-gray-800 text-[11px]">Total: {(month.activities.length * 6.7).toFixed(2)}km</p>
                           </div>
                         </div>
 

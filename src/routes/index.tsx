@@ -243,7 +243,7 @@ function Index() {
                         <div key={i} className={`h-1.5 flex-1 rounded-full ${v ? 'bg-[#18A957]' : 'bg-white/10'}`}></div>
                       ))}
                     </div>
-                    <p className="mt-1.5 text-[9px] text-white/40">3 de 31 dias concluídos (10%)</p>
+                    <p className="mt-1.5 text-[9px] text-white/40">4 de 31 dias concluídos (13%)</p>
                   </div>
                 </div>
             </Card>

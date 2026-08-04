@@ -108,15 +108,15 @@ function Index() {
               href="https://www.strava.com/athletes/44632513" 
               target="_blank" 
               rel="noopener noreferrer" 
-              className="flex items-center gap-1.5 bg-[#FC4C02] text-white px-3 py-1.5 rounded-full text-xs font-bold hover:bg-[#FC4C02]/90 transition-colors"
+              className="flex items-center gap-1.5 bg-white border border-[#E4E7EC] text-[#172033] px-3 py-1.5 rounded-full text-xs font-bold hover:bg-gray-50 transition-colors shadow-sm"
             >
-              <ExternalLink className="w-3 h-3" />
+              <img src={stravaOfficialAsset.url} alt="Strava" className="w-5 h-5 object-contain" />
               Strava
             </a>
           </nav>
           
-          <Button className="bg-[#172033] hover:bg-[#172033]/90 text-white gap-2">
-            <Zap className="w-4 h-4 fill-current" />
+          <Button className="bg-[#FC4C02] hover:bg-[#FC4C02]/90 text-white gap-2 font-bold rounded-full">
+            <img src={stravaOfficialAsset.url} alt="Strava" className="w-4 h-4 brightness-0 invert" />
             Conectar Strava
           </Button>
         </div>

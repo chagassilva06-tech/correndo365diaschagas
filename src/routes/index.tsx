@@ -215,7 +215,7 @@ function Index() {
         </div>
       </section>
 
-      <section className="py-12 bg-gray-50">
+      <section id="desempenho" className="py-12 bg-gray-50">
         <div className="container mx-auto px-4 max-w-6xl">
           <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-8 gap-4">
             <div>

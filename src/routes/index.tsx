@@ -462,7 +462,7 @@ function Index() {
                     cursor={{fill: 'rgba(255,255,255,0.05)'}}
                     contentStyle={{backgroundColor: 'var(--card-bg)', borderRadius: '16px', border: '1px solid rgba(255,255,255,0.1)', fontSize: '10px', fontWeight: '900'}}
                   />
-                  <Bar dataKey="val" radius={[8, 8, 0, 0]}>
+                  <Bar dataKey="val" fill="var(--neon-green)" radius={[8, 8, 0, 0]}>
                     {Array.from({length: 7}).map((_, index) => (
                       <Cell key={`cell-${index}`} fill={index === 5 ? 'var(--glow-orange)' : 'rgba(255,255,255,0.1)'} />
                     ))}

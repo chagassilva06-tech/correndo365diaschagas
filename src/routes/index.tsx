@@ -288,11 +288,32 @@ function Index() {
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
             <div className="lg:col-span-2">
                <h3 className="text-lg font-bold mb-4">Calendário Mensal</h3>
-                <div className="grid grid-cols-4 gap-2 bg-white p-4 rounded-2xl shadow-sm border border-[#E4E7EC]">
-                  {Array.from({length: 4}).map((_, i) => (
-                    <div key={i} className="aspect-square bg-gray-50 rounded-lg flex flex-col items-center justify-center text-sm font-medium border border-gray-100 hover:border-orange-300">
-                      <span className="text-xs font-bold text-[#697386]">Meses</span>
-                      <span>{i + 1}</span>
+                <div className="grid grid-cols-4 lg:grid-cols-4 gap-3 bg-white p-6 rounded-2xl shadow-sm border border-[#E4E7EC]">
+                  {months.map((month, idx) => (
+                    <div key={month.name} className="flex flex-col gap-2">
+                      <p className="text-[10px] font-bold text-[#697386] uppercase text-center">{month.name}</p>
+                      <div className="grid grid-cols-7 gap-1">
+                        {Array.from({ length: month.days }).map((_, i) => {
+                          const day = i + 1;
+                          const hasActivity = month.activities.includes(day);
+                          return (
+                            <div
+                              key={i}
+                              className={`aspect-square rounded-sm flex items-center justify-center text-[8px] transition-all ${
+                                hasActivity 
+                                  ? "bg-[#FF9F0A] text-white shadow-[0_0_8px_rgba(255,159,10,0.4)]" 
+                                  : "bg-gray-50 text-gray-400 border border-gray-100"
+                              }`}
+                            >
+                              {hasActivity ? (
+                                <Footprints className="w-3 h-3" />
+                              ) : (
+                                day
+                              )}
+                            </div>
+                          );
+                        })}
+                      </div>
                     </div>
                   ))}
                 </div>

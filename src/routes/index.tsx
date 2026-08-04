@@ -333,7 +333,7 @@ function Index() {
                     <span className={`font-black italic uppercase tracking-tight ${isCurrentMonth ? 'text-4xl' : 'text-xl'}`}>{month.name}</span>
                     <div className="text-right">
                       <p className="text-[10px] font-black text-[#A1A1AA] uppercase">{month.activities.length}/{month.days} dias</p>
-                      <p className="text-[10px] font-black text-[var(--glow-orange)] uppercase">{(month.activities.length * 6.7).toFixed(1)}km</p>
+                      <p className="text-[10px] font-black text-[var(--neon-green)] uppercase">{(month.activities.length * 6.7).toFixed(1)}km</p>
                     </div>
                   </div>
                   

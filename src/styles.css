@@ -98,7 +98,7 @@
 }
 
 .dark {
-  --background: oklch(0.129 0.042 264.695);
+  --background: #050505;
   --section-bg: #111111;
   --card-bg: #171717;
   --glow-orange: #FF6A00;

@@ -250,16 +250,14 @@ function Index() {
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
             <div className="lg:col-span-2">
                <h3 className="text-lg font-bold mb-4">Calendário Mensal</h3>
-               <div className="grid grid-cols-7 gap-2 bg-white p-4 rounded-2xl shadow-sm border border-[#E4E7EC]">
-                 {["Seg", "Ter", "Qua", "Qui", "Sex", "Sáb", "Dom"].map(d => (
-                   <div key={d} className="text-center text-xs font-bold text-[#697386] pb-2">{d}</div>
-                 ))}
-                 {Array.from({length: 31}).map((_, i) => (
-                   <div key={i} className="aspect-square bg-gray-50 rounded-lg flex items-center justify-center text-sm font-medium border border-gray-100 hover:border-orange-300">
-                     {i + 1}
-                   </div>
-                 ))}
-               </div>
+                <div className="grid grid-cols-4 gap-2 bg-white p-4 rounded-2xl shadow-sm border border-[#E4E7EC]">
+                  {Array.from({length: 4}).map((_, i) => (
+                    <div key={i} className="aspect-square bg-gray-50 rounded-lg flex flex-col items-center justify-center text-sm font-medium border border-gray-100 hover:border-orange-300">
+                      <span className="text-xs font-bold text-[#697386]">Meses</span>
+                      <span>{i + 1}</span>
+                    </div>
+                  ))}
+                </div>
             </div>
             
             <div className="bg-white rounded-[24px] p-6 border border-[#E4E7EC] shadow-sm">

@@ -33,8 +33,8 @@ export const Route = createFileRoute("/")({
     title: "Corra Todo Santo Dia | Desafio de Consistência",
     meta: [
       { name: "description", content: "Desafio de corrida diária com Sérgio Rocha. Sincronize suas atividades do Strava e acompanhe sua jornada." },
-      { property: "og:title", content: "Corra Todo Santo Dia" },
-      { property: "og:description", content: "Acompanhe seu progresso e mantenha a consistência na corrida." },
+      { property: "og:title", content: "Lovable App" },
+      { property: "og:description", content: "Desafio de corrida diária com Sérgio Rocha. Sincronize suas atividades do Strava e acompanhe sua jornada." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
     ],

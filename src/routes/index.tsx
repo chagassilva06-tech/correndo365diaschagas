@@ -28,7 +28,10 @@ import {
   User,
   Instagram,
   Youtube,
-  Github
+  Github,
+  Bell,
+  Settings,
+  Check
 } from "lucide-react";
 import { 
   LineChart, 
@@ -117,8 +120,52 @@ function Index() {
     ? months 
     : months.filter(m => m.name === selectedMonth);
 
+  const [showNotification, setShowNotification] = useState(false);
+  
+  useEffect(() => {
+    // Simulando o recebimento de uma atividade sincronizada após um pequeno delay
+    const timer = setTimeout(() => {
+      setShowNotification(true);
+    }, 2000);
+    return () => clearTimeout(timer);
+  }, []);
+
   return (
     <div className="min-h-screen bg-[var(--background)] text-white font-sans pb-32 selection:bg-[var(--glow-orange)]/30 selection:text-[var(--glow-orange)] tracking-tight leading-relaxed">
+      <AnimatePresence>
+        {showNotification && (
+          <motion.div
+            initial={{ opacity: 0, x: 100, scale: 0.9 }}
+            animate={{ opacity: 1, x: 0, scale: 1 }}
+            exit={{ opacity: 0, x: 100, scale: 0.9 }}
+            className="fixed top-24 right-6 z-[100] w-full max-w-[320px] bg-[#f5f5f5] text-[#333] rounded-lg shadow-2xl border border-black/5 overflow-hidden font-sans"
+          >
+            <div className="px-4 py-2 border-b border-black/5 flex items-center justify-between bg-[#efefef]">
+              <span className="text-sm font-medium text-[#666]">Notificações</span>
+              <div className="flex items-center gap-2 text-[#999]">
+                <Check className="w-4 h-4 cursor-pointer hover:text-[#333]" />
+                <Settings className="w-4 h-4 cursor-pointer hover:text-[#333]" />
+              </div>
+            </div>
+            <div className="p-4 flex items-start gap-3">
+              <div className="mt-1">
+                <Activity className="w-4 h-4 text-[#333]" strokeWidth={3} />
+              </div>
+              <div>
+                <p className="text-sm leading-tight font-medium">
+                  Nova atividade recebida em 04/08 as 09:12
+                </p>
+              </div>
+            </div>
+            <button 
+              onClick={() => setShowNotification(false)}
+              className="absolute top-2 right-2 text-transparent w-full h-full cursor-default"
+              aria-label="Close"
+            />
+          </motion.div>
+        )}
+      </AnimatePresence>
+
       {/* Texture Layer */}
       <div className="fixed inset-0 pointer-events-none z-0 opacity-[0.02]" style={{ backgroundImage: "var(--noise-texture)" }} />
 
@@ -138,9 +185,9 @@ function Index() {
           </div>
           
           <nav className="hidden lg:flex items-center gap-10 text-sm font-bold tracking-widest uppercase text-[#A1A1AA]">
-            <a href="#" className="hover:text-white transition-colors duration-300">Início</a>
-            <a href="#jornada-anual" className="hover:text-white transition-colors duration-300">Calendário</a>
-            <a href="#desempenho" className="hover:text-white transition-colors duration-300">Estatísticas</a>
+            <a href="#" className="hover:text-[var(--header-hover-bg)] hover:drop-shadow-[0_0_8px_var(--header-hover-bg)] transition-all duration-300">Início</a>
+            <a href="#jornada-anual" className="hover:text-[var(--header-hover-bg)] hover:drop-shadow-[0_0_8px_var(--header-hover-bg)] transition-all duration-300">Calendário</a>
+            <a href="#desempenho" className="hover:text-[var(--header-hover-bg)] hover:drop-shadow-[0_0_8px_var(--header-hover-bg)] transition-all duration-300">Estatísticas</a>
             <div className="flex items-center gap-4 border-l border-white/10 pl-10">
               <a href="https://instagram.com" target="_blank" rel="noreferrer" className="hover:text-white transition-colors"><Instagram className="w-5 h-5" /></a>
               <a href="https://www.strava.com/athletes/44632513" target="_blank" rel="noreferrer" className="flex items-center justify-center w-10 h-10 rounded-xl bg-orange-600/10 border border-orange-600/20 hover:bg-orange-600/20 transition-all duration-300">

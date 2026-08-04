@@ -66,7 +66,21 @@ export const Route = createFileRoute("/")({
 });
 
 function Index() {
+  const navigate = useNavigate();
   const [currentMonth, setCurrentMonth] = useState("Agosto");
+  const [deleteCategory, setDeleteCategory] = useState(false);
+  const [selectedModality, setSelectedModality] = useState<"corrida" | "pedalada">("corrida");
+  
+  const months = [
+    { name: "Janeiro", days: 31, activities: [1, 5, 10, 15, 20, 25] },
+    { name: "Fevereiro", days: 28, activities: [2, 8, 14, 20, 26] },
+    { name: "Março", days: 31, activities: [3, 9, 15, 21, 27] },
+    { name: "Abril", days: 30, activities: [4, 10, 16, 22, 28] },
+    { name: "Maio", days: 31, activities: [5, 11, 17, 23, 29] },
+    { name: "Junho", days: 30, activities: [6, 12, 18, 24, 30] },
+    { name: "Julho", days: 31, activities: [7, 13, 19, 25, 31] },
+    { name: "Agosto", days: 31, activities: [1, 2, 3] },
+  ];
   
   return (
     <div className="min-h-screen bg-[#F6F7F8] text-[#172033] font-sans pb-20">

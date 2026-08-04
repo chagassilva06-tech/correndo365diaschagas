@@ -68,7 +68,6 @@ function Index() {
   
   return (
     <div className="min-h-screen bg-[#F6F7F8] text-[#172033] font-sans pb-20">
-      {/* Header Fixo */}
       <header className="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-md border-b border-[#E4E7EC]">
         <div className="container mx-auto px-4 h-16 flex items-center justify-between">
           <div className="flex items-center gap-2">
@@ -92,7 +91,6 @@ function Index() {
         </div>
       </header>
 
-      {/* Hero Section */}
       <section className="pt-32 pb-16 container mx-auto px-4">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <div>
@@ -173,14 +171,12 @@ function Index() {
               </div>
             </Card>
             
-            {/* Decorativo */}
             <div className="absolute -z-10 -bottom-6 -right-6 w-64 h-64 bg-[#FF9F0A]/10 rounded-full blur-3xl"></div>
             <div className="absolute -z-10 -top-6 -left-6 w-48 h-48 bg-blue-400/10 rounded-full blur-3xl"></div>
           </div>
         </div>
       </section>
 
-      {/* Nova Seção: Desempenho */}
       <section className="py-12 bg-gray-50">
         <div className="container mx-auto px-4 max-w-6xl">
           <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-8 gap-4">
@@ -236,7 +232,6 @@ function Index() {
             </Card>
           </div>
           
-          {/* Gráfico 12 semanas */}
           <div className="bg-white rounded-[24px] p-8 border border-[#E4E7EC] shadow-sm mb-8">
             <h3 className="text-lg font-bold mb-6">Últimas 12 semanas (Distância km)</h3>
             <div className="h-64">
@@ -278,90 +273,9 @@ function Index() {
         </div>
       </section>
 
-      {/* Rodapé Navbar */}
       <div className="fixed bottom-6 left-1/2 -translate-x-1/2 z-50 w-full max-w-md px-4">
         <BottomNav />
       </div>
     </div>
   );
 }
-
-function StatCard({ icon, title, value, subtitle, footer }: any) {
-  return (
-    <Card className="border-[#E4E7EC] rounded-2xl shadow-sm hover:shadow-md transition-shadow">
-      <CardContent className="p-6">
-        <div className="w-10 h-10 rounded-xl bg-[#F6F7F8] flex items-center justify-center mb-4">
-          {icon}
-        </div>
-        <p className="text-xs font-semibold text-[#697386] uppercase tracking-wider mb-1">{title}</p>
-        <p className="text-2xl font-bold text-[#172033] mb-1">{value}</p>
-        <p className="text-sm text-[#697386] mb-4">{subtitle}</p>
-        {footer && (
-          <div className="pt-3 border-t border-[#E4E7EC] text-[10px] font-medium text-[#697386] uppercase">
-          {footer}
-          </div>
-        )}
-      </CardContent>
-    </Card>
-  );
-}
-
-function MonthCalendar({ month, year, activeDays, totalDays, km, completedDays, isCurrent = false }: any) {
-  const percent = Math.round((activeDays / totalDays) * 100);
-  
-  return (
-    <Card className="border-[#E4E7EC] rounded-[24px] overflow-hidden shadow-sm hover:shadow-lg transition-all">
-      <CardHeader className="p-6 pb-2">
-        <div className="flex items-center justify-between mb-2">
-          <CardTitle className="text-xl font-bold">{month}/{year}</CardTitle>
-          {isCurrent && <Badge className="bg-[#FF9F0A] text-[#172033] border-none font-bold">HOJE</Badge>}
-        </div>
-        <div className="grid grid-cols-3 gap-4">
-          <div>
-            <p className="text-[10px] text-[#697386] font-bold uppercase tracking-wider">Ativos</p>
-            <p className="font-bold text-sm">{activeDays}/{totalDays}</p>
-          </div>
-          <div>
-            <p className="text-[10px] text-[#697386] font-bold uppercase tracking-wider">Conclusão</p>
-            <p className="font-bold text-sm text-[#18A957]">{percent}%</p>
-          </div>
-          <div>
-            <p className="text-[10px] text-[#697386] font-bold uppercase tracking-wider">Distância</p>
-            <p className="font-bold text-sm">{km} km</p>
-          </div>
-        </div>
-      </CardHeader>
-      <CardContent className="p-6 pt-4">
-        <div className="grid grid-cols-7 gap-2 mb-2">
-          {["Dom", "Seg", "Ter", "Qua", "Qui", "Sex", "Sáb"].map(d => (
-            <div key={d} className="text-[10px] font-bold text-[#697386] text-center uppercase">{d}</div>
-          ))}
-        </div>
-        <div className="grid grid-cols-7 gap-2">
-          {Array.from({ length: 31 }).map((_, i) => {
-            const day = i + 1;
-            const isCompleted = completedDays.includes(day);
-            const isToday = isCurrent && day === 3;
-            
-            return (
-              <div 
-                key={day}
-                className={`
-                  aspect-square rounded-lg flex items-center justify-center text-xs font-bold transition-all cursor-pointer
-                  ${isCompleted ? 'bg-[#DDF5E7] border border-[#18A957] text-[#18A957] hover:bg-[#18A957] hover:text-white' : 'bg-white border border-[#E4E7EC] text-[#172033] hover:border-[#FF9F0A]'}
-                  ${isToday ? 'ring-2 ring-[#FF9F0A] ring-offset-1 border-[#FF9F0A]' : ''}
-                `}
-              >
-                {day}
-              </div>
-            );
-          })}
-        </div>
-      </CardContent>
-    </Card>
-  );
-}
-
-
-
-

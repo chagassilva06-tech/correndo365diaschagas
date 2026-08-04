@@ -56,6 +56,7 @@ import { Progress } from "@/components/ui/progress";
 import stravaOfficialAsset from "@/assets/strava-official.png.asset.json";
 import runnerLogoAsset from "@/assets/runner-logo.png.asset.json";
 import profileAvatarAsset from "@/assets/profile-avatar.png.asset.json";
+import maleRunnerAsset from "@/assets/male-runner.png.asset.json";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -412,7 +413,7 @@ function Index() {
               <div className="flex-1 text-center md:text-left">
                 <div className="flex items-center justify-center md:justify-start gap-4 mb-4">
                   <div className="flex items-center gap-4">
-                    <img src={runnerLogoAsset.url} alt="Runner Icon" className="w-10 h-10 object-contain brightness-0 invert opacity-80" />
+                    <img src={maleRunnerAsset.url} alt="Runner Icon" className="w-12 h-12 object-cover rounded-full border-2 border-[#FF5A1F]" />
                     <h3 className="text-5xl font-black italic uppercase tracking-tighter">Francisco Chagas</h3>
                   </div>
                   <Badge className="bg-[#18A957]/10 text-[#18A957] border-[#18A957]/20 uppercase font-black text-[10px] tracking-widest py-1.5 px-4 rounded-full">Pro Member</Badge>

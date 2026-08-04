@@ -148,12 +148,34 @@ function Index() {
             <Card className="rounded-[24px] overflow-hidden border-none shadow-xl bg-white p-2">
               <div className="bg-gradient-to-br from-[#172033] to-[#2a3b5e] rounded-[20px] p-6 text-white">
                 <div className="flex items-center gap-4 mb-8">
-                  <div className="w-16 h-16 rounded-full border-2 border-white/20 overflow-hidden bg-gray-200">
+                  <div className="w-16 h-16 rounded-full border-2 border-white/20 overflow-hidden bg-gray-200 relative group">
                     <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=Francisco" alt="Profile" className="w-full h-full object-cover" />
+                    <div className="absolute inset-0 bg-black/40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+                      <User className="text-white w-6 h-6" />
+                    </div>
                   </div>
-                  <div>
-                    <h3 className="font-bold text-xl">Francisco Chagas</h3>
-                    <p className="text-white/60 text-sm flex items-center gap-1">
+                  <div className="flex-1">
+                    <div className="flex items-center justify-between">
+                      <h3 className="font-bold text-xl">Francisco Chagas</h3>
+                      <button 
+                        onClick={() => setDeleteCategory(!deleteCategory)}
+                        className="p-1 hover:bg-white/10 rounded-full transition-colors text-white/60 hover:text-white"
+                      >
+                        <MoreHorizontal className="w-5 h-5" />
+                      </button>
+                    </div>
+                    {deleteCategory && (
+                      <button 
+                        className="text-[10px] text-red-400 font-bold hover:text-red-300 mt-1 flex items-center gap-1"
+                        onClick={() => {
+                          alert("Categoria apagada!");
+                          setDeleteCategory(false);
+                        }}
+                      >
+                        <Trash2 className="w-3 h-3" /> Apagar? categoria
+                      </button>
+                    )}
+                    <p className="text-white/60 text-sm flex items-center gap-1 mt-1">
                       <MapPin className="w-3 h-3" /> São Paulo — SP
                     </p>
                   </div>

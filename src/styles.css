@@ -99,6 +99,7 @@
 
 .dark {
   --background: #00021b;
+  --header-hover-bg: #F59E0B;
   --section-bg: #111111;
   --card-bg: #171717;
   --glow-orange: #C26A11;

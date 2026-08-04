@@ -89,7 +89,7 @@ export function BottomNav({ fullWidth = false }: BottomNavProps) {
                 className="absolute bottom-2 left-1/2 h-[3px] w-6 -translate-x-1/2 rounded-full bg-[#FF9F0A] shadow-[0_0_8px_rgba(255,159,10,0.4)]"
               />
             )}
-          </button>
+          </a>
         );
       })}
     </nav>

@@ -94,9 +94,9 @@ function Index() {
           </div>
           
           <nav className="hidden md:flex items-center gap-8 text-sm font-medium text-[#697386]">
-            <a href="#" className="hover:text-[#172033] transition-colors">Início</a>
-            <a href="#" className="hover:text-[#172033] transition-colors">Calendário</a>
-            <a href="#" className="hover:text-[#172033] transition-colors">Estatísticas</a>
+            <a href="#" className="hover:text-[#172033] transition-colors" onClick={(e) => { e.preventDefault(); navigate({ to: "/" }); }}>Início</a>
+            <a href="#desempenho" className="hover:text-[#172033] transition-colors">Calendário</a>
+            <a href="#desempenho" className="hover:text-[#172033] transition-colors">Estatísticas</a>
             <a href="#" className="hover:text-[#172033] transition-colors">Sobre</a>
           </nav>
           

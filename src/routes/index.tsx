@@ -50,6 +50,7 @@ import {
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Progress } from "@/components/ui/progress";
+import stravaOfficialAsset from "@/assets/strava-official.png.asset.json";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -108,15 +109,15 @@ function Index() {
               href="https://www.strava.com/athletes/44632513" 
               target="_blank" 
               rel="noopener noreferrer" 
-              className="flex items-center gap-1.5 bg-[#FC4C02] text-white px-3 py-1.5 rounded-full text-xs font-bold hover:bg-[#FC4C02]/90 transition-colors"
+              className="flex items-center gap-1.5 bg-white border border-[#E4E7EC] text-[#172033] px-3 py-1.5 rounded-full text-xs font-bold hover:bg-gray-50 transition-colors shadow-sm"
             >
-              <ExternalLink className="w-3 h-3" />
+              <img src={stravaOfficialAsset.url} alt="Strava" className="w-5 h-5 object-contain" />
               Strava
             </a>
           </nav>
           
-          <Button className="bg-[#172033] hover:bg-[#172033]/90 text-white gap-2">
-            <Zap className="w-4 h-4 fill-current" />
+          <Button className="bg-[#FC4C02] hover:bg-[#FC4C02]/90 text-white gap-2 font-bold rounded-full">
+            <img src={stravaOfficialAsset.url} alt="Strava" className="w-4 h-4 brightness-0 invert" />
             Conectar Strava
           </Button>
         </div>
@@ -154,9 +155,11 @@ function Index() {
               </Button>
             </div>
             
-            <div className="flex items-center gap-2 text-sm text-[#697386]">
-              <Zap className="w-4 h-4 text-[#FF9F0A]" />
-              Atividades sincronizadas automaticamente com o Strava.
+            <div className="flex flex-col gap-3">
+              <div className="flex items-center gap-2 text-sm text-[#697386]">
+                <img src={stravaOfficialAsset.url} alt="Strava" className="w-5 h-5" />
+                <span>Ao clicar em <strong className="text-[#FC4C02]">Conectar ao Strava</strong> será possível sincronizar suas atividades automaticamente.</span>
+              </div>
             </div>
           </div>
           

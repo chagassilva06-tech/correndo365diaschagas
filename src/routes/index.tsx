@@ -287,7 +287,7 @@ function Index() {
 
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
             <div className="lg:col-span-2">
-               <h3 className="text-lg font-bold mb-4">Calendário Mensal</h3>
+               <h3 className="text-lg font-bold mb-4 uppercase text-[#697386] text-xs">Jornada Anual</h3>
                 <div className="grid grid-cols-4 lg:grid-cols-4 gap-3 bg-white p-6 rounded-2xl shadow-sm border border-[#E4E7EC]">
                   {months.map((month, idx) => (
                     <div key={month.name} className="flex flex-col gap-2">

@@ -201,11 +201,11 @@ function Index() {
               <p className="text-[#697386]">Acompanhe sua semana, sua sequência e todas as atividades sincronizadas pelo Strava.</p>
             </div>
             <div className="flex items-center gap-2 bg-white rounded-xl p-1 shadow-sm border border-[#E4E7EC]">
-              <button className="flex items-center gap-2 px-4 py-2 bg-[#FF9F0A]/10 text-[#FF9F0A] rounded-lg font-bold text-sm">
+              <button 
+                onClick={() => setSelectedModality("corrida")}
+                className={`flex items-center gap-2 px-4 py-2 rounded-lg font-bold text-sm transition-colors ${selectedModality === "corrida" ? "bg-[#FF9F0A]/10 text-[#FF9F0A]" : "text-[#697386] hover:text-[#172033]"}`}
+              >
                 <Footprints className="w-4 h-4" /> Corrida
-              </button>
-              <button className="flex items-center gap-2 px-4 py-2 text-[#697386] rounded-lg font-medium text-sm hover:text-[#172033]">
-                <Bike className="w-4 h-4" /> Pedalada
               </button>
             </div>
           </div>

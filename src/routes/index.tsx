@@ -379,7 +379,7 @@ function Index() {
                   <Tooltip 
                     contentStyle={{backgroundColor: '#050505', borderRadius: '16px', border: '1px solid rgba(255,255,255,0.1)', fontSize: '12px', fontWeight: '900', color: '#fff'}}
                     itemStyle={{color: '#fff'}}
-                    formatter={(value: number) => [`${value} km`, 'Distância']}
+                    formatter={(value: any) => [`${value} km`, 'Distância']}
                   />
                 </PieChart>
               </ResponsiveContainer>

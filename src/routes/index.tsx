@@ -320,10 +320,14 @@ function Index() {
             </div>
             
             <div className="bg-white rounded-[24px] p-6 border border-[#E4E7EC] shadow-sm">
-              <h3 className="text-lg font-bold mb-4">Atividade mais recente</h3>
-              <div className="bg-gray-50 rounded-xl p-4">
-                <p className="font-bold">Evening Run</p>
-                <p className="text-sm text-gray-500">1,75 km · 13:05/km</p>
+              <h3 className="text-lg font-bold mb-4">Seu perfil</h3>
+              <div className="bg-gray-50 rounded-xl p-6 flex flex-col items-center text-center">
+                <div className="w-20 h-20 rounded-full bg-white border-2 border-[#E4E7EC] flex items-center justify-center mb-4">
+                  <User className="w-10 h-10 text-[#697386]" />
+                </div>
+                <h4 className="font-bold text-[#172033]">Francisco Chagas</h4>
+                <p className="text-sm text-[#697386]">Corredor Amador</p>
+                <Button variant="outline" size="sm" className="mt-4 w-full rounded-lg">Ver perfil completo</Button>
               </div>
             </div>
           </div>

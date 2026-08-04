@@ -135,7 +135,7 @@ function Index() {
             <a href="#desempenho" className="hover:text-white transition-colors duration-300">Estatísticas</a>
             <div className="flex items-center gap-4 border-l border-white/10 pl-10">
               <a href="https://instagram.com" target="_blank" rel="noreferrer" className="hover:text-white transition-colors"><Instagram className="w-5 h-5" /></a>
-              <a href="https://www.strava.com/athletes/44632513" target="_blank" rel="noreferrer" className="hover:text-[#FC4C02] transition-colors">
+              <a href="https://www.strava.com/athletes/44632513" target="_blank" rel="noreferrer" className="flex items-center justify-center w-10 h-10 rounded-xl bg-[#FC4C02]/10 border border-[#FC4C02]/20 hover:bg-[#FC4C02]/20 transition-all duration-300">
                 <img src={stravaOfficialAsset.url} alt="Strava" className="w-5 h-5 object-contain" />
               </a>
             </div>

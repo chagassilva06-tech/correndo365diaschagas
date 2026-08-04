@@ -180,161 +180,101 @@ function Index() {
         </div>
       </section>
 
-      {/* Estatísticas */}
-      <section className="py-12 bg-white">
-        <div className="container mx-auto px-4">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            <StatCard 
-              icon={<Activity className="text-[#FF9F0A]" />} 
-              title="Sequência atual" 
-              value="216 dias" 
-              subtitle="1.632,5 km percorridos"
-              footer="Correndo desde 31/12/2025"
-            />
-            <StatCard 
-              icon={<Trophy className="text-[#FF9F0A]" />} 
-              title="Maior sequência" 
-              value="216 dias" 
-              subtitle="1.632,5 km acumulados"
-            />
-            <StatCard 
-              icon={<CheckCircle2 className="text-[#18A957]" />} 
-              title="Dias concluídos" 
-              value="216 dias ativos" 
-              subtitle="59% do desafio concluído"
-            />
-            <StatCard 
-              icon={<TrendingUp className="text-blue-500" />} 
-              title="Média diária" 
-              value="7,56 km/dia" 
-              subtitle="Pace médio: 5:12/km"
-            />
-          </div>
-        </div>
-      </section>
-
-      {/* Calendário Principal */}
-      <section className="py-20 container mx-auto px-4">
-        <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
-          <div>
-            <h2 className="text-3xl font-bold mb-2">Minha jornada diária</h2>
-            <p className="text-[#697386]">Cada bloco verde representa um dia com atividade sincronizada pelo Strava.</p>
-          </div>
-          <div className="flex items-center gap-4">
-            <select className="bg-white border border-[#E4E7EC] rounded-lg px-4 py-2 text-sm font-medium">
-              <option>2026</option>
-              <option>2025</option>
-            </select>
-            <div className="flex border border-[#E4E7EC] rounded-lg p-1 bg-white">
-              <button className="px-4 py-1.5 text-sm font-medium bg-[#172033] text-white rounded-md">Mês</button>
-              <button className="px-4 py-1.5 text-sm font-medium text-[#697386] hover:text-[#172033]">Ano</button>
+      {/* Nova Seção: Desempenho */}
+      <section className="py-12 bg-gray-50">
+        <div className="container mx-auto px-4 max-w-6xl">
+          <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-8 gap-4">
+            <div>
+              <h2 className="text-3xl font-bold text-[#172033]">Seu desempenho</h2>
+              <p className="text-[#697386]">Acompanhe sua semana, sua sequência e todas as atividades sincronizadas pelo Strava.</p>
+            </div>
+            <div className="flex items-center gap-2 bg-white rounded-xl p-1 shadow-sm border border-[#E4E7EC]">
+              <button className="flex items-center gap-2 px-4 py-2 bg-[#FF9F0A]/10 text-[#FF9F0A] rounded-lg font-bold text-sm">
+                <Footprints className="w-4 h-4" /> Corrida
+              </button>
+              <button className="flex items-center gap-2 px-4 py-2 text-[#697386] rounded-lg font-medium text-sm hover:text-[#172033]">
+                <Bike className="w-4 h-4" /> Pedalada
+              </button>
             </div>
           </div>
-        </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-          <MonthCalendar 
-            month="Agosto" 
-            year={2026} 
-            activeDays={3} 
-            totalDays={31} 
-            km={31.69} 
-            completedDays={[1, 2, 3]}
-            isCurrent={true}
-          />
-          <MonthCalendar 
-            month="Julho" 
-            year={2026} 
-            activeDays={31} 
-            totalDays={31} 
-            km={239.08} 
-            completedDays={Array.from({length: 31}, (_, i) => i + 1)}
-          />
-          <MonthCalendar 
-            month="Junho" 
-            year={2026} 
-            activeDays={30} 
-            totalDays={30} 
-            km={225.45} 
-            completedDays={Array.from({length: 30}, (_, i) => i + 1)}
-          />
-          <MonthCalendar 
-            month="Maio" 
-            year={2026} 
-            activeDays={31} 
-            totalDays={31} 
-            km={245.12} 
-            completedDays={Array.from({length: 31}, (_, i) => i + 1)}
-          />
-        </div>
-      </section>
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-8">
+            <Card className="lg:col-span-2 rounded-[24px] shadow-sm border-[#E4E7EC]">
+              <CardHeader className="pb-2">
+                <CardTitle className="text-lg">Esta semana</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <div className="grid grid-cols-3 gap-4">
+                  <div>
+                    <p className="text-xs text-[#697386] font-bold uppercase">Distância</p>
+                    <p className="text-2xl font-bold text-[#172033]">3,32 km</p>
+                  </div>
+                  <div>
+                    <p className="text-xs text-[#697386] font-bold uppercase">Tempo</p>
+                    <p className="text-2xl font-bold text-[#172033]">39min</p>
+                  </div>
+                  <div>
+                    <p className="text-xs text-[#697386] font-bold uppercase">Elevação</p>
+                    <p className="text-2xl font-bold text-[#172033]">69 m</p>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
 
-      {/* Heatmap Anual Estilo GitHub */}
-      <section className="py-12 border-t border-[#E4E7EC]">
-        <div className="container mx-auto px-4">
-          <div className="bg-white p-8 rounded-[24px] border border-[#E4E7EC]">
-            <h3 className="text-lg font-bold mb-6">Consistência Anual 2026</h3>
-            <div className="flex flex-wrap gap-1 mb-6">
-              {Array.from({ length: 365 }).map((_, i) => {
-                const isActive = i < 216;
-                let bgColor = "bg-[#EEF0F2]";
-                if (isActive) {
-                  if (i % 7 === 0) bgColor = "bg-[#18A957]";
-                  else if (i % 3 === 0) bgColor = "bg-[#18A957]/60";
-                  else bgColor = "bg-[#DDF5E7]";
-                }
-                return (
-                  <div 
-                    key={i} 
-                    className={`w-3 h-3 rounded-[2px] ${bgColor} cursor-pointer hover:ring-2 hover:ring-[#FF9F0A] transition-all`}
-                    title={`Dia ${i + 1}`}
-                  ></div>
-                );
-              })}
-            </div>
-            <div className="flex items-center gap-2 text-xs text-[#697386] justify-end">
-              <span>Menos km</span>
-              <div className="flex gap-1">
-                <div className="w-3 h-3 bg-[#EEF0F2] rounded-[2px]"></div>
-                <div className="w-3 h-3 bg-[#DDF5E7] rounded-[2px]"></div>
-                <div className="w-3 h-3 bg-[#18A957]/60 rounded-[2px]"></div>
-                <div className="w-3 h-3 bg-[#18A957] rounded-[2px]"></div>
-              </div>
-              <span>Mais km</span>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Desafio Continua */}
-      <section className="py-20 container mx-auto px-4">
-        <div className="bg-[#172033] rounded-[32px] overflow-hidden relative p-12 text-white">
-          <div className="max-w-xl relative z-10">
-            <h2 className="text-4xl font-bold mb-4">O desafio continua</h2>
-            <p className="text-white/70 text-lg mb-8">
-              A sequência é construída um dia de cada vez. A próxima corrida mantém o calendário vivo.
-            </p>
-            
-            <div className="mb-8">
-              <div className="flex justify-between items-end mb-2">
-                <span className="text-2xl font-bold">216 <span className="text-sm font-normal opacity-60">de 365 dias</span></span>
-                <span className="text-sm font-medium text-green-400">59% concluído</span>
-              </div>
-              <Progress value={59} className="h-3 bg-white/10" />
-            </div>
-            
-            <p className="text-sm text-white/50 mb-8 italic">
-              "Faltam 149 dias para completar um ano correndo todos os dias."
-            </p>
-            
-            <Button size="lg" className="bg-[#FF9F0A] hover:bg-[#FF9F0A]/90 text-[#172033] font-bold rounded-xl h-14">
-              Abrir atividade mais recente
-            </Button>
+            <Card className="rounded-[24px] shadow-sm border-[#E4E7EC]">
+              <CardHeader className="pb-2">
+                <CardTitle className="text-lg">Sequência atual</CardTitle>
+              </CardHeader>
+              <CardContent className="flex items-center gap-4">
+                <div className="w-12 h-12 rounded-full bg-orange-100 flex items-center justify-center text-[#FF9F0A]">
+                  <Flame className="w-6 h-6" />
+                </div>
+                <div>
+                  <p className="text-3xl font-bold text-[#172033]">73 dias</p>
+                </div>
+              </CardContent>
+            </Card>
           </div>
           
-          {/* Gráfico decorativo de fundo */}
-          <div className="absolute right-0 bottom-0 top-0 w-1/3 bg-gradient-to-l from-[#FF9F0A]/10 to-transparent pointer-events-none"></div>
-          <Activity className="absolute -right-20 -bottom-20 w-80 h-80 text-white/5 rotate-12" />
+          {/* Gráfico 12 semanas */}
+          <div className="bg-white rounded-[24px] p-8 border border-[#E4E7EC] shadow-sm mb-8">
+            <h3 className="text-lg font-bold mb-6">Últimas 12 semanas (Distância km)</h3>
+            <div className="h-64">
+              <ResponsiveContainer width="100%" height="100%">
+                <BarChart data={Array.from({length: 12}).map((_, i) => ({ name: `S${i+1}`, val: Math.random() * 50 + 10 }))}>
+                  <CartesianGrid strokeDasharray="3 3" vertical={false} />
+                  <XAxis dataKey="name" />
+                  <YAxis />
+                  <Tooltip />
+                  <Bar dataKey="val" fill="#FF9F0A" radius={[4, 4, 0, 0]} />
+                </BarChart>
+              </ResponsiveContainer>
+            </div>
+          </div>
+
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+            <div className="lg:col-span-2">
+               <h3 className="text-lg font-bold mb-4">Calendário Mensal</h3>
+               <div className="grid grid-cols-7 gap-2 bg-white p-4 rounded-2xl shadow-sm border border-[#E4E7EC]">
+                 {["Seg", "Ter", "Qua", "Qui", "Sex", "Sáb", "Dom"].map(d => (
+                   <div key={d} className="text-center text-xs font-bold text-[#697386] pb-2">{d}</div>
+                 ))}
+                 {Array.from({length: 31}).map((_, i) => (
+                   <div key={i} className="aspect-square bg-gray-50 rounded-lg flex items-center justify-center text-sm font-medium border border-gray-100 hover:border-orange-300">
+                     {i + 1}
+                   </div>
+                 ))}
+               </div>
+            </div>
+            
+            <div className="bg-white rounded-[24px] p-6 border border-[#E4E7EC] shadow-sm">
+              <h3 className="text-lg font-bold mb-4">Atividade mais recente</h3>
+              <div className="bg-gray-50 rounded-xl p-4">
+                <p className="font-bold">Evening Run</p>
+                <p className="text-sm text-gray-500">1,75 km · 13:05/km</p>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 

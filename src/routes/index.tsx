@@ -126,7 +126,7 @@ function Index() {
       <header className="fixed top-0 left-0 right-0 z-50 bg-[#00021b]/80 backdrop-blur-xl border-b border-yellow-400/20 shadow-[var(--header-shadow)]">
         <div className="container mx-auto px-6 h-20 flex items-center justify-between">
           <div className="flex items-center gap-3 group cursor-pointer" onClick={() => navigate({ to: "/" })}>
-            <div className="w-10 h-10 bg-[#FF5A1F] rounded-xl flex items-center justify-center shadow-[0_0_20px_rgba(255,90,31,0.3)] group-hover:shadow-[0_0_30px_rgba(255,90,31,0.5)] transition-all duration-500">
+            <div className="w-10 h-10 bg-[var(--neon-green)] rounded-xl flex items-center justify-center shadow-[0_0_20px_rgba(34,197,94,0.3)] group-hover:shadow-[0_0_30px_rgba(34,197,94,0.5)] transition-all duration-500">
               <Activity className="text-white w-6 h-6" />
             </div>
             <motion.span 
@@ -182,10 +182,10 @@ function Index() {
               transition={{ duration: 0.8 }}
               className="flex justify-start mb-6"
             >
-              <Badge variant="outline" className="border-[var(--glow-orange)] text-[var(--glow-orange)] bg-[var(--glow-orange)]/5 gap-3 px-5 py-2 backdrop-blur-md rounded-full border-white/10">
+              <Badge variant="outline" className="border-[var(--neon-green)] text-[var(--neon-green)] bg-[var(--neon-green)]/5 gap-3 px-5 py-2 backdrop-blur-md rounded-full border-white/10">
                 <span className="relative flex h-2.5 w-2.5">
-                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[var(--glow-orange)] opacity-75"></span>
-                  <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-[var(--glow-orange)]"></span>
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[var(--neon-green)] opacity-75"></span>
+                  <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-[var(--neon-green)]"></span>
                 </span>
                 <span className="text-[10px] font-black tracking-[0.2em] uppercase">Desafio ao vivo</span>
               </Badge>
@@ -198,7 +198,7 @@ function Index() {
               className="text-6xl lg:text-[110px] font-black mb-8 tracking-tighter leading-[0.85] italic uppercase relative"
             >
               <span className="relative z-10">Correndo</span> <br />
-              <span className="relative z-10 text-transparent bg-clip-text bg-gradient-to-r from-[var(--glow-orange)] to-[#FF9F0A] drop-shadow-[0_0_30px_rgba(255,90,31,0.3)]">todo dia</span>
+              <span className="relative z-10 text-transparent bg-clip-text bg-gradient-to-r from-[var(--neon-green)] to-[#34D399] drop-shadow-[0_0_30px_rgba(34,197,94,0.3)]">todo dia</span>
               
               {/* Adjusted background animation to be lower and less intrusive */}
               <motion.div 
@@ -207,7 +207,7 @@ function Index() {
                   opacity: [0.05, 0.1, 0.05],
                 }}
                 transition={{ duration: 4, repeat: Infinity }}
-                className="absolute top-0 -left-10 w-full h-full bg-[var(--glow-orange)]/5 blur-[120px] -z-10 rounded-full"
+                className="absolute top-0 -left-10 w-full h-full bg-[var(--neon-green)]/5 blur-[120px] -z-10 rounded-full"
               />
             </motion.h1>
             
@@ -229,16 +229,16 @@ function Index() {
             transition={{ delay: 0.4, duration: 1, type: "spring" }}
             className="relative hidden lg:block"
           >
-            <div className="absolute inset-0 bg-[var(--glow-orange)]/20 blur-[120px] rounded-full animate-pulse" />
+            <div className="absolute inset-0 bg-[var(--neon-green)]/20 blur-[120px] rounded-full animate-pulse" />
             <div className="relative z-0 flex flex-col items-center">
               <div className="text-[160px] font-black italic tracking-tighter leading-none text-white/90 drop-shadow-[0_0_50px_rgba(255,255,255,0.2)] relative z-10">
                 <CountUp end={216} />
               </div>
-              <div className="text-3xl font-black uppercase tracking-[0.3em] text-[var(--glow-orange)] -mt-4 relative z-20">DIAS</div>
+              <div className="text-3xl font-black uppercase tracking-[0.3em] text-[var(--neon-green)] -mt-4 relative z-20">DIAS</div>
               <div className="text-base font-bold text-[#A1A1AA] uppercase tracking-widest mt-2">consecutivos</div>
               
               <div className="mt-12 w-64 h-80 rounded-[40px] overflow-hidden border-2 border-white/10 grayscale hover:grayscale-0 transition-all duration-700 group shadow-2xl relative">
-                <div className="absolute inset-0 bg-gradient-to-t from-[var(--glow-orange)]/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity z-10" />
+                <div className="absolute inset-0 bg-gradient-to-t from-[var(--neon-green)]/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity z-10" />
                 <img src={maleRunnerAsset.url} className="w-full h-full object-cover" alt="Corredor" />
               </div>
             </div>
@@ -263,10 +263,10 @@ function Index() {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ delay: i * 0.1 }}
                 viewport={{ once: true }}
-                className="group p-8 rounded-[40px] bg-[var(--section-bg)] border border-white/5 backdrop-blur-xl relative overflow-hidden transition-all duration-500 hover:border-[var(--glow-orange)]/30"
+                className="group p-8 rounded-[40px] bg-[var(--section-bg)] border border-white/5 backdrop-blur-xl relative overflow-hidden transition-all duration-500 hover:border-[var(--neon-green)]/30"
               >
-                <div className="absolute top-0 right-0 w-32 h-32 bg-[var(--glow-orange)]/5 rounded-full -mr-8 -mt-8 blur-3xl group-hover:bg-[var(--glow-orange)]/10 transition-all duration-500" />
-                <stat.icon className="w-10 h-10 text-[var(--glow-orange)] mb-6" />
+                <div className="absolute top-0 right-0 w-32 h-32 bg-[var(--neon-green)]/5 rounded-full -mr-8 -mt-8 blur-3xl group-hover:bg-[var(--neon-green)]/10 transition-all duration-500" />
+                <stat.icon className="w-10 h-10 text-[var(--neon-green)] mb-6" />
                 <div className="text-6xl font-black tracking-tighter mb-2 italic uppercase">
                   <CountUp end={stat.value} />
                   <span className="text-2xl ml-1 opacity-60">{stat.suffix}</span>
@@ -277,7 +277,7 @@ function Index() {
                   {/* Sparkline simulation */}
                   <div className="flex items-end gap-1 h-8 opacity-40 group-hover:opacity-100 transition-opacity">
                     {stat.sparkline.map((h, idx) => (
-                      <div key={idx} className="w-1 bg-[var(--glow-orange)] rounded-full" style={{ height: `${h}%` }} />
+                      <div key={idx} className="w-1 bg-[var(--neon-green)] rounded-full" style={{ height: `${h}%` }} />
                     ))}
                   </div>
                 </div>
@@ -296,9 +296,9 @@ function Index() {
               <h2 className="text-4xl lg:text-6xl font-black italic uppercase tracking-tighter mb-6 leading-[0.9]">Jornada Anual</h2>
               <div className="flex items-center gap-6">
                  <p className="text-[#A1A1AA] text-base">A principal atração do seu progresso.</p>
-                 <div className="flex items-center gap-2 bg-[var(--glow-orange)]/10 px-4 py-2 rounded-xl border border-[var(--glow-orange)]/20">
+                 <div className="flex items-center gap-2 bg-[var(--neon-green)]/10 px-4 py-2 rounded-xl border border-[var(--neon-green)]/20">
                    <span className="text-xl">🔥</span>
-                   <span className="text-sm font-black uppercase tracking-widest text-[var(--glow-orange)]">216 dias de sequência</span>
+                   <span className="text-sm font-black uppercase tracking-widest text-[var(--neon-green)]">216 dias de sequência</span>
                  </div>
               </div>
             </div>
@@ -327,7 +327,7 @@ function Index() {
                   whileInView={{ opacity: 1, scale: 1 }}
                   transition={{ delay: mIdx * 0.05 }}
                   viewport={{ once: true }}
-                  className={`group rounded-[40px] bg-[var(--section-bg)] border border-white/5 overflow-hidden shadow-2xl transition-all duration-500 hover:border-[var(--glow-orange)]/30 hover:shadow-[var(--glow-orange)]/5 hover:-translate-y-1 ${isCurrentMonth ? 'lg:col-span-2 lg:row-span-2' : ''}`}
+                  className={`group rounded-[40px] bg-[var(--section-bg)] border border-white/5 overflow-hidden shadow-2xl transition-all duration-500 hover:border-[var(--neon-green)]/30 hover:shadow-[var(--neon-green)]/5 hover:-translate-y-1 ${isCurrentMonth ? 'lg:col-span-2 lg:row-span-2' : ''}`}
                 >
                   <div className="bg-white/5 p-8 border-b border-white/5 flex justify-between items-center">
                     <span className={`font-black italic uppercase tracking-tight ${isCurrentMonth ? 'text-4xl' : 'text-xl'}`}>{month.name}</span>
@@ -435,12 +435,12 @@ function Index() {
           </div>
 
           <div className="bg-[var(--section-bg)] rounded-[40px] p-10 border border-white/5 relative overflow-hidden group">
-            <div className="absolute top-0 right-0 w-96 h-96 bg-[var(--glow-orange)]/5 rounded-full blur-[100px] pointer-events-none" />
+            <div className="absolute top-0 right-0 w-96 h-96 bg-[var(--neon-green)]/5 rounded-full blur-[100px] pointer-events-none" />
             <div className="flex justify-between items-center mb-10">
               <h3 className="text-sm font-black uppercase tracking-[0.3em] text-[#A1A1AA]">Volume Semanal</h3>
               <div className="flex items-center gap-4">
                 <div className="flex items-center gap-2">
-                  <div className="w-3 h-3 rounded-full bg-[var(--glow-orange)]" />
+                  <div className="w-3 h-3 rounded-full bg-[var(--neon-green)]" />
                   <span className="text-xs font-black uppercase text-[#A1A1AA]">Distância (km)</span>
                 </div>
               </div>
@@ -545,12 +545,12 @@ function Index() {
               <span>Disciplina.</span>
               <span>Consistência.</span>
               <span>Evolução.</span>
-              <span className="text-[var(--glow-orange)]">Todos os dias.</span>
+              <span className="text-[var(--neon-green)]">Todos os dias.</span>
             </div>
           </div>
 
           <p className="text-[#A1A1AA] text-[10px] font-black uppercase tracking-widest opacity-40">
-            2026 &copy; <span className="text-white">Francisco</span> <span className="text-[var(--glow-orange)]">Chagas</span>
+            2026 &copy; <span className="text-white">Francisco</span> <span className="text-[var(--neon-green)]">Chagas</span>
           </p>
         </div>
       </footer>

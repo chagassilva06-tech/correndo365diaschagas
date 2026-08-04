@@ -298,7 +298,7 @@ function StatCard({ icon, title, value, subtitle, footer }: any) {
         <p className="text-sm text-[#697386] mb-4">{subtitle}</p>
         {footer && (
           <div className="pt-3 border-t border-[#E4E7EC] text-[10px] font-medium text-[#697386] uppercase">
-            {footer}
+          {footer}
           </div>
         )}
       </CardContent>

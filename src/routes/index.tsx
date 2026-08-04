@@ -221,14 +221,6 @@ function Index() {
               <span className="text-white">Transformando disciplina em quilômetros.</span>
             </motion.p>
             
-            <motion.div
-              initial={{ opacity: 0, scale: 0.9 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ delay: 0.6, duration: 0.8 }}
-              className="flex items-center gap-6"
-            >
-              {/* Entrar button removed */}
-            </motion.div>
           </div>
 
           <motion.div 
@@ -424,9 +416,6 @@ function Index() {
             <div className="text-left">
               <h2 className="text-4xl lg:text-6xl font-black italic uppercase tracking-tighter mb-6 leading-[0.9]">Seu Desempenho</h2>
               <p className="text-[#A1A1AA] text-base">Métricas avançadas e análise de performance semanal.</p>
-            </div>
-            <div className="w-full md:w-auto flex p-2 rounded-2xl">
-              {/* Corrida button removed */}
             </div>
           </div>
 

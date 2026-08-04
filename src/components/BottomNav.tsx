@@ -23,7 +23,7 @@ export function BottomNav({ fullWidth = false }: BottomNavProps) {
 
   return (
     <nav
-      className={`relative flex items-end bg-[#0F0F10]/80 backdrop-blur-2xl border border-white/5 py-2 shadow-[0_20px_50px_rgba(0,0,0,0.5)] ${
+      className={`relative flex items-end bg-[var(--section-bg)]/80 backdrop-blur-2xl border border-white/5 py-2 shadow-[0_20px_50px_rgba(0,0,0,0.5)] ${
         fullWidth ? "w-full justify-evenly rounded-2xl px-4" : "rounded-3xl px-4 gap-2"
       }`}
     >
@@ -64,7 +64,7 @@ export function BottomNav({ fullWidth = false }: BottomNavProps) {
               animate={{ 
                 y: isActive ? -12 : 0,
                 scale: isActive ? 1.1 : 1,
-                color: isActive ? "#FF5A1F" : "#A1A1AA"
+                color: isActive ? "var(--glow-orange)" : "#A1A1AA"
               }}
               transition={{ type: "spring", stiffness: 500, damping: 20 }}
               className="relative z-10 flex items-center justify-center"
@@ -92,7 +92,7 @@ export function BottomNav({ fullWidth = false }: BottomNavProps) {
               <motion.span
                 layoutId="nav-indicator-premium"
                 transition={{ type: "spring", stiffness: 500, damping: 25 }}
-                className="absolute bottom-1.5 left-1/2 h-[4px] w-8 -translate-x-1/2 rounded-full bg-[#FF5A1F] shadow-[0_0_15px_rgba(255,90,31,0.6)]"
+                className="absolute bottom-1.5 left-1/2 h-[4px] w-8 -translate-x-1/2 rounded-full bg-[var(--glow-orange)] shadow-[0_0_15px_rgba(255,90,31,0.6)]"
               />
             )}
           </a>

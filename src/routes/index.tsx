@@ -271,16 +271,60 @@ function Index() {
             </Card>
           </div>
           
-          <div className="bg-white rounded-[24px] p-8 border border-[#E4E7EC] shadow-sm mb-8">
-            <h3 className="text-lg font-bold mb-6">Últimas 12 semanas (Distância km)</h3>
-            <div className="h-64">
+          <div className="bg-white rounded-[32px] p-6 border border-[#E4E7EC] shadow-sm mb-8 relative overflow-hidden group">
+            <div className="absolute top-0 left-0 w-1 h-full bg-gradient-to-b from-[#FF9F0A] to-orange-300 opacity-80" />
+            <div className="flex justify-between items-center mb-6">
+              <h3 className="text-sm font-black uppercase tracking-widest text-[#697386] flex items-center gap-2">
+                <TrendingUp className="w-4 h-4 text-[#FF9F0A]" />
+                Últimas 12 semanas (Distância km)
+              </h3>
+              <div className="flex items-center gap-2">
+                <div className="flex items-center gap-1">
+                  <div className="w-2 h-2 rounded-full bg-[#FF9F0A]" />
+                  <span className="text-[10px] font-bold text-[#697386]">META: 40km</span>
+                </div>
+              </div>
+            </div>
+            <div className="h-48">
               <ResponsiveContainer width="100%" height="100%">
-                <BarChart data={Array.from({length: 12}).map((_, i) => ({ name: `S${i+1}`, val: Math.random() * 50 + 10 }))}>
-                  <CartesianGrid strokeDasharray="3 3" vertical={false} />
-                  <XAxis dataKey="name" />
-                  <YAxis />
-                  <Tooltip />
-                  <Bar dataKey="val" fill="#FF9F0A" radius={[4, 4, 0, 0]} />
+                <BarChart 
+                  data={Array.from({length: 12}).map((_, i) => ({ 
+                    name: `S${i+1}`, 
+                    val: Math.random() * 50 + 10,
+                    meta: 40
+                  }))}
+                  margin={{ top: 10, right: 10, left: -20, bottom: 0 }}
+                >
+                  <CartesianGrid strokeDasharray="3 3" vertical={false} stroke="#F1F5F9" />
+                  <XAxis 
+                    dataKey="name" 
+                    axisLine={false} 
+                    tickLine={false} 
+                    tick={{fill: '#94A3B8', fontSize: 10, fontWeight: 700}}
+                    dy={10}
+                  />
+                  <YAxis 
+                    axisLine={false} 
+                    tickLine={false} 
+                    tick={{fill: '#94A3B8', fontSize: 10, fontWeight: 700}}
+                  />
+                  <Tooltip 
+                    cursor={{fill: '#F8FAFC'}}
+                    contentStyle={{borderRadius: '12px', border: 'none', boxShadow: '0 10px 15px -3px rgb(0 0 0 / 0.1)', fontSize: '12px', fontWeight: 'bold'}}
+                  />
+                  <Bar 
+                    dataKey="val" 
+                    radius={[6, 6, 0, 0]}
+                    barSize={24}
+                  >
+                    {Array.from({length: 12}).map((_, index) => (
+                      <Cell 
+                        key={`cell-${index}`} 
+                        fill={index === 11 ? '#FF9F0A' : '#E2E8F0'} 
+                        className="transition-all duration-300 hover:opacity-80"
+                      />
+                    ))}
+                  </Bar>
                 </BarChart>
               </ResponsiveContainer>
             </div>
@@ -344,10 +388,10 @@ function Index() {
                               <div
                                 key={i}
                                 title={hasActivity ? "dia validado" : undefined}
-                                className={`aspect-square rounded-[4px] flex items-center justify-center text-[8px] transition-all group relative cursor-pointer ${
+                                className={`aspect-square rounded-[6px] flex items-center justify-center text-[8px] transition-all group relative cursor-pointer font-bold ${
                                   hasActivity 
-                                    ? "bg-[#D1FAE5] text-[#18A957] border border-[#A7F3D0] hover:scale-110 z-10" 
-                                    : "bg-gray-50 text-gray-300 border border-gray-100"
+                                    ? "bg-[#D1FAE5] text-[#18A957] border-b-2 border-r-2 border-[#10B981]/30 shadow-[inset_1px_1px_0px_rgba(255,255,255,0.6)] hover:scale-110 z-10" 
+                                    : "bg-gray-50 text-gray-300 border border-gray-100 shadow-[inset_0px_1px_2px_rgba(0,0,0,0.02)]"
                                 }`}
                               >
                                 {day}

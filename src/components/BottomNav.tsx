@@ -1,14 +1,15 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "motion/react";
-import { Home, User, MessageCircle, Image, Settings } from "lucide-react";
+import { Home, Calendar, Trophy, Image, Settings } from "lucide-react";
 
 const ITEMS = [
   { label: "Início", Icon: Home },
-  { label: "Perfil", Icon: User },
-  { label: "Mensagens", Icon: MessageCircle },
-  { label: "Fotos", Icon: Image },
-  { label: "Configurações", Icon: Settings },
+  { label: "Calendário", Icon: Calendar },
+  { label: "Conquistas", Icon: Trophy },
+  { label: "Galeria", Icon: Image },
+  { label: "Ajustes", Icon: Settings },
 ];
+
 
 interface BottomNavProps {
   fullWidth?: boolean;

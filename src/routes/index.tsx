@@ -297,14 +297,20 @@ function Index() {
 
 
       {/* Jornada Anual Section */}
-      <section id="jornada-anual" className="py-24 bg-[#050505] relative z-10">
+      <section id="jornada-anual" className="py-20 bg-[var(--background)] relative z-10">
         <div className="container mx-auto px-4">
-          <div className="flex flex-col md:flex-row justify-between items-end mb-16 gap-8">
-            <div className="max-w-2xl">
+          <div className="flex flex-col md:flex-row justify-between items-end mb-12 gap-8">
+            <div className="max-w-2xl text-left">
               <h2 className="text-5xl lg:text-7xl font-black italic uppercase tracking-tighter mb-6 leading-[0.9]">Jornada Anual</h2>
-              <p className="text-[#A1A1AA] text-lg">A principal atração do seu progresso. Cada dia é um passo em direção à consistência inabalável.</p>
+              <div className="flex items-center gap-6">
+                 <p className="text-[#A1A1AA] text-lg">A principal atração do seu progresso.</p>
+                 <div className="flex items-center gap-2 bg-[var(--glow-orange)]/10 px-4 py-2 rounded-xl border border-[var(--glow-orange)]/20">
+                   <span className="text-xl">🔥</span>
+                   <span className="text-sm font-black uppercase tracking-widest text-[var(--glow-orange)]">216 dias de sequência</span>
+                 </div>
+              </div>
             </div>
-            <div className="flex items-center gap-4 bg-[#0F0F10] p-2 rounded-2xl border border-white/5 backdrop-blur-md">
+            <div className="flex items-center gap-4 bg-[var(--section-bg)] p-2 rounded-2xl border border-white/5 backdrop-blur-md">
               <span className="text-[10px] font-black uppercase tracking-widest text-[#A1A1AA] ml-4">Filtrar:</span>
               <select 
                 value={selectedMonth}
@@ -313,64 +319,103 @@ function Index() {
               >
                 <option value="Todos">Todos os meses</option>
                 {months.map(m => (
-                  <option key={m.name} value={m.name} className="bg-[#0F0F10]">{m.name}</option>
+                  <option key={m.name} value={m.name} className="bg-[var(--section-bg)] text-white">{m.name}</option>
                 ))}
               </select>
             </div>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {filteredMonths.map((month, mIdx) => (
-              <motion.div 
-                key={month.name}
-                initial={{ opacity: 0, scale: 0.95 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                transition={{ delay: mIdx * 0.05 }}
-                viewport={{ once: true }}
-                className="group rounded-[32px] bg-[#0F0F10] border border-white/5 overflow-hidden shadow-2xl transition-all duration-500 hover:border-[#FF5A1F]/30 hover:shadow-[#FF5A1F]/5"
-              >
-                <div className="bg-white/5 p-6 border-b border-white/5 flex justify-between items-center">
-                  <span className="font-black italic uppercase text-lg tracking-tight">{month.name}</span>
-                  <div className="text-right">
-                    <p className="text-[10px] font-black text-[#A1A1AA] uppercase">{month.activities.length}/{month.days} dias</p>
-                    <p className="text-[10px] font-black text-[#FF5A1F] uppercase">{(month.activities.length * 6.7).toFixed(1)}km</p>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {filteredMonths.map((month, mIdx) => {
+              const isCurrentMonth = month.name === "Agosto"; // Simulating current month
+              return (
+                <motion.div 
+                  key={month.name}
+                  initial={{ opacity: 0, scale: 0.95 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  transition={{ delay: mIdx * 0.05 }}
+                  viewport={{ once: true }}
+                  className={`group rounded-[40px] bg-[var(--section-bg)] border border-white/5 overflow-hidden shadow-2xl transition-all duration-500 hover:border-[var(--glow-orange)]/30 hover:shadow-[var(--glow-orange)]/5 hover:-translate-y-1 ${isCurrentMonth ? 'lg:col-span-2 lg:row-span-2' : ''}`}
+                >
+                  <div className="bg-white/5 p-8 border-b border-white/5 flex justify-between items-center">
+                    <span className={`font-black italic uppercase tracking-tight ${isCurrentMonth ? 'text-4xl' : 'text-xl'}`}>{month.name}</span>
+                    <div className="text-right">
+                      <p className="text-[10px] font-black text-[#A1A1AA] uppercase">{month.activities.length}/{month.days} dias</p>
+                      <p className="text-[10px] font-black text-[var(--glow-orange)] uppercase">{(month.activities.length * 6.7).toFixed(1)}km</p>
+                    </div>
                   </div>
-                </div>
-                
-                <div className="p-6">
-                  <div className="grid grid-cols-7 gap-1.5">
-                    {Array.from({ length: month.days }).map((_, i) => {
-                      const day = i + 1;
-                      const hasActivity = month.activities.includes(day);
-                      return (
-                        <motion.div
-                          key={i}
-                          whileHover={{ scale: 1.2, zIndex: 10 }}
-                          className={`aspect-square rounded-lg flex items-center justify-center text-[8px] font-black transition-all relative group/day cursor-pointer ${
-                            hasActivity 
-                              ? "bg-gradient-to-br from-[#FF5A1F] to-[#FF9F0A] text-white shadow-[0_0_15px_rgba(255,90,31,0.3)]" 
-                              : "bg-white/5 text-[#A1A1AA]/30 border border-white/5"
-                          }`}
-                        >
-                          {day}
-                          {hasActivity && (
-                            <div className="absolute -top-12 left-1/2 -translate-x-1/2 bg-white text-[#050505] text-[10px] py-2 px-3 rounded-xl opacity-0 group-hover/day:opacity-100 transition-all duration-300 whitespace-nowrap pointer-events-none shadow-2xl font-black uppercase z-20">
-                              {day} de {month.name} ✔
-                              <br />
-                              <span className="text-[8px] opacity-60">6,70km • 4:18 pace</span>
-                              <div className="absolute top-full left-1/2 -translate-x-1/2 border-8 border-transparent border-t-white" />
-                            </div>
-                          )}
-                        </motion.div>
-                      );
-                    })}
+                  
+                  <div className="p-8">
+                    <div className={`grid gap-2 ${isCurrentMonth ? 'grid-cols-7' : 'grid-cols-7'}`}>
+                      {Array.from({ length: month.days }).map((_, i) => {
+                        const day = i + 1;
+                        const hasActivity = month.activities.includes(day);
+                        // Mocking levels
+                        const intensity = day % 3; 
+                        const isSpecial = day === 15;
+                        
+                        return (
+                          <motion.div
+                            key={i}
+                            whileHover={{ scale: 1.15, zIndex: 10 }}
+                            className={`aspect-square rounded-xl flex items-center justify-center text-[10px] font-black transition-all relative group/day cursor-pointer ${
+                              hasActivity 
+                                ? isSpecial 
+                                  ? "bg-[#18A957] text-white shadow-[0_0_20px_rgba(24,169,87,0.4)]" 
+                                  : intensity === 2 
+                                    ? "bg-[var(--glow-orange)] text-white shadow-[0_0_15px_rgba(255,90,31,0.3)]"
+                                    : intensity === 1
+                                      ? "bg-[var(--glow-orange)]/60 text-white"
+                                      : "bg-[var(--glow-orange)]/30 text-white/80"
+                                : "bg-white/5 text-[#A1A1AA]/30 border border-white/5"
+                            }`}
+                          >
+                            {day}
+                            {hasActivity && (
+                              <div className="absolute -top-12 left-1/2 -translate-x-1/2 bg-white text-[#050505] text-[10px] py-2 px-3 rounded-xl opacity-0 group-hover/day:opacity-100 transition-all duration-300 whitespace-nowrap pointer-events-none shadow-2xl font-black uppercase z-20">
+                                {isSpecial ? "🏆 Recorde Pessoal" : `Dia ${day} Validado`}
+                                <br />
+                                <span className="text-[8px] opacity-60">6,70km • 4:18 pace</span>
+                                <div className="absolute top-full left-1/2 -translate-x-1/2 border-8 border-transparent border-t-white" />
+                              </div>
+                            )}
+                          </motion.div>
+                        );
+                      })}
+                    </div>
                   </div>
-                </div>
-              </motion.div>
-            ))}
+                </motion.div>
+              );
+            })}
           </div>
         </div>
       </section>
+
+      {/* Timeline Section */}
+      <section className="py-20 bg-[var(--background)] relative z-10 overflow-hidden">
+        <div className="container mx-auto px-4">
+           <div className="max-w-4xl mx-auto">
+             <div className="relative h-1 bg-white/5 rounded-full mb-12">
+               <div className="absolute top-0 left-0 h-full bg-gradient-to-r from-[var(--glow-orange)] to-[#FF9F0A]" style={{ width: '60%' }} />
+               
+               <div className="absolute top-1/2 left-0 -translate-y-1/2 flex justify-between w-full px-4">
+                 {[
+                   { label: 'Janeiro', active: true },
+                   { label: '100 Dias', active: true, value: '100' },
+                   { label: '200 Dias', active: true, value: '200' },
+                   { label: 'Hoje', active: true, color: 'var(--glow-orange)' }
+                 ].map((point, i) => (
+                   <div key={i} className="flex flex-col items-center">
+                     <div className={`w-4 h-4 rounded-full border-4 border-[var(--background)] ${point.active ? 'bg-[var(--glow-orange)]' : 'bg-white/10'}`} />
+                     <span className="text-[10px] font-black uppercase tracking-widest text-[#A1A1AA] mt-4">{point.label}</span>
+                   </div>
+                 ))}
+               </div>
+             </div>
+           </div>
+        </div>
+      </section>
+
 
       {/* Desempenho / Chart Section */}
       <section id="desempenho" className="py-24 bg-[#050505] border-t border-white/5">

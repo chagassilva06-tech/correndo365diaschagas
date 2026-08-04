@@ -116,7 +116,10 @@ function Index() {
             </a>
           </nav>
           
-          <Button className="bg-[#FC4C02] hover:bg-[#FC4C02]/90 text-white gap-2 font-bold rounded-full">
+          <Button 
+            onClick={() => navigate({ to: "/sync" })}
+            className="bg-[#FC4C02] hover:bg-[#FC4C02]/90 text-white gap-2 font-bold rounded-full"
+          >
             <img src={stravaOfficialAsset.url} alt="Strava" className="w-4 h-4 brightness-0 invert" />
             Conectar Strava
           </Button>

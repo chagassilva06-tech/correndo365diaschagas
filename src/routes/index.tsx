@@ -123,7 +123,7 @@ function Index() {
       <div className="fixed inset-0 pointer-events-none z-0 opacity-[0.02]" style={{ backgroundImage: "var(--noise-texture)" }} />
 
 
-      <header className="fixed top-0 left-0 right-0 z-50 bg-[#00021b]/80 backdrop-blur-xl border-b border-white/5">
+      <header className="fixed top-0 left-0 right-0 z-50 bg-[#00021b]/80 backdrop-blur-xl border-b border-yellow-400/20 shadow-[var(--header-shadow)]">
         <div className="container mx-auto px-6 h-20 flex items-center justify-between">
           <div className="flex items-center gap-3 group cursor-pointer" onClick={() => navigate({ to: "/" })}>
             <div className="w-10 h-10 bg-[#FF5A1F] rounded-xl flex items-center justify-center shadow-[0_0_20px_rgba(255,90,31,0.3)] group-hover:shadow-[0_0_30px_rgba(255,90,31,0.5)] transition-all duration-500">
@@ -143,8 +143,8 @@ function Index() {
             <a href="#desempenho" className="hover:text-white transition-colors duration-300">Estatísticas</a>
             <div className="flex items-center gap-4 border-l border-white/10 pl-10">
               <a href="https://instagram.com" target="_blank" rel="noreferrer" className="hover:text-white transition-colors"><Instagram className="w-5 h-5" /></a>
-              <a href="https://www.strava.com/athletes/44632513" target="_blank" rel="noreferrer" className="flex items-center justify-center w-10 h-10 rounded-xl bg-[#FC4C02]/10 border border-[#FC4C02]/20 hover:bg-[#FC4C02]/20 transition-all duration-300">
-                <img src={stravaOfficialAsset.url} alt="Strava" className="w-5 h-5 object-contain" />
+              <a href="https://www.strava.com/athletes/44632513" target="_blank" rel="noreferrer" className="flex items-center justify-center w-10 h-10 rounded-xl bg-orange-600/10 border border-orange-600/20 hover:bg-orange-600/20 transition-all duration-300">
+                <img src={stravaOfficialAsset.url} alt="Strava" className="w-5 h-5 object-contain brightness-110 contrast-125 mix-blend-screen" />
               </a>
             </div>
           </nav>
@@ -227,14 +227,7 @@ function Index() {
               transition={{ delay: 0.6, duration: 0.8 }}
               className="flex items-center gap-6"
             >
-              <Button 
-                size="lg"
-                className="bg-white text-[#00021b] hover:bg-white/90 px-12 py-8 rounded-full text-xl font-black uppercase tracking-widest shadow-[0_0_40px_rgba(255,255,255,0.1)] hover:shadow-[0_0_60px_rgba(255,255,255,0.2)] transition-all group"
-                onClick={() => document.getElementById('jornada-anual')?.scrollIntoView({ behavior: 'smooth' })}
-              >
-                Entrar
-                <ChevronRight className="w-6 h-6 ml-2 group-hover:translate-x-1 transition-transform" />
-              </Button>
+              {/* Entrar button removed */}
             </motion.div>
           </div>
 
@@ -432,8 +425,8 @@ function Index() {
               <h2 className="text-4xl lg:text-6xl font-black italic uppercase tracking-tighter mb-6 leading-[0.9]">Seu Desempenho</h2>
               <p className="text-[#A1A1AA] text-base">Métricas avançadas e análise de performance semanal.</p>
             </div>
-            <div className="w-full md:w-auto flex bg-[var(--section-bg)] p-2 rounded-2xl border border-white/5">
-              <Button className="bg-[var(--glow-orange)] text-white rounded-xl px-8 py-6 font-black uppercase tracking-widest italic shadow-[0_0_20px_rgba(255,90,31,0.2)]">Corrida</Button>
+            <div className="w-full md:w-auto flex p-2 rounded-2xl">
+              {/* Corrida button removed */}
             </div>
           </div>
 

@@ -211,7 +211,7 @@ function Index() {
           </div>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           <MonthCalendar 
             month="Agosto" 
             year={2026} 
@@ -227,6 +227,22 @@ function Index() {
             activeDays={31} 
             totalDays={31} 
             km={239.08} 
+            completedDays={Array.from({length: 31}, (_, i) => i + 1)}
+          />
+          <MonthCalendar 
+            month="Junho" 
+            year={2026} 
+            activeDays={30} 
+            totalDays={30} 
+            km={225.45} 
+            completedDays={Array.from({length: 30}, (_, i) => i + 1)}
+          />
+          <MonthCalendar 
+            month="Maio" 
+            year={2026} 
+            activeDays={31} 
+            totalDays={31} 
+            km={245.12} 
             completedDays={Array.from({length: 31}, (_, i) => i + 1)}
           />
         </div>

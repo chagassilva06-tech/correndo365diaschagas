@@ -107,10 +107,8 @@ function Index() {
   const [showNotification, setShowNotification] = useState(false);
   
   const handleConnectStrava = () => {
-    // Simulando a conexão e recebimento de atividade
-    setTimeout(() => {
-      setShowNotification(true);
-    }, 500);
+    // Clear any previous sync state to force a fresh sync
+    localStorage.removeItem('strava_sync_status');
     navigate({ to: "/sync" });
   };
 

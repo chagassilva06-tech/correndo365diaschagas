@@ -1,69 +1,36 @@
 import { createFileRoute, useNavigate } from "@tanstack/react-router";
-import { BottomNav } from "@/components/BottomNav";
 import { 
-  Home, 
   Calendar as CalendarIcon, 
-  Trophy, 
   CheckCircle2, 
   TrendingUp, 
-  ChevronLeft, 
-  ChevronRight,
-  Zap,
-  MapPin,
-  Clock,
-  Timer,
-  ExternalLink,
-  Award,
   Activity,
   Footprints,
-  Bike,
-  Flame,
-  MoreHorizontal,
-  Share2,
-  RefreshCw,
-  Heart,
-  FlameKindling,
-  ChevronDown,
-  Trash2,
-  User,
+  Settings,
+  Check,
   Instagram,
   Youtube,
-  Github,
-  Bell,
-  Settings,
-  Check
+  Github
 } from "lucide-react";
-import { 
-  LineChart, 
-  Line, 
-  XAxis, 
-  YAxis, 
-  CartesianGrid, 
-  Tooltip, 
-  ResponsiveContainer, 
-  BarChart, 
-  Bar,
-  Cell,
-  PieChart,
-  Pie
-} from 'recharts';
 import { motion, AnimatePresence } from "framer-motion";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useMemo, useCallback, Suspense, lazy } from "react";
 import { 
   Card, 
   CardContent, 
-  CardHeader, 
-  CardTitle 
 } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { Progress } from "@/components/ui/progress";
-import stravaOfficialAsset from "@/assets/strava-official.png.asset.json";
-import runnerLogoAsset from "@/assets/runner-logo.png.asset.json";
-
+import logoHeaderAsset from "@/assets/image-6.png.asset.json";
 import maleRunnerAsset from "@/assets/FotoMaratona.png.asset.json";
 import profileHeroAsset from "@/assets/profile-hero.png.asset.json";
-import logoHeaderAsset from "@/assets/image-6.png.asset.json";
+
+// Lazy load heavy components
+const BarChart = lazy(() => import("recharts").then(mod => ({ default: mod.BarChart })));
+const Bar = lazy(() => import("recharts").then(mod => ({ default: mod.Bar })));
+const Cell = lazy(() => import("recharts").then(mod => ({ default: mod.Cell })));
+const XAxis = lazy(() => import("recharts").then(mod => ({ default: mod.XAxis })));
+const Tooltip = lazy(() => import("recharts").then(mod => ({ default: mod.Tooltip })));
+const ResponsiveContainer = lazy(() => import("recharts").then(mod => ({ default: mod.ResponsiveContainer })));
+
 
 
 export const Route = createFileRoute("/")({

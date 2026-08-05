@@ -78,24 +78,25 @@ function Index() {
   const currentMonthName = new Intl.DateTimeFormat('pt-BR', { month: 'long' }).format(new Date());
   const capitalizedCurrentMonth = currentMonthName.charAt(0).toUpperCase() + currentMonthName.slice(1);
 
-  const months = [
-    { name: "Janeiro", days: 31, activities: Array.from({ length: 31 }, (_, i) => i + 1) },
-    { name: "Fevereiro", days: 28, activities: Array.from({ length: 28 }, (_, i) => i + 1) },
-    { name: "Março", days: 31, activities: Array.from({ length: 31 }, (_, i) => i + 1) },
-    { name: "Abril", days: 30, activities: Array.from({ length: 30 }, (_, i) => i + 1) },
-    { name: "Maio", days: 31, activities: Array.from({ length: 31 }, (_, i) => i + 1) },
-    { name: "Junho", days: 30, activities: Array.from({ length: 30 }, (_, i) => i + 1) },
-    { name: "Julho", days: 31, activities: Array.from({ length: 31 }, (_, i) => i + 1) },
-    { name: "Agosto", days: 31, activities: [1, 2, 3, 4] },
-    { name: "Setembro", days: 30, activities: [] },
-    { name: "Outubro", days: 31, activities: [] },
-    { name: "Novembro", days: 30, activities: [] },
-    { name: "Dezembro", days: 31, activities: [] },
-  ];
+  const months = useMemo(() => [
+    { name: "Janeiro", days: 31, km: "246,48", activities: Array.from({ length: 31 }, (_, i) => i + 1) },
+    { name: "Fevereiro", days: 28, km: "318,45", activities: Array.from({ length: 28 }, (_, i) => i + 1) },
+    { name: "Março", days: 31, km: "206,99", activities: Array.from({ length: 31 }, (_, i) => i + 1) },
+    { name: "Abril", days: 30, km: "242,26", activities: Array.from({ length: 30 }, (_, i) => i + 1) },
+    { name: "Maio", days: 31, km: "208,71", activities: Array.from({ length: 31 }, (_, i) => i + 1) },
+    { name: "Junho", days: 30, km: "133,18", activities: Array.from({ length: 30 }, (_, i) => i + 1) },
+    { name: "Julho", days: 31, km: "239,08", activities: Array.from({ length: 31 }, (_, i) => i + 1) },
+    { name: "Agosto", days: 31, km: "32,76", activities: [1, 2, 3, 4] },
+    { name: "Setembro", days: 30, km: "0", activities: [] },
+    { name: "Outubro", days: 31, km: "0", activities: [] },
+    { name: "Novembro", days: 30, km: "0", activities: [] },
+    { name: "Dezembro", days: 31, km: "0", activities: [] },
+  ], []);
 
-  const filteredMonths = selectedMonth === "Todos" 
-    ? months 
-    : months.filter(m => m.name === selectedMonth);
+  const filteredMonths = useMemo(() => 
+    selectedMonth === "Todos" ? months : months.filter(m => m.name === selectedMonth),
+  [selectedMonth, months]);
+
 
   const [showNotification, setShowNotification] = useState(false);
   

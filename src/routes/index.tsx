@@ -1,69 +1,42 @@
 import { createFileRoute, useNavigate } from "@tanstack/react-router";
-import { BottomNav } from "@/components/BottomNav";
 import { 
-  Home, 
   Calendar as CalendarIcon, 
-  Trophy, 
   CheckCircle2, 
   TrendingUp, 
-  ChevronLeft, 
-  ChevronRight,
-  Zap,
-  MapPin,
-  Clock,
-  Timer,
-  ExternalLink,
-  Award,
   Activity,
   Footprints,
-  Bike,
-  Flame,
-  MoreHorizontal,
-  Share2,
-  RefreshCw,
-  Heart,
-  FlameKindling,
-  ChevronDown,
-  Trash2,
-  User,
+  Settings,
+  Check,
   Instagram,
   Youtube,
   Github,
-  Bell,
-  Settings,
-  Check
+  Home,
+  Calendar,
+  Trophy,
+  Layers,
+  Image as ImageIcon,
+  User
 } from "lucide-react";
-import { 
-  LineChart, 
-  Line, 
-  XAxis, 
-  YAxis, 
-  CartesianGrid, 
-  Tooltip, 
-  ResponsiveContainer, 
-  BarChart, 
-  Bar,
-  Cell,
-  PieChart,
-  Pie
-} from 'recharts';
 import { motion, AnimatePresence } from "framer-motion";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useMemo, useCallback, Suspense, lazy } from "react";
 import { 
   Card, 
   CardContent, 
-  CardHeader, 
-  CardTitle 
 } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { Progress } from "@/components/ui/progress";
-import stravaOfficialAsset from "@/assets/strava-official.png.asset.json";
-import runnerLogoAsset from "@/assets/runner-logo.png.asset.json";
-
+import logoHeaderAsset from "@/assets/image-6.png.asset.json";
 import maleRunnerAsset from "@/assets/FotoMaratona.png.asset.json";
 import profileHeroAsset from "@/assets/profile-hero.png.asset.json";
-import logoHeaderAsset from "@/assets/image-6.png.asset.json";
+
+// Lazy load heavy components
+const BarChart = lazy(() => import("recharts").then(mod => ({ default: mod.BarChart })));
+const Bar = lazy(() => import("recharts").then(mod => ({ default: mod.Bar })));
+const Cell = lazy(() => import("recharts").then(mod => ({ default: mod.Cell })));
+const XAxis = lazy(() => import("recharts").then(mod => ({ default: mod.XAxis })));
+const Tooltip = lazy(() => import("recharts").then(mod => ({ default: mod.Tooltip })));
+const ResponsiveContainer = lazy(() => import("recharts").then(mod => ({ default: mod.ResponsiveContainer })));
+const BottomNav = lazy(() => import("@/components/BottomNav").then(mod => ({ default: mod.BottomNav })));
 
 
 export const Route = createFileRoute("/")({
@@ -111,24 +84,25 @@ function Index() {
   const currentMonthName = new Intl.DateTimeFormat('pt-BR', { month: 'long' }).format(new Date());
   const capitalizedCurrentMonth = currentMonthName.charAt(0).toUpperCase() + currentMonthName.slice(1);
 
-  const months = [
-    { name: "Janeiro", days: 31, activities: Array.from({ length: 31 }, (_, i) => i + 1) },
-    { name: "Fevereiro", days: 28, activities: Array.from({ length: 28 }, (_, i) => i + 1) },
-    { name: "Março", days: 31, activities: Array.from({ length: 31 }, (_, i) => i + 1) },
-    { name: "Abril", days: 30, activities: Array.from({ length: 30 }, (_, i) => i + 1) },
-    { name: "Maio", days: 31, activities: Array.from({ length: 31 }, (_, i) => i + 1) },
-    { name: "Junho", days: 30, activities: Array.from({ length: 30 }, (_, i) => i + 1) },
-    { name: "Julho", days: 31, activities: Array.from({ length: 31 }, (_, i) => i + 1) },
-    { name: "Agosto", days: 31, activities: [1, 2, 3, 4] },
-    { name: "Setembro", days: 30, activities: [] },
-    { name: "Outubro", days: 31, activities: [] },
-    { name: "Novembro", days: 30, activities: [] },
-    { name: "Dezembro", days: 31, activities: [] },
-  ];
+  const months = useMemo(() => [
+    { name: "Janeiro", days: 31, km: "246,48", activities: Array.from({ length: 31 }, (_, i) => i + 1) },
+    { name: "Fevereiro", days: 28, km: "318,45", activities: Array.from({ length: 28 }, (_, i) => i + 1) },
+    { name: "Março", days: 31, km: "206,99", activities: Array.from({ length: 31 }, (_, i) => i + 1) },
+    { name: "Abril", days: 30, km: "242,26", activities: Array.from({ length: 30 }, (_, i) => i + 1) },
+    { name: "Maio", days: 31, km: "208,71", activities: Array.from({ length: 31 }, (_, i) => i + 1) },
+    { name: "Junho", days: 30, km: "133,18", activities: Array.from({ length: 30 }, (_, i) => i + 1) },
+    { name: "Julho", days: 31, km: "239,08", activities: Array.from({ length: 31 }, (_, i) => i + 1) },
+    { name: "Agosto", days: 31, km: "32,76", activities: [1, 2, 3, 4] },
+    { name: "Setembro", days: 30, km: "0", activities: [] },
+    { name: "Outubro", days: 31, km: "0", activities: [] },
+    { name: "Novembro", days: 30, km: "0", activities: [] },
+    { name: "Dezembro", days: 31, km: "0", activities: [] },
+  ], []);
 
-  const filteredMonths = selectedMonth === "Todos" 
-    ? months 
-    : months.filter(m => m.name === selectedMonth);
+  const filteredMonths = useMemo(() => 
+    selectedMonth === "Todos" ? months : months.filter(m => m.name === selectedMonth),
+  [selectedMonth, months]);
+
 
   const [showNotification, setShowNotification] = useState(false);
   
@@ -405,23 +379,11 @@ function Index() {
                     <span className={`font-black italic uppercase tracking-tight ${isCurrentMonth ? 'text-4xl' : 'text-xl'}`}>{month.name}</span>
                     <div className="text-right">
                       <p className="text-[10px] font-black text-[#A1A1AA] uppercase">
-                        {month.name === "Janeiro" ? "31" : 
-                         month.name === "Fevereiro" ? "28" : 
-                         month.name === "Março" ? "31" : 
-                         month.name === "Abril" ? "30" : 
-                         month.name === "Maio" ? "31" : 
-                         month.name === "Junho" ? "30" : 
-                         month.name === "Julho" ? "31" : 
-                         month.name === "Agosto" ? "4" : month.activities.length}/{month.days} dias</p>
+                        {month.activities.length}/{month.days} dias
+                      </p>
                       <p className="text-[10px] font-black text-[var(--neon-green)] uppercase">
-                        {month.name === "Janeiro" ? "246,48" : 
-                         month.name === "Fevereiro" ? "318,45" : 
-                         month.name === "Março" ? "206,99" : 
-                         month.name === "Abril" ? "242,26" : 
-                         month.name === "Maio" ? "208,71" : 
-                         month.name === "Junho" ? "133,18" : 
-                         month.name === "Julho" ? "239,08" : 
-                         month.name === "Agosto" ? "32,76" : (month.activities.length * 6.7).toFixed(1)}km</p>
+                        {month.km}km
+                      </p>
                     </div>
                   </div>
                   
@@ -430,17 +392,14 @@ function Index() {
                       {Array.from({ length: month.days }).map((_, i) => {
                         const day = i + 1;
                         const hasActivity = month.activities.includes(day);
-                        // Mocking levels
-                        const intensity = day % 3; 
                         const isSpecial = day === 15;
                         
                         return (
-                          <motion.div
+                          <div
                             key={i}
-                            whileHover={{ scale: 1.15, zIndex: 10, backgroundColor: "var(--neon-green-hover)" }}
                             className={`aspect-square rounded-xl flex items-center justify-center text-[10px] font-black transition-all relative group/day cursor-pointer ${
                               hasActivity 
-                                ? "bg-[var(--neon-green)] text-white shadow-[0_0_15px_rgba(34,197,94,0.3)]"
+                                ? "bg-[var(--neon-green)] text-white shadow-[0_0_15px_rgba(34,197,94,0.3)] hover:bg-[var(--neon-green-hover)]"
                                 : day < new Date().getDate() && isCurrentMonth
                                   ? "bg-[var(--rest-day)] text-[#A1A1AA]/50"
                                   : "bg-[var(--future-day)] text-[#A1A1AA]/30 border border-white/5"
@@ -455,7 +414,7 @@ function Index() {
                                 <div className="absolute top-full left-1/2 -translate-x-1/2 border-8 border-transparent border-t-[var(--neon-green)]" />
                               </div>
                             )}
-                          </motion.div>
+                          </div>
                         );
                       })}
                     </div>
@@ -531,28 +490,30 @@ function Index() {
             </div>
             
             <div className="h-80">
-              <ResponsiveContainer width="100%" height="100%">
-                <BarChart data={[
-                  { name: 'Seg', val: 6.5 },
-                  { name: 'Ter', val: 7.2 },
-                  { name: 'Qua', val: 6.8 },
-                  { name: 'Qui', val: 8.1 },
-                  { name: 'Sex', val: 5.9 },
-                  { name: 'Sáb', val: 12.4 },
-                  { name: 'Dom', val: 10.2 },
-                ]}>
-                  <XAxis dataKey="name" axisLine={false} tickLine={false} tick={{fill: '#A1A1AA', fontSize: 10, fontWeight: 900}} />
-                  <Tooltip 
-                    cursor={{fill: 'rgba(255,255,255,0.05)'}}
-                    contentStyle={{backgroundColor: 'var(--card-bg)', borderRadius: '16px', border: '1px solid rgba(255,255,255,0.1)', fontSize: '10px', fontWeight: '900'}}
-                  />
-                  <Bar dataKey="val" fill="var(--neon-green)" radius={[8, 8, 0, 0]}>
-                    {Array.from({length: 7}).map((_, index) => (
-                      <Cell key={`cell-${index}`} fill={index === 5 ? 'var(--glow-orange)' : 'rgba(255,255,255,0.1)'} />
-                    ))}
-                  </Bar>
-                </BarChart>
-              </ResponsiveContainer>
+              <Suspense fallback={<div className="h-full w-full flex items-center justify-center text-white/20">Carregando gráfico...</div>}>
+                <ResponsiveContainer width="100%" height="100%">
+                  <BarChart data={[
+                    { name: 'Seg', val: 6.5 },
+                    { name: 'Ter', val: 7.2 },
+                    { name: 'Qua', val: 6.8 },
+                    { name: 'Qui', val: 8.1 },
+                    { name: 'Sex', val: 5.9 },
+                    { name: 'Sáb', val: 12.4 },
+                    { name: 'Dom', val: 10.2 },
+                  ]}>
+                    <XAxis dataKey="name" axisLine={false} tickLine={false} tick={{fill: '#A1A1AA', fontSize: 10, fontWeight: 900}} />
+                    <Tooltip 
+                      cursor={{fill: 'rgba(255,255,255,0.05)'}}
+                      contentStyle={{backgroundColor: 'var(--card-bg)', borderRadius: '16px', border: '1px solid rgba(255,255,255,0.1)', fontSize: '10px', fontWeight: '900'}}
+                    />
+                    <Bar dataKey="val" fill="var(--neon-green)" radius={[8, 8, 0, 0]}>
+                      {Array.from({length: 7}).map((_, index) => (
+                        <Cell key={`cell-${index}`} fill={index === 5 ? 'var(--glow-orange)' : 'rgba(255,255,255,0.1)'} />
+                      ))}
+                    </Bar>
+                  </BarChart>
+                </ResponsiveContainer>
+              </Suspense>
             </div>
           </div>
         </div>
@@ -610,7 +571,13 @@ function Index() {
         </div>
       </section>
 
-      <footer className="py-4 bg-[var(--background)] border-t border-white/5">
+      <Suspense fallback={null}>
+        <div className="fixed bottom-8 left-1/2 -translate-x-1/2 z-50 w-[90%] max-w-md pointer-events-auto">
+          <BottomNav />
+        </div>
+      </Suspense>
+
+      <footer className="py-4 bg-[var(--background)] border-t border-white/5 relative z-10">
         <div className="container mx-auto px-4 flex flex-col items-center justify-center gap-3">
           <div className="flex justify-center gap-6">
             <a href="#" className="text-[#A1A1AA] hover:text-[#E1306C] transition-colors"><Instagram className="w-5 h-5" /></a>

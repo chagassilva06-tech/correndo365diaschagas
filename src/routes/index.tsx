@@ -36,6 +36,8 @@ const Cell = lazy(() => import("recharts").then(mod => ({ default: mod.Cell })))
 const XAxis = lazy(() => import("recharts").then(mod => ({ default: mod.XAxis })));
 const Tooltip = lazy(() => import("recharts").then(mod => ({ default: mod.Tooltip })));
 const ResponsiveContainer = lazy(() => import("recharts").then(mod => ({ default: mod.ResponsiveContainer })));
+const BottomNav = lazy(() => import("@/components/BottomNav").then(mod => ({ default: mod.BottomNav })));
+
 
 
 

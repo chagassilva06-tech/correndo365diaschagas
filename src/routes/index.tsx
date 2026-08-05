@@ -39,6 +39,8 @@ const ResponsiveContainer = lazy(() => import("recharts").then(mod => ({ default
 
 
 
+const BottomNav = lazy(() => import("@/components/BottomNav").then(mod => ({ default: mod.BottomNav })));
+
 export const Route = createFileRoute("/")({
   head: () => ({
     title: "Correndo todo dia | Performance Experience",

@@ -60,7 +60,7 @@ import { Badge } from "@/components/ui/badge";
 import { Progress } from "@/components/ui/progress";
 import stravaOfficialAsset from "@/assets/strava-official.png.asset.json";
 import runnerLogoAsset from "@/assets/runner-logo.png.asset.json";
-import profileAvatarAsset from "@/assets/FotoMaratona.png.asset.json";
+
 import maleRunnerAsset from "@/assets/FotoMaratona.png.asset.json";
 import profileHeroAsset from "@/assets/profile-hero.png.asset.json";
 

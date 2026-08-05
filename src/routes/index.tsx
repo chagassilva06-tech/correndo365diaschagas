@@ -479,41 +479,80 @@ function Index() {
 
           <div className="bg-[var(--section-bg)] rounded-[40px] p-10 border border-white/5 relative overflow-hidden group">
             <div className="absolute top-0 right-0 w-96 h-96 bg-[var(--neon-green)]/5 rounded-full blur-[100px] pointer-events-none" />
-            <div className="flex justify-between items-center mb-10">
-              <h3 className="text-sm font-black uppercase tracking-[0.3em] text-[#A1A1AA]">Volume Semanal</h3>
-              <div className="flex items-center gap-4">
-                <div className="flex items-center gap-2">
-                  <div className="w-3 h-3 rounded-full bg-[var(--neon-green)]" />
-                  <span className="text-xs font-black uppercase text-[#A1A1AA]">Distância (km)</span>
+            <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-10 gap-4">
+              <div>
+                <h3 className="text-sm font-black uppercase tracking-[0.3em] text-[#A1A1AA]">Atividade Anual</h3>
+                <p className="text-[10px] text-[#A1A1AA]/60 font-medium tracking-widest mt-1">1.627,91 KM TOTAL • 216 DIAS SEGUIDOS</p>
+              </div>
+              <div className="flex items-center gap-6">
+                <div className="flex items-center gap-1.5">
+                  <span className="text-[9px] font-black uppercase tracking-widest text-[#A1A1AA]/50 mr-1">Menos</span>
+                  {[0, 1, 2, 3, 4].map((level) => (
+                    <div 
+                      key={level} 
+                      className="w-3 h-3 rounded-sm" 
+                      style={{ 
+                        backgroundColor: level === 0 ? 'rgba(255,255,255,0.05)' : 
+                                         level === 1 ? 'rgba(34, 197, 94, 0.2)' : 
+                                         level === 2 ? 'rgba(34, 197, 94, 0.4)' : 
+                                         level === 3 ? 'rgba(34, 197, 94, 0.7)' : 
+                                         'var(--neon-green)' 
+                      }} 
+                    />
+                  ))}
+                  <span className="text-[9px] font-black uppercase tracking-widest text-[#A1A1AA]/50 ml-1">Mais</span>
                 </div>
               </div>
             </div>
             
-            <div className="h-80">
-              <Suspense fallback={<div className="h-full w-full flex items-center justify-center text-white/20">Carregando gráfico...</div>}>
-                <ResponsiveContainer width="100%" height="100%">
-                  <BarChart data={[
-                    { name: 'Seg', val: 6.5 },
-                    { name: 'Ter', val: 7.2 },
-                    { name: 'Qua', val: 6.8 },
-                    { name: 'Qui', val: 8.1 },
-                    { name: 'Sex', val: 5.9 },
-                    { name: 'Sáb', val: 12.4 },
-                    { name: 'Dom', val: 10.2 },
-                  ]}>
-                    <XAxis dataKey="name" axisLine={false} tickLine={false} tick={{fill: '#A1A1AA', fontSize: 10, fontWeight: 900}} />
-                    <Tooltip 
-                      cursor={{fill: 'rgba(255,255,255,0.05)'}}
-                      contentStyle={{backgroundColor: 'var(--card-bg)', borderRadius: '16px', border: '1px solid rgba(255,255,255,0.1)', fontSize: '10px', fontWeight: '900'}}
-                    />
-                    <Bar dataKey="val" fill="var(--neon-green)" radius={[8, 8, 0, 0]}>
-                      {Array.from({length: 7}).map((_, index) => (
-                        <Cell key={`cell-${index}`} fill={index === 5 ? 'var(--glow-orange)' : 'rgba(255,255,255,0.1)'} />
-                      ))}
-                    </Bar>
-                  </BarChart>
-                </ResponsiveContainer>
-              </Suspense>
+            <div className="overflow-x-auto pb-4 custom-scrollbar">
+              <div className="flex gap-1.5 min-w-max">
+                {/* Simplified Contribution Calendar */}
+                {Array.from({ length: 52 }).map((_, weekIndex) => (
+                  <div key={weekIndex} className="flex flex-col gap-1.5">
+                    {Array.from({ length: 7 }).map((_, dayIndex) => {
+                      const dayOfYear = weekIndex * 7 + dayIndex;
+                      // Logic to color based on 216 days streak (up to roughly current day)
+                      const isActive = dayOfYear < 216;
+                      const intensity = isActive ? (Math.random() > 0.7 ? 4 : Math.random() > 0.4 ? 3 : 2) : 0;
+                      
+                      return (
+                        <motion.div
+                          key={dayIndex}
+                          initial={false}
+                          whileHover={{ scale: 1.3, zIndex: 10 }}
+                          className="w-3.5 h-3.5 rounded-sm cursor-pointer transition-colors duration-300"
+                          style={{ 
+                            backgroundColor: intensity === 0 ? 'rgba(255,255,255,0.03)' : 
+                                             intensity === 1 ? 'rgba(34, 197, 94, 0.2)' : 
+                                             intensity === 2 ? 'rgba(34, 197, 94, 0.4)' : 
+                                             intensity === 3 ? 'rgba(34, 197, 94, 0.7)' : 
+                                             'var(--neon-green)',
+                            boxShadow: intensity >= 3 ? '0 0 10px rgba(34, 197, 94, 0.2)' : 'none'
+                          }}
+                        />
+                      );
+                    })}
+                  </div>
+                ))}
+              </div>
+            </div>
+            
+            <div className="mt-8 flex justify-between items-center text-[10px] font-black uppercase tracking-[0.2em] text-[#A1A1AA]/40">
+              <div className="flex gap-8">
+                <span>JAN</span>
+                <span>FEV</span>
+                <span>MAR</span>
+                <span>ABR</span>
+                <span>MAI</span>
+                <span>JUN</span>
+                <span>JUL</span>
+                <span>AGO</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <div className="w-2 h-2 rounded-full bg-[var(--neon-green)] animate-pulse" />
+                <span>Status: Em Evolução</span>
+              </div>
             </div>
           </div>
         </div>

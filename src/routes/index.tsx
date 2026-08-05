@@ -503,17 +503,14 @@ function Index() {
             </div>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-6 mb-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-6 mb-8 max-w-2xl mx-auto">
              {[
                { label: 'Total Mês', value: '32,76', unit: 'km', color: 'var(--neon-green)' },
-               { label: 'Distância', value: '62.4', unit: 'km', color: 'var(--glow-orange)' },
-               { label: 'Pace', value: '4:18', unit: '/km', color: '#fff' },
-               { label: 'Tempo', value: '4:28', unit: 'h', color: '#fff' },
-               { label: 'Elevação', value: '842', unit: 'm', color: '#fff' }
+               { label: 'Distância (km)', value: '32,76', unit: 'km', color: 'var(--glow-orange)' },
              ].map((m, i) => (
-               <div key={i} className="bg-[var(--section-bg)] p-4 rounded-[32px] border border-white/5 relative overflow-hidden group">
+               <div key={i} className="bg-[var(--section-bg)] p-6 rounded-[32px] border border-white/5 relative overflow-hidden group">
                  <div className="text-[10px] font-black uppercase tracking-[0.3em] text-[#A1A1AA] mb-4">{m.label}</div>
-                 <div className="text-4xl font-black italic uppercase tracking-tighter" style={{ color: m.color }}>
+                 <div className="text-5xl font-black italic uppercase tracking-tighter" style={{ color: m.color }}>
                    {m.value}
                    <span className="text-sm ml-1 opacity-60 normal-case font-bold">{m.unit}</span>
                  </div>

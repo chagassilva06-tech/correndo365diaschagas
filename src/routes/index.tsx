@@ -341,7 +341,7 @@ function Index() {
             <div className="max-w-2xl text-left">
               <h2 className="text-4xl lg:text-6xl font-black italic uppercase tracking-tighter mb-6 leading-[0.9]">Jornada Anual</h2>
               <div className="flex items-center gap-6">
-                 <p className="text-[#A1A1AA] text-base">A principal atração do seu progresso.</p>
+                 <p className="text-[#A1A1AA] text-sm font-medium tracking-tight">O seu progresso diário em detalhes.</p>
                  <div className="flex items-center gap-2 bg-[var(--neon-green)]/10 px-4 py-2 rounded-xl border border-[var(--neon-green)]/20">
                    <span className="text-xl">🔥</span>
                    <span className="text-sm font-black uppercase tracking-widest text-[var(--neon-green)]">216 dias de sequência</span>

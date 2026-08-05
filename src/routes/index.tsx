@@ -202,7 +202,7 @@ function Index() {
           
           <div className="flex items-center gap-4">
             <Button 
-              onClick={() => navigate({ to: "/sync" })}
+              onClick={handleConnectStrava}
               variant="ghost"
               size="sm"
               className="text-white/80 hover:text-white hover:bg-white/5 border border-[#FF6A00] px-6 rounded-full transition-all shadow-[0_0_15px_rgba(255,106,0,0.2)]"

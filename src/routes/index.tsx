@@ -494,7 +494,7 @@ function Index() {
 
 
       {/* Desempenho / Chart Section */}
-      <section id="desempenho" className="py-20 bg-[var(--background)] border-t border-white/5">
+      <section id="desempenho" className="py-10 bg-[var(--background)] border-t border-white/5">
         <div className="container mx-auto px-4 max-w-6xl">
           <div className="flex flex-col md:flex-row justify-between items-center mb-12 gap-8">
             <div className="text-left">

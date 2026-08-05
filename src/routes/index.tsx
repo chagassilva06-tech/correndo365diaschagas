@@ -130,13 +130,13 @@ function Index() {
 
   const [showNotification, setShowNotification] = useState(false);
   
-  useEffect(() => {
-    // Simulando o recebimento de uma atividade sincronizada após um pequeno delay
-    const timer = setTimeout(() => {
+  const handleConnectStrava = () => {
+    // Simulando a conexão e recebimento de atividade
+    setTimeout(() => {
       setShowNotification(true);
-    }, 2000);
-    return () => clearTimeout(timer);
-  }, []);
+    }, 500);
+    navigate({ to: "/sync" });
+  };
 
   return (
     <div className="min-h-screen bg-[var(--background)] text-white font-sans pb-32 selection:bg-[var(--glow-orange)]/30 selection:text-[var(--glow-orange)] tracking-tight leading-relaxed">
@@ -202,7 +202,7 @@ function Index() {
           
           <div className="flex items-center gap-4">
             <Button 
-              onClick={() => navigate({ to: "/sync" })}
+              onClick={handleConnectStrava}
               variant="ghost"
               size="sm"
               className="text-white/80 hover:text-white hover:bg-white/5 border border-[#FF6A00] px-6 rounded-full transition-all shadow-[0_0_15px_rgba(255,106,0,0.2)]"
@@ -485,8 +485,9 @@ function Index() {
             </div>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
+          <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-6 mb-8">
              {[
+               { label: 'Total Mês', value: '32,76', unit: 'km', color: 'var(--neon-green)' },
                { label: 'Distância', value: '62.4', unit: 'km', color: 'var(--glow-orange)' },
                { label: 'Pace', value: '4:18', unit: '/km', color: '#fff' },
                { label: 'Tempo', value: '4:28', unit: 'h', color: '#fff' },

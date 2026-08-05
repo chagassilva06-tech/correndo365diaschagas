@@ -34,12 +34,26 @@ function SyncPage() {
         setProgress((prev) => {
           if (prev >= 100) {
             clearInterval(interval);
+            // Simulate sync success by persisting the new activity data
+            const lastSync = new Date().toISOString();
+            localStorage.setItem('strava_last_sync', lastSync);
+            localStorage.setItem('strava_sync_status', 'success');
+            
+            // Trigger a simulated data update in the dashboard
+            window.dispatchEvent(new CustomEvent('strava-sync-complete', { 
+              detail: { 
+                date: '05/08/2026', 
+                km: 8.42, 
+                timestamp: lastSync 
+              } 
+            }));
+
             setStatus("success");
             return 100;
           }
-          return prev + 2;
+          return prev + 5; // Faster sync for better UX
         });
-      }, 50);
+      }, 30);
       return () => clearInterval(interval);
     }
   }, [status]);

@@ -287,7 +287,7 @@ function Index() {
               <div className="text-[160px] font-black italic tracking-tighter leading-none text-white/90 drop-shadow-[0_0_50px_rgba(255,255,255,0.2)] relative z-10">
                 <CountUp end={216} />
               </div>
-              <div className="text-3xl font-black uppercase tracking-[0.3em] text-[var(--neon-green)] -mt-4 relative z-20"></div>
+              <div className="text-3xl font-black uppercase tracking-[0.3em] text-[var(--neon-green)] -mt-4 relative z-20">= Dias consecutivos</div>
               
               <motion.div 
                 whileHover={{ scale: 1.05 }}

@@ -563,7 +563,7 @@ function Index() {
 
 
       {/* Profile Card Section */}
-      <section id="perfil" className="py-28 bg-[var(--background)] border-t border-white/5">
+      <section id="perfil" className="py-12 bg-[var(--background)] border-t border-white/5">
         <div className="container mx-auto px-4 max-w-4xl">
            <motion.div 
             whileHover={{ rotateY: 5, rotateX: 2 }}
@@ -581,7 +581,7 @@ function Index() {
               </div>
               
               <div className="flex-1 text-center md:text-left">
-                <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-6 border-b border-white/5 pb-6">
+                <div className="flex flex-col md:flex-row md:items-center justify-between gap-2 mb-4 border-b border-white/5 pb-4">
                   <div>
                     <h3 className="text-4xl font-black italic uppercase tracking-tighter mb-2">Francisco Chagas</h3>
                     <div className="flex items-center gap-2 text-[#A1A1AA] text-xs font-black uppercase tracking-widest">
@@ -613,12 +613,17 @@ function Index() {
         </div>
       </section>
 
-      <footer className="py-6 bg-[var(--background)] border-t border-white/5">
-        <div className="container mx-auto px-4 text-center">
-          <div className="flex justify-center gap-6 mb-4">
-            <a href="#" className="text-[#A1A1AA] hover:text-white transition-colors"><Instagram className="w-5 h-5" /></a>
-            <a href="#" className="text-[#A1A1AA] hover:text-white transition-colors"><Youtube className="w-5 h-5" /></a>
+      <footer className="py-4 bg-[var(--background)] border-t border-white/5">
+        <div className="container mx-auto px-4 flex flex-col items-center justify-center gap-3">
+          <div className="flex justify-center gap-6">
+            <a href="#" className="text-[#A1A1AA] hover:text-[#E1306C] transition-colors"><Instagram className="w-5 h-5" /></a>
+            <a href="#" className="text-[#A1A1AA] hover:text-[#FF0000] transition-colors"><Youtube className="w-5 h-5" /></a>
             <a href="#" className="text-[#A1A1AA] hover:text-white transition-colors"><Github className="w-5 h-5" /></a>
+            <a href="https://strava.com" className="text-[#A1A1AA] hover:text-[#FC6100] transition-colors">
+              <svg className="w-5 h-5 fill-current" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path d="M15.387 17.944l-2.089-4.116h-3.065L15.387 24l5.15-10.172h-3.066l-2.084 4.116zM10.267 7.848l-1.55 3.06h2.279l1.554-3.06 1.553 3.06h2.279l-3.832-7.538L10.267 7.848z"/>
+              </svg>
+            </a>
           </div>
 
           <p className="text-[#A1A1AA] text-[9px] font-black uppercase tracking-widest opacity-40">

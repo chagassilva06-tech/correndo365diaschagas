@@ -106,6 +106,7 @@ function CountUp({ end, duration = 2, decimals = 0 }: { end: number, duration?: 
 function Index() {
   const navigate = useNavigate();
   const [selectedMonth, setSelectedMonth] = useState<string>("Todos");
+  const [activeTab, setActiveTab] = useState("Início");
   
   const currentMonthName = new Intl.DateTimeFormat('pt-BR', { month: 'long' }).format(new Date());
   const capitalizedCurrentMonth = currentMonthName.charAt(0).toUpperCase() + currentMonthName.slice(1);
@@ -194,11 +195,27 @@ function Index() {
           </div>
           
           <nav className="hidden lg:flex items-center gap-10 text-sm font-bold tracking-widest uppercase text-[#A1A1AA]">
-            <a href="#" className="hover:text-[var(--header-hover-bg)] hover:drop-shadow-[0_0_8px_var(--header-hover-bg)] transition-all duration-300">Início</a>
-            <a href="#jornada-anual" className="hover:text-[var(--header-hover-bg)] hover:drop-shadow-[0_0_8px_var(--header-hover-bg)] transition-all duration-300">Calendário</a>
-            <a href="#desempenho" className="hover:text-[var(--header-hover-bg)] hover:drop-shadow-[0_0_8px_var(--header-hover-bg)] transition-all duration-300">Estatísticas</a>
-            <div className="flex items-center gap-4 border-l border-white/10 pl-10">
-            </div>
+            {[
+              { name: "Início", href: "#" },
+              { name: "Calendário", href: "#jornada-anual" },
+              { name: "Estatísticas", href: "#desempenho" },
+            ].map((item) => (
+              <a
+                key={item.name}
+                href={item.href}
+                onClick={() => setActiveTab(item.name)}
+                className="relative py-2 hover:text-[var(--header-hover-bg)] hover:drop-shadow-[0_0_8px_var(--header-hover-bg)] transition-all duration-300"
+              >
+                {item.name}
+                {activeTab === item.name && (
+                  <motion.div
+                    layoutId="activeTab"
+                    className="absolute bottom-0 left-0 right-0 h-0.5 bg-[var(--neon-green)] shadow-[0_0_8px_var(--neon-green)]"
+                    transition={{ type: "spring", stiffness: 380, damping: 30 }}
+                  />
+                )}
+              </a>
+            ))}
           </nav>
           
           <div className="flex items-center gap-4">
@@ -287,11 +304,11 @@ function Index() {
               <div className="text-[160px] font-black italic tracking-tighter leading-none text-white/90 drop-shadow-[0_0_50px_rgba(255,255,255,0.2)] relative z-10">
                 <CountUp end={216} />
               </div>
-              <div className="text-3xl font-black uppercase tracking-[0.3em] text-[var(--neon-green)] -mt-4 relative z-20">= Dias consecutivos</div>
+              <div className="text-3xl font-black uppercase tracking-[0.3em] text-[var(--neon-green)] mt-2 relative z-20">Dias consecutivos</div>
               
               <motion.div 
                 whileHover={{ scale: 1.05 }}
-                className="mt-12 w-64 h-80 rounded-[40px] overflow-hidden border-2 border-white/10 group shadow-2xl relative"
+                className="mt-16 w-64 h-80 rounded-[40px] overflow-hidden border-2 border-white/10 group shadow-2xl relative"
               >
                 <div className="absolute inset-0 bg-gradient-to-t from-[var(--neon-green)]/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity z-10" />
                 <img src={maleRunnerAsset.url} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" alt="Corredor" />

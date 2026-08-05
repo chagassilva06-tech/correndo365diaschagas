@@ -154,7 +154,7 @@ function Index() {
       <div className="fixed inset-0 pointer-events-none z-0 opacity-[0.02]" style={{ backgroundImage: "var(--noise-texture)" }} />
 
 
-      <header className="fixed top-0 left-0 right-0 z-50 bg-[#00021b]/80 backdrop-blur-xl border-b border-yellow-400/20 shadow-[var(--header-shadow)]">
+      <header className="fixed top-0 left-0 right-0 z-50 bg-[#1d1e4e]/80 backdrop-blur-xl border-b border-yellow-400/20 shadow-[var(--header-shadow)]">
         <div className="container mx-auto px-6 h-20 flex items-center justify-between">
           <div className="flex items-center gap-3 group cursor-pointer" onClick={() => navigate({ to: "/" })}>
             <div className="w-10 h-10 rounded-xl overflow-hidden shadow-[0_0_20px_rgba(34,197,94,0.3)] group-hover:shadow-[0_0_30px_rgba(34,197,94,0.5)] transition-all duration-500">

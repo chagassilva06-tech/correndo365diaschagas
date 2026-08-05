@@ -485,8 +485,9 @@ function Index() {
             </div>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
+          <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-6 mb-8">
              {[
+               { label: 'Total Mês', value: '32,76', unit: 'km', color: 'var(--neon-green)' },
                { label: 'Distância', value: '62.4', unit: 'km', color: 'var(--glow-orange)' },
                { label: 'Pace', value: '4:18', unit: '/km', color: '#fff' },
                { label: 'Tempo', value: '4:28', unit: 'h', color: '#fff' },

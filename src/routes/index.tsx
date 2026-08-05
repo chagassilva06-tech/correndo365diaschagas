@@ -60,8 +60,8 @@ import { Badge } from "@/components/ui/badge";
 import { Progress } from "@/components/ui/progress";
 import stravaOfficialAsset from "@/assets/strava-official.png.asset.json";
 import runnerLogoAsset from "@/assets/runner-logo.png.asset.json";
-import profileAvatarAsset from "@/assets/new-profile-avatar.png.asset.json";
-import maleRunnerAsset from "@/assets/male-runner.png.asset.json";
+import profileAvatarAsset from "@/assets/FotoMaratona.png.asset.json";
+import maleRunnerAsset from "@/assets/FotoMaratona.png.asset.json";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -77,21 +77,27 @@ export const Route = createFileRoute("/")({
   component: Index,
 });
 
-function CountUp({ end, duration = 2 }: { end: number, duration?: number }) {
+function CountUp({ end, duration = 2, decimals = 0 }: { end: number, duration?: number, decimals?: number }) {
   const [count, setCount] = useState(0);
   useEffect(() => {
     let startTime: number | null = null;
     const step = (timestamp: number) => {
       if (!startTime) startTime = timestamp;
       const progress = Math.min((timestamp - startTime) / (duration * 1000), 1);
-      setCount(Math.floor(progress * end));
+      setCount(progress * end);
       if (progress < 1) {
         window.requestAnimationFrame(step);
       }
     };
     window.requestAnimationFrame(step);
   }, [end, duration]);
-  return <span>{count.toLocaleString()}</span>;
+
+  const formattedValue = count.toLocaleString('pt-BR', {
+    minimumFractionDigits: decimals,
+    maximumFractionDigits: decimals,
+  });
+
+  return <span>{formattedValue}</span>;
 }
 
 function Index() {
@@ -109,7 +115,7 @@ function Index() {
     { name: "Maio", days: 31, activities: Array.from({ length: 31 }, (_, i) => i + 1) },
     { name: "Junho", days: 30, activities: Array.from({ length: 30 }, (_, i) => i + 1) },
     { name: "Julho", days: 31, activities: Array.from({ length: 31 }, (_, i) => i + 1) },
-    { name: "Agosto", days: 31, activities: Array.from({ length: 31 }, (_, i) => i + 1) },
+    { name: "Agosto", days: 31, activities: [1, 2, 3, 4] },
     { name: "Setembro", days: 30, activities: [] },
     { name: "Outubro", days: 31, activities: [] },
     { name: "Novembro", days: 30, activities: [] },
@@ -190,9 +196,6 @@ function Index() {
             <a href="#desempenho" className="hover:text-[var(--header-hover-bg)] hover:drop-shadow-[0_0_8px_var(--header-hover-bg)] transition-all duration-300">Estatísticas</a>
             <div className="flex items-center gap-4 border-l border-white/10 pl-10">
               <a href="https://instagram.com" target="_blank" rel="noreferrer" className="hover:text-white transition-colors"><Instagram className="w-5 h-5" /></a>
-              <a href="https://www.strava.com/athletes/44632513" target="_blank" rel="noreferrer" className="flex items-center justify-center w-10 h-10 rounded-xl bg-orange-600/10 border border-orange-600/20 hover:bg-orange-600/20 transition-all duration-300">
-                <img src={stravaOfficialAsset.url} alt="Strava" className="w-5 h-5 object-contain brightness-110 contrast-125 mix-blend-screen" />
-              </a>
             </div>
           </nav>
           
@@ -278,14 +281,14 @@ function Index() {
           >
             <div className="absolute inset-0 bg-[var(--neon-green)]/20 blur-[120px] rounded-full animate-pulse" />
             <div className="relative z-0 flex flex-col items-center">
+              <div className="text-sm font-black uppercase tracking-[0.3em] text-[var(--neon-green)] mb-2">correndo a</div>
               <div className="text-[160px] font-black italic tracking-tighter leading-none text-white/90 drop-shadow-[0_0_50px_rgba(255,255,255,0.2)] relative z-10">
                 <CountUp end={216} />
               </div>
-              <div className="text-3xl font-black uppercase tracking-[0.3em] text-[var(--neon-green)] -mt-4 relative z-20">DIAS</div>
-              <div className="text-base font-bold text-[#A1A1AA] uppercase tracking-widest mt-2">consecutivos</div>
+              <div className="text-3xl font-black uppercase tracking-[0.3em] text-[var(--neon-green)] -mt-4 relative z-20">= 216 dias consecutivos</div>
               
-              <div className="mt-12 w-64 h-80 rounded-[40px] overflow-hidden border-2 border-white/10 grayscale hover:grayscale-0 transition-all duration-700 group shadow-2xl relative">
-                <div className="absolute inset-0 bg-gradient-to-t from-[var(--neon-green)]/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity z-10" />
+              <div className="mt-12 w-64 h-80 rounded-[40px] overflow-hidden border-2 border-white/10 group shadow-2xl relative">
+                <div className="absolute inset-0 bg-gradient-to-t from-[var(--neon-green)]/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity z-10" />
                 <img src={maleRunnerAsset.url} className="w-full h-full object-cover" alt="Corredor" />
               </div>
             </div>
@@ -301,8 +304,7 @@ function Index() {
             {[
               { label: "dias", value: 365, icon: CalendarIcon, sparkline: [20, 40, 30, 50, 40, 70, 60] },
               { label: "corridas", value: 216, icon: Footprints, sparkline: [10, 20, 15, 30, 25, 40, 35] },
-              { label: "quilômetros", value: 2840, suffix: " km", icon: TrendingUp, sparkline: [30, 50, 45, 60, 55, 80, 75] },
-              { label: "horas", value: 327, icon: Clock, sparkline: [15, 25, 20, 35, 30, 45, 40] },
+              { label: "quilômetros", value: 1627.91, prefix: "Total: ", suffix: " km", icon: TrendingUp, sparkline: [30, 50, 45, 60, 55, 80, 75] },
             ].map((stat, i) => (
               <motion.div
                 key={stat.label}
@@ -314,8 +316,9 @@ function Index() {
               >
                 <div className="absolute top-0 right-0 w-32 h-32 bg-[var(--neon-green)]/5 rounded-full -mr-8 -mt-8 blur-3xl group-hover:bg-[var(--neon-green)]/10 transition-all duration-500" />
                 <stat.icon className="w-10 h-10 text-[var(--neon-green)] mb-6" />
-                <div className="text-6xl font-black tracking-tighter mb-2 italic uppercase">
-                  <CountUp end={stat.value} />
+                <div className="text-6xl font-black tracking-tighter mb-2 italic uppercase flex items-baseline flex-wrap">
+                  {stat.prefix && <span className="text-xl mr-2 opacity-60 normal-case">{stat.prefix}</span>}
+                  <CountUp end={stat.value} decimals={stat.value % 1 !== 0 ? 2 : 0} />
                   <span className="text-2xl ml-1 opacity-60">{stat.suffix}</span>
                 </div>
                 <div className="flex justify-between items-end">
@@ -379,8 +382,24 @@ function Index() {
                   <div className="bg-white/5 p-8 border-b border-white/5 flex justify-between items-center">
                     <span className={`font-black italic uppercase tracking-tight ${isCurrentMonth ? 'text-4xl' : 'text-xl'}`}>{month.name}</span>
                     <div className="text-right">
-                      <p className="text-[10px] font-black text-[#A1A1AA] uppercase">{month.activities.length}/{month.days} dias</p>
-                      <p className="text-[10px] font-black text-[var(--neon-green)] uppercase">{(month.activities.length * 6.7).toFixed(1)}km</p>
+                      <p className="text-[10px] font-black text-[#A1A1AA] uppercase">
+                        {month.name === "Janeiro" ? "31" : 
+                         month.name === "Fevereiro" ? "28" : 
+                         month.name === "Março" ? "31" : 
+                         month.name === "Abril" ? "30" : 
+                         month.name === "Maio" ? "31" : 
+                         month.name === "Junho" ? "30" : 
+                         month.name === "Julho" ? "31" : 
+                         month.name === "Agosto" ? "4" : month.activities.length}/{month.days} dias</p>
+                      <p className="text-[10px] font-black text-[var(--neon-green)] uppercase">
+                        {month.name === "Janeiro" ? "246,48" : 
+                         month.name === "Fevereiro" ? "318,45" : 
+                         month.name === "Março" ? "206,99" : 
+                         month.name === "Abril" ? "242,26" : 
+                         month.name === "Maio" ? "208,71" : 
+                         month.name === "Junho" ? "133,18" : 
+                         month.name === "Julho" ? "239,08" : 
+                         month.name === "Agosto" ? "32,76" : (month.activities.length * 6.7).toFixed(1)}km</p>
                     </div>
                   </div>
                   
@@ -399,9 +418,7 @@ function Index() {
                             whileHover={{ scale: 1.15, zIndex: 10, backgroundColor: "var(--neon-green-hover)" }}
                             className={`aspect-square rounded-xl flex items-center justify-center text-[10px] font-black transition-all relative group/day cursor-pointer ${
                               hasActivity 
-                                ? isSpecial 
-                                  ? "bg-[var(--current-day-orange)] text-white shadow-[0_0_20px_rgba(245,158,11,0.4)]" 
-                                  : "bg-[var(--neon-green)] text-white shadow-[0_0_15px_rgba(34,197,94,0.3)]"
+                                ? "bg-[var(--neon-green)] text-white shadow-[0_0_15px_rgba(34,197,94,0.3)]"
                                 : day < new Date().getDate() && isCurrentMonth
                                   ? "bg-[var(--rest-day)] text-[#A1A1AA]/50"
                                   : "bg-[var(--future-day)] text-[#A1A1AA]/30 border border-white/5"
@@ -564,7 +581,7 @@ function Index() {
                   </div>
                   <div>
                     <p className="text-[10px] font-black uppercase text-[#A1A1AA] tracking-[0.2em] mb-2">Acumulado</p>
-                    <p className="text-3xl font-black italic uppercase text-white">1.632km</p>
+                    <p className="text-3xl font-black italic uppercase text-white">1.627,91km</p>
                   </div>
                   <div className="col-span-2 md:col-span-1">
                     <p className="text-[10px] font-black uppercase text-[#A1A1AA] tracking-[0.2em] mb-2">Pace Médio</p>

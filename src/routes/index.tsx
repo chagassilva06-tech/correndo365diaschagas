@@ -130,13 +130,13 @@ function Index() {
 
   const [showNotification, setShowNotification] = useState(false);
   
-  useEffect(() => {
-    // Simulando o recebimento de uma atividade sincronizada após um pequeno delay
-    const timer = setTimeout(() => {
+  const handleConnectStrava = () => {
+    // Simulando a conexão e recebimento de atividade
+    setTimeout(() => {
       setShowNotification(true);
-    }, 2000);
-    return () => clearTimeout(timer);
-  }, []);
+    }, 500);
+    navigate({ to: "/sync" });
+  };
 
   return (
     <div className="min-h-screen bg-[var(--background)] text-white font-sans pb-32 selection:bg-[var(--glow-orange)]/30 selection:text-[var(--glow-orange)] tracking-tight leading-relaxed">

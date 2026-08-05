@@ -573,7 +573,13 @@ function Index() {
         </div>
       </section>
 
-      <footer className="py-4 bg-[var(--background)] border-t border-white/5">
+      <Suspense fallback={null}>
+        <div className="fixed bottom-8 left-1/2 -translate-x-1/2 z-50 w-[90%] max-w-md pointer-events-auto">
+          <BottomNav />
+        </div>
+      </Suspense>
+
+      <footer className="py-4 bg-[var(--background)] border-t border-white/5 relative z-10">
         <div className="container mx-auto px-4 flex flex-col items-center justify-center gap-3">
           <div className="flex justify-center gap-6">
             <a href="#" className="text-[#A1A1AA] hover:text-[#E1306C] transition-colors"><Instagram className="w-5 h-5" /></a>

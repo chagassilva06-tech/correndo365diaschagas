@@ -195,11 +195,27 @@ function Index() {
           </div>
           
           <nav className="hidden lg:flex items-center gap-10 text-sm font-bold tracking-widest uppercase text-[#A1A1AA]">
-            <a href="#" className="hover:text-[var(--header-hover-bg)] hover:drop-shadow-[0_0_8px_var(--header-hover-bg)] transition-all duration-300">Início</a>
-            <a href="#jornada-anual" className="hover:text-[var(--header-hover-bg)] hover:drop-shadow-[0_0_8px_var(--header-hover-bg)] transition-all duration-300">Calendário</a>
-            <a href="#desempenho" className="hover:text-[var(--header-hover-bg)] hover:drop-shadow-[0_0_8px_var(--header-hover-bg)] transition-all duration-300">Estatísticas</a>
-            <div className="flex items-center gap-4 border-l border-white/10 pl-10">
-            </div>
+            {[
+              { name: "Início", href: "#" },
+              { name: "Calendário", href: "#jornada-anual" },
+              { name: "Estatísticas", href: "#desempenho" },
+            ].map((item) => (
+              <a
+                key={item.name}
+                href={item.href}
+                onClick={() => setActiveTab(item.name)}
+                className="relative py-2 hover:text-[var(--header-hover-bg)] hover:drop-shadow-[0_0_8px_var(--header-hover-bg)] transition-all duration-300"
+              >
+                {item.name}
+                {activeTab === item.name && (
+                  <motion.div
+                    layoutId="activeTab"
+                    className="absolute bottom-0 left-0 right-0 h-0.5 bg-[var(--neon-green)] shadow-[0_0_8px_var(--neon-green)]"
+                    transition={{ type: "spring", stiffness: 380, damping: 30 }}
+                  />
+                )}
+              </a>
+            ))}
           </nav>
           
           <div className="flex items-center gap-4">

@@ -36,7 +36,7 @@ const Cell = lazy(() => import("recharts").then(mod => ({ default: mod.Cell })))
 const XAxis = lazy(() => import("recharts").then(mod => ({ default: mod.XAxis })));
 const Tooltip = lazy(() => import("recharts").then(mod => ({ default: mod.Tooltip })));
 const ResponsiveContainer = lazy(() => import("recharts").then(mod => ({ default: mod.ResponsiveContainer })));
-const BottomNav = lazy(() => import("@/components/BottomNav").then(mod => ({ default: mod.BottomNav })));
+
 
 
 export const Route = createFileRoute("/")({
@@ -115,7 +115,7 @@ function Index() {
   };
 
   return (
-    <div className="min-h-screen bg-[var(--background)] text-white font-sans pb-32 selection:bg-[var(--glow-orange)]/30 selection:text-[var(--glow-orange)] tracking-tight leading-relaxed">
+    <div className="min-h-screen bg-[var(--background)] text-white font-sans selection:bg-[var(--glow-orange)]/30 selection:text-[var(--glow-orange)] tracking-tight leading-relaxed">
       <AnimatePresence>
         {showNotification && (
           <motion.div
@@ -571,11 +571,6 @@ function Index() {
         </div>
       </section>
 
-      <Suspense fallback={null}>
-        <div className="fixed bottom-8 left-1/2 -translate-x-1/2 z-50 w-[90%] max-w-md pointer-events-auto">
-          <BottomNav />
-        </div>
-      </Suspense>
 
       <footer className="py-4 bg-[var(--background)] border-t border-white/5 relative z-10">
         <div className="container mx-auto px-4 flex flex-col items-center justify-center gap-3">

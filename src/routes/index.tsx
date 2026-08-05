@@ -285,12 +285,15 @@ function Index() {
               <div className="text-[160px] font-black italic tracking-tighter leading-none text-white/90 drop-shadow-[0_0_50px_rgba(255,255,255,0.2)] relative z-10">
                 <CountUp end={216} />
               </div>
-              <div className="text-3xl font-black uppercase tracking-[0.3em] text-[var(--neon-green)] -mt-4 relative z-20">= 216 dias consecutivos</div>
+              <div className="text-3xl font-black uppercase tracking-[0.3em] text-[var(--neon-green)] -mt-4 relative z-20"></div>
               
-              <div className="mt-12 w-64 h-80 rounded-[40px] overflow-hidden border-2 border-white/10 group shadow-2xl relative">
+              <motion.div 
+                whileHover={{ scale: 1.05 }}
+                className="mt-12 w-64 h-80 rounded-[40px] overflow-hidden border-2 border-white/10 group shadow-2xl relative"
+              >
                 <div className="absolute inset-0 bg-gradient-to-t from-[var(--neon-green)]/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity z-10" />
-                <img src={maleRunnerAsset.url} className="w-full h-full object-cover" alt="Corredor" />
-              </div>
+                <img src={maleRunnerAsset.url} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" alt="Corredor" />
+              </motion.div>
             </div>
           </motion.div>
         </div>
@@ -488,7 +491,7 @@ function Index() {
                { label: 'Tempo', value: '4:28', unit: 'h', color: '#fff' },
                { label: 'Elevação', value: '842', unit: 'm', color: '#fff' }
              ].map((m, i) => (
-               <div key={i} className="bg-[var(--section-bg)] p-8 rounded-[32px] border border-white/5 relative overflow-hidden group">
+               <div key={i} className="bg-[var(--section-bg)] p-4 rounded-[32px] border border-white/5 relative overflow-hidden group">
                  <div className="text-[10px] font-black uppercase tracking-[0.3em] text-[#A1A1AA] mb-4">{m.label}</div>
                  <div className="text-4xl font-black italic uppercase tracking-tighter" style={{ color: m.color }}>
                    {m.value}
@@ -540,7 +543,7 @@ function Index() {
 
 
       {/* Profile Card Section */}
-      <section id="perfil" className="py-20 bg-[var(--background)] border-t border-white/5">
+      <section id="perfil" className="py-28 bg-[var(--background)] border-t border-white/5">
         <div className="container mx-auto px-4 max-w-4xl">
            <motion.div 
             whileHover={{ rotateY: 5, rotateX: 2 }}
@@ -594,18 +597,17 @@ function Index() {
         </div>
       </section>
 
-      <footer className="py-20 bg-[var(--background)] border-t border-white/5">
+      <footer className="py-10 bg-[var(--background)] border-t border-white/5">
         <div className="container mx-auto px-4 text-center">
-          <div className="flex justify-center gap-8 mb-12">
-            <a href="https://www.strava.com/athletes/44632513" target="_blank" rel="noreferrer" className="w-14 h-14 rounded-2xl bg-orange-600/10 border border-orange-600/20 flex items-center justify-center hover:border-orange-600 transition-all hover:-translate-y-1"><img src={stravaOfficialAsset.url} alt="Strava" className="w-6 h-6 brightness-110 contrast-125 mix-blend-screen" /></a>
-            <a href="#" className="w-14 h-14 rounded-2xl bg-[var(--section-bg)] border border-white/5 flex items-center justify-center hover:border-white transition-all hover:-translate-y-1"><Instagram className="w-6 h-6" /></a>
-            <a href="#" className="w-14 h-14 rounded-2xl bg-[var(--section-bg)] border border-white/5 flex items-center justify-center hover:border-red-600 transition-all hover:-translate-y-1"><Youtube className="w-6 h-6" /></a>
-            <a href="#" className="w-14 h-14 rounded-2xl bg-[var(--section-bg)] border border-white/5 flex items-center justify-center hover:border-white transition-all hover:-translate-y-1"><Github className="w-6 h-6" /></a>
+          <div className="flex justify-center gap-6 mb-8">
+            <a href="#" className="text-[#A1A1AA] hover:text-white transition-colors"><Instagram className="w-5 h-5" /></a>
+            <a href="#" className="text-[#A1A1AA] hover:text-white transition-colors"><Youtube className="w-5 h-5" /></a>
+            <a href="#" className="text-[#A1A1AA] hover:text-white transition-colors"><Github className="w-5 h-5" /></a>
           </div>
           
-          <div className="max-w-md mx-auto mb-12">
-            <h4 className="text-[10px] font-black uppercase tracking-[0.5em] mb-8 text-[#A1A1AA]">Manifesto</h4>
-            <div className="flex flex-col gap-2 text-4xl font-black italic uppercase tracking-tighter">
+          <div className="max-w-md mx-auto mb-8">
+            <h4 className="text-[9px] font-black uppercase tracking-[0.5em] mb-4 text-[#A1A1AA]">Manifesto</h4>
+            <div className="text-xl font-black italic uppercase tracking-tighter flex items-center justify-center gap-2 flex-wrap">
               <span>Disciplina.</span>
               <span>Consistência.</span>
               <span>Evolução.</span>
@@ -613,16 +615,13 @@ function Index() {
             </div>
           </div>
 
-          <p className="text-[#A1A1AA] text-[10px] font-black uppercase tracking-widest opacity-40">
+          <p className="text-[#A1A1AA] text-[9px] font-black uppercase tracking-widest opacity-40">
             2026 &copy; <span className="text-white">Francisco</span> <span className="text-[var(--neon-green)]">Chagas</span>
           </p>
         </div>
       </footer>
 
 
-      <div className="fixed bottom-8 left-1/2 -translate-x-1/2 z-50 w-full max-w-lg px-6">
-        <BottomNav />
-      </div>
     </div>
   );
 }

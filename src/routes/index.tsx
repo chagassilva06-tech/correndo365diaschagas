@@ -302,7 +302,7 @@ function Index() {
             <div className="relative z-0 flex flex-col items-center">
               <div className="text-sm font-black uppercase tracking-[0.3em] text-[var(--neon-green)] mb-2">correndo a</div>
               <div className="text-[160px] font-black italic tracking-tighter leading-none text-white/90 drop-shadow-[0_0_50px_rgba(255,255,255,0.2)] relative z-10">
-                <CountUp end={216} />
+                <CountUp end={216 + syncedActivities.length} />
               </div>
               <div className="text-3xl font-black uppercase tracking-[0.3em] text-[var(--neon-green)] mt-2 relative z-20">Dias consecutivos</div>
               
@@ -325,8 +325,8 @@ function Index() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {[
               { label: "dias", value: 365, icon: CalendarIcon, sparkline: [20, 40, 30, 50, 40, 70, 60] },
-              { label: "corridas", value: 216, icon: Footprints, sparkline: [10, 20, 15, 30, 25, 40, 35] },
-              { label: "quilômetros", value: 1627.91, prefix: "Total: ", suffix: " km", icon: TrendingUp, sparkline: [30, 50, 45, 60, 55, 80, 75] },
+              { label: "corridas", value: 216 + syncedActivities.length, icon: Footprints, sparkline: [10, 20, 15, 30, 25, 40, 35] },
+              { label: "quilômetros", value: 1627.91 + syncedActivities.reduce((acc, a) => acc + a.km, 0), prefix: "Total: ", suffix: " km", icon: TrendingUp, sparkline: [30, 50, 45, 60, 55, 80, 75] },
             ].map((stat, i) => (
               <motion.div
                 key={stat.label}
@@ -370,7 +370,7 @@ function Index() {
                  <p className="text-[#A1A1AA] text-sm font-medium tracking-tight">O seu progresso diário em detalhes.</p>
                  <div className="flex items-center gap-2 bg-[var(--neon-green)]/10 px-4 py-2 rounded-xl border border-[var(--neon-green)]/20">
                    <span className="text-xl">🔥</span>
-                   <span className="text-sm font-black uppercase tracking-widest text-[var(--neon-green)]">216 dias de sequência</span>
+                   <span className="text-sm font-black uppercase tracking-widest text-[var(--neon-green)]">{216 + syncedActivities.length} dias de sequência</span>
                  </div>
               </div>
             </div>
@@ -490,8 +490,8 @@ function Index() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-6 mb-8 max-w-2xl mx-auto">
              {[
-               { label: 'Total Mês', value: '32,76', unit: 'km', color: 'var(--neon-green)' },
-               { label: 'Distância (km)', value: '32,76', unit: 'km', color: 'var(--glow-orange)' },
+               { label: 'Total Mês', value: months.find(m => m.name === "Agosto")?.km || '32,76', unit: 'km', color: 'var(--neon-green)' },
+               { label: 'Distância (km)', value: months.find(m => m.name === "Agosto")?.km || '32,76', unit: 'km', color: 'var(--glow-orange)' },
              ].map((m, i) => (
                <div key={i} className="bg-[var(--section-bg)] p-6 rounded-[32px] border border-white/5 relative overflow-hidden group">
                  <div className="text-[10px] font-black uppercase tracking-[0.3em] text-[#A1A1AA] mb-4">{m.label}</div>
@@ -660,11 +660,18 @@ function Index() {
                 <div className="grid grid-cols-2 md:grid-cols-3 gap-8">
                   <div>
                     <p className="text-[10px] font-black uppercase text-[#A1A1AA] tracking-[0.2em] mb-2">Sequência</p>
-                    <p className="text-3xl font-black italic uppercase text-white">216 dias</p>
+                    <p className="text-3xl font-black italic uppercase text-white">
+                      <CountUp end={216 + syncedActivities.length} /> dias
+                    </p>
                   </div>
                   <div>
                     <p className="text-[10px] font-black uppercase text-[#A1A1AA] tracking-[0.2em] mb-2">Acumulado</p>
-                    <p className="text-3xl font-black italic uppercase text-white">1.627,91km</p>
+                    <p className="text-3xl font-black italic uppercase text-white">
+                      <CountUp 
+                        end={1627.91 + syncedActivities.reduce((acc, a) => acc + a.km, 0)} 
+                        decimals={2} 
+                      /> km
+                    </p>
                   </div>
                   <div className="col-span-2 md:col-span-1">
                     <p className="text-[10px] font-black uppercase text-[#A1A1AA] tracking-[0.2em] mb-2">Pace Médio</p>

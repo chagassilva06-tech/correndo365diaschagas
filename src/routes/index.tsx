@@ -514,7 +514,7 @@ function Index() {
                       const dayOfYear = weekIndex * 7 + dayIndex;
                       // Logic to color based on 216 days streak (up to roughly current day)
                       const isActive = dayOfYear < 216;
-                      const intensity = isActive ? (Math.random() > 0.7 ? 4 : Math.random() > 0.4 ? 3 : 2) : 0;
+                      const intensity = isActive ? (Math.random() > 0.7 ? 4 : Math.random() > 0.4 ? 3 : (Math.random() > 0.5 ? 2 : 1)) : 0;
                       
                       return (
                         <motion.div

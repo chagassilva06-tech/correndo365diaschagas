@@ -16,17 +16,17 @@ function NotFoundComponent() {
   return (
     <div className="flex min-h-screen items-center justify-center bg-background px-4">
       <div className="max-w-md text-center">
-        <h1 className="text-7xl font-bold text-foreground">404</h1>
-        <h2 className="mt-4 text-xl font-semibold text-foreground">Page not found</h2>
-        <p className="mt-2 text-sm text-muted-foreground">
-          The page you're looking for doesn't exist or has been moved.
+        <h1 className="text-7xl font-black italic tracking-tighter text-foreground uppercase drop-shadow-[0_0_15px_rgba(255,255,255,0.1)]">404</h1>
+        <h2 className="mt-4 text-xl font-black italic tracking-tighter text-foreground uppercase">Página não encontrada</h2>
+        <p className="mt-2 text-xs font-medium text-muted-foreground tracking-tight">
+          A página que você está procurando não existe ou foi movida.
         </p>
         <div className="mt-6">
           <Link
             to="/"
-            className="inline-flex items-center justify-center rounded-md bg-primary px-4 py-2 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90"
+            className="inline-flex items-center justify-center rounded-full bg-[var(--neon-green)] px-6 py-2 text-[10px] font-black uppercase tracking-widest text-black transition-all hover:bg-[var(--neon-green-hover)] shadow-[0_0_15px_rgba(34,197,94,0.3)]"
           >
-            Go home
+            Voltar ao Início
           </Link>
         </div>
       </div>
@@ -44,11 +44,11 @@ function ErrorComponent({ error, reset }: { error: Error; reset: () => void }) {
   return (
     <div className="flex min-h-screen items-center justify-center bg-background px-4">
       <div className="max-w-md text-center">
-        <h1 className="text-xl font-semibold tracking-tight text-foreground">
-          This page didn't load
+        <h1 className="text-xl font-black italic tracking-tighter text-foreground uppercase">
+          Ops! Algo deu errado
         </h1>
-        <p className="mt-2 text-sm text-muted-foreground">
-          Something went wrong on our end. You can try refreshing or head back home.
+        <p className="mt-2 text-xs font-medium text-muted-foreground tracking-tight">
+          Verificamos a estabilidade do sistema. Tente atualizar a página ou volte para o início.
         </p>
         <div className="mt-6 flex flex-wrap justify-center gap-2">
           <button
@@ -56,15 +56,15 @@ function ErrorComponent({ error, reset }: { error: Error; reset: () => void }) {
               router.invalidate();
               reset();
             }}
-            className="inline-flex items-center justify-center rounded-md bg-primary px-4 py-2 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90"
+            className="inline-flex items-center justify-center rounded-full bg-[var(--neon-green)] px-6 py-2 text-[10px] font-black uppercase tracking-widest text-black transition-all hover:bg-[var(--neon-green-hover)] shadow-[0_0_15px_rgba(34,197,94,0.3)]"
           >
-            Try again
+            Tentar novamente
           </button>
           <a
             href="/"
-            className="inline-flex items-center justify-center rounded-md border border-input bg-background px-4 py-2 text-sm font-medium text-foreground transition-colors hover:bg-accent"
+            className="inline-flex items-center justify-center rounded-full border border-white/10 bg-background px-6 py-2 text-[10px] font-black uppercase tracking-widest text-foreground transition-all hover:bg-accent hover:border-[var(--neon-green)]/30"
           >
-            Go home
+            Voltar ao Início
           </a>
         </div>
       </div>

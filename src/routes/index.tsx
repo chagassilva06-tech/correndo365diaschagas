@@ -505,32 +505,73 @@ function Index() {
               </div>
             </div>
             
-            <div className="overflow-x-auto pb-4 custom-scrollbar">
-              <div className="flex gap-1.5 min-w-max">
-                {/* Simplified Contribution Calendar */}
+            <div className="overflow-x-auto pb-6 custom-scrollbar">
+              <div className="flex gap-1.5 min-w-max p-4">
                 {Array.from({ length: 52 }).map((_, weekIndex) => (
                   <div key={weekIndex} className="flex flex-col gap-1.5">
                     {Array.from({ length: 7 }).map((_, dayIndex) => {
                       const dayOfYear = weekIndex * 7 + dayIndex;
-                      // Logic to color based on 216 days streak (up to roughly current day)
                       const isActive = dayOfYear < 216;
                       const intensity = isActive ? (Math.random() > 0.7 ? 4 : Math.random() > 0.4 ? 3 : (Math.random() > 0.5 ? 2 : 1)) : 0;
                       
+                      // Mock data for tooltip
+                      const date = new Date(2026, 0, dayOfYear + 1);
+                      const dateStr = date.toLocaleDateString('pt-BR', { day: '2-digit', month: 'long' });
+                      const km = (Math.random() * 15 + 5).toFixed(2);
+                      const pace = "4:18";
+                      const time = "01:05:20";
+
                       return (
-                        <motion.div
-                          key={dayIndex}
-                          initial={false}
-                          whileHover={{ scale: 1.3, zIndex: 10 }}
-                          className="w-3.5 h-3.5 rounded-sm cursor-pointer transition-colors duration-300"
-                          style={{ 
-                            backgroundColor: intensity === 0 ? 'rgba(255,255,255,0.03)' : 
-                                             intensity === 1 ? 'rgba(34, 197, 94, 0.2)' : 
-                                             intensity === 2 ? 'rgba(34, 197, 94, 0.4)' : 
-                                             intensity === 3 ? 'rgba(34, 197, 94, 0.7)' : 
-                                             'var(--neon-green)',
-                            boxShadow: intensity >= 3 ? '0 0 10px rgba(34, 197, 94, 0.2)' : 'none'
-                          }}
-                        />
+                        <div key={dayIndex} className="relative group/contribution">
+                          <motion.div
+                            initial={false}
+                            whileHover={{ 
+                              scale: 1.5, 
+                              rotate: 45,
+                              zIndex: 50,
+                              boxShadow: "0 0 20px rgba(34, 197, 94, 0.6)"
+                            }}
+                            transition={{ type: "spring", stiffness: 300, damping: 20 }}
+                            className="w-3.5 h-3.5 rounded-sm cursor-pointer transition-colors duration-300 relative overflow-hidden"
+                            style={{ 
+                              backgroundColor: intensity === 0 ? 'rgba(255,255,255,0.03)' : 
+                                               intensity === 1 ? 'rgba(34, 197, 94, 0.2)' : 
+                                               intensity === 2 ? 'rgba(34, 197, 94, 0.4)' : 
+                                               intensity === 3 ? 'rgba(34, 197, 94, 0.7)' : 
+                                               'var(--neon-green)',
+                            }}
+                          >
+                            {intensity > 0 && (
+                              <motion.div 
+                                className="absolute inset-0 bg-white/20"
+                                animate={{ opacity: [0, 0.5, 0] }}
+                                transition={{ duration: 2, repeat: Infinity, ease: "linear" }}
+                              />
+                            )}
+                          </motion.div>
+                          
+                          {/* Premium Tooltip */}
+                          <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-4 opacity-0 group-hover/contribution:opacity-100 transition-all duration-300 pointer-events-none z-[60] scale-90 group-hover/contribution:scale-100">
+                            <div className="bg-[#090909] border border-white/10 rounded-2xl p-4 shadow-2xl min-w-[180px] backdrop-blur-xl">
+                              <div className="flex items-center justify-between mb-2">
+                                <span className="text-[10px] font-black uppercase tracking-widest text-white/90">{dateStr}</span>
+                                <Check className="w-3 h-3 text-[var(--neon-green)]" />
+                              </div>
+                              <div className="space-y-1">
+                                <div className="text-xl font-black italic uppercase text-[var(--neon-green)]">{km} km</div>
+                                <div className="flex justify-between text-[9px] font-bold text-[#A1A1AA] uppercase tracking-tighter">
+                                  <span>Pace {pace}</span>
+                                  <span>{time}</span>
+                                </div>
+                              </div>
+                              <div className="mt-3 pt-3 border-t border-white/5 flex items-center gap-2 text-[8px] font-black text-[var(--glow-orange)] uppercase tracking-widest">
+                                <Activity className="w-3 h-3" />
+                                Clique para ver no Strava
+                              </div>
+                            </div>
+                            <div className="absolute top-full left-1/2 -translate-x-1/2 border-8 border-transparent border-t-[#090909]" />
+                          </div>
+                        </div>
                       );
                     })}
                   </div>

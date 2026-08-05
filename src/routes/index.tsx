@@ -80,24 +80,52 @@ function Index() {
   const navigate = useNavigate();
   const [selectedMonth, setSelectedMonth] = useState<string>("Todos");
   const [activeTab, setActiveTab] = useState("Início");
+  const [syncedActivities, setSyncedActivities] = useState<any[]>([]);
   
   const currentMonthName = new Intl.DateTimeFormat('pt-BR', { month: 'long' }).format(new Date());
   const capitalizedCurrentMonth = currentMonthName.charAt(0).toUpperCase() + currentMonthName.slice(1);
 
-  const months = useMemo(() => [
-    { name: "Janeiro", days: 31, km: "246,48", activities: Array.from({ length: 31 }, (_, i) => i + 1) },
-    { name: "Fevereiro", days: 28, km: "318,45", activities: Array.from({ length: 28 }, (_, i) => i + 1) },
-    { name: "Março", days: 31, km: "206,99", activities: Array.from({ length: 31 }, (_, i) => i + 1) },
-    { name: "Abril", days: 30, km: "242,26", activities: Array.from({ length: 30 }, (_, i) => i + 1) },
-    { name: "Maio", days: 31, km: "208,71", activities: Array.from({ length: 31 }, (_, i) => i + 1) },
-    { name: "Junho", days: 30, km: "133,18", activities: Array.from({ length: 30 }, (_, i) => i + 1) },
-    { name: "Julho", days: 31, km: "239,08", activities: Array.from({ length: 31 }, (_, i) => i + 1) },
-    { name: "Agosto", days: 31, km: "32,76", activities: [1, 2, 3, 4] },
-    { name: "Setembro", days: 30, km: "0", activities: [] },
-    { name: "Outubro", days: 31, km: "0", activities: [] },
-    { name: "Novembro", days: 30, km: "0", activities: [] },
-    { name: "Dezembro", days: 31, km: "0", activities: [] },
-  ], []);
+  // Listen for sync completion to update the UI
+  useEffect(() => {
+    const handleSync = (event: any) => {
+      const newActivity = event.detail;
+      setSyncedActivities(prev => [...prev, newActivity]);
+      setShowNotification(true);
+    };
+
+    window.addEventListener('strava-sync-complete', handleSync);
+    return () => window.removeEventListener('strava-sync-complete', handleSync);
+  }, []);
+
+  const months = useMemo(() => {
+    const baseMonths = [
+      { name: "Janeiro", days: 31, km: "246,48", activities: Array.from({ length: 31 }, (_, i) => i + 1) },
+      { name: "Fevereiro", days: 28, km: "318,45", activities: Array.from({ length: 28 }, (_, i) => i + 1) },
+      { name: "Março", days: 31, km: "206,99", activities: Array.from({ length: 31 }, (_, i) => i + 1) },
+      { name: "Abril", days: 30, km: "242,26", activities: Array.from({ length: 30 }, (_, i) => i + 1) },
+      { name: "Maio", days: 31, km: "208,71", activities: Array.from({ length: 31 }, (_, i) => i + 1) },
+      { name: "Junho", days: 30, km: "133,18", activities: Array.from({ length: 30 }, (_, i) => i + 1) },
+      { name: "Julho", days: 31, km: "239,08", activities: Array.from({ length: 31 }, (_, i) => i + 1) },
+      { name: "Agosto", days: 31, km: "32,76", activities: [1, 2, 3, 4] },
+      { name: "Setembro", days: 30, km: "0", activities: [] },
+      { name: "Outubro", days: 31, km: "0", activities: [] },
+      { name: "Novembro", days: 30, km: "0", activities: [] },
+      { name: "Dezembro", days: 31, km: "0", activities: [] },
+    ];
+
+    // Merge synced activities into the current month (August 2026)
+    return baseMonths.map(m => {
+      if (m.name === "Agosto") {
+        const extraDays = syncedActivities.map(a => parseInt(a.date.split('/')[0]));
+        const uniqueActivities = Array.from(new Set([...m.activities, ...extraDays]));
+        const extraKm = syncedActivities.reduce((acc, a) => acc + a.km, 0);
+        const totalKmValue = parseFloat(m.km.replace(',', '.')) + extraKm;
+        const totalKmFormatted = totalKmValue.toFixed(2).replace('.', ',');
+        return { ...m, activities: uniqueActivities, km: totalKmFormatted };
+      }
+      return m;
+    });
+  }, [syncedActivities]);
 
   const filteredMonths = useMemo(() => 
     selectedMonth === "Todos" ? months : months.filter(m => m.name === selectedMonth),

@@ -9,7 +9,13 @@ import {
   Check,
   Instagram,
   Youtube,
-  Github
+  Github,
+  Home,
+  Calendar,
+  Trophy,
+  Layers,
+  Image as ImageIcon,
+  User
 } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useState, useEffect, useMemo, useCallback, Suspense, lazy } from "react";

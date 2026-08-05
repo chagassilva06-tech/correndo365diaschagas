@@ -386,17 +386,14 @@ function Index() {
                       {Array.from({ length: month.days }).map((_, i) => {
                         const day = i + 1;
                         const hasActivity = month.activities.includes(day);
-                        // Mocking levels
-                        const intensity = day % 3; 
                         const isSpecial = day === 15;
                         
                         return (
-                          <motion.div
+                          <div
                             key={i}
-                            whileHover={{ scale: 1.15, zIndex: 10, backgroundColor: "var(--neon-green-hover)" }}
                             className={`aspect-square rounded-xl flex items-center justify-center text-[10px] font-black transition-all relative group/day cursor-pointer ${
                               hasActivity 
-                                ? "bg-[var(--neon-green)] text-white shadow-[0_0_15px_rgba(34,197,94,0.3)]"
+                                ? "bg-[var(--neon-green)] text-white shadow-[0_0_15px_rgba(34,197,94,0.3)] hover:bg-[var(--neon-green-hover)]"
                                 : day < new Date().getDate() && isCurrentMonth
                                   ? "bg-[var(--rest-day)] text-[#A1A1AA]/50"
                                   : "bg-[var(--future-day)] text-[#A1A1AA]/30 border border-white/5"
@@ -411,7 +408,7 @@ function Index() {
                                 <div className="absolute top-full left-1/2 -translate-x-1/2 border-8 border-transparent border-t-[var(--neon-green)]" />
                               </div>
                             )}
-                          </motion.div>
+                          </div>
                         );
                       })}
                     </div>

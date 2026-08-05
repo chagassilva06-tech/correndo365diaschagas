@@ -62,6 +62,8 @@ import stravaOfficialAsset from "@/assets/strava-official.png.asset.json";
 import runnerLogoAsset from "@/assets/runner-logo.png.asset.json";
 import profileAvatarAsset from "@/assets/FotoMaratona.png.asset.json";
 import maleRunnerAsset from "@/assets/FotoMaratona.png.asset.json";
+import profileHeroAsset from "@/assets/profile-hero.png.asset.json";
+
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -554,12 +556,9 @@ function Index() {
             
             <div className="flex flex-col md:flex-row items-center gap-12 relative z-10">
               <div className="relative">
-                <div className="w-48 h-48 rounded-[40px] border-4 border-[var(--glow-orange)]/20 p-2 overflow-hidden shadow-2xl relative z-10">
-                  <div className="absolute inset-0 bg-[var(--glow-orange)] blur-[20px] opacity-20 group-hover:opacity-40 transition-opacity" />
-                  <img src={profileAvatarAsset.url} alt="Profile" className="w-full h-full object-cover rounded-[32px] bg-[#050505] relative z-10" />
-                </div>
-                <div className="absolute -bottom-4 -right-4 bg-[var(--glow-orange)] text-white p-4 rounded-2xl shadow-xl z-20">
-                  <Trophy className="w-8 h-8" />
+                <div className="w-48 h-48 rounded-[40px] border-4 border-[#FF6A00] p-2 overflow-hidden shadow-2xl relative z-10 transition-transform duration-500 hover:scale-105">
+                  <div className="absolute inset-0 bg-[#FF6A00] blur-[20px] opacity-20 group-hover:opacity-40 transition-opacity" />
+                  <img src={profileHeroAsset.url} alt="Profile" className="w-full h-full object-cover rounded-[32px] bg-[#050505] relative z-10" />
                 </div>
               </div>
               
@@ -572,7 +571,6 @@ function Index() {
                        Desafio ativo • Runner since 2018
                     </div>
                   </div>
-                  <Badge className="bg-[#18A957]/10 text-[#18A957] border-[#18A957]/20 uppercase font-black text-[10px] tracking-widest py-1.5 px-4 rounded-full self-center md:self-start">Pro Member</Badge>
                 </div>
                 
                 <p className="text-sm font-black uppercase tracking-[0.2em] text-[#A1A1AA] mb-8">São Paulo, SP • Corredor Amador Autodidata</p>

@@ -63,6 +63,7 @@ import runnerLogoAsset from "@/assets/runner-logo.png.asset.json";
 
 import maleRunnerAsset from "@/assets/FotoMaratona.png.asset.json";
 import profileHeroAsset from "@/assets/profile-hero.png.asset.json";
+import logoHeaderAsset from "@/assets/image-6.png.asset.json";
 
 
 export const Route = createFileRoute("/")({

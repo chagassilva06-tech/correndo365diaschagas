@@ -197,7 +197,7 @@ function Index() {
               onClick={handleConnectStrava}
               variant="ghost"
               size="sm"
-              className="text-white/80 hover:text-white hover:bg-white/5 border border-[#FF6A00] px-6 rounded-full transition-all shadow-[0_0_15px_rgba(255,106,0,0.2)]"
+              className="text-white/80 hover:text-white hover:bg-[#FF6A00]/10 border border-[#FF6A00] px-6 rounded-full transition-all duration-300 shadow-[0_0_15px_rgba(255,106,0,0.2)] hover:shadow-[0_0_25px_rgba(255,106,0,0.4)]"
             >
               Conectar Strava
             </Button>
@@ -238,7 +238,7 @@ function Index() {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.2, duration: 0.8 }}
-              className="text-6xl lg:text-[110px] font-black mb-8 tracking-tighter leading-[0.85] italic uppercase relative"
+              className="text-5xl lg:text-[85px] font-black mb-8 tracking-tighter leading-[0.85] italic uppercase relative"
             >
               <span className="relative z-10">Correndo</span> <br />
               <span className="relative z-10 text-transparent bg-clip-text bg-gradient-to-r from-[var(--neon-green)] to-[#34D399] drop-shadow-[0_0_30px_rgba(34,197,94,0.3)]">todo dia</span>
@@ -339,7 +339,7 @@ function Index() {
         <div className="container mx-auto px-4">
           <div className="flex flex-col md:flex-row justify-between items-end mb-12 gap-8">
             <div className="max-w-2xl text-left">
-              <h2 className="text-4xl lg:text-6xl font-black italic uppercase tracking-tighter mb-6 leading-[0.9]">Jornada Anual</h2>
+              <h2 className="text-3xl lg:text-5xl font-black italic uppercase tracking-tighter mb-6 leading-[0.9]">Jornada Anual</h2>
               <div className="flex items-center gap-6">
                  <p className="text-[#A1A1AA] text-sm font-medium tracking-tight">O seu progresso diário em detalhes.</p>
                  <div className="flex items-center gap-2 bg-[var(--neon-green)]/10 px-4 py-2 rounded-xl border border-[var(--neon-green)]/20">
@@ -407,11 +407,11 @@ function Index() {
                           >
                             {day}
                             {hasActivity && (
-                              <div className="absolute -top-12 left-1/2 -translate-x-1/2 bg-[var(--neon-green)] text-white text-[10px] py-2 px-3 rounded-xl opacity-0 group-hover/day:opacity-100 transition-all duration-300 whitespace-nowrap pointer-events-none shadow-2xl font-black uppercase z-20 border border-white/10">
+                              <div className="absolute -top-12 left-1/2 -translate-x-1/2 bg-[#111111] text-white text-[10px] py-2 px-3 rounded-xl opacity-0 group-hover/day:opacity-100 transition-all duration-300 whitespace-nowrap pointer-events-none shadow-2xl font-black uppercase z-20 border border-[var(--neon-green)]/30">
                                 {isSpecial ? "🏆 Recorde Pessoal" : `Dia ${day} Validado`}
                                 <br />
                                 <span className="text-[8px] opacity-80">6,70km • 4:18 pace</span>
-                                <div className="absolute top-full left-1/2 -translate-x-1/2 border-8 border-transparent border-t-[var(--neon-green)]" />
+                                <div className="absolute top-full left-1/2 -translate-x-1/2 border-8 border-transparent border-t-[#111111]" />
                               </div>
                             )}
                           </div>
@@ -457,7 +457,7 @@ function Index() {
         <div className="container mx-auto px-4 max-w-6xl">
           <div className="flex flex-col md:flex-row justify-between items-center mb-12 gap-8">
             <div className="text-left">
-              <h2 className="text-4xl lg:text-6xl font-black italic uppercase tracking-tighter mb-6 leading-[0.9]">Seu Desempenho</h2>
+              <h2 className="text-3xl lg:text-5xl font-black italic uppercase tracking-tighter mb-6 leading-[0.9]">Seu Desempenho</h2>
               <p className="text-[#A1A1AA] text-base">Métricas avançadas e análise de performance semanal.</p>
             </div>
           </div>
@@ -481,7 +481,7 @@ function Index() {
             <div className="absolute top-0 right-0 w-96 h-96 bg-[var(--neon-green)]/5 rounded-full blur-[100px] pointer-events-none" />
             <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-10 gap-4">
               <div>
-                <h3 className="text-sm font-black uppercase tracking-[0.3em] text-[#A1A1AA]">Atividade Anual</h3>
+                <h3 className="text-sm font-black uppercase tracking-[0.3em] text-[#A1A1AA]">Atividade Anual 2026</h3>
                 <p className="text-[10px] text-[#A1A1AA]/60 font-medium tracking-widest mt-1">1.627,91 KM TOTAL • 216 DIAS SEGUIDOS</p>
               </div>
               <div className="flex items-center gap-6">
@@ -552,7 +552,7 @@ function Index() {
                           
                           {/* Premium Tooltip */}
                           <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-4 opacity-0 group-hover/contribution:opacity-100 transition-all duration-300 pointer-events-none z-[60] scale-90 group-hover/contribution:scale-100">
-                            <div className="bg-[#090909] border border-white/10 rounded-2xl p-4 shadow-2xl min-w-[180px] backdrop-blur-xl">
+                            <div className="bg-[#111111] border border-[var(--neon-green)]/30 rounded-2xl p-4 shadow-2xl min-w-[180px] backdrop-blur-xl">
                               <div className="flex items-center justify-between mb-2">
                                 <span className="text-[10px] font-black uppercase tracking-widest text-white/90">{dateStr}</span>
                                 <Check className="w-3 h-3 text-[var(--neon-green)]" />
@@ -569,7 +569,7 @@ function Index() {
                                 Clique para ver no Strava
                               </div>
                             </div>
-                            <div className="absolute top-full left-1/2 -translate-x-1/2 border-8 border-transparent border-t-[#090909]" />
+                            <div className="absolute top-full left-1/2 -translate-x-1/2 border-8 border-transparent border-t-[#111111]" />
                           </div>
                         </div>
                       );
@@ -621,7 +621,7 @@ function Index() {
               <div className="flex-1 text-center md:text-left">
                 <div className="flex flex-col md:flex-row md:items-center justify-between gap-2 mb-4 border-b border-white/5 pb-4">
                   <div>
-                    <h3 className="text-4xl font-black italic uppercase tracking-tighter mb-2">Francisco Chagas</h3>
+                    <h3 className="text-3xl font-black italic uppercase tracking-tighter mb-2">Francisco Chagas</h3>
                     <div className="flex items-center gap-2 text-[#A1A1AA] text-xs font-black uppercase tracking-widest">
                        <CheckCircle2 className="w-4 h-4 text-[#18A957]" />
                        Desafio ativo • Runner since 2018

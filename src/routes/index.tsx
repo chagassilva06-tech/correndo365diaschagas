@@ -373,23 +373,11 @@ function Index() {
                     <span className={`font-black italic uppercase tracking-tight ${isCurrentMonth ? 'text-4xl' : 'text-xl'}`}>{month.name}</span>
                     <div className="text-right">
                       <p className="text-[10px] font-black text-[#A1A1AA] uppercase">
-                        {month.name === "Janeiro" ? "31" : 
-                         month.name === "Fevereiro" ? "28" : 
-                         month.name === "Março" ? "31" : 
-                         month.name === "Abril" ? "30" : 
-                         month.name === "Maio" ? "31" : 
-                         month.name === "Junho" ? "30" : 
-                         month.name === "Julho" ? "31" : 
-                         month.name === "Agosto" ? "4" : month.activities.length}/{month.days} dias</p>
+                        {month.activities.length}/{month.days} dias
+                      </p>
                       <p className="text-[10px] font-black text-[var(--neon-green)] uppercase">
-                        {month.name === "Janeiro" ? "246,48" : 
-                         month.name === "Fevereiro" ? "318,45" : 
-                         month.name === "Março" ? "206,99" : 
-                         month.name === "Abril" ? "242,26" : 
-                         month.name === "Maio" ? "208,71" : 
-                         month.name === "Junho" ? "133,18" : 
-                         month.name === "Julho" ? "239,08" : 
-                         month.name === "Agosto" ? "32,76" : (month.activities.length * 6.7).toFixed(1)}km</p>
+                        {month.km}km
+                      </p>
                     </div>
                   </div>
                   

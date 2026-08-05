@@ -106,6 +106,7 @@ function CountUp({ end, duration = 2, decimals = 0 }: { end: number, duration?: 
 function Index() {
   const navigate = useNavigate();
   const [selectedMonth, setSelectedMonth] = useState<string>("Todos");
+  const [activeTab, setActiveTab] = useState("Início");
   
   const currentMonthName = new Intl.DateTimeFormat('pt-BR', { month: 'long' }).format(new Date());
   const capitalizedCurrentMonth = currentMonthName.charAt(0).toUpperCase() + currentMonthName.slice(1);

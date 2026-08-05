@@ -188,7 +188,7 @@ function Index() {
             </div>
             <motion.span 
               whileHover={{ scale: 1.02 }}
-              className="font-black text-2xl tracking-tighter italic uppercase bg-gradient-to-r from-white to-white/60 bg-clip-text text-transparent"
+              className="font-black text-2xl tracking-tighter italic uppercase bg-gradient-to-r from-[var(--neon-green)] via-white to-[var(--neon-green)] bg-[length:200%_auto] animate-gradient-x bg-clip-text text-transparent"
             >
               Correndo todo dia
             </motion.span>

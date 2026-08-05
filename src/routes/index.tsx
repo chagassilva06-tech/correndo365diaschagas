@@ -361,7 +361,7 @@ function Index() {
 
 
       {/* Jornada Anual Section */}
-      <section id="jornada-anual" className="py-20 bg-[var(--background)] relative z-10">
+      <section id="jornada-anual" className="py-10 bg-[var(--background)] relative z-10">
         <div className="container mx-auto px-4">
           <div className="flex flex-col md:flex-row justify-between items-end mb-12 gap-8">
             <div className="max-w-2xl text-left">

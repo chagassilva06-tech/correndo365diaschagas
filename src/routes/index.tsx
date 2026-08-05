@@ -231,7 +231,7 @@ function Index() {
         </div>
       </header>
 
-      <section className="relative min-h-[85vh] flex items-center justify-center pt-24 overflow-hidden mb-[-10vh]">
+      <section className="relative min-h-[70vh] flex items-center justify-center pt-24 overflow-hidden mb-0">
         {/* Immersive Hero Background */}
         <div className="absolute inset-0 z-0">
           <div className="absolute inset-0 bg-[var(--background)] z-10 opacity-70" />

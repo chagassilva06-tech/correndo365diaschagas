@@ -188,7 +188,7 @@ function Index() {
             </div>
             <motion.span 
               whileHover={{ scale: 1.02 }}
-              className="font-black text-2xl tracking-tighter italic uppercase bg-gradient-to-r from-white to-white/60 bg-clip-text text-transparent"
+              className="font-black text-2xl tracking-tighter italic uppercase bg-gradient-to-r from-[var(--neon-green)] via-white to-[var(--neon-green)] bg-[length:200%_auto] animate-gradient-x bg-clip-text text-transparent"
             >
               Correndo todo dia
             </motion.span>
@@ -231,7 +231,7 @@ function Index() {
         </div>
       </header>
 
-      <section className="relative min-h-[85vh] flex items-center justify-center pt-24 overflow-hidden mb-[-10vh]">
+      <section className="relative min-h-[70vh] flex items-center justify-center pt-24 overflow-hidden mb-0">
         {/* Immersive Hero Background */}
         <div className="absolute inset-0 z-0">
           <div className="absolute inset-0 bg-[var(--background)] z-10 opacity-70" />
@@ -320,7 +320,7 @@ function Index() {
 
 
       {/* Stats Section */}
-      <section className="py-20 bg-[var(--background)] relative z-10">
+      <section className="py-10 bg-[var(--background)] relative z-10">
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {[
@@ -334,11 +334,11 @@ function Index() {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ delay: i * 0.1 }}
                 viewport={{ once: true }}
-                className="group p-8 rounded-[40px] bg-[var(--section-bg)] border border-white/5 backdrop-blur-xl relative overflow-hidden transition-all duration-500 hover:border-[var(--neon-green)]/30"
+                className="group p-4 rounded-[40px] bg-[var(--section-bg)] border border-white/5 backdrop-blur-xl relative overflow-hidden transition-all duration-500 hover:border-[var(--neon-green)]/30"
               >
                 <div className="absolute top-0 right-0 w-32 h-32 bg-[var(--neon-green)]/5 rounded-full -mr-8 -mt-8 blur-3xl group-hover:bg-[var(--neon-green)]/10 transition-all duration-500" />
-                <stat.icon className="w-10 h-10 text-[var(--neon-green)] mb-6" />
-                <div className="text-6xl font-black tracking-tighter mb-2 italic uppercase flex items-baseline flex-wrap">
+                <stat.icon className="w-8 h-8 text-[var(--neon-green)] mb-4" />
+                <div className="text-4xl font-black tracking-tighter mb-2 italic uppercase flex items-baseline flex-wrap">
                   {stat.prefix && <span className="text-xl mr-2 opacity-60 normal-case">{stat.prefix}</span>}
                   <CountUp end={stat.value} decimals={stat.value % 1 !== 0 ? 2 : 0} />
                   <span className="text-2xl ml-1 opacity-60">{stat.suffix}</span>
@@ -361,7 +361,7 @@ function Index() {
 
 
       {/* Jornada Anual Section */}
-      <section id="jornada-anual" className="py-20 bg-[var(--background)] relative z-10">
+      <section id="jornada-anual" className="py-10 bg-[var(--background)] relative z-10">
         <div className="container mx-auto px-4">
           <div className="flex flex-col md:flex-row justify-between items-end mb-12 gap-8">
             <div className="max-w-2xl text-left">
@@ -494,7 +494,7 @@ function Index() {
 
 
       {/* Desempenho / Chart Section */}
-      <section id="desempenho" className="py-20 bg-[var(--background)] border-t border-white/5">
+      <section id="desempenho" className="py-10 bg-[var(--background)] border-t border-white/5">
         <div className="container mx-auto px-4 max-w-6xl">
           <div className="flex flex-col md:flex-row justify-between items-center mb-12 gap-8">
             <div className="text-left">
@@ -563,7 +563,7 @@ function Index() {
 
 
       {/* Profile Card Section */}
-      <section id="perfil" className="py-28 bg-[var(--background)] border-t border-white/5">
+      <section id="perfil" className="py-12 bg-[var(--background)] border-t border-white/5">
         <div className="container mx-auto px-4 max-w-4xl">
            <motion.div 
             whileHover={{ rotateY: 5, rotateX: 2 }}
@@ -581,7 +581,7 @@ function Index() {
               </div>
               
               <div className="flex-1 text-center md:text-left">
-                <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-6 border-b border-white/5 pb-6">
+                <div className="flex flex-col md:flex-row md:items-center justify-between gap-2 mb-4 border-b border-white/5 pb-4">
                   <div>
                     <h3 className="text-4xl font-black italic uppercase tracking-tighter mb-2">Francisco Chagas</h3>
                     <div className="flex items-center gap-2 text-[#A1A1AA] text-xs font-black uppercase tracking-widest">
@@ -613,12 +613,17 @@ function Index() {
         </div>
       </section>
 
-      <footer className="py-6 bg-[var(--background)] border-t border-white/5">
-        <div className="container mx-auto px-4 text-center">
-          <div className="flex justify-center gap-6 mb-4">
-            <a href="#" className="text-[#A1A1AA] hover:text-white transition-colors"><Instagram className="w-5 h-5" /></a>
-            <a href="#" className="text-[#A1A1AA] hover:text-white transition-colors"><Youtube className="w-5 h-5" /></a>
+      <footer className="py-4 bg-[var(--background)] border-t border-white/5">
+        <div className="container mx-auto px-4 flex flex-col items-center justify-center gap-3">
+          <div className="flex justify-center gap-6">
+            <a href="#" className="text-[#A1A1AA] hover:text-[#E1306C] transition-colors"><Instagram className="w-5 h-5" /></a>
+            <a href="#" className="text-[#A1A1AA] hover:text-[#FF0000] transition-colors"><Youtube className="w-5 h-5" /></a>
             <a href="#" className="text-[#A1A1AA] hover:text-white transition-colors"><Github className="w-5 h-5" /></a>
+            <a href="https://strava.com" className="text-[#A1A1AA] hover:text-[#FC6100] transition-colors">
+              <svg className="w-5 h-5 fill-current" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path d="M15.387 17.944l-2.089-4.116h-3.065L15.387 24l5.15-10.172h-3.066l-2.084 4.116zM10.267 7.848l-1.55 3.06h2.279l1.554-3.06 1.553 3.06h2.279l-3.832-7.538L10.267 7.848z"/>
+              </svg>
+            </a>
           </div>
 
           <p className="text-[#A1A1AA] text-[9px] font-black uppercase tracking-widest opacity-40">

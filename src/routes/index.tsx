@@ -487,28 +487,30 @@ function Index() {
             </div>
             
             <div className="h-80">
-              <ResponsiveContainer width="100%" height="100%">
-                <BarChart data={[
-                  { name: 'Seg', val: 6.5 },
-                  { name: 'Ter', val: 7.2 },
-                  { name: 'Qua', val: 6.8 },
-                  { name: 'Qui', val: 8.1 },
-                  { name: 'Sex', val: 5.9 },
-                  { name: 'Sáb', val: 12.4 },
-                  { name: 'Dom', val: 10.2 },
-                ]}>
-                  <XAxis dataKey="name" axisLine={false} tickLine={false} tick={{fill: '#A1A1AA', fontSize: 10, fontWeight: 900}} />
-                  <Tooltip 
-                    cursor={{fill: 'rgba(255,255,255,0.05)'}}
-                    contentStyle={{backgroundColor: 'var(--card-bg)', borderRadius: '16px', border: '1px solid rgba(255,255,255,0.1)', fontSize: '10px', fontWeight: '900'}}
-                  />
-                  <Bar dataKey="val" fill="var(--neon-green)" radius={[8, 8, 0, 0]}>
-                    {Array.from({length: 7}).map((_, index) => (
-                      <Cell key={`cell-${index}`} fill={index === 5 ? 'var(--glow-orange)' : 'rgba(255,255,255,0.1)'} />
-                    ))}
-                  </Bar>
-                </BarChart>
-              </ResponsiveContainer>
+              <Suspense fallback={<div className="h-full w-full flex items-center justify-center text-white/20">Carregando gráfico...</div>}>
+                <ResponsiveContainer width="100%" height="100%">
+                  <BarChart data={[
+                    { name: 'Seg', val: 6.5 },
+                    { name: 'Ter', val: 7.2 },
+                    { name: 'Qua', val: 6.8 },
+                    { name: 'Qui', val: 8.1 },
+                    { name: 'Sex', val: 5.9 },
+                    { name: 'Sáb', val: 12.4 },
+                    { name: 'Dom', val: 10.2 },
+                  ]}>
+                    <XAxis dataKey="name" axisLine={false} tickLine={false} tick={{fill: '#A1A1AA', fontSize: 10, fontWeight: 900}} />
+                    <Tooltip 
+                      cursor={{fill: 'rgba(255,255,255,0.05)'}}
+                      contentStyle={{backgroundColor: 'var(--card-bg)', borderRadius: '16px', border: '1px solid rgba(255,255,255,0.1)', fontSize: '10px', fontWeight: '900'}}
+                    />
+                    <Bar dataKey="val" fill="var(--neon-green)" radius={[8, 8, 0, 0]}>
+                      {Array.from({length: 7}).map((_, index) => (
+                        <Cell key={`cell-${index}`} fill={index === 5 ? 'var(--glow-orange)' : 'rgba(255,255,255,0.1)'} />
+                      ))}
+                    </Bar>
+                  </BarChart>
+                </ResponsiveContainer>
+              </Suspense>
             </div>
           </div>
         </div>

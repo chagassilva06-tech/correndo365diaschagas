@@ -77,21 +77,27 @@ export const Route = createFileRoute("/")({
   component: Index,
 });
 
-function CountUp({ end, duration = 2 }: { end: number, duration?: number }) {
+function CountUp({ end, duration = 2, decimals = 0 }: { end: number, duration?: number, decimals?: number }) {
   const [count, setCount] = useState(0);
   useEffect(() => {
     let startTime: number | null = null;
     const step = (timestamp: number) => {
       if (!startTime) startTime = timestamp;
       const progress = Math.min((timestamp - startTime) / (duration * 1000), 1);
-      setCount(Math.floor(progress * end));
+      setCount(progress * end);
       if (progress < 1) {
         window.requestAnimationFrame(step);
       }
     };
     window.requestAnimationFrame(step);
   }, [end, duration]);
-  return <span>{count.toLocaleString()}</span>;
+
+  const formattedValue = count.toLocaleString('pt-BR', {
+    minimumFractionDigits: decimals,
+    maximumFractionDigits: decimals,
+  });
+
+  return <span>{formattedValue}</span>;
 }
 
 function Index() {
@@ -109,7 +115,7 @@ function Index() {
     { name: "Maio", days: 31, activities: Array.from({ length: 31 }, (_, i) => i + 1) },
     { name: "Junho", days: 30, activities: Array.from({ length: 30 }, (_, i) => i + 1) },
     { name: "Julho", days: 31, activities: Array.from({ length: 31 }, (_, i) => i + 1) },
-    { name: "Agosto", days: 31, activities: Array.from({ length: 31 }, (_, i) => i + 1) },
+    { name: "Agosto", days: 31, activities: [1, 2, 3, 4] },
     { name: "Setembro", days: 30, activities: [] },
     { name: "Outubro", days: 31, activities: [] },
     { name: "Novembro", days: 30, activities: [] },
@@ -310,9 +316,9 @@ function Index() {
               >
                 <div className="absolute top-0 right-0 w-32 h-32 bg-[var(--neon-green)]/5 rounded-full -mr-8 -mt-8 blur-3xl group-hover:bg-[var(--neon-green)]/10 transition-all duration-500" />
                 <stat.icon className="w-10 h-10 text-[var(--neon-green)] mb-6" />
-                <div className="text-6xl font-black tracking-tighter mb-2 italic uppercase flex items-baseline">
-                  <span className="text-xl mr-2 opacity-60 normal-case">{stat.prefix}</span>
-                  <CountUp end={stat.value} />
+                <div className="text-6xl font-black tracking-tighter mb-2 italic uppercase flex items-baseline flex-wrap">
+                  {stat.prefix && <span className="text-xl mr-2 opacity-60 normal-case">{stat.prefix}</span>}
+                  <CountUp end={stat.value} decimals={stat.value % 1 !== 0 ? 2 : 0} />
                   <span className="text-2xl ml-1 opacity-60">{stat.suffix}</span>
                 </div>
                 <div className="flex justify-between items-end">

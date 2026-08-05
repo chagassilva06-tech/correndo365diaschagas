@@ -197,7 +197,6 @@ function Index() {
             <a href="#jornada-anual" className="hover:text-[var(--header-hover-bg)] hover:drop-shadow-[0_0_8px_var(--header-hover-bg)] transition-all duration-300">Calendário</a>
             <a href="#desempenho" className="hover:text-[var(--header-hover-bg)] hover:drop-shadow-[0_0_8px_var(--header-hover-bg)] transition-all duration-300">Estatísticas</a>
             <div className="flex items-center gap-4 border-l border-white/10 pl-10">
-              <a href="https://instagram.com" target="_blank" rel="noreferrer" className="hover:text-white transition-colors"><Instagram className="w-5 h-5" /></a>
             </div>
           </nav>
           
@@ -206,7 +205,7 @@ function Index() {
               onClick={() => navigate({ to: "/sync" })}
               variant="ghost"
               size="sm"
-              className="text-white/80 hover:text-white hover:bg-white/5 border border-white/10 px-6 rounded-full transition-all"
+              className="text-white/80 hover:text-white hover:bg-white/5 border border-[#FF6A00] px-6 rounded-full transition-all shadow-[0_0_15px_rgba(255,106,0,0.2)]"
             >
               Conectar Strava
             </Button>
@@ -305,7 +304,7 @@ function Index() {
       {/* Stats Section */}
       <section className="py-20 bg-[var(--background)] relative z-10">
         <div className="container mx-auto px-4">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {[
               { label: "dias", value: 365, icon: CalendarIcon, sparkline: [20, 40, 30, 50, 40, 70, 60] },
               { label: "corridas", value: 216, icon: Footprints, sparkline: [10, 20, 15, 30, 25, 40, 35] },
@@ -595,22 +594,12 @@ function Index() {
         </div>
       </section>
 
-      <footer className="py-10 bg-[var(--background)] border-t border-white/5">
+      <footer className="py-6 bg-[var(--background)] border-t border-white/5">
         <div className="container mx-auto px-4 text-center">
-          <div className="flex justify-center gap-6 mb-8">
+          <div className="flex justify-center gap-6 mb-4">
             <a href="#" className="text-[#A1A1AA] hover:text-white transition-colors"><Instagram className="w-5 h-5" /></a>
             <a href="#" className="text-[#A1A1AA] hover:text-white transition-colors"><Youtube className="w-5 h-5" /></a>
             <a href="#" className="text-[#A1A1AA] hover:text-white transition-colors"><Github className="w-5 h-5" /></a>
-          </div>
-          
-          <div className="max-w-md mx-auto mb-8">
-            <h4 className="text-[9px] font-black uppercase tracking-[0.5em] mb-4 text-[#A1A1AA]">Manifesto</h4>
-            <div className="text-xl font-black italic uppercase tracking-tighter flex items-center justify-center gap-2 flex-wrap">
-              <span>Disciplina.</span>
-              <span>Consistência.</span>
-              <span>Evolução.</span>
-              <span className="text-[var(--neon-green)]">Todos os dias.</span>
-            </div>
           </div>
 
           <p className="text-[#A1A1AA] text-[9px] font-black uppercase tracking-widest opacity-40">

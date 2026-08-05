@@ -63,6 +63,7 @@ import runnerLogoAsset from "@/assets/runner-logo.png.asset.json";
 
 import maleRunnerAsset from "@/assets/FotoMaratona.png.asset.json";
 import profileHeroAsset from "@/assets/profile-hero.png.asset.json";
+import logoHeaderAsset from "@/assets/image-6.png.asset.json";
 
 
 export const Route = createFileRoute("/")({
@@ -181,8 +182,8 @@ function Index() {
       <header className="fixed top-0 left-0 right-0 z-50 bg-[#00021b]/80 backdrop-blur-xl border-b border-yellow-400/20 shadow-[var(--header-shadow)]">
         <div className="container mx-auto px-6 h-20 flex items-center justify-between">
           <div className="flex items-center gap-3 group cursor-pointer" onClick={() => navigate({ to: "/" })}>
-            <div className="w-10 h-10 bg-[var(--neon-green)] rounded-xl flex items-center justify-center shadow-[0_0_20px_rgba(34,197,94,0.3)] group-hover:shadow-[0_0_30px_rgba(34,197,94,0.5)] transition-all duration-500">
-              <Activity className="text-white w-6 h-6" />
+            <div className="w-10 h-10 rounded-xl overflow-hidden shadow-[0_0_20px_rgba(34,197,94,0.3)] group-hover:shadow-[0_0_30px_rgba(34,197,94,0.5)] transition-all duration-500">
+              <img src={logoHeaderAsset.url} alt="Logo" className="w-full h-full object-cover" />
             </div>
             <motion.span 
               whileHover={{ scale: 1.02 }}
@@ -286,7 +287,7 @@ function Index() {
               <div className="text-[160px] font-black italic tracking-tighter leading-none text-white/90 drop-shadow-[0_0_50px_rgba(255,255,255,0.2)] relative z-10">
                 <CountUp end={216} />
               </div>
-              <div className="text-3xl font-black uppercase tracking-[0.3em] text-[var(--neon-green)] -mt-4 relative z-20"></div>
+              <div className="text-3xl font-black uppercase tracking-[0.3em] text-[var(--neon-green)] -mt-4 relative z-20">= Dias consecutivos</div>
               
               <motion.div 
                 whileHover={{ scale: 1.05 }}

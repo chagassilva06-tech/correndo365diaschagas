@@ -58,13 +58,13 @@ function ErrorComponent({ error, reset }: { error: Error; reset: () => void }) {
             }}
             className="inline-flex items-center justify-center rounded-md bg-primary px-4 py-2 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90"
           >
-            Try again
+            Tentar novamente
           </button>
           <a
             href="/"
-            className="inline-flex items-center justify-center rounded-md border border-input bg-background px-4 py-2 text-sm font-medium text-foreground transition-colors hover:bg-accent"
+            className="inline-flex items-center justify-center rounded-full border border-white/10 bg-background px-6 py-2 text-[10px] font-black uppercase tracking-widest text-foreground transition-all hover:bg-accent hover:border-[var(--neon-green)]/30"
           >
-            Go home
+            Voltar ao Início
           </a>
         </div>
       </div>

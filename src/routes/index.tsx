@@ -28,6 +28,7 @@ import { Badge } from "@/components/ui/badge";
 import logoHeaderAsset from "@/assets/image-6.png.asset.json";
 import maleRunnerAsset from "@/assets/FotoMaratona.png.asset.json";
 import profileHeroAsset from "@/assets/profile-hero.png.asset.json";
+import runnersBgAsset from "@/assets/runners-bg.png.asset.json";
 
 // Lazy load heavy components
 const BarChart = lazy(() => import("recharts").then(mod => ({ default: mod.BarChart })));
@@ -236,13 +237,22 @@ function Index() {
       <section className="relative min-h-[70vh] flex items-center justify-center pt-24 overflow-hidden mb-0">
         {/* Immersive Hero Background */}
         <div className="absolute inset-0 z-0">
-          <div className="absolute inset-0 bg-[var(--background)] z-10 opacity-70" />
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-[var(--neon-green)]/10 via-transparent to-transparent z-0 animate-pulse" />
+          <div className="absolute inset-0 z-10 bg-gradient-to-b from-[var(--background)]/80 via-[var(--background)]/40 to-[var(--background)]" />
           
-          {/* Velocity Lines / Grid Animation */}
-          <div className="absolute inset-0 z-0 opacity-[0.05]" style={{ backgroundImage: `linear-gradient(rgba(255, 90, 31, 0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(255, 90, 31, 0.1) 1px, transparent 1px)`, backgroundSize: '100px 100px' }} />
-          
-          <div className="absolute inset-0 bg-gradient-to-b from-transparent to-[var(--background)] z-10" />
+          <motion.div 
+            initial={{ opacity: 0, scale: 1.1 }}
+            animate={{ opacity: 0.3, scale: 1 }}
+            transition={{ duration: 1.5 }}
+            className="absolute inset-0 z-0"
+          >
+            <img 
+              src={runnersBgAsset.url} 
+              alt="Background Illustration" 
+              className="w-full h-full object-cover object-center"
+            />
+          </motion.div>
+
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-[var(--neon-green)]/10 via-transparent to-transparent z-5 animate-pulse" />
         </div>
 
         <div className="container relative z-20 mx-auto px-4 grid lg:grid-cols-2 gap-12 items-center">

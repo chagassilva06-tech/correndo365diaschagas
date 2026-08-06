@@ -694,22 +694,42 @@ function Index() {
       </section>
 
 
-      <footer className="py-4 bg-[var(--background)] border-t border-white/5 relative z-10">
-        <div className="container mx-auto px-4 flex flex-col items-center justify-center gap-3">
-          <div className="flex justify-center gap-6">
-            <a href="#" className="text-[#A1A1AA] hover:text-[#E1306C] transition-colors"><Instagram className="w-5 h-5" /></a>
-            <a href="#" className="text-[#A1A1AA] hover:text-[#FF0000] transition-colors"><Youtube className="w-5 h-5" /></a>
-            <a href="#" className="text-[#A1A1AA] hover:text-white transition-colors"><Github className="w-5 h-5" /></a>
-            <a href="https://strava.com" className="text-[#A1A1AA] hover:text-[#FC6100] transition-colors">
+      <footer className="py-10 bg-[var(--background)] border-t border-white/5 relative z-10 overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-t from-[var(--neon-green)]/5 to-transparent pointer-events-none" />
+        <div className="container mx-auto px-4 flex flex-col items-center justify-center gap-6 relative z-10">
+          <div className="flex justify-center gap-8">
+            {[
+              { icon: Instagram, href: "#", color: "#E1306C" },
+              { icon: Youtube, href: "#", color: "#FF0000" },
+              { icon: Github, href: "#", color: "white" },
+            ].map((social, i) => (
+              <motion.a 
+                key={i}
+                href={social.href} 
+                whileHover={{ y: -3, scale: 1.1 }}
+                className="text-[#A1A1AA] transition-colors hover:text-white"
+                style={{ '--hover-color': social.color } as any}
+              >
+                <social.icon className="w-5 h-5" />
+              </motion.a>
+            ))}
+            <motion.a 
+              href="https://strava.com" 
+              whileHover={{ y: -3, scale: 1.1 }}
+              className="text-[#A1A1AA] hover:text-[#FC6100] transition-colors"
+            >
               <svg className="w-5 h-5 fill-current" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                 <path d="M15.387 17.944l-2.089-4.116h-3.065L15.387 24l5.15-10.172h-3.066l-2.084 4.116zM10.267 7.848l-1.55 3.06h2.279l1.554-3.06 1.553 3.06h2.279l-3.832-7.538L10.267 7.848z"/>
               </svg>
-            </a>
+            </motion.a>
           </div>
 
-          <p className="text-[#A1A1AA] text-[9px] font-black uppercase tracking-widest opacity-40">
-            2026 &copy; <span className="text-white">Francisco</span> <span className="text-[var(--neon-green)]">Chagas</span>
-          </p>
+          <div className="flex flex-col items-center gap-2">
+            <p className="text-[#A1A1AA] text-[10px] font-black uppercase tracking-[0.4em] opacity-40">
+              2026 &copy; <span className="text-white">Francisco</span> <span className="text-[var(--neon-green)]">Chagas</span>
+            </p>
+            <div className="h-px w-8 bg-[var(--neon-green)]/30" />
+          </div>
         </div>
       </footer>
 

@@ -148,7 +148,7 @@ function SyncPage() {
                   <p className="text-[10px] text-[#A1A1AA] uppercase font-black tracking-widest">Treinos</p>
                 </div>
                 <div className="bg-white/5 p-5 rounded-2xl border border-white/5 backdrop-blur-sm">
-                  <Award className="w-6 h-6 text-[#FF9F0A] mb-2 mx-auto" />
+                  <Award className="w-6 h-6 text-[var(--neon-green)] mb-2 mx-auto" />
                   <p className="text-2xl font-black italic tracking-tighter">04/08</p>
                   <p className="text-[10px] text-[#A1A1AA] uppercase font-black tracking-widest">Último dia</p>
                 </div>

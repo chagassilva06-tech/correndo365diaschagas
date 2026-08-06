@@ -225,7 +225,7 @@ function Index() {
               onClick={handleConnectStrava}
               variant="ghost"
               size="sm"
-              className="text-white/80 hover:text-white hover:bg-[#FF6A00]/10 border border-[#FF6A00] px-6 rounded-full transition-all duration-300 shadow-[0_0_15px_rgba(255,106,0,0.2)] hover:shadow-[0_0_25px_rgba(255,106,0,0.4)]"
+              className="text-white/80 hover:text-white hover:bg-[var(--neon-green)]/10 border border-[var(--neon-green)]/50 px-6 rounded-full transition-all duration-300 shadow-[0_0_15px_rgba(67,230,200,0.1)] hover:shadow-[0_0_25px_rgba(67,230,200,0.3)] font-black uppercase tracking-widest text-[10px]"
             >
               Conectar Strava
             </Button>

@@ -425,14 +425,15 @@ function Index() {
                         const isSpecial = day === 15;
                         
                         return (
-                          <div
+                          <motion.div
                             key={i}
+                            whileHover={{ scale: 1.15, zIndex: 10 }}
                             className={`aspect-square rounded-xl flex items-center justify-center text-[10px] font-black transition-all relative group/day cursor-pointer ${
                               hasActivity 
-                                ? "bg-[var(--neon-green)] text-white shadow-[0_0_15px_rgba(34,197,94,0.3)] hover:bg-[var(--neon-green-hover)]"
+                                ? "bg-[var(--neon-green)] text-black shadow-[0_0_20px_rgba(67,230,200,0.3)] hover:shadow-[0_0_30px_rgba(67,230,200,0.5)]"
                                 : day < new Date().getDate() && isCurrentMonth
-                                  ? "bg-[var(--rest-day)] text-[#A1A1AA]/50"
-                                  : "bg-[var(--future-day)] text-[#A1A1AA]/30 border border-white/5"
+                                  ? "bg-white/5 text-[#A1A1AA]/50"
+                                  : "bg-white/5 text-[#A1A1AA]/20 border border-white/5"
                             }`}
                           >
                             {day}

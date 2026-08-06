@@ -148,23 +148,24 @@ function Index() {
             initial={{ opacity: 0, x: 100, scale: 0.9 }}
             animate={{ opacity: 1, x: 0, scale: 1 }}
             exit={{ opacity: 0, x: 100, scale: 0.9 }}
-            className="fixed top-24 right-6 z-[100] w-full max-w-[320px] bg-[#f5f5f5] text-[#333] rounded-lg shadow-2xl border border-black/5 overflow-hidden font-sans"
+            className="fixed top-24 right-6 z-[100] w-full max-w-[320px] glass-card text-white rounded-[24px] shadow-2xl overflow-hidden font-sans border-white/10"
           >
-            <div className="px-4 py-2 border-b border-black/5 flex items-center justify-between bg-[#efefef]">
-              <span className="text-sm font-medium text-[#666]">Notificações</span>
-              <div className="flex items-center gap-2 text-[#999]">
-                <Check className="w-4 h-4 cursor-pointer hover:text-[#333]" />
-                <Settings className="w-4 h-4 cursor-pointer hover:text-[#333]" />
+            <div className="px-5 py-3 border-b border-white/5 flex items-center justify-between bg-white/5">
+              <span className="text-[10px] font-black uppercase tracking-widest text-[#A1A1AA]">Notificações</span>
+              <div className="flex items-center gap-3 text-[#A1A1AA]">
+                <Check className="w-4 h-4 cursor-pointer hover:text-[var(--neon-green)] transition-colors" />
+                <Settings className="w-4 h-4 cursor-pointer hover:text-[var(--neon-green)] transition-colors" />
               </div>
             </div>
-            <div className="p-4 flex items-start gap-3">
-              <div className="mt-1">
-                <Activity className="w-4 h-4 text-[#333]" strokeWidth={3} />
+            <div className="p-5 flex items-start gap-4">
+              <div className="mt-1 p-2 rounded-xl bg-[var(--neon-green)]/10">
+                <Activity className="w-5 h-5 text-[var(--neon-green)]" strokeWidth={3} />
               </div>
               <div>
-                <p className="text-sm leading-tight font-medium">
-                  Nova atividade recebida em 04/08 as 09:12
+                <p className="text-xs leading-snug font-bold tracking-tight">
+                  Nova atividade recebida em 04/08 às 09:12
                 </p>
+                <p className="text-[10px] text-[#A1A1AA] mt-1 font-medium">Sincronização concluída com sucesso</p>
               </div>
             </div>
             <button 
@@ -307,8 +308,8 @@ function Index() {
               <div className="text-3xl font-black uppercase tracking-[0.3em] text-[var(--neon-green)] mt-2 relative z-20">DIAS CONSECUTIVOS</div>
               
               <motion.div 
-                whileHover={{ scale: 1.05 }}
-                className="mt-16 w-64 h-80 rounded-[40px] overflow-hidden border-2 border-white/10 group shadow-2xl relative"
+                whileHover={{ scale: 1.05, y: -5 }}
+                className="mt-16 w-64 h-80 rounded-[40px] overflow-hidden border-2 border-white/10 group shadow-2xl relative premium-border"
               >
                 <div className="absolute inset-0 bg-gradient-to-t from-[var(--neon-green)]/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity z-10" />
                 <img src={maleRunnerAsset.url} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" alt="Corredor" />
@@ -332,9 +333,10 @@ function Index() {
                 key={stat.label}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
+                whileHover={{ y: -5 }}
                 transition={{ delay: i * 0.1 }}
                 viewport={{ once: true }}
-                className="group p-4 rounded-[40px] bg-[var(--card-bg)] border border-white/5 backdrop-blur-xl relative overflow-hidden transition-all duration-500 hover:border-[var(--neon-green)]/30"
+                className="group p-6 rounded-[40px] glass-card border border-white/5 relative overflow-hidden transition-all duration-500 hover:border-[var(--neon-green)]/30"
               >
                 <div className="absolute top-0 right-0 w-32 h-32 bg-[var(--neon-green)]/5 rounded-full -mr-8 -mt-8 blur-3xl group-hover:bg-[var(--neon-green)]/10 transition-all duration-500" />
                 <stat.icon className="w-8 h-8 text-[var(--neon-green)] mb-4 opacity-75" />
@@ -374,12 +376,12 @@ function Index() {
                  </div>
               </div>
             </div>
-            <div className="flex items-center gap-4 bg-[var(--section-bg)] p-2 rounded-2xl border border-white/5 backdrop-blur-md">
+            <div className="flex items-center gap-4 glass p-2 rounded-2xl border border-white/5">
               <span className="text-[10px] font-black uppercase tracking-widest text-[#A1A1AA] ml-4">Filtrar:</span>
               <select 
                 value={selectedMonth}
                 onChange={(e) => setSelectedMonth(e.target.value)}
-                className="bg-transparent text-sm font-bold border-none outline-none text-white cursor-pointer px-4"
+                className="bg-transparent text-[10px] font-black uppercase tracking-widest border-none outline-none text-white cursor-pointer px-4"
               >
                 <option value="Todos">Todos os meses</option>
                 {months.map(m => (
@@ -399,10 +401,11 @@ function Index() {
                   whileInView={{ opacity: 1, scale: 1 }}
                   transition={{ delay: mIdx * 0.05 }}
                   viewport={{ once: true }}
-                  className={`group rounded-[40px] bg-[var(--card-bg)] border border-white/5 overflow-hidden shadow-2xl transition-all duration-500 hover:border-[var(--neon-green)]/30 hover:shadow-[var(--neon-green)]/5 hover:-translate-y-1 ${isCurrentMonth ? 'lg:col-span-2 lg:row-span-2' : ''}`}
+                  className={`group rounded-[40px] glass-card border border-white/5 overflow-hidden shadow-2xl transition-all duration-500 hover:border-[var(--neon-green)]/30 hover:shadow-[var(--neon-green)]/5 hover:-translate-y-2 ${isCurrentMonth ? 'lg:col-span-2 lg:row-span-2' : ''}`}
                 >
-                  <div className="bg-white/5 p-8 border-b border-white/5 flex justify-between items-center">
-                    <span className={`font-black italic uppercase tracking-tight ${isCurrentMonth ? 'text-4xl' : 'text-xl'}`}>{month.name}</span>
+                  <div className="bg-white/5 p-8 border-b border-white/5 flex justify-between items-center relative overflow-hidden">
+                    <div className="absolute inset-0 bg-gradient-to-r from-[var(--neon-green)]/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
+                    <span className={`font-black italic uppercase tracking-tighter relative z-10 ${isCurrentMonth ? 'text-5xl text-glow' : 'text-2xl'}`}>{month.name}</span>
                     <div className="text-right">
                       <p className="text-[10px] font-black text-[#A1A1AA] uppercase">
                         {month.activities.length}/{month.days} dias
@@ -493,7 +496,7 @@ function Index() {
                { label: 'Total Mês', value: months.find(m => m.name === "Agosto")?.km || '32,76', unit: 'km', color: 'var(--neon-green)' },
                { label: 'Distância (km)', value: months.find(m => m.name === "Agosto")?.km || '32,76', unit: 'km', color: 'var(--glow-orange)' },
              ].map((m, i) => (
-               <div key={i} className="bg-[var(--card-bg)] p-6 rounded-[32px] border border-white/5 relative overflow-hidden group">
+               <div key={i} className="glass-card p-8 rounded-[40px] border border-white/5 relative overflow-hidden group hover:-translate-y-1 transition-transform">
                  <div className="text-[10px] font-black uppercase tracking-[0.3em] text-[#A1A1AA] mb-4">{m.label}</div>
                  <div className="text-5xl font-black italic uppercase tracking-tighter" style={{ color: m.color }}>
                    {m.value}
@@ -503,7 +506,7 @@ function Index() {
              ))}
           </div>
 
-          <div className="bg-[var(--card-bg)] rounded-[40px] p-10 border border-white/5 relative overflow-hidden group">
+          <div className="glass-card rounded-[48px] p-12 border border-white/5 relative overflow-hidden group">
             <div className="absolute top-0 right-0 w-96 h-96 bg-[var(--neon-green)]/5 rounded-full blur-[100px] pointer-events-none" />
             <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-10 gap-4">
               <div>
@@ -631,7 +634,8 @@ function Index() {
         <div className="container mx-auto px-4 max-w-4xl">
            <motion.div 
             whileHover={{ rotateY: 5, rotateX: 2 }}
-            className="rounded-[40px] bg-gradient-to-br from-[var(--card-bg)] to-[var(--background)] p-12 border border-white/5 shadow-2xl relative overflow-hidden group perspective-1000"
+            className="rounded-[48px] glass-card p-12 border border-white/5 shadow-2xl relative overflow-hidden group perspective-1000 premium-border"
+          >
           >
             <div className="absolute inset-0 bg-[var(--glow-orange)]/5 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none" />
             <div className="absolute -top-20 -right-20 w-80 h-80 bg-[var(--glow-orange)]/10 rounded-full blur-[100px] group-hover:bg-[var(--glow-orange)]/20 transition-all duration-700" />

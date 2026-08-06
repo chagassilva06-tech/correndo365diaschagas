@@ -248,7 +248,7 @@ function Index() {
             <img 
               src={runnersBgAsset.url} 
               alt="Background Illustration" 
-              className="w-full h-full object-cover object-bottom translate-y-16 rounded-[40px] px-4 filter saturate-[1.4] contrast-[1.1]"
+              className="w-full h-full object-cover object-bottom translate-y-20 rounded-[40px] px-4 filter saturate-[1.5] contrast-[1.1] brightness-[1.1]"
             />
           </motion.div>
 

@@ -212,22 +212,31 @@
   }
 
   .text-glow {
-    text-shadow: 0 0 15px var(--neon-green);
+    text-shadow: 0 0 15px rgba(67, 230, 200, 0.5);
   }
 
   .premium-border {
     position: relative;
+    z-index: 1;
   }
 
-  .premium-border::after {
+  .premium-border::before {
     content: "";
     position: absolute;
-    inset: -1px;
-    background: linear-gradient(135deg, rgba(255, 255, 255, 0.2), transparent, rgba(255, 255, 255, 0.1));
+    inset: 0;
     border-radius: inherit;
+    padding: 1px;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.2), transparent, rgba(67, 230, 200, 0.15));
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
     mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
     mask-composite: exclude;
     pointer-events: none;
+    z-index: -1;
+  }
+
+  .perspective-1000 {
+    perspective: 1000px;
   }
 }
 

@@ -38,7 +38,7 @@ function SyncPage() {
             const now = new Date();
             const lastSync = now.toISOString();
             
-            // Format today's date for the simulated sync result
+            // Format current date for the simulated sync result
             const day = String(now.getDate()).padStart(2, '0');
             const month = String(now.getMonth() + 1).padStart(2, '0');
             const year = now.getFullYear();
@@ -157,7 +157,9 @@ function SyncPage() {
                 </div>
                 <div className="bg-white/5 p-5 rounded-2xl border border-white/5 backdrop-blur-sm">
                   <Award className="w-6 h-6 text-[var(--neon-green)] mb-2 mx-auto" />
-                  <p className="text-2xl font-black italic tracking-tighter">04/08</p>
+                  <p className="text-2xl font-black italic tracking-tighter">
+                    {new Date().toLocaleDateString('pt-BR', { day: '2-digit', month: '2-digit' })}
+                  </p>
                   <p className="text-[10px] text-[#A1A1AA] uppercase font-black tracking-widest">Último dia</p>
                 </div>
               </div>

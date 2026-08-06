@@ -263,7 +263,7 @@ function Index() {
               transition={{ duration: 0.8 }}
               className="flex justify-start mb-6"
             >
-              <Badge variant="outline" className="border-[var(--neon-green)] text-[var(--neon-green)] bg-[var(--neon-green)]/5 gap-3 px-5 py-2 backdrop-blur-md rounded-full border-white/10">
+              <Badge variant="outline" className="border-white/20 text-white/90 bg-white/5 gap-3 px-5 py-2 backdrop-blur-md rounded-full">
                 <span className="relative flex h-2.5 w-2.5">
                   <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[var(--neon-green)] opacity-75"></span>
                   <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-[var(--neon-green)]"></span>
@@ -276,7 +276,7 @@ function Index() {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.2, duration: 0.8 }}
-              className="text-5xl lg:text-[85px] font-black mb-8 tracking-tighter leading-[0.85] italic uppercase relative"
+              className="text-5xl lg:text-[85px] font-black mb-8 tracking-tighter leading-[0.85] italic uppercase relative -ml-1 md:-ml-8"
             >
               <span className="relative z-10">Correndo</span> <br />
               <span className="relative z-10 text-transparent bg-clip-text bg-gradient-to-r from-[var(--neon-green)] to-[#34D399] drop-shadow-[0_0_30px_rgba(34,197,94,0.3)]">todo dia</span>
@@ -298,7 +298,7 @@ function Index() {
               transition={{ delay: 0.4, duration: 0.8 }}
               className="text-lg lg:text-2xl text-[#A1A1AA] mb-12 leading-tight max-w-xl font-medium tracking-tight"
             >
-              365 dias. Uma única missão. <br />
+              <span className="text-[#8B91A7]">365 dias. Uma única missão.</span> <br />
               <span className="text-white">Transformando disciplina em quilômetros.</span>
             </motion.p>
             
@@ -312,11 +312,11 @@ function Index() {
           >
             <div className="absolute inset-0 bg-[var(--neon-green)]/20 blur-[120px] rounded-full animate-pulse" />
             <div className="relative z-0 flex flex-col items-center">
-              <div className="text-sm font-black uppercase tracking-[0.3em] text-[var(--neon-green)] mb-2">correndo a</div>
+              <div className="text-sm font-black uppercase tracking-[0.3em] text-[#B8BCCF] mb-2">correndo a</div>
               <div className="text-[180px] font-black italic tracking-tighter leading-none text-white text-glow relative z-10 drop-shadow-[0_0_80px_rgba(255,255,255,0.15)]">
                 <CountUp end={216 + syncedActivities.length} />
               </div>
-              <div className="text-xl font-black uppercase tracking-[0.5em] text-[var(--neon-green)] mt-4 relative z-20 opacity-80">Dias consecutivos</div>
+              <div className="text-xl font-black uppercase tracking-[0.5em] text-[#B8BCCF] mt-4 relative z-20 opacity-80">Dias consecutivos</div>
               
               <motion.div 
                 whileHover={{ scale: 1.05, y: -5 }}

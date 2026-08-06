@@ -368,7 +368,10 @@ function Index() {
         <div className="container mx-auto px-4">
           <div className="flex flex-col md:flex-row justify-between items-end mb-12 gap-8">
             <div className="max-w-2xl text-left">
-              <h2 className="text-3xl lg:text-5xl font-black italic uppercase tracking-tighter mb-6 leading-[0.9]">Jornada Anual</h2>
+              <h2 className="text-3xl lg:text-5xl font-black italic uppercase tracking-tighter mb-6 leading-[0.9] flex items-center gap-4">
+                Jornada Anual
+                <span className="w-12 h-1 bg-[var(--neon-green)] opacity-30 rounded-full hidden lg:block"></span>
+              </h2>
               <div className="flex items-center gap-6">
                  <p className="text-[#A1A1AA] text-sm font-medium tracking-tight">O seu progresso diário em detalhes.</p>
                  <div className="flex items-center gap-2 bg-[var(--neon-green)]/10 px-4 py-2 rounded-xl border border-[var(--neon-green)]/20">

@@ -303,10 +303,10 @@ function Index() {
             <div className="absolute inset-0 bg-[var(--neon-green)]/20 blur-[120px] rounded-full animate-pulse" />
             <div className="relative z-0 flex flex-col items-center">
               <div className="text-sm font-black uppercase tracking-[0.3em] text-[var(--neon-green)] mb-2">correndo a</div>
-              <div className="text-[160px] font-black italic tracking-tighter leading-none text-white drop-shadow-[0_0_50px_rgba(255,255,255,0.2)] relative z-10">
+              <div className="text-[180px] font-black italic tracking-tighter leading-none text-white text-glow relative z-10 drop-shadow-[0_0_80px_rgba(255,255,255,0.15)]">
                 <CountUp end={216 + syncedActivities.length} />
               </div>
-              <div className="text-3xl font-black uppercase tracking-[0.3em] text-[var(--neon-green)] mt-2 relative z-20">DIAS CONSECUTIVOS</div>
+              <div className="text-xl font-black uppercase tracking-[0.5em] text-[var(--neon-green)] mt-4 relative z-20 opacity-80">Dias consecutivos</div>
               
               <motion.div 
                 whileHover={{ scale: 1.05, y: -5 }}

@@ -46,7 +46,7 @@ export const Route = createFileRoute("/")({
     meta: [
       { name: "description", content: "365 dias. Uma única missão. Transformando disciplina em quilômetros." },
       { property: "og:title", content: "Correndo todo dia" },
-      { property: "og:description", content: "Desafio de corrida diária com Sérgio Rocha." },
+      { property: "og:description", content: "365 dias. Uma única missão. Transformando disciplina em quilômetros." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
     ],

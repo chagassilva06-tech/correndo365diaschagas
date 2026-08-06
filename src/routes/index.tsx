@@ -268,7 +268,7 @@ function Index() {
                   <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[var(--neon-green)] opacity-75"></span>
                   <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-[var(--neon-green)]"></span>
                 </span>
-                <span className="text-[10px] font-black tracking-[0.2em] uppercase">Desafio ao vivo</span>
+                <span className="text-[10px] font-black tracking-[0.2em] uppercase">Desafio todos os dias</span>
               </Badge>
             </motion.div>
             
@@ -358,7 +358,7 @@ function Index() {
               initial={{ opacity: 0, x: 20 }}
               whileInView={{ opacity: 1, x: 0 }}
               whileHover={{ scale: 1.05, y: -5 }}
-              className="w-40 h-52 rounded-[32px] overflow-hidden border-2 border-white/10 group shadow-2xl relative premium-border shrink-0"
+              className="w-40 h-52 rounded-[32px] overflow-hidden border-2 border-[#00FFFF] group shadow-[0_0_20px_rgba(0,255,255,0.6)] relative premium-border shrink-0"
             >
               <div className="absolute inset-0 bg-gradient-to-t from-[var(--neon-green)]/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity z-10" />
               <img src={maleRunnerAsset.url} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" alt="Corredor" />

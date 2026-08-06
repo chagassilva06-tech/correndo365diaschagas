@@ -174,7 +174,7 @@ function SyncPage() {
 
       <div className="mt-12 flex items-center gap-8 text-[#A1A1AA]">
         <div className="flex items-center gap-2">
-          <Zap className="w-4 h-4 text-[#FF9F0A]" />
+          <Zap className="w-4 h-4 text-[var(--neon-green)]" />
           <span className="text-[10px] font-black uppercase tracking-widest">Sincronização Segura</span>
         </div>
         <div className="flex items-center gap-2">

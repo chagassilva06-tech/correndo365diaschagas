@@ -317,14 +317,6 @@ function Index() {
                 <CountUp end={216 + syncedActivities.length} />
               </div>
               <div className="text-xl font-black uppercase tracking-[0.5em] text-[#B8BCCF] mt-4 relative z-20 opacity-80">Dias consecutivos</div>
-              
-              <motion.div 
-                whileHover={{ scale: 1.05, y: -5 }}
-                className="mt-16 w-64 h-80 rounded-[40px] overflow-hidden border-2 border-white/10 group shadow-2xl relative premium-border"
-              >
-                <div className="absolute inset-0 bg-gradient-to-t from-[var(--neon-green)]/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity z-10" />
-                <img src={maleRunnerAsset.url} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" alt="Corredor" />
-              </motion.div>
             </div>
           </motion.div>
         </div>
@@ -334,40 +326,43 @@ function Index() {
       {/* Stats Section */}
       <section className="py-10 bg-[var(--background)] relative z-10">
         <div className="container mx-auto px-4">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {[
-              { label: "dias", value: 365, icon: CalendarIcon, sparkline: [20, 40, 30, 50, 40, 70, 60] },
-              { label: "corridas", value: 216 + syncedActivities.length, icon: Footprints, sparkline: [10, 20, 15, 30, 25, 40, 35] },
-              { label: "quilômetros", value: 1627.91 + syncedActivities.reduce((acc, a) => acc + a.km, 0), prefix: "Total: ", suffix: " km", icon: TrendingUp, sparkline: [30, 50, 45, 60, 55, 80, 75] },
-            ].map((stat, i) => (
-              <motion.div
-                key={stat.label}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                whileHover={{ y: -5 }}
-                transition={{ delay: i * 0.1 }}
-                viewport={{ once: true }}
-                className="group p-6 rounded-[40px] glass-card border border-white/5 relative overflow-hidden transition-all duration-500 hover:border-[var(--neon-green)]/30"
-              >
-                <div className="absolute top-0 right-0 w-32 h-32 bg-[var(--neon-green)]/5 rounded-full -mr-8 -mt-8 blur-3xl group-hover:bg-[var(--neon-green)]/10 transition-all duration-500" />
-                <stat.icon className="w-8 h-8 text-[var(--neon-green)] mb-4 opacity-75" />
-                <div className="text-4xl font-black tracking-tighter mb-2 italic uppercase flex items-baseline flex-wrap">
-                  {stat.prefix && <span className="text-xl mr-2 opacity-60 normal-case">{stat.prefix}</span>}
-                  <CountUp end={stat.value} decimals={stat.value % 1 !== 0 ? 2 : 0} />
-                  <span className="text-2xl ml-1 opacity-60">{stat.suffix}</span>
-                </div>
-                <div className="flex justify-between items-end">
-                  <div className="text-[10px] font-black tracking-[0.3em] uppercase text-[#A1A1AA]">{stat.label}</div>
-                  
-                  {/* Sparkline simulation */}
-                  <div className="flex items-end gap-1 h-8 opacity-40 group-hover:opacity-100 transition-opacity">
-                    {stat.sparkline.map((h, idx) => (
-                      <div key={idx} className="w-1 bg-[var(--neon-green)] rounded-full" style={{ height: `${h}%` }} />
-                    ))}
+          <div className="flex flex-col lg:flex-row gap-8 items-end">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4 flex-1">
+              {[
+                { label: "dias", value: 365, icon: CalendarIcon },
+                { label: "corridas", value: 216 + syncedActivities.length, icon: Footprints },
+                { label: "quilômetros", value: 1627.91 + syncedActivities.reduce((acc, a) => acc + a.km, 0), prefix: "Total: ", suffix: " km", icon: TrendingUp },
+              ].map((stat, i) => (
+                <motion.div
+                  key={stat.label}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  whileHover={{ y: -5 }}
+                  transition={{ delay: i * 0.1 }}
+                  viewport={{ once: true }}
+                  className="group p-5 rounded-[32px] glass-card border border-white/5 relative overflow-hidden transition-all duration-500 hover:border-[var(--neon-green)]/30"
+                >
+                  <div className="absolute top-0 right-0 w-24 h-24 bg-[var(--neon-green)]/5 rounded-full -mr-8 -mt-8 blur-3xl group-hover:bg-[var(--neon-green)]/10 transition-all duration-500" />
+                  <stat.icon className="w-5 h-5 text-[var(--neon-green)] mb-3 opacity-75" />
+                  <div className="text-2xl font-black tracking-tighter mb-1 italic uppercase flex items-baseline flex-wrap">
+                    {stat.prefix && <span className="text-sm mr-1 opacity-60 normal-case">{stat.prefix}</span>}
+                    <CountUp end={stat.value} decimals={stat.value % 1 !== 0 ? 2 : 0} />
+                    <span className="text-lg ml-1 opacity-60">{stat.suffix}</span>
                   </div>
-                </div>
-              </motion.div>
-            ))}
+                  <div className="text-[9px] font-black tracking-[0.3em] uppercase text-[#A1A1AA]">{stat.label}</div>
+                </motion.div>
+              ))}
+            </div>
+
+            <motion.div 
+              initial={{ opacity: 0, x: 20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              whileHover={{ scale: 1.05, y: -5 }}
+              className="w-40 h-52 rounded-[32px] overflow-hidden border-2 border-white/10 group shadow-2xl relative premium-border shrink-0"
+            >
+              <div className="absolute inset-0 bg-gradient-to-t from-[var(--neon-green)]/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity z-10" />
+              <img src={maleRunnerAsset.url} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" alt="Corredor" />
+            </motion.div>
           </div>
         </div>
       </section>

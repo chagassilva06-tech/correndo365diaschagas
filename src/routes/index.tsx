@@ -107,7 +107,7 @@ function Index() {
       { name: "Maio", days: 31, km: "208,71", activities: Array.from({ length: 31 }, (_, i) => i + 1) },
       { name: "Junho", days: 30, km: "133,18", activities: Array.from({ length: 30 }, (_, i) => i + 1) },
       { name: "Julho", days: 31, km: "239,08", activities: Array.from({ length: 31 }, (_, i) => i + 1) },
-      { name: "Agosto", days: 31, km: "32,76", activities: [1, 2, 3, 4] },
+      { name: "Agosto", days: 31, km: "32,76", activities: [1, 2, 3, 4, 5] },
       { name: "Setembro", days: 30, km: "0", activities: [] },
       { name: "Outubro", days: 31, km: "0", activities: [] },
       { name: "Novembro", days: 30, km: "0", activities: [] },

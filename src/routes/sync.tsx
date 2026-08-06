@@ -35,14 +35,22 @@ function SyncPage() {
           if (prev >= 100) {
             clearInterval(interval);
             // Simulate sync success by persisting the new activity data
-            const lastSync = new Date().toISOString();
+            const now = new Date();
+            const lastSync = now.toISOString();
+            
+            // Format today's date for the simulated sync result
+            const day = String(now.getDate()).padStart(2, '0');
+            const month = String(now.getMonth() + 1).padStart(2, '0');
+            const year = now.getFullYear();
+            const formattedDate = `${day}/${month}/${year}`;
+            
             localStorage.setItem('strava_last_sync', lastSync);
             localStorage.setItem('strava_sync_status', 'success');
             
             // Trigger a simulated data update in the dashboard
             window.dispatchEvent(new CustomEvent('strava-sync-complete', { 
               detail: { 
-                date: '05/08/2026', 
+                date: formattedDate, 
                 km: 8.42, 
                 timestamp: lastSync 
               } 

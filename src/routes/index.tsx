@@ -164,7 +164,7 @@ function Index() {
               </div>
               <div>
                 <p className="text-xs leading-snug font-bold tracking-tight">
-                  Nova atividade recebida em 04/08 às 09:12
+                  Nova atividade recebida em {new Date().toLocaleDateString('pt-BR', { day: '2-digit', month: '2-digit' })} às {new Date().toLocaleTimeString('pt-BR', { hour: '2-digit', minute: '2-digit' })}
                 </p>
                 <p className="text-[10px] text-[#A1A1AA] mt-1 font-medium">Sincronização concluída com sucesso</p>
               </div>

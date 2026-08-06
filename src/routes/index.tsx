@@ -28,7 +28,7 @@ import { Badge } from "@/components/ui/badge";
 import logoHeaderAsset from "@/assets/image-6.png.asset.json";
 import maleRunnerAsset from "@/assets/FotoMaratona.png.asset.json";
 import profileHeroAsset from "@/assets/profile-hero.png.asset.json";
-import runnersBgAsset from "@/assets/runners-bg.png.asset.json";
+import runnersBgAsset from "@/assets/runners-bg-v2.png.asset.json";
 
 // Lazy load heavy components
 const BarChart = lazy(() => import("recharts").then(mod => ({ default: mod.BarChart })));

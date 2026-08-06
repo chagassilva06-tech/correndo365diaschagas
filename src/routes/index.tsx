@@ -616,17 +616,39 @@ function Index() {
             </div>
             
             <div className="mt-8 flex justify-between items-center text-[10px] font-black uppercase tracking-[0.2em] text-[#A1A1AA]/40">
-              <div className="flex gap-8">
-                <span>JAN</span>
-                <span>FEV</span>
-                <span>MAR</span>
-                <span>ABR</span>
-                <span>MAI</span>
-                <span>JUN</span>
-                <span>JUL</span>
-                <span>AGO</span>
+              <div className="flex gap-8 overflow-x-auto pb-2 no-scrollbar">
+                {[
+                  "JAN", "FEV", "MAR", "ABR", "MAI", "JUN", "JUL", "AGO", 
+                  "SET", "OUT", "NOV", "DEZ"
+                ].map((m, i) => {
+                  const currentMonthIndex = new Date().getMonth(); // 0-indexed
+                  const isPastOrCurrent = i <= currentMonthIndex;
+                  return (
+                    <div key={m} className="flex flex-col items-center gap-2">
+                      <span className={isPastOrCurrent ? "text-[#A1A1AA]" : "text-[#A1A1AA]/30"}>
+                        {m}
+                      </span>
+                      {!isPastOrCurrent && (
+                        <div className="w-1.5 h-1.5 rounded-full bg-[var(--neon-green)]/20 relative overflow-hidden">
+                          <motion.div 
+                            className="absolute inset-0 bg-[var(--neon-green)]"
+                            animate={{ 
+                              x: ["-100%", "100%"] 
+                            }}
+                            transition={{ 
+                              duration: 2, 
+                              repeat: Infinity, 
+                              delay: i * 0.2,
+                              ease: "linear"
+                            }}
+                          />
+                        </div>
+                      )}
+                    </div>
+                  );
+                })}
               </div>
-              <div className="flex items-center gap-2">
+              <div className="flex items-center gap-2 shrink-0 ml-4">
                 <div className="w-2 h-2 rounded-full bg-[var(--neon-green)] animate-pulse" />
                 <span>Status: Em Evolução</span>
               </div>
@@ -669,7 +691,9 @@ function Index() {
                   </div>
                 </div>
                 
-                <p className="text-[10px] font-black uppercase tracking-[0.3em] text-[#A1A1AA]/60 mb-10">São Paulo, SP • Corredor Amador Autodidata</p>
+                <div className="glass p-4 rounded-2xl border border-white/5 shadow-inner mb-10 premium-border">
+                  <p className="text-[10px] font-black uppercase tracking-[0.3em] text-[#A1A1AA]/80">São Paulo, SP • Corredor Amador Autodidata</p>
+                </div>
                 
                 <div className="grid grid-cols-2 md:grid-cols-3 gap-10">
                   <div>

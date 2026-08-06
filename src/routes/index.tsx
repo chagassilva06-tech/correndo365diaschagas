@@ -524,11 +524,12 @@ function Index() {
                       className="w-3 h-3 rounded-sm" 
                       style={{ 
                         backgroundColor: level === 0 ? 'rgba(255,255,255,0.05)' : 
-                                         level === 1 ? 'rgba(34, 197, 94, 0.2)' : 
-                                         level === 2 ? 'rgba(34, 197, 94, 0.4)' : 
-                                         level === 3 ? 'rgba(34, 197, 94, 0.7)' : 
+                                         level === 1 ? 'rgba(67, 230, 200, 0.2)' : 
+                                         level === 2 ? 'rgba(67, 230, 200, 0.4)' : 
+                                         level === 3 ? 'rgba(67, 230, 200, 0.7)' : 
                                          'var(--neon-green)' 
                       }} 
+
                     />
                   ))}
                   <span className="text-[9px] font-black uppercase tracking-widest text-[#A1A1AA]/50 ml-1">Mais</span>

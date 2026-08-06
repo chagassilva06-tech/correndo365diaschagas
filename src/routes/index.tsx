@@ -730,10 +730,13 @@ function Index() {
           </div>
 
           <div className="flex flex-col items-center gap-2">
-            <p className="text-[#A1A1AA] text-[10px] font-black uppercase tracking-[0.4em] opacity-40">
-              2026 &copy; <span className="text-white">Francisco</span> <span className="text-[var(--neon-green)]">Chagas</span>
+            <h3 className="text-xl font-black italic uppercase tracking-tighter text-glow mb-1">
+              Correndo todo dia
+            </h3>
+            <p className="text-[#A1A1AA] text-[10px] font-black uppercase tracking-[0.4em] opacity-60">
+              © 2026 Francisco Chagas. Todos os direitos reservados.
             </p>
-            <div className="h-px w-8 bg-[var(--neon-green)]/30" />
+            <div className="h-px w-12 bg-[var(--neon-green)]/30 mt-2" />
           </div>
         </div>
       </footer>

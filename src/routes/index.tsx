@@ -650,19 +650,23 @@ function Index() {
               </div>
               
               <div className="flex-1 text-center md:text-left">
-                <div className="flex flex-col md:flex-row md:items-center justify-between gap-2 mb-4 border-b border-white/5 pb-4">
+                <div className="flex flex-col md:flex-row md:items-center justify-between gap-6 mb-8 border-b border-white/5 pb-8">
                   <div>
-                    <h3 className="text-3xl font-black italic uppercase tracking-tighter mb-2">Francisco Chagas</h3>
-                    <div className="flex items-center gap-2 text-[#A1A1AA] text-xs font-black uppercase tracking-widest">
-                       <CheckCircle2 className="w-4 h-4 text-[#18A957]" />
-                       Desafio ativo • Runner since 2018
+                    <h3 className="text-4xl font-black italic uppercase tracking-tighter mb-3 text-glow">Francisco Chagas</h3>
+                    <div className="flex items-center gap-3 text-[#A1A1AA] text-[10px] font-black uppercase tracking-[0.2em]">
+                       <div className="flex items-center gap-2 px-3 py-1 rounded-full bg-[var(--neon-green)]/10 border border-[var(--neon-green)]/20">
+                         <CheckCircle2 className="w-3.5 h-3.5 text-[var(--neon-green)]" />
+                         <span className="text-[var(--neon-green)]">Desafio ativo</span>
+                       </div>
+                       <span>•</span>
+                       <span>Runner since 2018</span>
                     </div>
                   </div>
                 </div>
                 
-                <p className="text-sm font-black uppercase tracking-[0.2em] text-[#A1A1AA] mb-8">São Paulo, SP • Corredor Amador Autodidata</p>
+                <p className="text-[10px] font-black uppercase tracking-[0.3em] text-[#A1A1AA]/60 mb-10">São Paulo, SP • Corredor Amador Autodidata</p>
                 
-                <div className="grid grid-cols-2 md:grid-cols-3 gap-8">
+                <div className="grid grid-cols-2 md:grid-cols-3 gap-10">
                   <div>
                     <p className="text-[10px] font-black uppercase text-[#A1A1AA] tracking-[0.2em] mb-2">Sequência</p>
                     <p className="text-3xl font-black italic uppercase text-white">

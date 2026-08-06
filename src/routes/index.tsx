@@ -248,7 +248,7 @@ function Index() {
             <img 
               src={runnersBgAsset.url} 
               alt="Background Illustration" 
-              className="w-full h-full object-cover object-bottom translate-y-20 rounded-[40px] px-4 filter saturate-[1.5] contrast-[1.1] brightness-[1.1]"
+              className="w-full h-full object-cover object-bottom translate-y-20 px-0 filter saturate-[1.5] contrast-[1.1] brightness-[1.1]"
             />
           </motion.div>
 
@@ -311,9 +311,9 @@ function Index() {
             className="relative hidden lg:block"
           >
             <div className="absolute inset-0 bg-[var(--neon-green)]/20 blur-[120px] rounded-full animate-pulse" />
-            <div className="relative z-0 flex flex-col items-center">
+            <div className="relative z-0 flex flex-col items-center -translate-y-8">
               <div className="text-sm font-black uppercase tracking-[0.3em] text-[#B8BCCF] mb-2">correndo a</div>
-              <div className="text-[180px] font-black italic tracking-tighter leading-none text-white text-glow relative z-10 drop-shadow-[0_0_80px_rgba(255,255,255,0.15)]">
+              <div className="text-[180px] font-black italic tracking-tighter leading-none text-white text-glow relative z-10 drop-shadow-[0_0_80px_rgba(255,255,255,0.15)] [text-shadow:0_0_20px_rgba(67,230,200,0.5)]">
                 <CountUp end={216 + syncedActivities.length} />
               </div>
               <div className="text-xl font-black uppercase tracking-[0.5em] text-[#B8BCCF] mt-4 relative z-20 opacity-80">Dias consecutivos</div>

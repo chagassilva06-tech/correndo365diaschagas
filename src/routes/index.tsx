@@ -195,23 +195,24 @@ function Index() {
             </motion.span>
           </div>
           
-          <nav className="hidden lg:flex items-center gap-10 text-sm font-bold tracking-widest uppercase text-[#A1A1AA]">
+          <nav className="hidden lg:flex items-center gap-10 text-[10px] font-black tracking-[0.2em] uppercase text-[#A1A1AA]">
             {[
               { name: "Início", href: "#" },
               { name: "Calendário", href: "#jornada-anual" },
               { name: "Estatísticas", href: "#desempenho" },
+              { name: "Perfil", href: "#perfil" },
             ].map((item) => (
               <a
                 key={item.name}
                 href={item.href}
                 onClick={() => setActiveTab(item.name)}
-                className="relative py-2 hover:text-[var(--header-hover-bg)] hover:drop-shadow-[0_0_8px_var(--header-hover-bg)] transition-all duration-300"
+                className={`relative py-2 transition-all duration-300 hover:text-white ${activeTab === item.name ? 'text-[var(--neon-green)] text-glow' : ''}`}
               >
                 {item.name}
                 {activeTab === item.name && (
                   <motion.div
                     layoutId="activeTab"
-                    className="absolute bottom-0 left-0 right-0 h-0.5 bg-[var(--neon-green)] shadow-[0_0_8px_var(--neon-green)]"
+                    className="absolute -bottom-1 left-0 right-0 h-0.5 bg-[var(--neon-green)] shadow-[0_0_15px_rgba(67,230,200,0.5)]"
                     transition={{ type: "spring", stiffness: 380, damping: 30 }}
                   />
                 )}

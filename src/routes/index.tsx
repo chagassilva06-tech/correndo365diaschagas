@@ -442,10 +442,10 @@ function Index() {
                                 {isSpecial ? "🏆 Recorde Pessoal" : `Dia ${day} Validado`}
                                 <br />
                                 <span className="text-[8px] opacity-80">6,70km • 4:18 pace</span>
-                                <div className="absolute top-full left-1/2 -translate-x-1/2 border-8 border-transparent border-t-[#111111]" />
-                          </motion.div>
+                                <div className="absolute top-full left-1/2 -translate-x-1/2 border-8 border-transparent border-t-[var(--card-bg)]" />
+                              </div>
                             )}
-                          </div>
+                          </motion.div>
                         );
                       })}
                     </div>

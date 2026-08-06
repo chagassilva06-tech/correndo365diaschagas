@@ -234,7 +234,7 @@ function Index() {
         </div>
       </header>
 
-      <section className="relative min-h-[70vh] flex items-center justify-center pt-24 overflow-hidden mb-0">
+      <section className="relative min-h-[60vh] flex items-center justify-center pt-24 overflow-hidden mb-0">
         {/* Immersive Hero Background */}
         <div className="absolute inset-0 z-0">
           <div className="absolute inset-0 z-10 bg-gradient-to-b from-[var(--background)]/40 via-transparent to-[var(--background)]" />
@@ -248,7 +248,7 @@ function Index() {
             <img 
               src={runnersBgAsset.url} 
               alt="Background Illustration" 
-              className="w-full h-full object-cover object-bottom translate-y-24 rounded-[40px] px-4 filter saturate-[1.4] contrast-[1.1]"
+              className="w-full h-full object-cover object-bottom translate-y-16 rounded-[40px] px-4 filter saturate-[1.4] contrast-[1.1]"
             />
           </motion.div>
 

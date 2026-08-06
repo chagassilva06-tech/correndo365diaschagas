@@ -567,10 +567,11 @@ function Index() {
                             className="w-3.5 h-3.5 rounded-sm cursor-pointer transition-colors duration-300 relative overflow-hidden"
                             style={{ 
                               backgroundColor: intensity === 0 ? 'rgba(255,255,255,0.03)' : 
-                                               intensity === 1 ? 'rgba(34, 197, 94, 0.2)' : 
-                                               intensity === 2 ? 'rgba(34, 197, 94, 0.4)' : 
-                                               intensity === 3 ? 'rgba(34, 197, 94, 0.7)' : 
+                                               intensity === 1 ? 'rgba(67, 230, 200, 0.2)' : 
+                                               intensity === 2 ? 'rgba(67, 230, 200, 0.4)' : 
+                                               intensity === 3 ? 'rgba(67, 230, 200, 0.7)' : 
                                                'var(--neon-green)',
+
                             }}
                           >
                             {intensity > 0 && (

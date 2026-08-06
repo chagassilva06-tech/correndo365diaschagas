@@ -141,30 +141,31 @@ function Index() {
   };
 
   return (
-    <div className="min-h-screen bg-[var(--background)] text-white font-sans selection:bg-[var(--glow-orange)]/30 selection:text-[var(--glow-orange)] tracking-tight leading-relaxed">
+    <div className="min-h-screen bg-[var(--background)] text-white font-sans selection:bg-[var(--neon-green)]/30 selection:text-[var(--neon-green)] tracking-tight leading-relaxed">
       <AnimatePresence>
         {showNotification && (
           <motion.div
             initial={{ opacity: 0, x: 100, scale: 0.9 }}
             animate={{ opacity: 1, x: 0, scale: 1 }}
             exit={{ opacity: 0, x: 100, scale: 0.9 }}
-            className="fixed top-24 right-6 z-[100] w-full max-w-[320px] bg-[#f5f5f5] text-[#333] rounded-lg shadow-2xl border border-black/5 overflow-hidden font-sans"
+            className="fixed top-24 right-6 z-[100] w-full max-w-[320px] glass-card text-white rounded-[24px] shadow-2xl overflow-hidden font-sans border-white/10"
           >
-            <div className="px-4 py-2 border-b border-black/5 flex items-center justify-between bg-[#efefef]">
-              <span className="text-sm font-medium text-[#666]">Notificações</span>
-              <div className="flex items-center gap-2 text-[#999]">
-                <Check className="w-4 h-4 cursor-pointer hover:text-[#333]" />
-                <Settings className="w-4 h-4 cursor-pointer hover:text-[#333]" />
+            <div className="px-5 py-3 border-b border-white/5 flex items-center justify-between bg-white/5">
+              <span className="text-[10px] font-black uppercase tracking-widest text-[#A1A1AA]">Notificações</span>
+              <div className="flex items-center gap-3 text-[#A1A1AA]">
+                <Check className="w-4 h-4 cursor-pointer hover:text-[var(--neon-green)] transition-colors" />
+                <Settings className="w-4 h-4 cursor-pointer hover:text-[var(--neon-green)] transition-colors" />
               </div>
             </div>
-            <div className="p-4 flex items-start gap-3">
-              <div className="mt-1">
-                <Activity className="w-4 h-4 text-[#333]" strokeWidth={3} />
+            <div className="p-5 flex items-start gap-4">
+              <div className="mt-1 p-2 rounded-xl bg-[var(--neon-green)]/10">
+                <Activity className="w-5 h-5 text-[var(--neon-green)]" strokeWidth={3} />
               </div>
               <div>
-                <p className="text-sm leading-tight font-medium">
-                  Nova atividade recebida em 04/08 as 09:12
+                <p className="text-xs leading-snug font-bold tracking-tight">
+                  Nova atividade recebida em 04/08 às 09:12
                 </p>
+                <p className="text-[10px] text-[#A1A1AA] mt-1 font-medium">Sincronização concluída com sucesso</p>
               </div>
             </div>
             <button 
@@ -183,7 +184,7 @@ function Index() {
       <header className="fixed top-0 left-0 right-0 z-50 bg-[#1d1e4e]/80 dark:bg-[#111827]/80 backdrop-blur-xl border-b border-white/5 shadow-[var(--header-shadow)]">
         <div className="container mx-auto px-6 h-20 flex items-center justify-between">
           <div className="flex items-center gap-3 group cursor-pointer" onClick={() => navigate({ to: "/" })}>
-            <div className="w-10 h-10 rounded-xl overflow-hidden shadow-[0_0_20px_rgba(34,197,94,0.3)] group-hover:shadow-[0_0_30px_rgba(34,197,94,0.5)] transition-all duration-500">
+            <div className="w-10 h-10 rounded-xl overflow-hidden shadow-[0_0_20px_rgba(67,230,200,0.3)] group-hover:shadow-[0_0_30px_rgba(67,230,200,0.5)] transition-all duration-500 premium-border">
               <img src={logoHeaderAsset.url} alt="Logo" className="w-full h-full object-cover" />
             </div>
             <motion.span 
@@ -194,23 +195,24 @@ function Index() {
             </motion.span>
           </div>
           
-          <nav className="hidden lg:flex items-center gap-10 text-sm font-bold tracking-widest uppercase text-[#A1A1AA]">
+          <nav className="hidden lg:flex items-center gap-10 text-[10px] font-black tracking-[0.2em] uppercase text-[#A1A1AA]">
             {[
               { name: "Início", href: "#" },
               { name: "Calendário", href: "#jornada-anual" },
               { name: "Estatísticas", href: "#desempenho" },
+              { name: "Perfil", href: "#perfil" },
             ].map((item) => (
               <a
                 key={item.name}
                 href={item.href}
                 onClick={() => setActiveTab(item.name)}
-                className="relative py-2 hover:text-[var(--header-hover-bg)] hover:drop-shadow-[0_0_8px_var(--header-hover-bg)] transition-all duration-300"
+                className={`relative py-2 transition-all duration-300 hover:text-white ${activeTab === item.name ? 'text-[var(--neon-green)] text-glow' : ''}`}
               >
                 {item.name}
                 {activeTab === item.name && (
                   <motion.div
                     layoutId="activeTab"
-                    className="absolute bottom-0 left-0 right-0 h-0.5 bg-[var(--neon-green)] shadow-[0_0_8px_var(--neon-green)]"
+                    className="absolute -bottom-1 left-0 right-0 h-0.5 bg-[var(--neon-green)] shadow-[0_0_15px_rgba(67,230,200,0.5)]"
                     transition={{ type: "spring", stiffness: 380, damping: 30 }}
                   />
                 )}
@@ -223,7 +225,7 @@ function Index() {
               onClick={handleConnectStrava}
               variant="ghost"
               size="sm"
-              className="text-white/80 hover:text-white hover:bg-[#FF6A00]/10 border border-[#FF6A00] px-6 rounded-full transition-all duration-300 shadow-[0_0_15px_rgba(255,106,0,0.2)] hover:shadow-[0_0_25px_rgba(255,106,0,0.4)]"
+              className="text-white/80 hover:text-white hover:bg-[var(--neon-green)]/10 border border-[var(--neon-green)]/50 px-6 rounded-full transition-all duration-300 shadow-[0_0_15px_rgba(67,230,200,0.1)] hover:shadow-[0_0_25px_rgba(67,230,200,0.3)] font-black uppercase tracking-widest text-[10px]"
             >
               Conectar Strava
             </Button>
@@ -235,7 +237,7 @@ function Index() {
         {/* Immersive Hero Background */}
         <div className="absolute inset-0 z-0">
           <div className="absolute inset-0 bg-[var(--background)] z-10 opacity-70" />
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-[var(--glow-orange)]/10 via-transparent to-transparent z-0 animate-pulse" />
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-[var(--neon-green)]/10 via-transparent to-transparent z-0 animate-pulse" />
           
           {/* Velocity Lines / Grid Animation */}
           <div className="absolute inset-0 z-0 opacity-[0.05]" style={{ backgroundImage: `linear-gradient(rgba(255, 90, 31, 0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(255, 90, 31, 0.1) 1px, transparent 1px)`, backgroundSize: '100px 100px' }} />
@@ -301,14 +303,14 @@ function Index() {
             <div className="absolute inset-0 bg-[var(--neon-green)]/20 blur-[120px] rounded-full animate-pulse" />
             <div className="relative z-0 flex flex-col items-center">
               <div className="text-sm font-black uppercase tracking-[0.3em] text-[var(--neon-green)] mb-2">correndo a</div>
-              <div className="text-[160px] font-black italic tracking-tighter leading-none text-white drop-shadow-[0_0_50px_rgba(255,255,255,0.2)] relative z-10">
+              <div className="text-[180px] font-black italic tracking-tighter leading-none text-white text-glow relative z-10 drop-shadow-[0_0_80px_rgba(255,255,255,0.15)]">
                 <CountUp end={216 + syncedActivities.length} />
               </div>
-              <div className="text-3xl font-black uppercase tracking-[0.3em] text-[var(--neon-green)] mt-2 relative z-20">DIAS CONSECUTIVOS</div>
+              <div className="text-xl font-black uppercase tracking-[0.5em] text-[var(--neon-green)] mt-4 relative z-20 opacity-80">Dias consecutivos</div>
               
               <motion.div 
-                whileHover={{ scale: 1.05 }}
-                className="mt-16 w-64 h-80 rounded-[40px] overflow-hidden border-2 border-white/10 group shadow-2xl relative"
+                whileHover={{ scale: 1.05, y: -5 }}
+                className="mt-16 w-64 h-80 rounded-[40px] overflow-hidden border-2 border-white/10 group shadow-2xl relative premium-border"
               >
                 <div className="absolute inset-0 bg-gradient-to-t from-[var(--neon-green)]/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity z-10" />
                 <img src={maleRunnerAsset.url} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" alt="Corredor" />
@@ -332,9 +334,10 @@ function Index() {
                 key={stat.label}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
+                whileHover={{ y: -5 }}
                 transition={{ delay: i * 0.1 }}
                 viewport={{ once: true }}
-                className="group p-4 rounded-[40px] bg-[var(--card-bg)] border border-white/5 backdrop-blur-xl relative overflow-hidden transition-all duration-500 hover:border-[var(--neon-green)]/30"
+                className="group p-6 rounded-[40px] glass-card border border-white/5 relative overflow-hidden transition-all duration-500 hover:border-[var(--neon-green)]/30"
               >
                 <div className="absolute top-0 right-0 w-32 h-32 bg-[var(--neon-green)]/5 rounded-full -mr-8 -mt-8 blur-3xl group-hover:bg-[var(--neon-green)]/10 transition-all duration-500" />
                 <stat.icon className="w-8 h-8 text-[var(--neon-green)] mb-4 opacity-75" />
@@ -365,7 +368,10 @@ function Index() {
         <div className="container mx-auto px-4">
           <div className="flex flex-col md:flex-row justify-between items-end mb-12 gap-8">
             <div className="max-w-2xl text-left">
-              <h2 className="text-3xl lg:text-5xl font-black italic uppercase tracking-tighter mb-6 leading-[0.9]">Jornada Anual</h2>
+              <h2 className="text-3xl lg:text-5xl font-black italic uppercase tracking-tighter mb-6 leading-[0.9] flex items-center gap-4">
+                Jornada Anual
+                <span className="w-12 h-1 bg-[var(--neon-green)] opacity-30 rounded-full hidden lg:block"></span>
+              </h2>
               <div className="flex items-center gap-6">
                  <p className="text-[#A1A1AA] text-sm font-medium tracking-tight">O seu progresso diário em detalhes.</p>
                  <div className="flex items-center gap-2 bg-[var(--neon-green)]/10 px-4 py-2 rounded-xl border border-[var(--neon-green)]/20">
@@ -374,12 +380,12 @@ function Index() {
                  </div>
               </div>
             </div>
-            <div className="flex items-center gap-4 bg-[var(--section-bg)] p-2 rounded-2xl border border-white/5 backdrop-blur-md">
+            <div className="flex items-center gap-4 glass p-2 rounded-2xl border border-white/5">
               <span className="text-[10px] font-black uppercase tracking-widest text-[#A1A1AA] ml-4">Filtrar:</span>
               <select 
                 value={selectedMonth}
                 onChange={(e) => setSelectedMonth(e.target.value)}
-                className="bg-transparent text-sm font-bold border-none outline-none text-white cursor-pointer px-4"
+                className="bg-transparent text-[10px] font-black uppercase tracking-widest border-none outline-none text-white cursor-pointer px-4"
               >
                 <option value="Todos">Todos os meses</option>
                 {months.map(m => (
@@ -399,10 +405,11 @@ function Index() {
                   whileInView={{ opacity: 1, scale: 1 }}
                   transition={{ delay: mIdx * 0.05 }}
                   viewport={{ once: true }}
-                  className={`group rounded-[40px] bg-[var(--card-bg)] border border-white/5 overflow-hidden shadow-2xl transition-all duration-500 hover:border-[var(--neon-green)]/30 hover:shadow-[var(--neon-green)]/5 hover:-translate-y-1 ${isCurrentMonth ? 'lg:col-span-2 lg:row-span-2' : ''}`}
+                  className={`group rounded-[40px] glass-card border border-white/5 overflow-hidden shadow-2xl transition-all duration-500 hover:border-[var(--neon-green)]/30 hover:shadow-[var(--neon-green)]/5 hover:-translate-y-2 ${isCurrentMonth ? 'lg:col-span-2 lg:row-span-2' : ''}`}
                 >
-                  <div className="bg-white/5 p-8 border-b border-white/5 flex justify-between items-center">
-                    <span className={`font-black italic uppercase tracking-tight ${isCurrentMonth ? 'text-4xl' : 'text-xl'}`}>{month.name}</span>
+                  <div className="bg-white/5 p-8 border-b border-white/5 flex justify-between items-center relative overflow-hidden">
+                    <div className="absolute inset-0 bg-gradient-to-r from-[var(--neon-green)]/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
+                    <span className={`font-black italic uppercase tracking-tighter relative z-10 ${isCurrentMonth ? 'text-5xl text-glow' : 'text-2xl'}`}>{month.name}</span>
                     <div className="text-right">
                       <p className="text-[10px] font-black text-[#A1A1AA] uppercase">
                         {month.activities.length}/{month.days} dias
@@ -421,14 +428,15 @@ function Index() {
                         const isSpecial = day === 15;
                         
                         return (
-                          <div
+                          <motion.div
                             key={i}
+                            whileHover={{ scale: 1.15, zIndex: 10 }}
                             className={`aspect-square rounded-xl flex items-center justify-center text-[10px] font-black transition-all relative group/day cursor-pointer ${
                               hasActivity 
-                                ? "bg-[var(--neon-green)] text-white shadow-[0_0_15px_rgba(34,197,94,0.3)] hover:bg-[var(--neon-green-hover)]"
+                                ? "bg-[var(--neon-green)] text-black shadow-[0_0_20px_rgba(67,230,200,0.3)] hover:shadow-[0_0_30px_rgba(67,230,200,0.5)]"
                                 : day < new Date().getDate() && isCurrentMonth
-                                  ? "bg-[var(--rest-day)] text-[#A1A1AA]/50"
-                                  : "bg-[var(--future-day)] text-[#A1A1AA]/30 border border-white/5"
+                                  ? "bg-white/5 text-[#A1A1AA]/50"
+                                  : "bg-white/5 text-[#A1A1AA]/20 border border-white/5"
                             }`}
                           >
                             {day}
@@ -437,10 +445,10 @@ function Index() {
                                 {isSpecial ? "🏆 Recorde Pessoal" : `Dia ${day} Validado`}
                                 <br />
                                 <span className="text-[8px] opacity-80">6,70km • 4:18 pace</span>
-                                <div className="absolute top-full left-1/2 -translate-x-1/2 border-8 border-transparent border-t-[#111111]" />
+                                <div className="absolute top-full left-1/2 -translate-x-1/2 border-8 border-transparent border-t-[var(--card-bg)]" />
                               </div>
                             )}
-                          </div>
+                          </motion.div>
                         );
                       })}
                     </div>
@@ -457,17 +465,17 @@ function Index() {
         <div className="container mx-auto px-4">
            <div className="max-w-4xl mx-auto">
              <div className="relative h-1 bg-white/5 rounded-full mb-12">
-               <div className="absolute top-0 left-0 h-full bg-gradient-to-r from-[var(--glow-orange)] to-[#FF9F0A]" style={{ width: '60%' }} />
+               <div className="absolute top-0 left-0 h-full bg-gradient-to-r from-[var(--neon-green)] to-[#34D399] shadow-[0_0_15px_rgba(67,230,200,0.3)]" style={{ width: '60%' }} />
                
                <div className="absolute top-1/2 left-0 -translate-y-1/2 flex justify-between w-full px-4">
                  {[
                    { label: 'Janeiro', active: true },
                    { label: '100 Dias', active: true, value: '100' },
                    { label: '200 Dias', active: true, value: '200' },
-                   { label: 'Hoje', active: true, color: 'var(--glow-orange)' }
-                 ].map((point, i) => (
-                   <div key={i} className="flex flex-col items-center">
-                     <div className={`w-4 h-4 rounded-full border-4 border-[var(--background)] ${point.active ? 'bg-[var(--glow-orange)]' : 'bg-white/10'}`} />
+                    { label: 'Hoje', active: true, color: 'var(--neon-green)' }
+                  ].map((point, i) => (
+                    <div key={i} className="flex flex-col items-center">
+                      <div className={`w-4 h-4 rounded-full border-4 border-[var(--background)] ${point.active ? 'bg-[var(--neon-green)] shadow-[0_0_10px_rgba(67,230,200,0.5)]' : 'bg-white/10'}`} />
                      <span className="text-[10px] font-black uppercase tracking-widest text-[#A1A1AA] mt-4">{point.label}</span>
                    </div>
                  ))}
@@ -491,9 +499,9 @@ function Index() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-6 mb-8 max-w-2xl mx-auto">
              {[
                { label: 'Total Mês', value: months.find(m => m.name === "Agosto")?.km || '32,76', unit: 'km', color: 'var(--neon-green)' },
-               { label: 'Distância (km)', value: months.find(m => m.name === "Agosto")?.km || '32,76', unit: 'km', color: 'var(--glow-orange)' },
+               { label: 'Distância (km)', value: months.find(m => m.name === "Agosto")?.km || '32,76', unit: 'km', color: 'var(--neon-green)' },
              ].map((m, i) => (
-               <div key={i} className="bg-[var(--card-bg)] p-6 rounded-[32px] border border-white/5 relative overflow-hidden group">
+               <div key={i} className="glass-card p-8 rounded-[40px] border border-white/5 relative overflow-hidden group hover:-translate-y-1 transition-transform">
                  <div className="text-[10px] font-black uppercase tracking-[0.3em] text-[#A1A1AA] mb-4">{m.label}</div>
                  <div className="text-5xl font-black italic uppercase tracking-tighter" style={{ color: m.color }}>
                    {m.value}
@@ -503,7 +511,7 @@ function Index() {
              ))}
           </div>
 
-          <div className="bg-[var(--card-bg)] rounded-[40px] p-10 border border-white/5 relative overflow-hidden group">
+          <div className="glass-card rounded-[48px] p-12 border border-white/5 relative overflow-hidden group">
             <div className="absolute top-0 right-0 w-96 h-96 bg-[var(--neon-green)]/5 rounded-full blur-[100px] pointer-events-none" />
             <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-10 gap-4">
               <div>
@@ -519,11 +527,12 @@ function Index() {
                       className="w-3 h-3 rounded-sm" 
                       style={{ 
                         backgroundColor: level === 0 ? 'rgba(255,255,255,0.05)' : 
-                                         level === 1 ? 'rgba(34, 197, 94, 0.2)' : 
-                                         level === 2 ? 'rgba(34, 197, 94, 0.4)' : 
-                                         level === 3 ? 'rgba(34, 197, 94, 0.7)' : 
+                                         level === 1 ? 'rgba(67, 230, 200, 0.2)' : 
+                                         level === 2 ? 'rgba(67, 230, 200, 0.4)' : 
+                                         level === 3 ? 'rgba(67, 230, 200, 0.7)' : 
                                          'var(--neon-green)' 
                       }} 
+
                     />
                   ))}
                   <span className="text-[9px] font-black uppercase tracking-widest text-[#A1A1AA]/50 ml-1">Mais</span>
@@ -561,10 +570,11 @@ function Index() {
                             className="w-3.5 h-3.5 rounded-sm cursor-pointer transition-colors duration-300 relative overflow-hidden"
                             style={{ 
                               backgroundColor: intensity === 0 ? 'rgba(255,255,255,0.03)' : 
-                                               intensity === 1 ? 'rgba(34, 197, 94, 0.2)' : 
-                                               intensity === 2 ? 'rgba(34, 197, 94, 0.4)' : 
-                                               intensity === 3 ? 'rgba(34, 197, 94, 0.7)' : 
+                                               intensity === 1 ? 'rgba(67, 230, 200, 0.2)' : 
+                                               intensity === 2 ? 'rgba(67, 230, 200, 0.4)' : 
+                                               intensity === 3 ? 'rgba(67, 230, 200, 0.7)' : 
                                                'var(--neon-green)',
+
                             }}
                           >
                             {intensity > 0 && (
@@ -590,7 +600,7 @@ function Index() {
                                   <span>{time}</span>
                                 </div>
                               </div>
-                              <div className="mt-3 pt-3 border-t border-white/5 flex items-center gap-2 text-[8px] font-black text-[var(--glow-orange)] uppercase tracking-widest">
+                              <div className="mt-3 pt-3 border-t border-white/5 flex items-center gap-2 text-[8px] font-black text-[var(--neon-green)] uppercase tracking-widest">
                                 <Activity className="w-3 h-3" />
                                 Clique para ver no Strava
                               </div>
@@ -631,33 +641,37 @@ function Index() {
         <div className="container mx-auto px-4 max-w-4xl">
            <motion.div 
             whileHover={{ rotateY: 5, rotateX: 2 }}
-            className="rounded-[40px] bg-gradient-to-br from-[var(--card-bg)] to-[var(--background)] p-12 border border-white/5 shadow-2xl relative overflow-hidden group perspective-1000"
+            className="rounded-[48px] glass-card p-12 border border-white/5 shadow-2xl relative overflow-hidden group perspective-1000 premium-border"
           >
-            <div className="absolute inset-0 bg-[var(--glow-orange)]/5 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none" />
-            <div className="absolute -top-20 -right-20 w-80 h-80 bg-[var(--glow-orange)]/10 rounded-full blur-[100px] group-hover:bg-[var(--glow-orange)]/20 transition-all duration-700" />
+            <div className="absolute inset-0 bg-[var(--neon-green)]/5 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none" />
+            <div className="absolute -top-20 -right-20 w-80 h-80 bg-[var(--neon-green)]/10 rounded-full blur-[100px] group-hover:bg-[var(--neon-green)]/20 transition-all duration-700" />
             
             <div className="flex flex-col md:flex-row items-center gap-12 relative z-10">
               <div className="relative">
-                <div className="w-48 h-48 rounded-[40px] border-4 border-[#FF6A00] p-2 overflow-hidden shadow-2xl relative z-10 transition-transform duration-500 hover:scale-105">
-                  <div className="absolute inset-0 bg-[#FF6A00] blur-[20px] opacity-20 group-hover:opacity-40 transition-opacity" />
+                <div className="w-48 h-48 rounded-[40px] border-4 border-[var(--neon-green)]/30 p-2 overflow-hidden shadow-2xl relative z-10 transition-transform duration-500 hover:scale-105 premium-border">
+                  <div className="absolute inset-0 bg-[var(--neon-green)] blur-[30px] opacity-10 group-hover:opacity-30 transition-opacity" />
                   <img src={profileHeroAsset.url} alt="Profile" className="w-full h-full object-cover rounded-[32px] bg-[#050505] relative z-10" />
                 </div>
               </div>
               
               <div className="flex-1 text-center md:text-left">
-                <div className="flex flex-col md:flex-row md:items-center justify-between gap-2 mb-4 border-b border-white/5 pb-4">
+                <div className="flex flex-col md:flex-row md:items-center justify-between gap-6 mb-8 border-b border-white/5 pb-8">
                   <div>
-                    <h3 className="text-3xl font-black italic uppercase tracking-tighter mb-2">Francisco Chagas</h3>
-                    <div className="flex items-center gap-2 text-[#A1A1AA] text-xs font-black uppercase tracking-widest">
-                       <CheckCircle2 className="w-4 h-4 text-[#18A957]" />
-                       Desafio ativo • Runner since 2018
+                    <h3 className="text-4xl font-black italic uppercase tracking-tighter mb-3 text-glow">Francisco Chagas</h3>
+                    <div className="flex items-center gap-3 text-[#A1A1AA] text-[10px] font-black uppercase tracking-[0.2em]">
+                       <div className="flex items-center gap-2 px-3 py-1 rounded-full bg-[var(--neon-green)]/10 border border-[var(--neon-green)]/20">
+                         <CheckCircle2 className="w-3.5 h-3.5 text-[var(--neon-green)]" />
+                         <span className="text-[var(--neon-green)]">Desafio ativo</span>
+                       </div>
+                       <span>•</span>
+                       <span>Runner since 2018</span>
                     </div>
                   </div>
                 </div>
                 
-                <p className="text-sm font-black uppercase tracking-[0.2em] text-[#A1A1AA] mb-8">São Paulo, SP • Corredor Amador Autodidata</p>
+                <p className="text-[10px] font-black uppercase tracking-[0.3em] text-[#A1A1AA]/60 mb-10">São Paulo, SP • Corredor Amador Autodidata</p>
                 
-                <div className="grid grid-cols-2 md:grid-cols-3 gap-8">
+                <div className="grid grid-cols-2 md:grid-cols-3 gap-10">
                   <div>
                     <p className="text-[10px] font-black uppercase text-[#A1A1AA] tracking-[0.2em] mb-2">Sequência</p>
                     <p className="text-3xl font-black italic uppercase text-white">
@@ -685,22 +699,42 @@ function Index() {
       </section>
 
 
-      <footer className="py-4 bg-[var(--background)] border-t border-white/5 relative z-10">
-        <div className="container mx-auto px-4 flex flex-col items-center justify-center gap-3">
-          <div className="flex justify-center gap-6">
-            <a href="#" className="text-[#A1A1AA] hover:text-[#E1306C] transition-colors"><Instagram className="w-5 h-5" /></a>
-            <a href="#" className="text-[#A1A1AA] hover:text-[#FF0000] transition-colors"><Youtube className="w-5 h-5" /></a>
-            <a href="#" className="text-[#A1A1AA] hover:text-white transition-colors"><Github className="w-5 h-5" /></a>
-            <a href="https://strava.com" className="text-[#A1A1AA] hover:text-[#FC6100] transition-colors">
+      <footer className="py-10 bg-[var(--background)] border-t border-white/5 relative z-10 overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-t from-[var(--neon-green)]/5 to-transparent pointer-events-none" />
+        <div className="container mx-auto px-4 flex flex-col items-center justify-center gap-6 relative z-10">
+          <div className="flex justify-center gap-8">
+            {[
+              { icon: Instagram, href: "#", color: "#E1306C" },
+              { icon: Youtube, href: "#", color: "#FF0000" },
+              { icon: Github, href: "#", color: "white" },
+            ].map((social, i) => (
+              <motion.a 
+                key={i}
+                href={social.href} 
+                whileHover={{ y: -3, scale: 1.1 }}
+                className="text-[#A1A1AA] transition-colors hover:text-white"
+                style={{ '--hover-color': social.color } as any}
+              >
+                <social.icon className="w-5 h-5" />
+              </motion.a>
+            ))}
+            <motion.a 
+              href="https://strava.com" 
+              whileHover={{ y: -3, scale: 1.1 }}
+              className="text-[#A1A1AA] hover:text-[#FC6100] transition-colors"
+            >
               <svg className="w-5 h-5 fill-current" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                 <path d="M15.387 17.944l-2.089-4.116h-3.065L15.387 24l5.15-10.172h-3.066l-2.084 4.116zM10.267 7.848l-1.55 3.06h2.279l1.554-3.06 1.553 3.06h2.279l-3.832-7.538L10.267 7.848z"/>
               </svg>
-            </a>
+            </motion.a>
           </div>
 
-          <p className="text-[#A1A1AA] text-[9px] font-black uppercase tracking-widest opacity-40">
-            2026 &copy; <span className="text-white">Francisco</span> <span className="text-[var(--neon-green)]">Chagas</span>
-          </p>
+          <div className="flex flex-col items-center gap-2">
+            <p className="text-[#A1A1AA] text-[10px] font-black uppercase tracking-[0.4em] opacity-40">
+              2026 &copy; <span className="text-white">Francisco</span> <span className="text-[var(--neon-green)]">Chagas</span>
+            </p>
+            <div className="h-px w-8 bg-[var(--neon-green)]/30" />
+          </div>
         </div>
       </footer>
 

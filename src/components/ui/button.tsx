@@ -9,13 +9,14 @@ const buttonVariants = cva(
   {
     variants: {
       variant: {
-        default: "bg-primary text-primary-foreground shadow hover:bg-primary/90",
+        default: "bg-[var(--neon-green)] text-black shadow-lg shadow-[var(--neon-green)]/20 hover:bg-[var(--neon-green)]/90 font-black italic uppercase tracking-widest transition-all hover:scale-[1.02] active:scale-[0.98]",
         destructive: "bg-destructive text-destructive-foreground shadow-sm hover:bg-destructive/90",
         outline:
-          "border border-input bg-background shadow-sm hover:bg-accent hover:text-accent-foreground",
-        secondary: "bg-secondary text-secondary-foreground shadow-sm hover:bg-secondary/80",
-        ghost: "hover:bg-accent hover:text-accent-foreground",
-        link: "text-primary underline-offset-4 hover:underline",
+          "border border-[var(--neon-green)]/30 bg-transparent shadow-sm hover:bg-[var(--neon-green)]/10 hover:text-white font-black italic uppercase tracking-widest",
+        secondary: "bg-white/5 text-white border border-white/10 backdrop-blur-md shadow-sm hover:bg-white/10 font-black italic uppercase tracking-widest",
+        ghost: "hover:bg-white/5 hover:text-[var(--neon-green)] font-black italic uppercase tracking-widest",
+        premium: "bg-gradient-to-r from-[var(--neon-green)] to-[#34D399] text-black shadow-[0_0_20px_rgba(67,230,200,0.4)] hover:shadow-[0_0_30px_rgba(67,230,200,0.6)] font-black italic uppercase tracking-widest transition-all hover:-translate-y-0.5",
+        link: "text-[var(--neon-green)] underline-offset-4 hover:underline font-bold",
       },
       size: {
         default: "h-9 px-4 py-2",

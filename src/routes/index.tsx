@@ -237,22 +237,22 @@ function Index() {
       <section className="relative min-h-[70vh] flex items-center justify-center pt-24 overflow-hidden mb-0">
         {/* Immersive Hero Background */}
         <div className="absolute inset-0 z-0">
-          <div className="absolute inset-0 z-10 bg-gradient-to-b from-[var(--background)]/80 via-[var(--background)]/40 to-[var(--background)]" />
+          <div className="absolute inset-0 z-10 bg-gradient-to-b from-[var(--background)]/40 via-transparent to-[var(--background)]" />
           
           <motion.div 
-            initial={{ opacity: 0, scale: 1.1 }}
-            animate={{ opacity: 0.3, scale: 1 }}
+            initial={{ opacity: 0, scale: 1.05 }}
+            animate={{ opacity: 0.8, scale: 1 }}
             transition={{ duration: 1.5 }}
             className="absolute inset-0 z-0"
           >
             <img 
               src={runnersBgAsset.url} 
               alt="Background Illustration" 
-              className="w-full h-full object-cover object-center"
+              className="w-full h-full object-cover object-bottom scale-110 translate-y-20 filter saturate-[1.4] contrast-[1.1]"
             />
           </motion.div>
 
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-[var(--neon-green)]/10 via-transparent to-transparent z-5 animate-pulse" />
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-[var(--neon-green)]/5 via-transparent to-transparent z-5 animate-pulse" />
         </div>
 
         <div className="container relative z-20 mx-auto px-4 grid lg:grid-cols-2 gap-12 items-center">

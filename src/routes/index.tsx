@@ -443,7 +443,7 @@ function Index() {
                                 <br />
                                 <span className="text-[8px] opacity-80">6,70km • 4:18 pace</span>
                                 <div className="absolute top-full left-1/2 -translate-x-1/2 border-8 border-transparent border-t-[#111111]" />
-                              </div>
+                          </motion.div>
                             )}
                           </div>
                         );

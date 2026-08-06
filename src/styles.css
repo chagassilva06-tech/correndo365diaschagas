@@ -238,6 +238,14 @@
   .perspective-1000 {
     perspective: 1000px;
   }
+
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
 }
 
 #lovable-badge {

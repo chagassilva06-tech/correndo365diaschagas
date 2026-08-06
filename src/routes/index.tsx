@@ -304,7 +304,7 @@ function Index() {
               <div className="text-[160px] font-black italic tracking-tighter leading-none text-white drop-shadow-[0_0_50px_rgba(255,255,255,0.2)] relative z-10">
                 <CountUp end={216 + syncedActivities.length} />
               </div>
-              <div className="text-3xl font-black uppercase tracking-[0.3em] text-[var(--neon-green)] mt-2 relative z-20">Dias consecutivos</div>
+              <div className="text-3xl font-black uppercase tracking-[0.3em] text-[var(--neon-green)] mt-2 relative z-20">DIAS CONSECUTIVOS</div>
               
               <motion.div 
                 whileHover={{ scale: 1.05 }}
@@ -675,7 +675,7 @@ function Index() {
                   </div>
                   <div className="col-span-2 md:col-span-1">
                     <p className="text-[10px] font-black uppercase text-[#A1A1AA] tracking-[0.2em] mb-2">Pace Médio</p>
-                    <p className="text-3xl font-black italic uppercase text-[var(--glow-orange)]">4:18/km</p>
+                    <p className="text-3xl font-black italic uppercase text-[var(--neon-green)]">4:18/km</p>
                   </div>
                 </div>
               </div>

@@ -141,7 +141,7 @@ function Index() {
   };
 
   return (
-    <div className="min-h-screen bg-[var(--background)] text-white font-sans selection:bg-[var(--glow-orange)]/30 selection:text-[var(--glow-orange)] tracking-tight leading-relaxed">
+    <div className="min-h-screen bg-[var(--background)] text-white font-sans selection:bg-[var(--neon-green)]/30 selection:text-[var(--neon-green)] tracking-tight leading-relaxed">
       <AnimatePresence>
         {showNotification && (
           <motion.div
@@ -237,7 +237,7 @@ function Index() {
         {/* Immersive Hero Background */}
         <div className="absolute inset-0 z-0">
           <div className="absolute inset-0 bg-[var(--background)] z-10 opacity-70" />
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-[var(--glow-orange)]/10 via-transparent to-transparent z-0 animate-pulse" />
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-[var(--neon-green)]/10 via-transparent to-transparent z-0 animate-pulse" />
           
           {/* Velocity Lines / Grid Animation */}
           <div className="absolute inset-0 z-0 opacity-[0.05]" style={{ backgroundImage: `linear-gradient(rgba(255, 90, 31, 0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(255, 90, 31, 0.1) 1px, transparent 1px)`, backgroundSize: '100px 100px' }} />
@@ -462,17 +462,17 @@ function Index() {
         <div className="container mx-auto px-4">
            <div className="max-w-4xl mx-auto">
              <div className="relative h-1 bg-white/5 rounded-full mb-12">
-               <div className="absolute top-0 left-0 h-full bg-gradient-to-r from-[var(--glow-orange)] to-[#FF9F0A]" style={{ width: '60%' }} />
+               <div className="absolute top-0 left-0 h-full bg-gradient-to-r from-[var(--neon-green)] to-[#34D399] shadow-[0_0_15px_rgba(67,230,200,0.3)]" style={{ width: '60%' }} />
                
                <div className="absolute top-1/2 left-0 -translate-y-1/2 flex justify-between w-full px-4">
                  {[
                    { label: 'Janeiro', active: true },
                    { label: '100 Dias', active: true, value: '100' },
                    { label: '200 Dias', active: true, value: '200' },
-                   { label: 'Hoje', active: true, color: 'var(--glow-orange)' }
-                 ].map((point, i) => (
-                   <div key={i} className="flex flex-col items-center">
-                     <div className={`w-4 h-4 rounded-full border-4 border-[var(--background)] ${point.active ? 'bg-[var(--glow-orange)]' : 'bg-white/10'}`} />
+                    { label: 'Hoje', active: true, color: 'var(--neon-green)' }
+                  ].map((point, i) => (
+                    <div key={i} className="flex flex-col items-center">
+                      <div className={`w-4 h-4 rounded-full border-4 border-[var(--background)] ${point.active ? 'bg-[var(--neon-green)] shadow-[0_0_10px_rgba(67,230,200,0.5)]' : 'bg-white/10'}`} />
                      <span className="text-[10px] font-black uppercase tracking-widest text-[#A1A1AA] mt-4">{point.label}</span>
                    </div>
                  ))}
@@ -597,7 +597,7 @@ function Index() {
                                   <span>{time}</span>
                                 </div>
                               </div>
-                              <div className="mt-3 pt-3 border-t border-white/5 flex items-center gap-2 text-[8px] font-black text-[var(--glow-orange)] uppercase tracking-widest">
+                              <div className="mt-3 pt-3 border-t border-white/5 flex items-center gap-2 text-[8px] font-black text-[var(--neon-green)] uppercase tracking-widest">
                                 <Activity className="w-3 h-3" />
                                 Clique para ver no Strava
                               </div>

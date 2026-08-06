@@ -180,7 +180,7 @@ function Index() {
       <div className="fixed inset-0 pointer-events-none z-0 opacity-[0.02]" style={{ backgroundImage: "var(--noise-texture)" }} />
 
 
-      <header className="fixed top-0 left-0 right-0 z-50 bg-[#1d1e4e]/80 backdrop-blur-xl border-b border-yellow-400/20 shadow-[var(--header-shadow)]">
+      <header className="fixed top-0 left-0 right-0 z-50 bg-[#1d1e4e]/80 dark:bg-[#111827]/80 backdrop-blur-xl border-b border-white/5 shadow-[var(--header-shadow)]">
         <div className="container mx-auto px-6 h-20 flex items-center justify-between">
           <div className="flex items-center gap-3 group cursor-pointer" onClick={() => navigate({ to: "/" })}>
             <div className="w-10 h-10 rounded-xl overflow-hidden shadow-[0_0_20px_rgba(34,197,94,0.3)] group-hover:shadow-[0_0_30px_rgba(34,197,94,0.5)] transition-all duration-500">
@@ -301,7 +301,7 @@ function Index() {
             <div className="absolute inset-0 bg-[var(--neon-green)]/20 blur-[120px] rounded-full animate-pulse" />
             <div className="relative z-0 flex flex-col items-center">
               <div className="text-sm font-black uppercase tracking-[0.3em] text-[var(--neon-green)] mb-2">correndo a</div>
-              <div className="text-[160px] font-black italic tracking-tighter leading-none text-white/90 drop-shadow-[0_0_50px_rgba(255,255,255,0.2)] relative z-10">
+              <div className="text-[160px] font-black italic tracking-tighter leading-none text-white drop-shadow-[0_0_50px_rgba(255,255,255,0.2)] relative z-10">
                 <CountUp end={216 + syncedActivities.length} />
               </div>
               <div className="text-3xl font-black uppercase tracking-[0.3em] text-[var(--neon-green)] mt-2 relative z-20">Dias consecutivos</div>
@@ -334,10 +334,10 @@ function Index() {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ delay: i * 0.1 }}
                 viewport={{ once: true }}
-                className="group p-4 rounded-[40px] bg-[var(--section-bg)] border border-white/5 backdrop-blur-xl relative overflow-hidden transition-all duration-500 hover:border-[var(--neon-green)]/30"
+                className="group p-4 rounded-[40px] bg-[var(--card-bg)] border border-white/5 backdrop-blur-xl relative overflow-hidden transition-all duration-500 hover:border-[var(--neon-green)]/30"
               >
                 <div className="absolute top-0 right-0 w-32 h-32 bg-[var(--neon-green)]/5 rounded-full -mr-8 -mt-8 blur-3xl group-hover:bg-[var(--neon-green)]/10 transition-all duration-500" />
-                <stat.icon className="w-8 h-8 text-[var(--neon-green)] mb-4" />
+                <stat.icon className="w-8 h-8 text-[var(--neon-green)] mb-4 opacity-75" />
                 <div className="text-4xl font-black tracking-tighter mb-2 italic uppercase flex items-baseline flex-wrap">
                   {stat.prefix && <span className="text-xl mr-2 opacity-60 normal-case">{stat.prefix}</span>}
                   <CountUp end={stat.value} decimals={stat.value % 1 !== 0 ? 2 : 0} />
@@ -399,7 +399,7 @@ function Index() {
                   whileInView={{ opacity: 1, scale: 1 }}
                   transition={{ delay: mIdx * 0.05 }}
                   viewport={{ once: true }}
-                  className={`group rounded-[40px] bg-[var(--section-bg)] border border-white/5 overflow-hidden shadow-2xl transition-all duration-500 hover:border-[var(--neon-green)]/30 hover:shadow-[var(--neon-green)]/5 hover:-translate-y-1 ${isCurrentMonth ? 'lg:col-span-2 lg:row-span-2' : ''}`}
+                  className={`group rounded-[40px] bg-[var(--card-bg)] border border-white/5 overflow-hidden shadow-2xl transition-all duration-500 hover:border-[var(--neon-green)]/30 hover:shadow-[var(--neon-green)]/5 hover:-translate-y-1 ${isCurrentMonth ? 'lg:col-span-2 lg:row-span-2' : ''}`}
                 >
                   <div className="bg-white/5 p-8 border-b border-white/5 flex justify-between items-center">
                     <span className={`font-black italic uppercase tracking-tight ${isCurrentMonth ? 'text-4xl' : 'text-xl'}`}>{month.name}</span>
@@ -433,7 +433,7 @@ function Index() {
                           >
                             {day}
                             {hasActivity && (
-                              <div className="absolute -top-12 left-1/2 -translate-x-1/2 bg-[#111111] text-white text-[10px] py-2 px-3 rounded-xl opacity-0 group-hover/day:opacity-100 transition-all duration-300 whitespace-nowrap pointer-events-none shadow-2xl font-black uppercase z-20 border border-[var(--neon-green)]/30">
+                              <div className="absolute -top-12 left-1/2 -translate-x-1/2 bg-[var(--card-bg)] text-white text-[10px] py-2 px-3 rounded-xl opacity-0 group-hover/day:opacity-100 transition-all duration-300 whitespace-nowrap pointer-events-none shadow-2xl font-black uppercase z-20 border border-[var(--neon-green)]/30">
                                 {isSpecial ? "🏆 Recorde Pessoal" : `Dia ${day} Validado`}
                                 <br />
                                 <span className="text-[8px] opacity-80">6,70km • 4:18 pace</span>
@@ -493,7 +493,7 @@ function Index() {
                { label: 'Total Mês', value: months.find(m => m.name === "Agosto")?.km || '32,76', unit: 'km', color: 'var(--neon-green)' },
                { label: 'Distância (km)', value: months.find(m => m.name === "Agosto")?.km || '32,76', unit: 'km', color: 'var(--glow-orange)' },
              ].map((m, i) => (
-               <div key={i} className="bg-[var(--section-bg)] p-6 rounded-[32px] border border-white/5 relative overflow-hidden group">
+               <div key={i} className="bg-[var(--card-bg)] p-6 rounded-[32px] border border-white/5 relative overflow-hidden group">
                  <div className="text-[10px] font-black uppercase tracking-[0.3em] text-[#A1A1AA] mb-4">{m.label}</div>
                  <div className="text-5xl font-black italic uppercase tracking-tighter" style={{ color: m.color }}>
                    {m.value}
@@ -503,7 +503,7 @@ function Index() {
              ))}
           </div>
 
-          <div className="bg-[var(--section-bg)] rounded-[40px] p-10 border border-white/5 relative overflow-hidden group">
+          <div className="bg-[var(--card-bg)] rounded-[40px] p-10 border border-white/5 relative overflow-hidden group">
             <div className="absolute top-0 right-0 w-96 h-96 bg-[var(--neon-green)]/5 rounded-full blur-[100px] pointer-events-none" />
             <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-10 gap-4">
               <div>
@@ -578,7 +578,7 @@ function Index() {
                           
                           {/* Premium Tooltip */}
                           <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-4 opacity-0 group-hover/contribution:opacity-100 transition-all duration-300 pointer-events-none z-[60] scale-90 group-hover/contribution:scale-100">
-                            <div className="bg-[#111111] border border-[var(--neon-green)]/30 rounded-2xl p-4 shadow-2xl min-w-[180px] backdrop-blur-xl">
+                            <div className="bg-[var(--card-bg)] border border-[var(--neon-green)]/30 rounded-2xl p-4 shadow-2xl min-w-[180px] backdrop-blur-xl">
                               <div className="flex items-center justify-between mb-2">
                                 <span className="text-[10px] font-black uppercase tracking-widest text-white/90">{dateStr}</span>
                                 <Check className="w-3 h-3 text-[var(--neon-green)]" />
@@ -631,7 +631,7 @@ function Index() {
         <div className="container mx-auto px-4 max-w-4xl">
            <motion.div 
             whileHover={{ rotateY: 5, rotateX: 2 }}
-            className="rounded-[40px] bg-gradient-to-br from-[var(--section-bg)] to-[var(--background)] p-12 border border-white/5 shadow-2xl relative overflow-hidden group perspective-1000"
+            className="rounded-[40px] bg-gradient-to-br from-[var(--card-bg)] to-[var(--background)] p-12 border border-white/5 shadow-2xl relative overflow-hidden group perspective-1000"
           >
             <div className="absolute inset-0 bg-[var(--glow-orange)]/5 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none" />
             <div className="absolute -top-20 -right-20 w-80 h-80 bg-[var(--glow-orange)]/10 rounded-full blur-[100px] group-hover:bg-[var(--glow-orange)]/20 transition-all duration-700" />

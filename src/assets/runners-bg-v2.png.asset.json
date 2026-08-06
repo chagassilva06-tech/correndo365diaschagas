@@ -1,11 +1,11 @@
 {
-  "version": 1,
   "asset_id": "5c34a83c-71ac-4795-8831-bd92a8249def",
-  "project_id": "34026595-32dc-4c29-bbce-74616470d31c",
-  "url": "/__l5e/assets-v1/5c34a83c-71ac-4795-8831-bd92a8249def/runners-bg-v2.png",
-  "r2_key": "a/v1/34026595-32dc-4c29-bbce-74616470d31c/5c34a83c-71ac-4795-8831-bd92a8249def/runners-bg-v2.png",
-  "original_filename": "runners-bg-v2.png",
-  "size": 2674067,
   "content_type": "image/png",
-  "created_at": "2026-08-06T03:06:47Z"
+  "created_at": "2026-08-06T03:06:47Z",
+  "original_filename": "runners-bg-v2.png",
+  "project_id": "65e24151-f120-4bc9-9bdb-868492c2016f",
+  "r2_key": "a/v1/65e24151-f120-4bc9-9bdb-868492c2016f/5c34a83c-71ac-4795-8831-bd92a8249def/runners-bg-v2.png",
+  "size": 2674067,
+  "url": "/__l5e/assets-v1/5c34a83c-71ac-4795-8831-bd92a8249def/runners-bg-v2.png",
+  "version": 1
 }

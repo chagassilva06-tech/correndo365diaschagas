@@ -636,7 +636,6 @@ function Index() {
             whileHover={{ rotateY: 5, rotateX: 2 }}
             className="rounded-[48px] glass-card p-12 border border-white/5 shadow-2xl relative overflow-hidden group perspective-1000 premium-border"
           >
-          >
             <div className="absolute inset-0 bg-[var(--glow-orange)]/5 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none" />
             <div className="absolute -top-20 -right-20 w-80 h-80 bg-[var(--glow-orange)]/10 rounded-full blur-[100px] group-hover:bg-[var(--glow-orange)]/20 transition-all duration-700" />
             

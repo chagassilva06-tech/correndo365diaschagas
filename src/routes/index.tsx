@@ -28,7 +28,7 @@ import { Badge } from "@/components/ui/badge";
 import logoHeaderAsset from "@/assets/image-6.png.asset.json";
 import maleRunnerAsset from "@/assets/FotoMaratona.png.asset.json";
 import profileHeroAsset from "@/assets/profile-hero.png.asset.json";
-import runnersBgAsset from "@/assets/runners-bg.png.asset.json";
+import runnersBgAsset from "@/assets/runners-bg-v2.png.asset.json";
 
 // Lazy load heavy components
 const BarChart = lazy(() => import("recharts").then(mod => ({ default: mod.BarChart })));
@@ -248,7 +248,7 @@ function Index() {
             <img 
               src={runnersBgAsset.url} 
               alt="Background Illustration" 
-              className="w-full h-full object-cover object-bottom translate-y-16 rounded-[40px] px-4 filter saturate-[1.4] contrast-[1.1]"
+              className="w-full h-full object-cover object-bottom translate-y-20 rounded-[40px] px-4 filter saturate-[1.5] contrast-[1.1] brightness-[1.1]"
             />
           </motion.div>
 

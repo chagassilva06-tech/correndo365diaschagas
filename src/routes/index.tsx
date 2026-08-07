@@ -190,7 +190,7 @@ function Index() {
                 <p className="text-xs leading-snug font-bold tracking-tight">
                   Nova atividade recebida em {new Date().toLocaleDateString('pt-BR', { day: '2-digit', month: '2-digit' })} às {new Date().toLocaleTimeString('pt-BR', { hour: '2-digit', minute: '2-digit' })}
                 </p>
-                <p className="text-[10px] text-white/70 mt-1 font-medium">Sincronização concluída com sucesso</p>
+                <p className="text-[10px] text-[var(--foreground)]/70 mt-1 font-medium">Sincronização concluída com sucesso</p>
               </div>
             </div>
             <button 
@@ -206,7 +206,7 @@ function Index() {
       <div className="fixed inset-0 pointer-events-none z-0 opacity-[0.02]" style={{ backgroundImage: "var(--noise-texture)" }} />
 
 
-      <header className="fixed top-0 left-0 right-0 z-50 bg-[#000000]/80 dark:bg-[#000000]/80 backdrop-blur-xl border-b border-white/5 shadow-[var(--header-shadow)]">
+      <header className="fixed top-0 left-0 right-0 z-50 bg-[#000000]/80 dark:bg-[#000000]/80 backdrop-blur-xl border-b border-[var(--foreground)]/5 shadow-[var(--header-shadow)]">
         <div className="container mx-auto px-6 h-20 flex items-center justify-between">
           <div className="flex items-center gap-3 group cursor-pointer" onClick={() => navigate({ to: "/" })}>
             <motion.span 
@@ -247,7 +247,7 @@ function Index() {
               onClick={toggleDarkMode}
               variant="ghost"
               size="icon"
-              className="text-white/80 hover:text-white hover:bg-white/10 rounded-full transition-all duration-300 w-10 h-10 flex items-center justify-center border border-white/10"
+              className="text-[var(--foreground)]/80 hover:text-[var(--foreground)] hover:bg-[var(--foreground)]/10 rounded-full transition-all duration-300 w-10 h-10 flex items-center justify-center border border-[var(--foreground)]/10"
               aria-label="Toggle Dark Mode"
             >
               {isDarkMode ? (
@@ -260,7 +260,7 @@ function Index() {
               onClick={handleConnectStrava}
               variant="ghost"
               size="sm"
-              className="text-white/80 hover:text-white hover:bg-[var(--neon-green)]/10 border border-[var(--neon-green)]/50 px-6 rounded-full transition-all duration-300 shadow-[0_0_15px_rgba(67,230,200,0.1)] hover:shadow-[0_0_25px_rgba(67,230,200,0.3)] font-black uppercase tracking-widest text-[10px]"
+              className="text-[var(--foreground)]/80 hover:text-[var(--foreground)] hover:bg-[var(--neon-green)]/10 border border-[var(--neon-green)]/50 px-6 rounded-full transition-all duration-300 shadow-[0_0_15px_rgba(67,230,200,0.1)] hover:shadow-[0_0_25px_rgba(67,230,200,0.3)] font-black uppercase tracking-widest text-[10px]"
             >
               Conectar Strava
             </Button>
@@ -297,7 +297,7 @@ function Index() {
               transition={{ duration: 0.8 }}
               className="flex justify-start mb-6"
             >
-              <Badge variant="outline" className="border-white/20 text-white/90 bg-white/5 gap-3 px-5 py-2 backdrop-blur-md rounded-full">
+              <Badge variant="outline" className="border-[var(--foreground)]/20 text-[var(--foreground)]/90 bg-[var(--foreground)]/5 gap-3 px-5 py-2 backdrop-blur-md rounded-full">
                 <span className="relative flex h-2.5 w-2.5">
                   <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[var(--neon-green)] opacity-75"></span>
                   <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-[var(--neon-green)]"></span>
@@ -347,7 +347,7 @@ function Index() {
             <div className="absolute inset-0 bg-[var(--neon-green)]/20 blur-[120px] rounded-full animate-pulse" />
             <div className="relative z-0 flex flex-col items-center -translate-y-8">
               <div className="text-sm font-black uppercase tracking-[0.3em] text-white/50 mb-2">correndo a</div>
-              <div className="text-[180px] font-black italic tracking-tighter leading-none text-white text-glow relative z-10 drop-shadow-[0_0_80px_rgba(255,255,255,0.15)] [text-shadow:0_0_20px_rgba(67,230,200,0.5)]">
+              <div className="text-[180px] font-black italic tracking-tighter leading-none text-[var(--foreground)] text-glow relative z-10 drop-shadow-[0_0_80px_rgba(255,255,255,0.15)] [text-shadow:0_0_20px_rgba(67,230,200,0.5)]">
                 <CountUp end={daysPassed + syncedActivities.length} />
               </div>
               <div className="text-xl font-black uppercase tracking-[0.5em] text-white/50 mt-4 relative z-20 opacity-80">Dias consecutivos</div>
@@ -374,7 +374,7 @@ function Index() {
                   whileHover={{ y: -5 }}
                   transition={{ delay: i * 0.1 }}
                   viewport={{ once: true }}
-                  className="group p-5 rounded-[32px] glass-card border border-white/5 relative overflow-hidden transition-all duration-500 hover:border-[var(--neon-green)]/30"
+                  className="group p-5 rounded-[32px] glass-card border border-[var(--foreground)]/5 relative overflow-hidden transition-all duration-500 hover:border-[var(--neon-green)]/30"
                 >
                   <div className="absolute top-0 right-0 w-24 h-24 bg-[var(--neon-green)]/5 rounded-full -mr-8 -mt-8 blur-3xl group-hover:bg-[var(--neon-green)]/10 transition-all duration-500" />
                   <stat.icon className="w-5 h-5 text-[var(--neon-green)] mb-3 opacity-75" />
@@ -702,7 +702,7 @@ function Index() {
         <div className="container mx-auto px-4 max-w-4xl">
            <motion.div 
             whileHover={{ rotateY: 5, rotateX: 2 }}
-            className="rounded-[48px] glass-card p-12 border border-white/5 shadow-2xl relative overflow-hidden group perspective-1000 premium-border"
+            className="rounded-[48px] glass-card p-12 border border-[var(--foreground)]/5 shadow-2xl relative overflow-hidden group perspective-1000 premium-border"
           >
             <div className="absolute inset-0 bg-[var(--neon-green)]/5 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none" />
             <div className="absolute -top-20 -right-20 w-80 h-80 bg-[var(--neon-green)]/10 rounded-full blur-[100px] group-hover:bg-[var(--neon-green)]/20 transition-all duration-700" />
@@ -716,7 +716,7 @@ function Index() {
               </div>
               
               <div className="flex-1 text-center md:text-left">
-                <div className="flex flex-col md:flex-row md:items-center justify-between gap-6 mb-8 border-b border-white/5 pb-8 bg-[#2B2C5A]/20 -mx-12 px-12 -mt-12 pt-12">
+                <div className="flex flex-col md:flex-row md:items-center justify-between gap-6 mb-8 border-b border-[var(--foreground)]/5 pb-8 bg-[#2B2C5A]/20 -mx-12 px-12 -mt-12 pt-12">
                   <div>
                     <h3 className="text-4xl font-black italic uppercase tracking-tighter mb-3 text-glow">Francisco Chagas</h3>
                     <div className="flex items-center gap-3 text-white/70 text-[10px] font-black uppercase tracking-[0.2em]">
@@ -730,7 +730,7 @@ function Index() {
                   </div>
                 </div>
                 
-                <div className="glass p-4 rounded-2xl border border-white/5 shadow-inner mb-10 premium-border">
+                <div className="glass p-4 rounded-2xl border border-[var(--foreground)]/5 shadow-inner mb-10 premium-border">
                   <p className="text-[10px] font-black uppercase tracking-[0.3em] text-white/70/80">São Paulo, SP • Corredor Amador Autodidata</p>
                 </div>
                 

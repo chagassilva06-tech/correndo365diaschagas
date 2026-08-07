@@ -219,12 +219,6 @@ function Index() {
       <header className="fixed top-0 left-0 right-0 z-50 bg-[#000000]/80 dark:bg-[#000000]/80 backdrop-blur-xl border-b border-[var(--foreground)]/5 shadow-[var(--header-shadow)]">
         <div className="container mx-auto px-6 h-20 flex items-center justify-between">
           <div className="flex items-center gap-3 group cursor-pointer" onClick={() => navigate({ to: "/" })}>
-            <motion.span 
-              whileHover={{ scale: 1.02 }}
-              className="font-black text-2xl tracking-tighter italic uppercase bg-gradient-to-r from-[var(--neon-green)] via-white to-[var(--neon-green)] bg-[length:200%_auto] animate-gradient-x bg-clip-text text-transparent"
-            >
-              Correndo todo dia
-            </motion.span>
           </div>
           
           <nav className="hidden lg:flex items-center gap-10 text-[10px] font-black tracking-[0.2em] uppercase text-white/70">

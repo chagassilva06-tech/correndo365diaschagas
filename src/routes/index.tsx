@@ -303,7 +303,7 @@ function Index() {
               transition={{ delay: 0.2, duration: 0.8 }}
               className="text-5xl lg:text-[100px] font-black mb-8 tracking-tighter leading-[0.85] italic uppercase relative -ml-1 md:-ml-8"
             >
-              <span className="relative z-10 text-white/20">Correndo</span> <br />
+              <span className="relative z-10 text-white">Correndo</span> <br />
               <span className="relative z-10 text-transparent bg-clip-text bg-gradient-to-r from-white to-white/40">todo dia</span>
               
               {/* Adjusted background animation to be lower and less intrusive */}

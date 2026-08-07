@@ -83,6 +83,12 @@ function Index() {
   const [activeTab, setActiveTab] = useState("Início");
   const [syncedActivities, setSyncedActivities] = useState<any[]>([]);
   
+  // Calculate days since start date (Jan 1, 2026)
+  const startDate = new Date(2026, 0, 1);
+  const today = new Date();
+  const diffTime = Math.abs(today.getTime() - startDate.getTime());
+  const daysPassed = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+  
   const currentMonthName = new Intl.DateTimeFormat('pt-BR', { month: 'long' }).format(new Date());
   const capitalizedCurrentMonth = currentMonthName.charAt(0).toUpperCase() + currentMonthName.slice(1);
 

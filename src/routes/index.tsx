@@ -494,8 +494,8 @@ function Index() {
       <section className="py-20 bg-[var(--background)] relative z-10 overflow-hidden">
         <div className="container mx-auto px-4">
            <div className="max-w-4xl mx-auto">
-              <div className="relative h-0.5 bg-white/5 rounded-full mb-12">
-                <div className="absolute top-0 left-0 h-full bg-white/20" style={{ width: '60%' }} />
+              <div className="relative h-[0.5px] bg-white/5 rounded-full mb-12">
+                <div className="absolute top-0 left-0 h-full bg-[var(--neon-green)]/20" style={{ width: '60%' }} />
                
                <div className="absolute top-1/2 left-0 -translate-y-1/2 flex justify-between w-full px-4">
                  {[

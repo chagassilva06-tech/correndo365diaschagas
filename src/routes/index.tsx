@@ -399,9 +399,8 @@ function Index() {
         <div className="container mx-auto px-4">
           <div className="flex flex-col md:flex-row justify-between items-end mb-12 gap-8">
             <div className="max-w-2xl text-left">
-              <h2 className="text-3xl lg:text-4xl font-black italic uppercase tracking-tighter mb-6 leading-[0.9] flex items-center gap-4">
+              <h2 className="text-[10px] font-bold uppercase tracking-[0.2em] text-white/40 mb-1">
                 Jornada anual
-                <span className="w-12 h-1 bg-[var(--neon-green)] opacity-30 rounded-full hidden lg:block"></span>
               </h2>
               <div className="flex items-center gap-6">
                  <p className="text-white/50 text-xs font-medium tracking-tight">O seu progresso diário em detalhes.</p>

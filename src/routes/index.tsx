@@ -182,7 +182,7 @@ function Index() {
       <div className="fixed inset-0 pointer-events-none z-0 opacity-[0.02]" style={{ backgroundImage: "var(--noise-texture)" }} />
 
 
-      <header className="fixed top-0 left-0 right-0 z-50 bg-[#1d1e4e]/80 dark:bg-[#111827]/80 backdrop-blur-xl border-b border-white/5 shadow-[var(--header-shadow)]">
+      <header className="fixed top-0 left-0 right-0 z-50 bg-[#2B2C5A]/80 dark:bg-[#2B2C5A]/80 backdrop-blur-xl border-b border-white/5 shadow-[var(--header-shadow)]">
         <div className="container mx-auto px-6 h-20 flex items-center justify-between">
           <div className="flex items-center gap-3 group cursor-pointer" onClick={() => navigate({ to: "/" })}>
             <div className="w-10 h-10 rounded-xl overflow-hidden shadow-[0_0_20px_rgba(67,230,200,0.3)] group-hover:shadow-[0_0_30px_rgba(67,230,200,0.5)] transition-all duration-500 premium-border">
@@ -279,7 +279,7 @@ function Index() {
               className="text-5xl lg:text-[85px] font-black mb-8 tracking-tighter leading-[0.85] italic uppercase relative -ml-1 md:-ml-8"
             >
               <span className="relative z-10">Correndo</span> <br />
-              <span className="relative z-10 text-transparent bg-clip-text bg-gradient-to-r from-[var(--neon-green)] to-[#34D399] drop-shadow-[0_0_30px_rgba(34,197,94,0.3)]">todo dia</span>
+              <span className="relative z-10 text-transparent bg-clip-text bg-gradient-to-r from-[var(--neon-green)] to-[#00B8A9] drop-shadow-[0_0_30px_rgba(0,209,193,0.3)]">todo dia</span>
               
               {/* Adjusted background animation to be lower and less intrusive */}
               <motion.div 
@@ -298,7 +298,7 @@ function Index() {
               transition={{ delay: 0.4, duration: 0.8 }}
               className="text-lg lg:text-2xl text-[#A1A1AA] mb-12 leading-tight max-w-xl font-medium tracking-tight"
             >
-              <span className="text-[#8B91A7]">365 dias. Uma única missão.</span> <br />
+              <span className="text-white/70">365 dias. Uma única missão.</span> <br />
               <span className="text-white">Transformando disciplina em quilômetros.</span>
             </motion.p>
             
@@ -312,11 +312,11 @@ function Index() {
           >
             <div className="absolute inset-0 bg-[var(--neon-green)]/20 blur-[120px] rounded-full animate-pulse" />
             <div className="relative z-0 flex flex-col items-center -translate-y-8">
-              <div className="text-sm font-black uppercase tracking-[0.3em] text-[#B8BCCF] mb-2">correndo a</div>
+              <div className="text-sm font-black uppercase tracking-[0.3em] text-white/50 mb-2">correndo a</div>
               <div className="text-[180px] font-black italic tracking-tighter leading-none text-white text-glow relative z-10 drop-shadow-[0_0_80px_rgba(255,255,255,0.15)] [text-shadow:0_0_20px_rgba(67,230,200,0.5)]">
                 <CountUp end={216 + syncedActivities.length} />
               </div>
-              <div className="text-xl font-black uppercase tracking-[0.5em] text-[#B8BCCF] mt-4 relative z-20 opacity-80">Dias consecutivos</div>
+              <div className="text-xl font-black uppercase tracking-[0.5em] text-white/50 mt-4 relative z-20 opacity-80">Dias consecutivos</div>
             </div>
           </motion.div>
         </div>

@@ -369,7 +369,7 @@ function Index() {
                 >
                   <div className="absolute top-0 right-0 w-24 h-24 bg-white/[0.02] rounded-full -mr-8 -mt-8 blur-3xl transition-all duration-500" />
                   <stat.icon className="w-5 h-5 text-white mb-3 opacity-10" strokeWidth={1.75} />
-                  <div className="text-2xl font-black tracking-tighter mb-1 italic uppercase flex items-baseline flex-wrap text-white/80">
+                  <div className="text-2xl font-black tracking-tighter mb-1 italic uppercase flex items-baseline flex-wrap text-white/60">
                     {stat.prefix && <span className="text-sm mr-1 opacity-60 normal-case">{stat.prefix}</span>}
                     <CountUp end={stat.value} decimals={stat.value % 1 !== 0 ? 2 : 0} />
                     <span className="text-lg ml-1 opacity-10">{stat.suffix}</span>

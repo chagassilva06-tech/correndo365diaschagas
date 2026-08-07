@@ -151,7 +151,7 @@ function Index() {
             exit={{ opacity: 0, x: 100, scale: 0.9 }}
             className="fixed top-24 right-6 z-[100] w-full max-w-[320px] glass-card text-white rounded-[24px] shadow-2xl overflow-hidden font-sans border-white/10"
           >
-            <div className="px-5 py-3 border-b border-white/5 flex items-center justify-between bg-white/5">
+            <div className="px-5 py-3 border-b border-white/5 flex items-center justify-between bg-[#2B2C5A]/80">
               <span className="text-[10px] font-black uppercase tracking-widest text-white/70">Notificações</span>
               <div className="flex items-center gap-3 text-white/70">
                 <Check className="w-4 h-4 cursor-pointer hover:text-[var(--neon-green)] transition-colors" />
@@ -682,7 +682,7 @@ function Index() {
               </div>
               
               <div className="flex-1 text-center md:text-left">
-                <div className="flex flex-col md:flex-row md:items-center justify-between gap-6 mb-8 border-b border-white/5 pb-8">
+                <div className="flex flex-col md:flex-row md:items-center justify-between gap-6 mb-8 border-b border-white/5 pb-8 bg-[#2B2C5A]/20 -mx-12 px-12 -mt-12 pt-12">
                   <div>
                     <h3 className="text-4xl font-black italic uppercase tracking-tighter mb-3 text-glow">Francisco Chagas</h3>
                     <div className="flex items-center gap-3 text-white/70 text-[10px] font-black uppercase tracking-[0.2em]">

@@ -336,7 +336,7 @@ function Index() {
             transition={{ delay: 0.4, duration: 1, type: "spring" }}
             className="relative hidden lg:block"
           >
-            <div className="absolute inset-0 bg-[var(--neon-green)]/5 blur-[120px] rounded-full" />
+            <div className="absolute inset-0 bg-white/[0.02] blur-[120px] rounded-full" />
             <div className="relative z-0 flex flex-col items-center -translate-y-8">
               <div className="text-sm font-medium uppercase tracking-[0.2em] text-white/40 mb-2">correndo a</div>
               <div className="text-[144px] font-black italic tracking-tighter leading-none text-white relative z-10">

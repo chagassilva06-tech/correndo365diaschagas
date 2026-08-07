@@ -212,7 +212,7 @@
   }
 
   .text-glow {
-    text-shadow: 0 0 15px rgba(67, 230, 200, 0.5);
+    text-shadow: 0 0 15px rgba(0, 209, 193, 0.5);
   }
 
   .premium-border {
@@ -226,7 +226,7 @@
     inset: 0;
     border-radius: inherit;
     padding: 1px;
-    background: linear-gradient(135deg, rgba(255, 255, 255, 0.2), transparent, rgba(67, 230, 200, 0.15));
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.2), transparent, rgba(0, 209, 193, 0.15));
     -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
     mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
     -webkit-mask-composite: xor;

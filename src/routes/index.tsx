@@ -293,7 +293,7 @@ function Index() {
                   <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[var(--neon-green)] opacity-75"></span>
                   <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-[var(--neon-green)]"></span>
                 </span>
-                <span className="text-[10px] font-black tracking-[0.2em] uppercase">Desafio todos os dias</span>
+                <span className="text-[9px] font-bold tracking-[0.2em] uppercase text-white/40">Desafio todos os dias</span>
               </Badge>
             </motion.div>
             

@@ -1,4 +1,5 @@
 import { createFileRoute, useNavigate } from "@tanstack/react-router";
+// Interface minimalista premium finalizada: redesign do perfil, rodapé em texto e redução de brilho global.
 import { 
   Calendar as CalendarIcon, 
   CheckCircle2, 

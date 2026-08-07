@@ -338,7 +338,7 @@ function Index() {
             <div className="absolute inset-0 bg-white/[0.02] blur-[120px] rounded-full" />
             <div className="relative z-0 flex flex-col items-center -translate-y-8">
               <div className="text-[9px] font-bold uppercase tracking-[0.2em] text-white/20 mb-2">correndo a</div>
-              <div className="text-[144px] font-black italic tracking-tighter leading-none text-white/90 relative z-10">
+              <div className="text-[144px] font-black italic tracking-tighter leading-none text-white relative z-10">
                 <CountUp end={daysPassed + syncedActivities.length} />
               </div>
               <div className="text-[9px] font-bold uppercase tracking-[0.4em] text-white/20 mt-4 relative z-20">Dias consecutivos</div>

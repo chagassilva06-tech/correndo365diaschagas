@@ -719,7 +719,7 @@ function Index() {
                 <div className="flex flex-col md:flex-row md:items-center justify-between gap-6 mb-8 border-b border-[var(--foreground)]/5 pb-8 bg-[#2B2C5A]/20 -mx-12 px-12 -mt-12 pt-12">
                   <div>
                     <h3 className="text-4xl font-black italic uppercase tracking-tighter mb-3 text-glow">Francisco Chagas</h3>
-                    <div className="flex items-center gap-3 text-white/70 text-[10px] font-black uppercase tracking-[0.2em]">
+                    <div className="flex items-center gap-3 text-[var(--foreground)]/70 text-[10px] font-black uppercase tracking-[0.2em]">
                        <div className="flex items-center gap-2 px-3 py-1 rounded-full bg-[var(--neon-green)]/10 border border-[var(--neon-green)]/20">
                          <CheckCircle2 className="w-3.5 h-3.5 text-[var(--neon-green)]" />
                          <span className="text-[var(--neon-green)]">Desafio ativo</span>
@@ -731,19 +731,19 @@ function Index() {
                 </div>
                 
                 <div className="glass p-4 rounded-2xl border border-[var(--foreground)]/5 shadow-inner mb-10 premium-border">
-                  <p className="text-[10px] font-black uppercase tracking-[0.3em] text-white/70/80">São Paulo, SP • Corredor Amador Autodidata</p>
+                  <p className="text-[10px] font-black uppercase tracking-[0.3em] text-[var(--foreground)]/70">São Paulo, SP • Corredor Amador Autodidata</p>
                 </div>
                 
                 <div className="grid grid-cols-2 md:grid-cols-3 gap-10">
                   <div>
-                    <p className="text-[10px] font-black uppercase text-white/70 tracking-[0.2em] mb-2">Sequência</p>
-                    <p className="text-3xl font-black italic uppercase text-white">
+                    <p className="text-[10px] font-black uppercase text-[var(--foreground)]/70 tracking-[0.2em] mb-2">Sequência</p>
+                    <p className="text-3xl font-black italic uppercase text-[var(--foreground)]">
                       <CountUp end={216 + syncedActivities.length} /> dias
                     </p>
                   </div>
                   <div>
-                    <p className="text-[10px] font-black uppercase text-white/70 tracking-[0.2em] mb-2">Acumulado</p>
-                    <p className="text-3xl font-black italic uppercase text-white">
+                    <p className="text-[10px] font-black uppercase text-[var(--foreground)]/70 tracking-[0.2em] mb-2">Acumulado</p>
+                    <p className="text-3xl font-black italic uppercase text-[var(--foreground)]">
                       <CountUp 
                         end={1627.91 + syncedActivities.reduce((acc, a) => acc + a.km, 0)} 
                         decimals={2} 
@@ -751,7 +751,7 @@ function Index() {
                     </p>
                   </div>
                   <div className="col-span-2 md:col-span-1">
-                    <p className="text-[10px] font-black uppercase text-white/70 tracking-[0.2em] mb-2">Pace Médio</p>
+                    <p className="text-[10px] font-black uppercase text-[var(--foreground)]/70 tracking-[0.2em] mb-2">Pace Médio</p>
                     <p className="text-3xl font-black italic uppercase text-[var(--neon-green)]">4:18/km</p>
                   </div>
                 </div>

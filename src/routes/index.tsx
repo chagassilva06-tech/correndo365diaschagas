@@ -760,7 +760,7 @@ function Index() {
       </section>
 
 
-      <footer className="py-10 bg-[#000000] border-t border-white/5 relative z-10 overflow-hidden">
+      <footer className="py-10 bg-[#000000]/80 dark:bg-[#000000]/80 backdrop-blur-md border-t border-white/5 relative z-10 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-t from-[var(--neon-green)]/5 to-transparent pointer-events-none" />
         <div className="container mx-auto px-4 flex flex-col items-center justify-center gap-6 relative z-10">
           <div className="flex justify-center gap-8">

@@ -84,7 +84,7 @@ function SyncPage() {
               <motion.div 
                 animate={{ rotate: 360 }}
                 transition={{ duration: 2, repeat: Infinity, ease: "linear" }}
-                className="absolute inset-0 border-4 border-t-[var(--neon-green)] border-r-transparent border-b-transparent border-l-transparent rounded-full shadow-[0_0_15px_rgba(67,230,200,0.3)]"
+                className="absolute inset-0 border-4 border-t-[var(--neon-green)] border-r-transparent border-b-transparent border-l-transparent rounded-full shadow-[0_0_15px_rgba(0,209,193,0.3)]"
               />
             )}
           </div>
@@ -99,7 +99,7 @@ function SyncPage() {
               exit={{ opacity: 0, scale: 1.05 }}
             >
               <h1 className="text-3xl font-black italic tracking-tighter uppercase mb-2">Conectando</h1>
-              <p className="text-[#A1A1AA] text-sm font-medium tracking-tight mb-10">Autorizando acesso ao seu perfil Strava...</p>
+              <p className="text-white/70 text-sm font-medium tracking-tight mb-10">Autorizando acesso ao seu perfil Strava...</p>
               <div className="flex justify-center">
                 <RefreshCw className="w-8 h-8 text-[var(--neon-green)] animate-spin" />
               </div>
@@ -114,13 +114,13 @@ function SyncPage() {
               exit={{ opacity: 0, scale: 1.05 }}
             >
               <h1 className="text-3xl font-black italic tracking-tighter uppercase mb-2">Sincronizando</h1>
-              <p className="text-[#A1A1AA] text-sm font-medium tracking-tight mb-8">Buscando seus treinos de Agosto de 2026...</p>
+              <p className="text-white/70 text-sm font-medium tracking-tight mb-8">Buscando seus treinos de Agosto de 2026...</p>
               <div className="space-y-6">
                 <div className="relative h-3 bg-white/5 rounded-full overflow-hidden border border-white/5">
                   <motion.div 
                     initial={{ width: 0 }}
                     animate={{ width: `${progress}%` }}
-                    className="absolute inset-y-0 left-0 bg-gradient-to-r from-[var(--neon-green)] to-[#34D399] shadow-[0_0_20px_rgba(67,230,200,0.5)]"
+                    className="absolute inset-y-0 left-0 bg-gradient-to-r from-[var(--neon-green)] to-[#00B8A9] shadow-[0_0_20px_rgba(0,209,193,0.5)]"
                   />
                 </div>
                 <p className="text-[10px] font-black text-[var(--neon-green)] uppercase tracking-[0.3em]">{progress}% CONCLUÍDO</p>
@@ -142,29 +142,29 @@ function SyncPage() {
                     animate={{ scale: 1 }}
                     transition={{ type: "spring", damping: 12 }}
                   >
-                    <CheckCircle2 className="w-16 h-16 text-[var(--neon-green)] drop-shadow-[0_0_20px_rgba(67,230,200,0.4)]" />
+                    <CheckCircle2 className="w-16 h-16 text-[var(--neon-green)] drop-shadow-[0_0_20px_rgba(0,209,193,0.4)]" />
                   </motion.div>
                 </div>
                 <h1 className="text-3xl font-black italic tracking-tighter uppercase mb-2">Concluído!</h1>
-                <p className="text-[#A1A1AA] text-sm font-medium tracking-tight">Suas atividades foram atualizadas com sucesso.</p>
+                <p className="text-white/70 text-sm font-medium tracking-tight">Suas atividades foram atualizadas com sucesso.</p>
               </div>
 
               <div className="grid grid-cols-2 gap-4">
                 <div className="bg-white/5 p-5 rounded-2xl border border-white/5 backdrop-blur-sm">
                   <Activity className="w-6 h-6 text-[var(--neon-green)] mb-2 mx-auto" />
                   <p className="text-2xl font-black italic tracking-tighter">12</p>
-                  <p className="text-[10px] text-[#A1A1AA] uppercase font-black tracking-widest">Treinos</p>
+                  <p className="text-[10px] text-white/70 uppercase font-black tracking-widest">Treinos</p>
                 </div>
                 <div className="bg-white/5 p-5 rounded-2xl border border-white/5 backdrop-blur-sm">
                   <Award className="w-6 h-6 text-[var(--neon-green)] mb-2 mx-auto" />
                   <p className="text-2xl font-black italic tracking-tighter">
                     {new Date().toLocaleDateString('pt-BR', { day: '2-digit', month: '2-digit' })}
                   </p>
-                  <p className="text-[10px] text-[#A1A1AA] uppercase font-black tracking-widest">Último dia</p>
+                  <p className="text-[10px] text-white/70 uppercase font-black tracking-widest">Último dia</p>
                 </div>
               </div>
 
-              <Button asChild className="w-full bg-[var(--neon-green)] hover:bg-[var(--neon-green-hover)] h-14 rounded-2xl text-black font-black italic uppercase tracking-widest transition-all shadow-[0_0_25px_rgba(67,230,200,0.3)] hover:shadow-[0_0_40px_rgba(67,230,200,0.5)] hover:-translate-y-0.5 active:translate-y-0">
+              <Button asChild className="w-full bg-[var(--neon-green)] hover:bg-[var(--neon-green-hover)] h-14 rounded-2xl text-black font-black italic uppercase tracking-widest transition-all shadow-[0_0_25px_rgba(0,209,193,0.3)] hover:shadow-[0_0_40px_rgba(0,209,193,0.5)] hover:-translate-y-0.5 active:translate-y-0">
                 <Link to="/">Voltar ao Dashboard</Link>
               </Button>
             </motion.div>
@@ -174,7 +174,7 @@ function SyncPage() {
         <div className="mt-10 pt-8 border-t border-white/5">
           <Link 
             to="/" 
-            className="text-xs font-black uppercase tracking-widest text-[#A1A1AA] hover:text-white flex items-center justify-center gap-2 transition-all group"
+            className="text-xs font-black uppercase tracking-widest text-white/70 hover:text-white flex items-center justify-center gap-2 transition-all group"
           >
             <ArrowLeft className="w-4 h-4 group-hover:-translate-x-1 transition-transform" />
             Cancelar sincronização
@@ -182,7 +182,7 @@ function SyncPage() {
         </div>
       </motion.div>
 
-      <div className="mt-12 flex items-center gap-8 text-[#A1A1AA]">
+      <div className="mt-12 flex items-center gap-8 text-white/70">
         <div className="flex items-center gap-2">
           <Zap className="w-4 h-4 text-[var(--neon-green)]" />
           <span className="text-[10px] font-black uppercase tracking-widest">Sincronização Segura</span>

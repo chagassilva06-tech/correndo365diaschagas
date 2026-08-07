@@ -372,7 +372,7 @@ function Index() {
                   <div className="text-2xl font-black tracking-tighter mb-1 italic uppercase flex items-baseline flex-wrap text-white/80">
                     {stat.prefix && <span className="text-sm mr-1 opacity-60 normal-case">{stat.prefix}</span>}
                     <CountUp end={stat.value} decimals={stat.value % 1 !== 0 ? 2 : 0} />
-                    <span className="text-lg ml-1 opacity-20">{stat.suffix}</span>
+                    <span className="text-lg ml-1 opacity-10">{stat.suffix}</span>
                   </div>
                   <div className="text-[9px] font-bold uppercase tracking-[0.2em] text-white/10">{stat.label}</div>
                 </motion.div>

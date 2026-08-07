@@ -277,7 +277,7 @@ function Index() {
             />
           </motion.div>
 
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-[var(--neon-green)]/5 via-transparent to-transparent z-5 animate-pulse" />
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-[var(--neon-green)]/2 via-transparent to-transparent z-5" />
         </div>
 
         <div className="container relative z-20 mx-auto px-4 grid lg:grid-cols-2 gap-12 items-center">

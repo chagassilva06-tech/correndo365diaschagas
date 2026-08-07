@@ -320,7 +320,7 @@ function Index() {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.4, duration: 0.8 }}
-              className="text-lg lg:text-xl text-white/20 mb-12 leading-relaxed max-w-xl font-medium tracking-[0.2em] uppercase"
+              className="text-lg lg:text-xl text-white/40 mb-12 leading-relaxed max-w-xl font-medium tracking-[0.2em] uppercase"
             >
               365 dias <br />
               Uma missão. <br />

@@ -188,7 +188,7 @@ function Index() {
       <div className="fixed inset-0 pointer-events-none z-0 opacity-[0.02]" style={{ backgroundImage: "var(--noise-texture)" }} />
 
 
-      <header className="fixed top-0 left-0 right-0 z-50 bg-[#2B2C5A]/80 dark:bg-[#2B2C5A]/80 backdrop-blur-xl border-b border-white/5 shadow-[var(--header-shadow)]">
+      <header className="fixed top-0 left-0 right-0 z-50 bg-[#000000]/80 dark:bg-[#000000]/80 backdrop-blur-xl border-b border-white/5 shadow-[var(--header-shadow)]">
         <div className="container mx-auto px-6 h-20 flex items-center justify-between">
           <div className="flex items-center gap-3 group cursor-pointer" onClick={() => navigate({ to: "/" })}>
             <motion.span 
@@ -731,7 +731,7 @@ function Index() {
       </section>
 
 
-      <footer className="py-10 bg-[var(--background)] border-t border-white/5 relative z-10 overflow-hidden">
+      <footer className="py-10 bg-[#000000] border-t border-white/5 relative z-10 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-t from-[var(--neon-green)]/5 to-transparent pointer-events-none" />
         <div className="container mx-auto px-4 flex flex-col items-center justify-center gap-6 relative z-10">
           <div className="flex justify-center gap-8">
@@ -744,8 +744,10 @@ function Index() {
                 key={i}
                 href={social.href} 
                 whileHover={{ y: -3, scale: 1.1 }}
-                className="text-white/70 transition-colors hover:text-white"
+                className="text-white/70 transition-colors"
                 style={{ '--hover-color': social.color } as any}
+                onMouseEnter={(e) => (e.currentTarget.style.color = social.color)}
+                onMouseLeave={(e) => (e.currentTarget.style.color = '')}
               >
                 <social.icon className="w-5 h-5" />
               </motion.a>

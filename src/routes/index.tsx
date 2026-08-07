@@ -375,7 +375,7 @@ function Index() {
                     <CountUp end={stat.value} decimals={stat.value % 1 !== 0 ? 2 : 0} />
                     <span className="text-lg ml-1 opacity-20">{stat.suffix}</span>
                   </div>
-                  <div className="text-[9px] font-bold uppercase tracking-[0.2em] text-white/30">{stat.label}</div>
+                  <div className="text-[9px] font-bold uppercase tracking-[0.2em] text-white/20">{stat.label}</div>
                 </motion.div>
               ))}
             </div>

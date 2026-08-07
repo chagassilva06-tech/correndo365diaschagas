@@ -412,7 +412,7 @@ function Index() {
                   viewport={{ once: true }}
                   className={`group rounded-[40px] glass-card border border-white/5 overflow-hidden shadow-2xl transition-all duration-500 hover:border-[var(--neon-green)]/30 hover:shadow-[var(--neon-green)]/5 hover:-translate-y-2 ${isCurrentMonth ? 'lg:col-span-2 lg:row-span-2' : ''}`}
                 >
-                  <div className="bg-white/5 p-8 border-b border-white/5 flex justify-between items-center relative overflow-hidden">
+                  <div className="bg-[#2B2C5A]/50 p-8 border-b border-white/5 flex justify-between items-center relative overflow-hidden">
                     <div className="absolute inset-0 bg-gradient-to-r from-[var(--neon-green)]/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
                     <span className={`font-black italic uppercase tracking-tighter relative z-10 ${isCurrentMonth ? 'text-5xl text-glow' : 'text-2xl'}`}>{month.name}</span>
                     <div className="text-right">
@@ -569,7 +569,7 @@ function Index() {
                               scale: 1.5, 
                               rotate: 45,
                               zIndex: 50,
-                              boxShadow: "0 0 20px rgba(34, 197, 94, 0.6)"
+                              boxShadow: "0 0 20px rgba(0, 209, 193, 0.6)"
                             }}
                             transition={{ type: "spring", stiffness: 300, damping: 20 }}
                             className="w-3.5 h-3.5 rounded-sm cursor-pointer transition-colors duration-300 relative overflow-hidden"
@@ -610,7 +610,7 @@ function Index() {
                                 Clique para ver no Strava
                               </div>
                             </div>
-                            <div className="absolute top-full left-1/2 -translate-x-1/2 border-8 border-transparent border-t-[#111111]" />
+                            <div className="absolute top-full left-1/2 -translate-x-1/2 border-8 border-transparent border-t-[#202151]" />
                           </div>
                         </div>
                       );

@@ -15,7 +15,7 @@ const buttonVariants = cva(
           "border border-[var(--neon-green)]/30 bg-transparent shadow-sm hover:bg-[var(--neon-green)]/10 hover:text-white font-black italic uppercase tracking-widest",
         secondary: "bg-white/5 text-white border border-white/10 backdrop-blur-md shadow-sm hover:bg-white/10 font-black italic uppercase tracking-widest",
         ghost: "hover:bg-white/5 hover:text-[var(--neon-green)] font-black italic uppercase tracking-widest",
-        premium: "bg-gradient-to-r from-[var(--neon-green)] to-[#34D399] text-black shadow-[0_0_20px_rgba(67,230,200,0.4)] hover:shadow-[0_0_30px_rgba(67,230,200,0.6)] font-black italic uppercase tracking-widest transition-all hover:-translate-y-0.5",
+        premium: "bg-gradient-to-r from-[var(--neon-green)] to-[#00B8A9] text-black shadow-[0_0_20px_rgba(0,209,193,0.4)] hover:shadow-[0_0_30px_rgba(0,209,193,0.6)] font-black italic uppercase tracking-widest transition-all hover:-translate-y-0.5",
         link: "text-[var(--neon-green)] underline-offset-4 hover:underline font-bold",
       },
       size: {

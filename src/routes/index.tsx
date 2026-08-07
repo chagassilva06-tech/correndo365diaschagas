@@ -151,9 +151,9 @@ function Index() {
             exit={{ opacity: 0, x: 100, scale: 0.9 }}
             className="fixed top-24 right-6 z-[100] w-full max-w-[320px] glass-card text-white rounded-[24px] shadow-2xl overflow-hidden font-sans border-white/10"
           >
-            <div className="px-5 py-3 border-b border-white/5 flex items-center justify-between bg-white/5">
-              <span className="text-[10px] font-black uppercase tracking-widest text-[#A1A1AA]">Notificações</span>
-              <div className="flex items-center gap-3 text-[#A1A1AA]">
+            <div className="px-5 py-3 border-b border-white/5 flex items-center justify-between bg-[#2B2C5A]/80">
+              <span className="text-[10px] font-black uppercase tracking-widest text-white/70">Notificações</span>
+              <div className="flex items-center gap-3 text-white/70">
                 <Check className="w-4 h-4 cursor-pointer hover:text-[var(--neon-green)] transition-colors" />
                 <Settings className="w-4 h-4 cursor-pointer hover:text-[var(--neon-green)] transition-colors" />
               </div>
@@ -166,7 +166,7 @@ function Index() {
                 <p className="text-xs leading-snug font-bold tracking-tight">
                   Nova atividade recebida em {new Date().toLocaleDateString('pt-BR', { day: '2-digit', month: '2-digit' })} às {new Date().toLocaleTimeString('pt-BR', { hour: '2-digit', minute: '2-digit' })}
                 </p>
-                <p className="text-[10px] text-[#A1A1AA] mt-1 font-medium">Sincronização concluída com sucesso</p>
+                <p className="text-[10px] text-white/70 mt-1 font-medium">Sincronização concluída com sucesso</p>
               </div>
             </div>
             <button 
@@ -182,7 +182,7 @@ function Index() {
       <div className="fixed inset-0 pointer-events-none z-0 opacity-[0.02]" style={{ backgroundImage: "var(--noise-texture)" }} />
 
 
-      <header className="fixed top-0 left-0 right-0 z-50 bg-[#1d1e4e]/80 dark:bg-[#111827]/80 backdrop-blur-xl border-b border-white/5 shadow-[var(--header-shadow)]">
+      <header className="fixed top-0 left-0 right-0 z-50 bg-[#2B2C5A]/80 dark:bg-[#2B2C5A]/80 backdrop-blur-xl border-b border-white/5 shadow-[var(--header-shadow)]">
         <div className="container mx-auto px-6 h-20 flex items-center justify-between">
           <div className="flex items-center gap-3 group cursor-pointer" onClick={() => navigate({ to: "/" })}>
             <div className="w-10 h-10 rounded-xl overflow-hidden shadow-[0_0_20px_rgba(67,230,200,0.3)] group-hover:shadow-[0_0_30px_rgba(67,230,200,0.5)] transition-all duration-500 premium-border">
@@ -196,7 +196,7 @@ function Index() {
             </motion.span>
           </div>
           
-          <nav className="hidden lg:flex items-center gap-10 text-[10px] font-black tracking-[0.2em] uppercase text-[#A1A1AA]">
+          <nav className="hidden lg:flex items-center gap-10 text-[10px] font-black tracking-[0.2em] uppercase text-white/70">
             {[
               { name: "Início", href: "#" },
               { name: "Calendário", href: "#jornada-anual" },
@@ -279,7 +279,7 @@ function Index() {
               className="text-5xl lg:text-[85px] font-black mb-8 tracking-tighter leading-[0.85] italic uppercase relative -ml-1 md:-ml-8"
             >
               <span className="relative z-10">Correndo</span> <br />
-              <span className="relative z-10 text-transparent bg-clip-text bg-gradient-to-r from-[var(--neon-green)] to-[#34D399] drop-shadow-[0_0_30px_rgba(34,197,94,0.3)]">todo dia</span>
+              <span className="relative z-10 text-transparent bg-clip-text bg-gradient-to-r from-[var(--neon-green)] to-[#00B8A9] drop-shadow-[0_0_30px_rgba(0,209,193,0.3)]">todo dia</span>
               
               {/* Adjusted background animation to be lower and less intrusive */}
               <motion.div 
@@ -296,9 +296,9 @@ function Index() {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.4, duration: 0.8 }}
-              className="text-lg lg:text-2xl text-[#A1A1AA] mb-12 leading-tight max-w-xl font-medium tracking-tight"
+              className="text-lg lg:text-2xl text-white/70 mb-12 leading-tight max-w-xl font-medium tracking-tight"
             >
-              <span className="text-[#8B91A7]">365 dias. Uma única missão.</span> <br />
+              <span className="text-white/70">365 dias. Uma única missão.</span> <br />
               <span className="text-white">Transformando disciplina em quilômetros.</span>
             </motion.p>
             
@@ -312,11 +312,11 @@ function Index() {
           >
             <div className="absolute inset-0 bg-[var(--neon-green)]/20 blur-[120px] rounded-full animate-pulse" />
             <div className="relative z-0 flex flex-col items-center -translate-y-8">
-              <div className="text-sm font-black uppercase tracking-[0.3em] text-[#B8BCCF] mb-2">correndo a</div>
+              <div className="text-sm font-black uppercase tracking-[0.3em] text-white/50 mb-2">correndo a</div>
               <div className="text-[180px] font-black italic tracking-tighter leading-none text-white text-glow relative z-10 drop-shadow-[0_0_80px_rgba(255,255,255,0.15)] [text-shadow:0_0_20px_rgba(67,230,200,0.5)]">
                 <CountUp end={216 + syncedActivities.length} />
               </div>
-              <div className="text-xl font-black uppercase tracking-[0.5em] text-[#B8BCCF] mt-4 relative z-20 opacity-80">Dias consecutivos</div>
+              <div className="text-xl font-black uppercase tracking-[0.5em] text-white/50 mt-4 relative z-20 opacity-80">Dias consecutivos</div>
             </div>
           </motion.div>
         </div>
@@ -349,7 +349,7 @@ function Index() {
                     <CountUp end={stat.value} decimals={stat.value % 1 !== 0 ? 2 : 0} />
                     <span className="text-lg ml-1 opacity-60">{stat.suffix}</span>
                   </div>
-                  <div className="text-[9px] font-black tracking-[0.3em] uppercase text-[#A1A1AA]">{stat.label}</div>
+                  <div className="text-[9px] font-black tracking-[0.3em] uppercase text-white/70">{stat.label}</div>
                 </motion.div>
               ))}
             </div>
@@ -358,7 +358,7 @@ function Index() {
               initial={{ opacity: 0, x: 20 }}
               whileInView={{ opacity: 1, x: 0 }}
               whileHover={{ scale: 1.05, y: -5 }}
-              className="w-40 h-52 rounded-[32px] overflow-hidden border-2 border-[#00FFFF] group shadow-[0_0_20px_rgba(0,255,255,0.6)] relative premium-border shrink-0"
+              className="w-40 h-52 rounded-[32px] overflow-hidden border-2 border-[var(--neon-green)] group shadow-[0_0_20px_rgba(0,209,193,0.6)] relative premium-border shrink-0"
             >
               <div className="absolute inset-0 bg-gradient-to-t from-[var(--neon-green)]/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity z-10" />
               <img src={maleRunnerAsset.url} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" alt="Corredor" />
@@ -378,7 +378,7 @@ function Index() {
                 <span className="w-12 h-1 bg-[var(--neon-green)] opacity-30 rounded-full hidden lg:block"></span>
               </h2>
               <div className="flex items-center gap-6">
-                 <p className="text-[#A1A1AA] text-sm font-medium tracking-tight">O seu progresso diário em detalhes.</p>
+                 <p className="text-white/70 text-sm font-medium tracking-tight">O seu progresso diário em detalhes.</p>
                  <div className="flex items-center gap-2 bg-[var(--neon-green)]/10 px-4 py-2 rounded-xl border border-[var(--neon-green)]/20">
                    <span className="text-xl">🔥</span>
                    <span className="text-sm font-black uppercase tracking-widest text-[var(--neon-green)]">{216 + syncedActivities.length} dias de sequência</span>
@@ -386,7 +386,7 @@ function Index() {
               </div>
             </div>
             <div className="flex items-center gap-4 glass p-2 rounded-2xl border border-white/5">
-              <span className="text-[10px] font-black uppercase tracking-widest text-[#A1A1AA] ml-4">Filtrar:</span>
+              <span className="text-[10px] font-black uppercase tracking-widest text-white/70 ml-4">Filtrar:</span>
               <select 
                 value={selectedMonth}
                 onChange={(e) => setSelectedMonth(e.target.value)}
@@ -412,11 +412,11 @@ function Index() {
                   viewport={{ once: true }}
                   className={`group rounded-[40px] glass-card border border-white/5 overflow-hidden shadow-2xl transition-all duration-500 hover:border-[var(--neon-green)]/30 hover:shadow-[var(--neon-green)]/5 hover:-translate-y-2 ${isCurrentMonth ? 'lg:col-span-2 lg:row-span-2' : ''}`}
                 >
-                  <div className="bg-white/5 p-8 border-b border-white/5 flex justify-between items-center relative overflow-hidden">
+                  <div className="bg-[#2B2C5A]/50 p-8 border-b border-white/5 flex justify-between items-center relative overflow-hidden">
                     <div className="absolute inset-0 bg-gradient-to-r from-[var(--neon-green)]/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
                     <span className={`font-black italic uppercase tracking-tighter relative z-10 ${isCurrentMonth ? 'text-5xl text-glow' : 'text-2xl'}`}>{month.name}</span>
                     <div className="text-right">
-                      <p className="text-[10px] font-black text-[#A1A1AA] uppercase">
+                      <p className="text-[10px] font-black text-white/70 uppercase">
                         {month.activities.length}/{month.days} dias
                       </p>
                       <p className="text-[10px] font-black text-[var(--neon-green)] uppercase">
@@ -440,8 +440,8 @@ function Index() {
                               hasActivity 
                                 ? "bg-[var(--neon-green)] text-black shadow-[0_0_20px_rgba(67,230,200,0.3)] hover:shadow-[0_0_30px_rgba(67,230,200,0.5)]"
                                 : day < new Date().getDate() && isCurrentMonth
-                                  ? "bg-white/5 text-[#A1A1AA]/50"
-                                  : "bg-white/5 text-[#A1A1AA]/20 border border-white/5"
+                                  ? "bg-white/5 text-white/70/50"
+                                  : "bg-white/5 text-white/70/20 border border-white/5"
                             }`}
                           >
                             {day}
@@ -470,7 +470,7 @@ function Index() {
         <div className="container mx-auto px-4">
            <div className="max-w-4xl mx-auto">
              <div className="relative h-1 bg-white/5 rounded-full mb-12">
-               <div className="absolute top-0 left-0 h-full bg-gradient-to-r from-[var(--neon-green)] to-[#34D399] shadow-[0_0_15px_rgba(67,230,200,0.3)]" style={{ width: '60%' }} />
+               <div className="absolute top-0 left-0 h-full bg-gradient-to-r from-[var(--neon-green)] to-[#00B8A9] shadow-[0_0_15px_rgba(0,209,193,0.3)]" style={{ width: '60%' }} />
                
                <div className="absolute top-1/2 left-0 -translate-y-1/2 flex justify-between w-full px-4">
                  {[
@@ -481,7 +481,7 @@ function Index() {
                   ].map((point, i) => (
                     <div key={i} className="flex flex-col items-center">
                       <div className={`w-4 h-4 rounded-full border-4 border-[var(--background)] ${point.active ? 'bg-[var(--neon-green)] shadow-[0_0_10px_rgba(67,230,200,0.5)]' : 'bg-white/10'}`} />
-                     <span className="text-[10px] font-black uppercase tracking-widest text-[#A1A1AA] mt-4">{point.label}</span>
+                     <span className="text-[10px] font-black uppercase tracking-widest text-white/70 mt-4">{point.label}</span>
                    </div>
                  ))}
                </div>
@@ -497,7 +497,7 @@ function Index() {
           <div className="flex flex-col md:flex-row justify-between items-center mb-12 gap-8">
             <div className="text-left">
               <h2 className="text-3xl lg:text-5xl font-black italic uppercase tracking-tighter mb-6 leading-[0.9]">Seu Desempenho</h2>
-              <p className="text-[#A1A1AA] text-base">Métricas avançadas e análise de performance semanal.</p>
+              <p className="text-white/70 text-base">Métricas avançadas e análise de performance semanal.</p>
             </div>
           </div>
 
@@ -507,7 +507,7 @@ function Index() {
                { label: 'Distância (km)', value: months.find(m => m.name === "Agosto")?.km || '32,76', unit: 'km', color: 'var(--neon-green)' },
              ].map((m, i) => (
                <div key={i} className="glass-card p-8 rounded-[40px] border border-white/5 relative overflow-hidden group hover:-translate-y-1 transition-transform">
-                 <div className="text-[10px] font-black uppercase tracking-[0.3em] text-[#A1A1AA] mb-4">{m.label}</div>
+                 <div className="text-[10px] font-black uppercase tracking-[0.3em] text-white/70 mb-4">{m.label}</div>
                  <div className="text-5xl font-black italic uppercase tracking-tighter" style={{ color: m.color }}>
                    {m.value}
                    <span className="text-sm ml-1 opacity-60 normal-case font-bold">{m.unit}</span>
@@ -520,27 +520,27 @@ function Index() {
             <div className="absolute top-0 right-0 w-96 h-96 bg-[var(--neon-green)]/5 rounded-full blur-[100px] pointer-events-none" />
             <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-10 gap-4">
               <div>
-                <h3 className="text-sm font-black uppercase tracking-[0.3em] text-[#A1A1AA]">Atividade Anual 2026</h3>
-                <p className="text-[10px] text-[#A1A1AA]/60 font-medium tracking-widest mt-1">1.627,91 KM TOTAL • 216 DIAS SEGUIDOS</p>
+                <h3 className="text-sm font-black uppercase tracking-[0.3em] text-white/70">Atividade Anual 2026</h3>
+                <p className="text-[10px] text-white/70/60 font-medium tracking-widest mt-1">1.627,91 KM TOTAL • 216 DIAS SEGUIDOS</p>
               </div>
               <div className="flex items-center gap-6">
                 <div className="flex items-center gap-1.5">
-                  <span className="text-[9px] font-black uppercase tracking-widest text-[#A1A1AA]/50 mr-1">Menos</span>
+                  <span className="text-[9px] font-black uppercase tracking-widest text-white/70/50 mr-1">Menos</span>
                   {[0, 1, 2, 3, 4].map((level) => (
                     <div 
                       key={level} 
                       className="w-3 h-3 rounded-sm" 
                       style={{ 
                         backgroundColor: level === 0 ? 'rgba(255,255,255,0.05)' : 
-                                         level === 1 ? 'rgba(67, 230, 200, 0.2)' : 
-                                         level === 2 ? 'rgba(67, 230, 200, 0.4)' : 
-                                         level === 3 ? 'rgba(67, 230, 200, 0.7)' : 
+                                         level === 1 ? 'rgba(0, 209, 193, 0.2)' : 
+                                         level === 2 ? 'rgba(0, 209, 193, 0.4)' : 
+                                         level === 3 ? 'rgba(0, 209, 193, 0.7)' : 
                                          'var(--neon-green)' 
                       }} 
 
                     />
                   ))}
-                  <span className="text-[9px] font-black uppercase tracking-widest text-[#A1A1AA]/50 ml-1">Mais</span>
+                  <span className="text-[9px] font-black uppercase tracking-widest text-white/70/50 ml-1">Mais</span>
                 </div>
               </div>
             </div>
@@ -569,15 +569,15 @@ function Index() {
                               scale: 1.5, 
                               rotate: 45,
                               zIndex: 50,
-                              boxShadow: "0 0 20px rgba(34, 197, 94, 0.6)"
+                              boxShadow: "0 0 20px rgba(0, 209, 193, 0.6)"
                             }}
                             transition={{ type: "spring", stiffness: 300, damping: 20 }}
                             className="w-3.5 h-3.5 rounded-sm cursor-pointer transition-colors duration-300 relative overflow-hidden"
                             style={{ 
                               backgroundColor: intensity === 0 ? 'rgba(255,255,255,0.03)' : 
-                                               intensity === 1 ? 'rgba(67, 230, 200, 0.2)' : 
-                                               intensity === 2 ? 'rgba(67, 230, 200, 0.4)' : 
-                                               intensity === 3 ? 'rgba(67, 230, 200, 0.7)' : 
+                                               intensity === 1 ? 'rgba(0, 209, 193, 0.2)' : 
+                                               intensity === 2 ? 'rgba(0, 209, 193, 0.4)' : 
+                                               intensity === 3 ? 'rgba(0, 209, 193, 0.7)' : 
                                                'var(--neon-green)',
 
                             }}
@@ -600,7 +600,7 @@ function Index() {
                               </div>
                               <div className="space-y-1">
                                 <div className="text-xl font-black italic uppercase text-[var(--neon-green)]">{km} km</div>
-                                <div className="flex justify-between text-[9px] font-bold text-[#A1A1AA] uppercase tracking-tighter">
+                                <div className="flex justify-between text-[9px] font-bold text-white/70 uppercase tracking-tighter">
                                   <span>Pace {pace}</span>
                                   <span>{time}</span>
                                 </div>
@@ -610,7 +610,7 @@ function Index() {
                                 Clique para ver no Strava
                               </div>
                             </div>
-                            <div className="absolute top-full left-1/2 -translate-x-1/2 border-8 border-transparent border-t-[#111111]" />
+                            <div className="absolute top-full left-1/2 -translate-x-1/2 border-8 border-transparent border-t-[#202151]" />
                           </div>
                         </div>
                       );
@@ -620,7 +620,7 @@ function Index() {
               </div>
             </div>
             
-            <div className="mt-8 flex justify-between items-center text-[10px] font-black uppercase tracking-[0.2em] text-[#A1A1AA]/40">
+            <div className="mt-8 flex justify-between items-center text-[10px] font-black uppercase tracking-[0.2em] text-white/70/40">
               <div className="flex gap-8 overflow-x-auto pb-2 no-scrollbar">
                 {[
                   "JAN", "FEV", "MAR", "ABR", "MAI", "JUN", "JUL", "AGO", 
@@ -630,7 +630,7 @@ function Index() {
                   const isPastOrCurrent = i <= currentMonthIndex;
                   return (
                     <div key={m} className="flex flex-col items-center gap-2">
-                      <span className={isPastOrCurrent ? "text-[#A1A1AA]" : "text-[#A1A1AA]/30"}>
+                      <span className={isPastOrCurrent ? "text-white/70" : "text-white/70/30"}>
                         {m}
                       </span>
                       {!isPastOrCurrent && (
@@ -677,15 +677,15 @@ function Index() {
               <div className="relative">
                 <div className="w-48 h-48 rounded-[40px] border-4 border-[var(--neon-green)]/30 p-2 overflow-hidden shadow-2xl relative z-10 transition-transform duration-500 hover:scale-105 premium-border">
                   <div className="absolute inset-0 bg-[var(--neon-green)] blur-[30px] opacity-10 group-hover:opacity-30 transition-opacity" />
-                  <img src={profileHeroAsset.url} alt="Profile" className="w-full h-full object-cover rounded-[32px] bg-[#050505] relative z-10" />
+                  <img src={profileHeroAsset.url} alt="Profile" className="w-full h-full object-cover rounded-[32px] bg-[#1C1D4D] relative z-10" />
                 </div>
               </div>
               
               <div className="flex-1 text-center md:text-left">
-                <div className="flex flex-col md:flex-row md:items-center justify-between gap-6 mb-8 border-b border-white/5 pb-8">
+                <div className="flex flex-col md:flex-row md:items-center justify-between gap-6 mb-8 border-b border-white/5 pb-8 bg-[#2B2C5A]/20 -mx-12 px-12 -mt-12 pt-12">
                   <div>
                     <h3 className="text-4xl font-black italic uppercase tracking-tighter mb-3 text-glow">Francisco Chagas</h3>
-                    <div className="flex items-center gap-3 text-[#A1A1AA] text-[10px] font-black uppercase tracking-[0.2em]">
+                    <div className="flex items-center gap-3 text-white/70 text-[10px] font-black uppercase tracking-[0.2em]">
                        <div className="flex items-center gap-2 px-3 py-1 rounded-full bg-[var(--neon-green)]/10 border border-[var(--neon-green)]/20">
                          <CheckCircle2 className="w-3.5 h-3.5 text-[var(--neon-green)]" />
                          <span className="text-[var(--neon-green)]">Desafio ativo</span>
@@ -697,18 +697,18 @@ function Index() {
                 </div>
                 
                 <div className="glass p-4 rounded-2xl border border-white/5 shadow-inner mb-10 premium-border">
-                  <p className="text-[10px] font-black uppercase tracking-[0.3em] text-[#A1A1AA]/80">São Paulo, SP • Corredor Amador Autodidata</p>
+                  <p className="text-[10px] font-black uppercase tracking-[0.3em] text-white/70/80">São Paulo, SP • Corredor Amador Autodidata</p>
                 </div>
                 
                 <div className="grid grid-cols-2 md:grid-cols-3 gap-10">
                   <div>
-                    <p className="text-[10px] font-black uppercase text-[#A1A1AA] tracking-[0.2em] mb-2">Sequência</p>
+                    <p className="text-[10px] font-black uppercase text-white/70 tracking-[0.2em] mb-2">Sequência</p>
                     <p className="text-3xl font-black italic uppercase text-white">
                       <CountUp end={216 + syncedActivities.length} /> dias
                     </p>
                   </div>
                   <div>
-                    <p className="text-[10px] font-black uppercase text-[#A1A1AA] tracking-[0.2em] mb-2">Acumulado</p>
+                    <p className="text-[10px] font-black uppercase text-white/70 tracking-[0.2em] mb-2">Acumulado</p>
                     <p className="text-3xl font-black italic uppercase text-white">
                       <CountUp 
                         end={1627.91 + syncedActivities.reduce((acc, a) => acc + a.km, 0)} 
@@ -717,7 +717,7 @@ function Index() {
                     </p>
                   </div>
                   <div className="col-span-2 md:col-span-1">
-                    <p className="text-[10px] font-black uppercase text-[#A1A1AA] tracking-[0.2em] mb-2">Pace Médio</p>
+                    <p className="text-[10px] font-black uppercase text-white/70 tracking-[0.2em] mb-2">Pace Médio</p>
                     <p className="text-3xl font-black italic uppercase text-[var(--neon-green)]">4:18/km</p>
                   </div>
                 </div>
@@ -741,7 +741,7 @@ function Index() {
                 key={i}
                 href={social.href} 
                 whileHover={{ y: -3, scale: 1.1 }}
-                className="text-[#A1A1AA] transition-colors hover:text-white"
+                className="text-white/70 transition-colors hover:text-white"
                 style={{ '--hover-color': social.color } as any}
               >
                 <social.icon className="w-5 h-5" />
@@ -750,7 +750,7 @@ function Index() {
             <motion.a 
               href="https://strava.com" 
               whileHover={{ y: -3, scale: 1.1 }}
-              className="text-[#A1A1AA] hover:text-[#FC6100] transition-colors"
+              className="text-white/70 hover:text-[#FC6100] transition-colors"
             >
               <svg className="w-5 h-5 fill-current" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                 <path d="M15.387 17.944l-2.089-4.116h-3.065L15.387 24l5.15-10.172h-3.066l-2.084 4.116zM10.267 7.848l-1.55 3.06h2.279l1.554-3.06 1.553 3.06h2.279l-3.832-7.538L10.267 7.848z"/>
@@ -762,7 +762,7 @@ function Index() {
             <h3 className="text-xl font-black italic uppercase tracking-tighter text-glow mb-1">
               Correndo todo dia
             </h3>
-            <p className="text-[#A1A1AA] text-[10px] font-black uppercase tracking-[0.4em] opacity-60">
+            <p className="text-white/70 text-[10px] font-black uppercase tracking-[0.4em] opacity-60">
               © 2026 Francisco Chagas. Todos os direitos reservados.
             </p>
             <div className="h-px w-12 bg-[var(--neon-green)]/30 mt-2" />

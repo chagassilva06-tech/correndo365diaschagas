@@ -521,8 +521,8 @@ function Index() {
         <div className="container mx-auto px-4 max-w-6xl">
           <div className="flex flex-col md:flex-row justify-between items-center mb-12 gap-8">
             <div className="text-left">
-              <h2 className="text-3xl lg:text-4xl font-black italic uppercase tracking-tighter mb-6 leading-[0.9]">Seu desempenho</h2>
-              <p className="text-white/40 text-sm">Métricas avançadas e análise de performance semanal.</p>
+              <h2 className="text-[10px] font-bold uppercase tracking-[0.2em] text-white/40 mb-1">Seu desempenho</h2>
+              <p className="text-white/20 text-[9px] font-medium tracking-[0.2em] uppercase">Métricas avançadas e análise de performance semanal.</p>
             </div>
           </div>
 

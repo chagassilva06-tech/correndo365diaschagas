@@ -288,7 +288,7 @@ function Index() {
               transition={{ duration: 0.8 }}
               className="flex justify-start mb-6"
             >
-              <Badge variant="outline" className="border-[var(--foreground)]/20 text-[var(--foreground)]/90 bg-[var(--foreground)]/5 gap-3 px-5 py-2 backdrop-blur-md rounded-full">
+              <Badge variant="outline" className="border-white/5 text-white/40 bg-white/[0.02] gap-3 px-5 py-2 backdrop-blur-md rounded-full">
                 <span className="relative flex h-2.5 w-2.5">
                   <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[var(--neon-green)] opacity-75"></span>
                   <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-[var(--neon-green)]"></span>

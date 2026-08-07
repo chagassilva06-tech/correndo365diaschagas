@@ -505,7 +505,7 @@ function Index() {
                     { label: 'Hoje', active: true, color: 'var(--neon-green)' }
                   ].map((point, i) => (
                     <div key={i} className="flex flex-col items-center">
-                      <div className={`w-2 h-2 rounded-full border-2 border-[var(--background)] ${point.active ? 'bg-[var(--neon-green)]' : 'bg-white/10'}`} />
+                      <div className={`w-1 h-1 rounded-full border border-[var(--background)] ${point.active ? 'bg-[var(--neon-green)]' : 'bg-white/10'}`} />
                      <span className="text-[9px] font-medium uppercase tracking-widest text-white/40 mt-4">{point.label}</span>
                    </div>
                  ))}

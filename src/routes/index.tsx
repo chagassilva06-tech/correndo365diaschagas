@@ -471,7 +471,7 @@ function Index() {
                           >
                             {day}
                             {hasActivity && (
-                              <div className="absolute -top-12 left-1/2 -translate-x-1/2 bg-[var(--card-bg)] text-white text-[10px] py-2 px-3 rounded-xl opacity-0 group-hover/day:opacity-100 transition-all duration-300 whitespace-nowrap pointer-events-none shadow-2xl font-black uppercase z-20 border border-[var(--neon-green)]/30">
+                              <div className="absolute -top-12 left-1/2 -translate-x-1/2 bg-[var(--card-bg)] text-white text-[10px] py-2 px-3 rounded-[12px] opacity-0 group-hover/day:opacity-100 transition-all duration-300 whitespace-nowrap pointer-events-none shadow-2xl font-black uppercase z-20 border border-white/5">
                                 {isSpecial ? "🏆 Recorde Pessoal" : `Dia ${day} Validado`}
                                 <br />
                                 <span className="text-[8px] opacity-80">6,70km • 4:18 pace</span>

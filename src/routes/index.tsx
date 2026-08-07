@@ -15,7 +15,9 @@ import {
   Trophy,
   Layers,
   Image as ImageIcon,
-  User
+  User,
+  Sun,
+  Moon
 } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useState, useEffect, useMemo, useCallback, Suspense, lazy } from "react";
@@ -82,6 +84,22 @@ function Index() {
   const [selectedMonth, setSelectedMonth] = useState<string>("Todos");
   const [activeTab, setActiveTab] = useState("Início");
   const [syncedActivities, setSyncedActivities] = useState<any[]>([]);
+  const [isDarkMode, setIsDarkMode] = useState(true);
+
+  useEffect(() => {
+    const isDark = document.body.classList.contains('dark');
+    setIsDarkMode(isDark);
+  }, []);
+
+  const toggleDarkMode = () => {
+    const newMode = !isDarkMode;
+    setIsDarkMode(newMode);
+    if (newMode) {
+      document.body.classList.add('dark');
+    } else {
+      document.body.classList.remove('dark');
+    }
+  };
   
   // Calculate days since start date (Jan 1, 2026)
   const startDate = new Date(2026, 0, 1);
@@ -148,7 +166,7 @@ function Index() {
   };
 
   return (
-    <div className="min-h-screen bg-[var(--background)] text-white font-sans selection:bg-[var(--neon-green)]/30 selection:text-[var(--neon-green)] tracking-tight leading-relaxed">
+    <div className="min-h-screen bg-[var(--background)] text-[var(--foreground)] font-sans selection:bg-[var(--neon-green)]/30 selection:text-[var(--neon-green)] tracking-tight leading-relaxed transition-colors duration-500">
       <AnimatePresence>
         {showNotification && (
           <motion.div
@@ -225,6 +243,19 @@ function Index() {
           </nav>
           
           <div className="flex items-center gap-4">
+            <Button 
+              onClick={toggleDarkMode}
+              variant="ghost"
+              size="icon"
+              className="text-white/80 hover:text-white hover:bg-white/10 rounded-full transition-all duration-300 w-10 h-10 flex items-center justify-center border border-white/10"
+              aria-label="Toggle Dark Mode"
+            >
+              {isDarkMode ? (
+                <Sun className="w-5 h-5 text-[var(--neon-green)]" />
+              ) : (
+                <Moon className="w-5 h-5 text-[var(--neon-green)]" />
+              )}
+            </Button>
             <Button 
               onClick={handleConnectStrava}
               variant="ghost"

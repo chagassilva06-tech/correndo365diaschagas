@@ -309,11 +309,10 @@ function Index() {
               {/* Adjusted background animation to be lower and less intrusive */}
               <motion.div 
                 animate={{ 
-                  scale: [1, 1.1, 1],
-                  opacity: [0.05, 0.1, 0.05],
+                  opacity: [0.03, 0.06, 0.03],
                 }}
                 transition={{ duration: 4, repeat: Infinity }}
-                className="absolute top-0 -left-10 w-full h-full bg-[var(--neon-green)]/5 blur-[120px] -z-10 rounded-full"
+                className="absolute top-0 -left-10 w-full h-full bg-white/5 blur-[120px] -z-10 rounded-full"
               />
             </motion.h1>
             

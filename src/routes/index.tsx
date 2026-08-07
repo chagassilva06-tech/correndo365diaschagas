@@ -366,7 +366,7 @@ function Index() {
                   whileHover={{ y: -5 }}
                   transition={{ delay: i * 0.1 }}
                   viewport={{ once: true }}
-                  className="group p-6 rounded-[24px] glass-card border border-white/5 relative overflow-hidden transition-all duration-300 hover:border-[var(--neon-green)]/10"
+                  className="group p-6 rounded-[24px] glass-card border border-white/5 relative overflow-hidden transition-all duration-300 hover:border-white/10"
                 >
                   <div className="absolute top-0 right-0 w-24 h-24 bg-[var(--neon-green)]/5 rounded-full -mr-8 -mt-8 blur-3xl group-hover:bg-[var(--neon-green)]/10 transition-all duration-500" />
                   <stat.icon className="w-5 h-5 text-[var(--neon-green)] mb-3 opacity-40" strokeWidth={1.75} />

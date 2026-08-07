@@ -341,7 +341,7 @@ function Index() {
               <div className="text-[144px] font-black italic tracking-tighter leading-none text-white/90 relative z-10">
                 <CountUp end={daysPassed + syncedActivities.length} />
               </div>
-              <div className="text-sm font-medium uppercase tracking-[0.4em] text-white/40 mt-4 relative z-20 opacity-80">Dias consecutivos</div>
+              <div className="text-[9px] font-bold uppercase tracking-[0.4em] text-white/20 mt-4 relative z-20">Dias consecutivos</div>
             </div>
           </motion.div>
         </div>

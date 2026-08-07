@@ -470,7 +470,7 @@ function Index() {
         <div className="container mx-auto px-4">
            <div className="max-w-4xl mx-auto">
              <div className="relative h-1 bg-white/5 rounded-full mb-12">
-               <div className="absolute top-0 left-0 h-full bg-gradient-to-r from-[var(--neon-green)] to-[#34D399] shadow-[0_0_15px_rgba(67,230,200,0.3)]" style={{ width: '60%' }} />
+               <div className="absolute top-0 left-0 h-full bg-gradient-to-r from-[var(--neon-green)] to-[#00B8A9] shadow-[0_0_15px_rgba(0,209,193,0.3)]" style={{ width: '60%' }} />
                
                <div className="absolute top-1/2 left-0 -translate-y-1/2 flex justify-between w-full px-4">
                  {[

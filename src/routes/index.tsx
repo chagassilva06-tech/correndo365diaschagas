@@ -253,19 +253,7 @@ function Index() {
           </nav>
           
           <div className="flex items-center gap-4">
-            <Button 
-              onClick={toggleDarkMode}
-              variant="ghost"
-              size="icon"
-              className="text-[var(--foreground)]/80 hover:text-[var(--foreground)] hover:bg-[var(--foreground)]/10 rounded-full transition-all duration-300 w-10 h-10 flex items-center justify-center border border-[var(--foreground)]/10"
-              aria-label="Toggle Dark Mode"
-            >
-              {isDarkMode ? (
-                <Sun className="w-5 h-5 text-[var(--neon-green)]" />
-              ) : (
-                <Moon className="w-5 h-5 text-[var(--neon-green)]" />
-              )}
-            </Button>
+
             <Button 
               onClick={handleConnectStrava}
               variant="ghost"

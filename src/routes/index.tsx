@@ -403,7 +403,7 @@ function Index() {
                 Jornada anual
               </h2>
               <div className="flex items-center gap-6">
-                 <p className="text-white/50 text-xs font-medium tracking-tight">O seu progresso diário em detalhes.</p>
+                 <p className="text-white/20 text-[9px] font-medium tracking-[0.2em] uppercase">O seu progresso diário em detalhes.</p>
                  <div className="flex items-center gap-2 bg-white/5 px-4 py-1.5 rounded-full border border-white/5">
                    <span className="text-lg">🔥</span>
                    <span className="text-[10px] font-bold uppercase tracking-widest text-[var(--neon-green)]">{216 + syncedActivities.length} dias de sequência</span>

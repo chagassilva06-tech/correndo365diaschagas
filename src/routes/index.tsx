@@ -462,7 +462,7 @@ function Index() {
                         return (
                           <motion.div
                             key={i}
-                            whileHover={{ scale: 1.15, zIndex: 10 }}
+                            whileHover={{ scale: 1.05, zIndex: 10 }}
                             className={`aspect-square rounded-xl flex items-center justify-center text-[10px] font-black transition-all relative group/day cursor-pointer ${
                               hasActivity 
                                 ? "bg-[var(--neon-green)] text-black"

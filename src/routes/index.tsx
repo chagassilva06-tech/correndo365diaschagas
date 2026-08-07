@@ -375,6 +375,9 @@ function Index() {
                     <span className="text-lg ml-1 opacity-10">{stat.suffix}</span>
                   </div>
                   <div className="text-[9px] font-bold uppercase tracking-[0.2em] text-white/10">{stat.label}</div>
+                  {i === 1 && (
+                    <div className="absolute bottom-6 right-6 w-1.5 h-1.5 rounded-full bg-[var(--neon-green)] shadow-[0_0_10px_rgba(39,243,215,0.5)] animate-pulse" />
+                  )}
                 </motion.div>
               ))}
             </div>

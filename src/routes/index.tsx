@@ -87,17 +87,27 @@ function Index() {
   const [isDarkMode, setIsDarkMode] = useState(true);
 
   useEffect(() => {
-    const isDark = document.body.classList.contains('dark');
-    setIsDarkMode(isDark);
+    const isDark = document.documentElement.classList.contains('dark') || 
+                   (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches);
+    
+    if (isDark) {
+      document.documentElement.classList.add('dark');
+      setIsDarkMode(true);
+    } else {
+      document.documentElement.classList.remove('dark');
+      setIsDarkMode(false);
+    }
   }, []);
 
   const toggleDarkMode = () => {
     const newMode = !isDarkMode;
     setIsDarkMode(newMode);
     if (newMode) {
-      document.body.classList.add('dark');
+      document.documentElement.classList.add('dark');
+      localStorage.setItem('theme', 'dark');
     } else {
-      document.body.classList.remove('dark');
+      document.documentElement.classList.remove('dark');
+      localStorage.setItem('theme', 'light');
     }
   };
   
@@ -131,7 +141,7 @@ function Index() {
       { name: "Maio", days: 31, km: "208,71", activities: Array.from({ length: 31 }, (_, i) => i + 1) },
       { name: "Junho", days: 30, km: "133,18", activities: Array.from({ length: 30 }, (_, i) => i + 1) },
       { name: "Julho", days: 31, km: "239,08", activities: Array.from({ length: 31 }, (_, i) => i + 1) },
-      { name: "Agosto", days: 31, km: "32,76", activities: [1, 2, 3, 4, 5] },
+      { name: "Agosto", days: 31, km: "32,76", activities: [1, 2, 3, 4, 5, 6] },
       { name: "Setembro", days: 30, km: "0", activities: [] },
       { name: "Outubro", days: 31, km: "0", activities: [] },
       { name: "Novembro", days: 30, km: "0", activities: [] },

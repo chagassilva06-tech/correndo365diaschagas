@@ -463,7 +463,7 @@ function Index() {
                             whileHover={{ scale: 1.15, zIndex: 10 }}
                             className={`aspect-square rounded-xl flex items-center justify-center text-[10px] font-black transition-all relative group/day cursor-pointer ${
                               hasActivity 
-                                ? "bg-[var(--neon-green)] text-black shadow-[0_0_20px_rgba(67,230,200,0.3)] hover:shadow-[0_0_30px_rgba(67,230,200,0.5)]"
+                                ? "bg-[var(--neon-green)] text-black"
                                 : day < new Date().getDate() && isCurrentMonth
                                   ? "bg-white/5 text-white/70/50"
                                   : "bg-white/5 text-white/70/20 border border-white/5"

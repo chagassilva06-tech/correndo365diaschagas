@@ -339,7 +339,7 @@ function Index() {
             <div className="absolute inset-0 bg-[var(--neon-green)]/20 blur-[120px] rounded-full animate-pulse" />
             <div className="relative z-0 flex flex-col items-center -translate-y-8">
               <div className="text-sm font-medium uppercase tracking-[0.2em] text-white/40 mb-2">correndo a</div>
-              <div className="text-[144px] font-black italic tracking-tighter leading-none text-[var(--foreground)] text-glow relative z-10 drop-shadow-[0_0_80px_rgba(255,255,255,0.1)] [text-shadow:0_0_20px_rgba(39,243,215,0.4)]">
+              <div className="text-[144px] font-black italic tracking-tighter leading-none text-white relative z-10">
                 <CountUp end={daysPassed + syncedActivities.length} />
               </div>
               <div className="text-sm font-medium uppercase tracking-[0.4em] text-white/40 mt-4 relative z-20 opacity-80">Dias consecutivos</div>

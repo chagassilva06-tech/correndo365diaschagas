@@ -677,7 +677,7 @@ function Index() {
               <div className="relative">
                 <div className="w-48 h-48 rounded-[40px] border-4 border-[var(--neon-green)]/30 p-2 overflow-hidden shadow-2xl relative z-10 transition-transform duration-500 hover:scale-105 premium-border">
                   <div className="absolute inset-0 bg-[var(--neon-green)] blur-[30px] opacity-10 group-hover:opacity-30 transition-opacity" />
-                  <img src={profileHeroAsset.url} alt="Profile" className="w-full h-full object-cover rounded-[32px] bg-[#050505] relative z-10" />
+                  <img src={profileHeroAsset.url} alt="Profile" className="w-full h-full object-cover rounded-[32px] bg-[#1C1D4D] relative z-10" />
                 </div>
               </div>
               

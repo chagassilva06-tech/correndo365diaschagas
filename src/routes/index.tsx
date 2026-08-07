@@ -688,7 +688,11 @@ function Index() {
       {/* Profile Card Section */}
       <section id="perfil" className="py-12 bg-[var(--background)] border-t border-white/5">
         <div className="container mx-auto px-4 max-w-4xl">
+           <div className="mb-8">
+             <h2 className="text-[10px] font-bold uppercase tracking-[0.2em] text-white/40 mb-1">Perfil</h2>
+           </div>
            <motion.div 
+
             whileHover={{ rotateY: 5, rotateX: 2 }}
             className="rounded-[24px] glass-card p-12 border border-white/5 shadow-xl relative overflow-hidden group perspective-1000"
           >

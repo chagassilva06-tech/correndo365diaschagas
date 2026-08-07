@@ -762,7 +762,7 @@ function Index() {
           
           <div className="grid md:grid-cols-2 gap-12 items-start">
             <div>
-              <h3 className="text-2xl font-black italic uppercase tracking-tighter mb-2">
+              <h3 className="text-2xl font-black italic uppercase tracking-tighter mb-2 bg-clip-text text-transparent bg-gradient-to-br from-white via-white/90 to-[var(--background)]">
                 Correndo Todo Dia
               </h3>
               <div className="space-y-1">
@@ -775,16 +775,19 @@ function Index() {
             <div className="flex flex-col md:items-end gap-8">
               <div className="flex gap-8">
                 {[
-                  { label: "Instagram", href: "#" },
-                  { label: "Strava", href: "https://strava.com" },
-                  { label: "GitHub", href: "#" },
+                  { label: "Instagram", href: "#", icon: Instagram, color: "#E4405F" },
+                  { label: "Strava", href: "https://strava.com", icon: Activity, color: "#FC671A" },
+                  { label: "GitHub", href: "#", icon: Github, color: "#FFFFFF" },
                 ].map((social, i) => (
                   <a 
                     key={i}
                     href={social.href} 
-                    className="text-white/40 hover:text-white text-[9px] font-bold uppercase tracking-[0.2em] transition-colors"
+                    className="text-white/40 transition-all duration-300 hover:scale-110"
+                    style={{ '--hover-color': social.color } as any}
+                    onMouseEnter={(e) => e.currentTarget.style.color = social.color}
+                    onMouseLeave={(e) => e.currentTarget.style.color = ''}
                   >
-                    {social.label}
+                    <social.icon className="w-5 h-5" strokeWidth={1.75} />
                   </a>
                 ))}
               </div>
